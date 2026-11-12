@@ -2,8 +2,8 @@
   "architecture": "GRU",
   "hidden": 192,
   "embedding": 64,
-  "vocabulary": 1900,
-  "parameters": 636908,
+  "vocabulary": 1924,
+  "parameters": 643076,
   "seed": 42,
   "trainingTokens": 5982352,
   "validationTokens": 246472,
@@ -285,6 +285,146 @@
       "learningRate": 0.0005600000000000001,
       "descriptionValidationLoss": 2.8003735840320587,
       "selectionScore": 2.993014042576154
+    },
+    {
+      "step": 8500,
+      "adaptationStep": 100,
+      "trainLoss": 3.429399790763855,
+      "validationLoss": 3.25758358836174,
+      "christmasValidationLoss": 3.362994305865146,
+      "selectionScore": 3.347182698239635,
+      "learningRate": 0.000989344362677275,
+      "seconds": 17.15
+    },
+    {
+      "step": 8600,
+      "adaptationStep": 200,
+      "trainLoss": 2.535936291217804,
+      "validationLoss": 3.405946761369705,
+      "christmasValidationLoss": 3.2931655785163465,
+      "selectionScore": 3.31008275594435,
+      "learningRate": 0.0009579117688585282,
+      "seconds": 35.37
+    },
+    {
+      "step": 8700,
+      "adaptationStep": 300,
+      "trainLoss": 2.027925094366074,
+      "validationLoss": 3.546441376209259,
+      "christmasValidationLoss": 3.3423949124520287,
+      "selectionScore": 3.373001882015613,
+      "learningRate": 0.0009072783800489128,
+      "seconds": 53.55
+    },
+    {
+      "step": 8800,
+      "adaptationStep": 400,
+      "trainLoss": 1.8862819743156434,
+      "validationLoss": 3.516870766878128,
+      "christmasValidationLoss": 3.3944573653371712,
+      "selectionScore": 3.412819375568315,
+      "learningRate": 0.0008399831657899618,
+      "seconds": 72.88
+    },
+    {
+      "step": 8900,
+      "adaptationStep": 500,
+      "trainLoss": 1.6198656702041625,
+      "validationLoss": 3.558378428220749,
+      "christmasValidationLoss": 3.445414140724189,
+      "selectionScore": 3.462358783848673,
+      "learningRate": 0.0007594005891249623,
+      "seconds": 90.22
+    },
+    {
+      "step": 9000,
+      "adaptationStep": 600,
+      "trainLoss": 1.498815964460373,
+      "validationLoss": 3.588225305080414,
+      "christmasValidationLoss": 3.510548994041436,
+      "selectionScore": 3.5222004406972824,
+      "learningRate": 0.0006695713969314337,
+      "seconds": 108.91
+    },
+    {
+      "step": 9100,
+      "adaptationStep": 700,
+      "trainLoss": 1.3943587625026703,
+      "validationLoss": 3.5915966629981995,
+      "christmasValidationLoss": 3.556398118742065,
+      "selectionScore": 3.5616779003804853,
+      "learningRate": 0.0005750000000000001,
+      "seconds": 125.28
+    },
+    {
+      "step": 9200,
+      "adaptationStep": 800,
+      "trainLoss": 1.1992282116413115,
+      "validationLoss": 3.6324142813682556,
+      "christmasValidationLoss": 3.601118994771829,
+      "selectionScore": 3.605813287761293,
+      "learningRate": 0.0004804286030685664,
+      "seconds": 142.3
+    },
+    {
+      "step": 9300,
+      "adaptationStep": 900,
+      "trainLoss": 1.2647476667165756,
+      "validationLoss": 3.631038725376129,
+      "christmasValidationLoss": 3.631204874561764,
+      "selectionScore": 3.6311799521839188,
+      "learningRate": 0.0003905994108750378,
+      "seconds": 158.53
+    },
+    {
+      "step": 9400,
+      "adaptationStep": 1000,
+      "trainLoss": 1.3160896438360214,
+      "validationLoss": 3.6138978004455566,
+      "christmasValidationLoss": 3.6512406085887004,
+      "selectionScore": 3.645639187367229,
+      "learningRate": 0.0003100168342100382,
+      "seconds": 174.75
+    },
+    {
+      "step": 9500,
+      "adaptationStep": 1100,
+      "trainLoss": 1.3222968512773514,
+      "validationLoss": 3.6040033102035522,
+      "christmasValidationLoss": 3.6621132918452073,
+      "selectionScore": 3.653396794598959,
+      "learningRate": 0.00024272161995108732,
+      "seconds": 191.26
+    },
+    {
+      "step": 9600,
+      "adaptationStep": 1200,
+      "trainLoss": 1.0451502710580827,
+      "validationLoss": 3.616415113210678,
+      "christmasValidationLoss": 3.680718306579308,
+      "selectionScore": 3.6710728275740134,
+      "learningRate": 0.00019208823114147188,
+      "seconds": 207.57
+    },
+    {
+      "step": 9700,
+      "adaptationStep": 1300,
+      "trainLoss": 1.2272084778547288,
+      "validationLoss": 3.6104001104831696,
+      "christmasValidationLoss": 3.6860234620718635,
+      "selectionScore": 3.6746799593335595,
+      "learningRate": 0.00016065563732272495,
+      "seconds": 225.64
+    },
+    {
+      "step": 9800,
+      "adaptationStep": 1400,
+      "trainLoss": 1.2133991238474846,
+      "validationLoss": 3.6059211790561676,
+      "christmasValidationLoss": 3.694804070949114,
+      "selectionScore": 3.681471637165172,
+      "learningRate": 0.00015,
+      "seconds": 243.59
     }
   ],
   "source": {
@@ -313,9 +453,9 @@
   },
   "torchVersion": "2.7.1+cpu",
   "initialValidationLoss": 7.550509870052338,
-  "bestValidationLoss": 3.0755742390950522,
-  "bestStep": 8400,
-  "completedSteps": 8400,
+  "bestValidationLoss": 3.6059211790561676,
+  "bestStep": 9800,
+  "completedSteps": 9800,
   "phases": [
     {
       "startStep": 4000,
@@ -332,6 +472,17 @@
       "baseLearningRate": 0.0007,
       "extraBatchProbability": 0.3,
       "restartSchedule": true
+    },
+    {
+      "name": "Christmas fine-tuning",
+      "startStep": 8400,
+      "targetSteps": 9800,
+      "batchSize": 24,
+      "sequenceLength": 160,
+      "baseLearningRate": 0.001,
+      "extraBatchProbability": 0.8,
+      "restartSchedule": true,
+      "wholeParagraphs": true
     }
   ],
   "extraCorpus": {
@@ -348,17 +499,372 @@
       "sha256": "c6e3aa78bcd613320eb0b1dcc4f5af4163db7ec6e53d11c681cc8762a1739f13"
     }
   },
-  "selectionMetric": "0.7 * TinyStories loss + 0.3 * held-out descriptions loss",
-  "bestSelectionScore": 2.993014042576154,
-  "export": {
-    "packedWeightBytes": 665872,
-    "checkpointBytes": 934243,
-    "floatValidationLoss": 3.0964260697364807,
-    "quantizedValidationLoss": 3.09652770558993,
-    "floatPerplexity": 22.118758949797584,
-    "quantizedPerplexity": 22.121007122986253,
-    "descriptionValidationLoss": 2.800104796886444,
-    "fullParagraphValidationLoss": 2.8116263068863967
+  "selectionMetric": "0.85 * full Christmas paragraph loss + 0.15 * TinyStories window loss",
+  "bestSelectionScore": 3.31008275594435,
+  "fineTuneTrainingTokens": 5977526,
+  "fineTuneValidationTokens": 246282,
+  "holiday": {
+    "name": "Absurd Christmas stories",
+    "corpus": {
+      "train": {
+        "file": "christmas.txt",
+        "paragraphs": 105,
+        "tokens": 11653,
+        "sha256": "6534d168286697b8f471c4fe49c4b0d7a35e6c660535d4d8c0c9ba3cd1121d9c",
+        "maxTokens": 136,
+        "unknownTokens": 0
+      },
+      "valid": {
+        "file": "christmas-valid.txt",
+        "paragraphs": 12,
+        "tokens": 1095,
+        "sha256": "e6875eb75ca6674a1a2d14e3cb8750f6f311d2b8084ab31dec9ba52d754653f7",
+        "maxTokens": 108,
+        "unknownTokens": 0
+      }
+    },
+    "initialValidationLoss": 4.560143383586175,
+    "baseCheckpointSha256": "93fe58e0b09c3f3f24327cbf778835774810e39b56bc78a33b853ad101dbbd12",
+    "seed": 1225,
+    "batchProbability": 0.8,
+    "sequenceLength": 160,
+    "batchSize": 24,
+    "baseLearningRate": 0.001,
+    "history": [
+      {
+        "step": 8500,
+        "adaptationStep": 100,
+        "trainLoss": 3.429399790763855,
+        "validationLoss": 3.25758358836174,
+        "christmasValidationLoss": 3.362994305865146,
+        "selectionScore": 3.347182698239635,
+        "learningRate": 0.000989344362677275,
+        "seconds": 17.15
+      },
+      {
+        "step": 8600,
+        "adaptationStep": 200,
+        "trainLoss": 2.535936291217804,
+        "validationLoss": 3.405946761369705,
+        "christmasValidationLoss": 3.2931655785163465,
+        "selectionScore": 3.31008275594435,
+        "learningRate": 0.0009579117688585282,
+        "seconds": 35.37
+      },
+      {
+        "step": 8700,
+        "adaptationStep": 300,
+        "trainLoss": 2.027925094366074,
+        "validationLoss": 3.546441376209259,
+        "christmasValidationLoss": 3.3423949124520287,
+        "selectionScore": 3.373001882015613,
+        "learningRate": 0.0009072783800489128,
+        "seconds": 53.55
+      },
+      {
+        "step": 8800,
+        "adaptationStep": 400,
+        "trainLoss": 1.8862819743156434,
+        "validationLoss": 3.516870766878128,
+        "christmasValidationLoss": 3.3944573653371712,
+        "selectionScore": 3.412819375568315,
+        "learningRate": 0.0008399831657899618,
+        "seconds": 72.88
+      },
+      {
+        "step": 8900,
+        "adaptationStep": 500,
+        "trainLoss": 1.6198656702041625,
+        "validationLoss": 3.558378428220749,
+        "christmasValidationLoss": 3.445414140724189,
+        "selectionScore": 3.462358783848673,
+        "learningRate": 0.0007594005891249623,
+        "seconds": 90.22
+      },
+      {
+        "step": 9000,
+        "adaptationStep": 600,
+        "trainLoss": 1.498815964460373,
+        "validationLoss": 3.588225305080414,
+        "christmasValidationLoss": 3.510548994041436,
+        "selectionScore": 3.5222004406972824,
+        "learningRate": 0.0006695713969314337,
+        "seconds": 108.91
+      },
+      {
+        "step": 9100,
+        "adaptationStep": 700,
+        "trainLoss": 1.3943587625026703,
+        "validationLoss": 3.5915966629981995,
+        "christmasValidationLoss": 3.556398118742065,
+        "selectionScore": 3.5616779003804853,
+        "learningRate": 0.0005750000000000001,
+        "seconds": 125.28
+      },
+      {
+        "step": 9200,
+        "adaptationStep": 800,
+        "trainLoss": 1.1992282116413115,
+        "validationLoss": 3.6324142813682556,
+        "christmasValidationLoss": 3.601118994771829,
+        "selectionScore": 3.605813287761293,
+        "learningRate": 0.0004804286030685664,
+        "seconds": 142.3
+      },
+      {
+        "step": 9300,
+        "adaptationStep": 900,
+        "trainLoss": 1.2647476667165756,
+        "validationLoss": 3.631038725376129,
+        "christmasValidationLoss": 3.631204874561764,
+        "selectionScore": 3.6311799521839188,
+        "learningRate": 0.0003905994108750378,
+        "seconds": 158.53
+      },
+      {
+        "step": 9400,
+        "adaptationStep": 1000,
+        "trainLoss": 1.3160896438360214,
+        "validationLoss": 3.6138978004455566,
+        "christmasValidationLoss": 3.6512406085887004,
+        "selectionScore": 3.645639187367229,
+        "learningRate": 0.0003100168342100382,
+        "seconds": 174.75
+      },
+      {
+        "step": 9500,
+        "adaptationStep": 1100,
+        "trainLoss": 1.3222968512773514,
+        "validationLoss": 3.6040033102035522,
+        "christmasValidationLoss": 3.6621132918452073,
+        "selectionScore": 3.653396794598959,
+        "learningRate": 0.00024272161995108732,
+        "seconds": 191.26
+      },
+      {
+        "step": 9600,
+        "adaptationStep": 1200,
+        "trainLoss": 1.0451502710580827,
+        "validationLoss": 3.616415113210678,
+        "christmasValidationLoss": 3.680718306579308,
+        "selectionScore": 3.6710728275740134,
+        "learningRate": 0.00019208823114147188,
+        "seconds": 207.57
+      },
+      {
+        "step": 9700,
+        "adaptationStep": 1300,
+        "trainLoss": 1.2272084778547288,
+        "validationLoss": 3.6104001104831696,
+        "christmasValidationLoss": 3.6860234620718635,
+        "selectionScore": 3.6746799593335595,
+        "learningRate": 0.00016065563732272495,
+        "seconds": 225.64
+      },
+      {
+        "step": 9800,
+        "adaptationStep": 1400,
+        "trainLoss": 1.2133991238474846,
+        "validationLoss": 3.6059211790561676,
+        "christmasValidationLoss": 3.694804070949114,
+        "selectionScore": 3.681471637165172,
+        "learningRate": 0.00015,
+        "seconds": 243.59
+      }
+    ],
+    "vocabularyExtensions": [
+      {
+        "a": 125,
+        "b": 499,
+        "id": 1900,
+        "frequency": 153,
+        "piece": "\u2581Sant"
+      },
+      {
+        "a": 1900,
+        "b": 54,
+        "id": 1901,
+        "frequency": 148,
+        "piece": "\u2581Santa"
+      },
+      {
+        "a": 61,
+        "b": 71,
+        "id": 1902,
+        "frequency": 96,
+        "piece": "hr"
+      },
+      {
+        "a": 659,
+        "b": 1902,
+        "id": 1903,
+        "frequency": 96,
+        "piece": "\u2581Chr"
+      },
+      {
+        "a": 1903,
+        "b": 478,
+        "id": 1904,
+        "frequency": 96,
+        "piece": "\u2581Christ"
+      },
+      {
+        "a": 66,
+        "b": 356,
+        "id": 1905,
+        "frequency": 81,
+        "piece": "mas"
+      },
+      {
+        "a": 1904,
+        "b": 1905,
+        "id": 1906,
+        "frequency": 81,
+        "piece": "\u2581Christmas"
+      },
+      {
+        "a": 1313,
+        "b": 72,
+        "id": 1907,
+        "frequency": 31,
+        "piece": "\u2581pres"
+      },
+      {
+        "a": 1393,
+        "b": 849,
+        "id": 1908,
+        "frequency": 28,
+        "piece": "\u2581elves"
+      },
+      {
+        "a": 1907,
+        "b": 211,
+        "id": 1909,
+        "frequency": 28,
+        "piece": "\u2581present"
+      },
+      {
+        "a": 89,
+        "b": 99,
+        "id": 1910,
+        "frequency": 26,
+        "piece": "\u2581tin"
+      },
+      {
+        "a": 1910,
+        "b": 78,
+        "id": 1911,
+        "frequency": 26,
+        "piece": "\u2581tiny"
+      },
+      {
+        "a": 287,
+        "b": 58,
+        "id": 1912,
+        "frequency": 25,
+        "piece": "inde"
+      },
+      {
+        "a": 65,
+        "b": 556,
+        "id": 1913,
+        "frequency": 24,
+        "piece": "lau"
+      },
+      {
+        "a": 237,
+        "b": 1912,
+        "id": 1914,
+        "frequency": 23,
+        "piece": "\u2581reinde"
+      },
+      {
+        "a": 474,
+        "b": 274,
+        "id": 1915,
+        "frequency": 22,
+        "piece": "\u2581vill"
+      },
+      {
+        "a": 1914,
+        "b": 111,
+        "id": 1916,
+        "frequency": 22,
+        "piece": "\u2581reindeer"
+      },
+      {
+        "a": 517,
+        "b": 370,
+        "id": 1917,
+        "frequency": 21,
+        "piece": "\u2581pudd"
+      },
+      {
+        "a": 659,
+        "b": 1913,
+        "id": 1918,
+        "frequency": 21,
+        "piece": "\u2581Clau"
+      },
+      {
+        "a": 1709,
+        "b": 72,
+        "id": 1919,
+        "frequency": 21,
+        "piece": "\u2581Mrs"
+      },
+      {
+        "a": 1918,
+        "b": 72,
+        "id": 1920,
+        "frequency": 21,
+        "piece": "\u2581Claus"
+      },
+      {
+        "a": 1489,
+        "b": 1426,
+        "id": 1921,
+        "frequency": 20,
+        "piece": "\u2581snowman"
+      },
+      {
+        "a": 56,
+        "b": 1733,
+        "id": 1922,
+        "frequency": 19,
+        "piece": "cuit"
+      },
+      {
+        "a": 120,
+        "b": 1922,
+        "id": 1923,
+        "frequency": 19,
+        "piece": "iscuit"
+      }
+    ],
+    "selectionMetric": "0.85 * full Christmas paragraph loss + 0.15 * TinyStories window loss",
+    "bestValidationLoss": 3.2931655785163465,
+    "bestAdaptationStep": 200,
+    "selectedAdaptationStep": 1400
   },
-  "checkpointSha256": "93fe58e0b09c3f3f24327cbf778835774810e39b56bc78a33b853ad101dbbd12"
+  "releaseSelection": {
+    "strategy": "Final fine-tuned checkpoint selected after qualitative sample review",
+    "selectedStep": 9800,
+    "validationBestStep": 8600,
+    "validationBestLoss": 3.2931655785163465,
+    "selectedChristmasValidationLoss": 3.694804070949114
+  },
+  "export": {
+    "packedWeightBytes": 672304,
+    "checkpointBytes": 942370,
+    "floatValidationLoss": 3.642714023590088,
+    "quantizedValidationLoss": 3.642908344666163,
+    "floatPerplexity": 38.195359286653265,
+    "quantizedPerplexity": 38.202782171159015,
+    "descriptionValidationLoss": 4.203417122364044,
+    "fullParagraphValidationLoss": 4.281843526022775,
+    "christmasFloatValidationLoss": 3.694804070949114,
+    "christmasQuantizedValidationLoss": 3.691948014503261
+  },
+  "checkpointSha256": "8384375e248287e647ed72a2a39f72b5c0dfc6b9186420348ff372f55bd74d3c"
 }

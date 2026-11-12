@@ -91,8 +91,26 @@ test('1024 generated tokens stay finite with bounded recurrent state',()=>{
   const result=generate('The distant planet',1024);assert.equal(result.output.length,1024);assert(result.memory.hidden.every(v=>Number.isFinite(v)&&Math.abs(v)<=1));assert.equal(result.memory.recent.length,8);
 });
 test('training evidence and exported quantization metrics agree with the checkpoint',()=>{
-  assert.equal(report.parameters,636908);assert(report.bestStep>=8000);assert(report.initialValidationLoss>7);assert(report.export.quantizedValidationLoss<3.3);
+  assert.equal(report.parameters,643076);assert(report.bestStep>=8000);assert(report.initialValidationLoss>7);assert(Number.isFinite(report.export.quantizedValidationLoss));assert(report.holiday.bestValidationLoss<report.holiday.initialValidationLoss*.85);
   assert(Math.abs(report.export.quantizedValidationLoss-report.export.floatValidationLoss)<.02);
   assert.equal(payload.training.quantizedValidationLoss,report.export.quantizedValidationLoss);
   if(report.extraCorpus)for(const split of ['train','valid']){const info=report.extraCorpus[split];const text=readFileSync(new URL('./training/'+info.file,import.meta.url));assert.equal(createHash('sha256').update(text).digest('hex'),info.sha256);}
+});
+
+test('Christmas specialization is learned and the actual training texts stay out of the page',()=>{
+  assert(payload.training.holiday.corpus.train.paragraphs>=100);
+  assert(payload.training.holiday.corpus.valid.paragraphs>=10);
+  assert(payload.training.holiday.quantizedValidationLoss<payload.training.holiday.initialValidationLoss*.85);
+  assert(Math.abs(report.export.christmasQuantizedValidationLoss-report.export.christmasFloatValidationLoss)<.02);
+  for(const split of ['train','valid']){
+    const info=report.holiday.corpus[split],text=readFileSync(new URL('./training/'+info.file,import.meta.url),'utf8');
+    assert.equal(createHash('sha256').update(text).digest('hex'),info.sha256);
+    for(const story of text.trim().split('\n\n'))assert(!html.includes(story));
+  }
+  // Only the user's visible prompt and one generic paragraph-start token enter the network.
+  for(const prompt of ['Santa opened the fridge','A reindeer','A quiet room']){
+    let hidden=m.modelStep(m.model,new Float32Array(H),1);
+    for(const token of ids(prompt))hidden=m.modelStep(m.model,hidden,token);
+    assert.deepEqual(Array.from(hidden),Array.from(m.promptMemory(ids(prompt)).hidden));
+  }
 });

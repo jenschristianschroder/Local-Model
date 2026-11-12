@@ -1,4 +1,6 @@
-# Released training recipe
+# Training recipes
+
+## Original Pocket LM base
 
 Run the two base phases in the repository README, then this mixed-data phase. Steps are absolute optimizer-step numbers. Resume from the 8,000-step base checkpoint, not from another experiment.
 
@@ -26,3 +28,28 @@ A separate whole-paragraph fine-tuning experiment was also evaluated, starting a
 The initial validation loss of 7.5505 uses eight fixed batches. Final quantized loss uses 24 batches. These are evidence that the model learned, not a controlled comparison with the prior hand-wired model. The six descriptive validation documents are too small and narrow to establish general language proficiency. They were authored for the project alongside the training passages but are not included in training.
 
 Raw training data and floating-point optimizer checkpoints stay outside git. The exact released quantized network, tokenizer, training summary, and editable-output overrides are embedded in `index.html`. Its SHA-256 is recorded in the training report and independent PyTorch parity fixture.
+
+
+## Merry Nonsense Christmas edition
+
+The Christmas edition starts with the previous committed quantized checkpoint, learns 24 additional BPE merges from Christmas training prose, and fine-tunes every model parameter. Download the original base HTML and its report from the exact commit below; these are training inputs, not runtime network dependencies.
+
+```sh
+curl -L https://raw.githubusercontent.com/jenschristianschroder/Local-Model/0d1d4c00484bdea30877afe699a831fb2bc2352c/index.html -o training/data/base-v4.html
+curl -L https://raw.githubusercontent.com/jenschristianschroder/Local-Model/0d1d4c00484bdea30877afe699a831fb2bc2352c/training/report.json -o training/data/base-v4-report.json
+python training/prepare.py --data training/data --vocab 1900
+python training/adapt.py --base-html training/data/base-v4.html --base-report training/data/base-v4-report.json --data training/data --output training/runs/christmas --steps 1400 --length 160 --batch 24 --threads 2 --seed 1225 --lr .001 --fraction .8 --merges 24
+python training/export.py --checkpoint training/runs/christmas/latest.pt --selection latest --data training/data --output training/runs/export --html index.html
+cp training/runs/export/training-report.json training/report.json
+cp training/runs/export/reference.json training/reference.json
+node build-model.mjs --check
+node --test test.mjs
+```
+
+Start with the original tokenizer produced by `prepare.py` for each fresh adaptation run; `adapt.py` extends it in place and retokenizes the pinned base corpus. It validates the original vocabulary against the base checkpoint before doing so. New rows use the mean of their two constituent rows as initialization; all are then learned by gradient descent. Corpus and model dimensions are recorded in the report.
+
+Original AI-authored training text: 105 separate Christmas stories. Validation: 12 separate Christmas stories. The vocabulary merges are learned only from the training text. AdamW, dropout 0.08, gradient clipping at 1, input corruption 0.003, and cosine learning-rate decay to 15% are generic offline training procedures. No training procedure adds a runtime language constraint.
+
+Each Christmas batch contains complete stories padded to a fixed length; padding targets are ignored, and a paragraph marker ends each story. 80% of batches use Christmas text, with 20% base stories to retain general language patterns. Training records the checkpoint minimizing `0.85 * Christmas full-paragraph loss + 0.15 * base-story validation loss`. The released writer instead uses the final checkpoint after qualitative review of the four visible starters. Its more recognisable Christmas openings come with a higher held-out loss and more memorization. Both results are disclosed in `releaseSelection` and the full run record. Final export evaluates both float and quantized Christmas loss. A small validation set measures prediction of related prose, not general coherence or how funny the output is.
+
+An initial adaptation without vocabulary extension was also tested. It improved Christmas token prediction, but produced fragmented festive words in samples. The released run includes the learned vocabulary extension. The report's `holiday.selectedAdaptationStep` is 1,400. `holiday.bestAdaptationStep` identifies the earlier validation-best checkpoint. `training/christmas-run.json` preserves the complete run, including the evidence of overfitting.
