@@ -9,6 +9,9 @@
   <style>
     :root{--paper:#f5f3eb;--card:#fffef9;--ink:#24382b;--muted:#6d796d;--line:#dcded2;--green:#3f6545;--lime:#dce8b4;--light:#edf1e4;--orange:#bd653d;--serif:Georgia,'Times New Roman',serif;--mono:'SFMono-Regular',Consolas,'Liberation Mono',monospace}
     *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;line-height:1.55}button,input,textarea,select{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default;opacity:.45}a{color:inherit}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--orange);outline-offset:4px}input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--green);outline-offset:3px}button{color:inherit}::selection{background:var(--lime)}.shell{max-width:1240px;margin:auto;padding:0 40px}.topbar{display:flex;justify-content:space-between;align-items:center;padding:25px 0;border-bottom:1px solid var(--line);gap:20px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--mono);font-weight:700;letter-spacing:1.5px;font-size:15px}.brandmark{display:grid;grid-template-columns:repeat(3,5px);gap:3px;padding:9px;border-radius:9px;background:var(--green)}.brandmark i{width:5px;height:5px;border-radius:1px;background:var(--lime)}.brandmark i:nth-child(3n){opacity:.4}.nav{display:flex;align-items:center;gap:25px;font-size:12px}.nav a{text-decoration:none}.nav a:hover{text-decoration:underline}.outline{border:1px solid var(--line);background:transparent;border-radius:7px;padding:9px 15px;font-size:12px;display:inline-flex;align-items:center;gap:8px}.outline:hover{background:var(--light)}.hero{display:grid;grid-template-columns:1fr 220px;gap:36px;align-items:center;padding:55px 0 43px}.eyebrow,.section-index{font-family:var(--mono);font-size:10px;letter-spacing:1.6px;text-transform:uppercase}.eyebrow{color:var(--green);display:flex;align-items:center;gap:9px}.eyebrow:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange)}h1{font-family:var(--serif);font-size:clamp(38px,4.4vw,61px);line-height:1.08;font-weight:400;letter-spacing:-2.4px;margin:18px 0 20px}h1 em{font-weight:400;color:var(--green)}.intro{max-width:600px;color:var(--muted);font-size:14px;line-height:1.8;margin:0}.local-seal{border:1px solid var(--line);border-radius:50%;width:156px;height:156px;display:flex;flex-direction:column;align-items:center;justify-content:center;justify-self:center;transform:rotate(8deg);position:relative}.local-seal:after{content:'';position:absolute;inset:7px;border:1px dashed #bcc7ac;border-radius:50%}.local-seal strong{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.1}.local-seal span{font-family:var(--mono);font-size:9px;letter-spacing:1.6px;margin:6px 0}.local-seal svg{margin-top:3px}.specs{display:flex;gap:28px;border-top:1px solid var(--line);padding:16px 0 30px;flex-wrap:wrap;color:var(--muted);font-size:11px}.specs b{color:var(--ink);font-weight:600}.specs span{display:flex;align-items:center;gap:7px}.tiny-dot{width:5px;height:5px;background:var(--green);border-radius:50%;display:inline-block}.section-head{display:flex;align-items:center;justify-content:space-between;margin:8px 0 13px;gap:15px}.status{font-family:var(--mono);font-size:10px;display:flex;align-items:center;gap:6px;letter-spacing:.3px}.status i{height:6px;width:6px;background:var(--green);border-radius:50%}.lab{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);box-shadow:0 5px 25px #283d2410}.generation{padding:26px 28px 22px;min-width:0}.row-label{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;gap:10px}.quiet{color:var(--muted);font-weight:400;font-size:10px}.prompt-wrap{margin-top:10px;position:relative}textarea{resize:vertical;min-height:59px;max-height:170px;width:100%;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);padding:16px 15px;line-height:1.5;font-family:var(--mono);font-size:13px;display:block}.examples{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:9px 0 0}.examples>span{font-size:10px;color:var(--muted);margin-right:2px}.example{border:0;background:var(--light);border-radius:4px;font-size:10px;padding:4px 8px}.example:hover{background:var(--lime)}.input-note{font-size:11px;color:#8c4f31;min-height:17px;margin:8px 0 0}.writing{margin-top:13px;padding-top:19px;border-top:1px solid var(--line)}.output{font-family:var(--serif);font-size:30px;line-height:1.52;min-height:137px;overflow-wrap:anywhere;padding:13px 0 15px}.prompt-text{color:#8e9789}.output .word{animation:arrive .22s ease}.output .word:last-of-type{color:var(--green)}.output .cursor{display:inline-block;width:2px;height:27px;vertical-align:-3px;background:var(--green);margin-left:5px;animation:blink 1.1s infinite}.output .placeholder{display:block;font-family:inherit;font-size:19px;font-style:italic;color:#9ca18f;margin-top:5px}.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.primary{border:1px solid var(--green);background:var(--green);color:#fffef6;border-radius:7px;font-weight:500;font-size:12px;padding:11px 18px;min-width:125px;display:flex;align-items:center;justify-content:center;gap:12px}.primary:hover{background:#2d5133}.secondary{border:1px solid var(--line);background:transparent;border-radius:7px;font-size:12px;padding:11px 15px}.secondary:hover{background:var(--light)}.icon-button{border:0;background:transparent;padding:10px;color:var(--muted);font-size:17px}.metrics{margin-left:auto;color:var(--muted);font-size:10px;font-family:var(--mono)}.controls{display:grid;grid-template-columns:1fr 95px 65px;align-items:end;gap:24px;padding-top:20px;margin-top:21px;border-top:1px solid var(--line)}.control label{font-size:10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;color:var(--muted)}.control output{font-family:var(--mono);font-size:11px;color:var(--ink)}input[type=range]{width:100%;accent-color:var(--green);height:17px;cursor:pointer;margin:4px 0 0}select,input[type=number]{max-width:100%;width:100%;border:1px solid var(--line);background:var(--card);padding:6px 8px;border-radius:5px;color:var(--ink);font-size:11px}.predictions{border-left:1px solid var(--line);padding:26px;background:#f7f8f0;display:flex;flex-direction:column;min-width:0}.predictions h2{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:-.4px;margin:0 0 5px}.small-copy{font-size:11px;color:var(--muted);line-height:1.7;margin:0}.prob-list{display:flex;flex-direction:column;gap:7px;margin:20px 0 12px}.prob{border:0;background:transparent;width:100%;text-align:left;padding:0}.prob-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;margin-bottom:5px;align-items:center}.prob-top span:last-child{font-size:10px;color:var(--muted)}.prob-track{height:6px;width:100%;border-radius:3px;background:#e4e8db;overflow:hidden}.prob-fill{height:100%;background:#90a778;border-radius:3px;transition:width .2s}.prob:first-child .prob-fill{background:var(--green)}.prob:hover .prob-top{color:var(--orange)}.prob:hover .prob-fill{background:var(--orange)}.prob:focus-visible{border-radius:3px}.remaining{font-family:var(--mono);font-size:9px;color:var(--muted);margin:0 0 17px}.context-box{padding-top:15px;border-top:1px solid var(--line);margin-top:auto}.context-tokens{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}.token{font-family:var(--mono);font-size:10px;border:1px solid var(--line);background:var(--card);padding:3px 7px;border-radius:4px}.token:last-child{background:var(--lime);border-color:#bacb95}.token.pad{color:#9ba28e}.inside{margin-top:40px}.inside-grid{display:grid;grid-template-columns:1.35fr 1fr;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}.network-panel{padding:26px 28px}.panel-title{font-family:var(--serif);font-size:25px;font-weight:400;letter-spacing:-.5px;margin:0 0 7px}.network-caption{font-size:11px;color:var(--muted);max-width:400px;margin:0}.network{width:100%;height:auto;display:block;margin:11px 0 0;overflow:visible}.network text{font-family:var(--mono)}.network-legend{display:flex;gap:18px;font-size:9px;color:var(--muted);margin-top:3px}.network-legend span{display:flex;align-items:center;gap:5px}.legend-circle{width:6px;height:6px;border-radius:50%;background:var(--green)}.legend-circle.off{background:#dce1d3}.editor{border-left:1px solid var(--line);padding:26px;background:#f8f7f0}.editor-top{display:flex;justify-content:space-between;align-items:center}.tag{font-family:var(--mono);font-size:9px;color:var(--green);background:var(--light);padding:3px 6px;border-radius:4px}.weight-context{margin-top:16px}.weight-context label{font-size:10px;color:var(--muted);display:block;margin-bottom:4px}.weight-context select{font-size:11px;padding:8px}.weight-slider{margin-top:14px}.weight-top{font-family:var(--mono);font-size:11px;display:flex;justify-content:space-between;gap:10px}.weight-top output{color:var(--green)}.weight-help{font-size:10px;color:var(--muted);margin:12px 0}.text-button{border:0;background:transparent;font-size:10px;color:var(--green);padding:2px 0;text-decoration:underline;text-underline-offset:3px}.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;padding:33px 0}.principles article{position:relative;padding-left:26px}.principles .num{position:absolute;left:0;top:2px;font-family:var(--mono);font-size:9px;color:var(--orange)}.principles h3{font-size:12px;font-weight:600;margin:0 0 7px}.principles p{font-size:11px;color:var(--muted);line-height:1.8;margin:0}.details{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}summary{padding:16px 0;cursor:pointer;font-size:11px;font-weight:500}details[open] summary{padding-bottom:8px}.details-content{padding:0 0 22px;display:grid;grid-template-columns:1fr 1fr;gap:28px}.details-content p{font-size:12px;color:var(--muted)}pre{font:11px/1.9 var(--mono);white-space:pre-wrap;background:var(--light);border-radius:8px;padding:16px;margin:8px 0 0;overflow:auto}.vocab{font:11px/1.9 var(--mono);color:var(--green)}footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 30px;color:var(--muted);font-size:10px}footer a{text-underline-offset:3px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);padding:10px 18px;border-radius:8px;background:var(--ink);color:var(--card);font-size:12px;box-shadow:0 3px 14px #0002;z-index:10;max-width:90vw}.toast:empty{display:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@keyframes blink{50%{opacity:0}}@keyframes arrive{from{opacity:0}to{opacity:1}}@media(min-width:1400px){.hero{padding-top:64px;padding-bottom:48px}}@media(max-width:900px){.shell{padding:0 25px}.hero{grid-template-columns:1fr 140px}.local-seal{width:130px;height:130px}.lab{grid-template-columns:minmax(0,1.5fr) minmax(250px,1fr)}.generation{padding:22px}.predictions{padding:22px}.controls{gap:13px;grid-template-columns:1fr 75px 55px}.metrics{width:100%;margin-top:4px}.inside-grid{grid-template-columns:1.2fr 1fr}.network-panel,.editor{padding:22px}.nav{gap:16px}.principles{gap:20px}}@media(max-width:680px){.shell{padding:0 18px}.topbar{padding:18px 0}.nav a{display:none}.brand{font-size:13px}.nav{gap:8px}.hero{grid-template-columns:1fr;padding:35px 0 25px;gap:0}h1{letter-spacing:-1.5px;font-size:43px}.local-seal{display:none}.intro{font-size:13px}.specs{gap:11px 20px;padding-bottom:24px;font-size:10px}.lab,.inside-grid{grid-template-columns:1fr}.predictions{border-left:0;border-top:1px solid var(--line)}.prob-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin:15px 0}.context-box{margin-top:0}.generation{padding:22px 19px}.output{font-size:28px;min-height:120px}.metrics{width:auto;margin-top:0;font-size:9px}.controls{grid-template-columns:1fr 85px 60px;gap:15px}.editor{border-left:0;border-top:1px solid var(--line)}.principles{grid-template-columns:1fr;gap:20px;padding:25px 0}.details-content{grid-template-columns:1fr;gap:10px}.inside{margin-top:28px}footer{flex-direction:column;gap:8px}.section-index{font-size:9px}.status{font-size:9px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+    /* Version 2: longer passages and richer decoding controls. */
+    .output{font-size:25px;line-height:1.65;min-height:180px;max-height:380px;overflow:auto;white-space:pre-wrap;padding-right:12px;scrollbar-width:thin}.output .continuation{color:var(--ink)}.output .placeholder{white-space:normal;font-size:18px}.controls{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 22px}.control select,.control input[type=number]{padding:8px;font-size:11px}.generation-options{display:flex;flex-wrap:wrap;gap:9px 16px;font-size:10px;margin-top:16px;color:var(--muted)}.generation-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.generation-options input{accent-color:var(--green);margin:0}.batch-help{font-size:10px;color:var(--muted);line-height:1.6;margin:12px 0 0}.memory-readout{border-top:1px solid var(--line);margin:19px 0 24px;padding-top:14px;font-size:10px}.memory-readout div{display:flex;justify-content:space-between;gap:15px;margin:7px 0}.memory-readout span{color:var(--muted)}.memory-readout b{font-weight:500;text-align:right}.follow-state{margin-top:7px}.metrics{margin-left:0;width:100%;margin-top:5px}.network-legend{flex-wrap:wrap;gap:7px 15px}.vocab{max-height:240px;overflow:auto}.primary{min-width:132px}@media(max-width:680px){.controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.output{font-size:24px;max-height:340px}.memory-readout{margin-bottom:18px}.generation-options{line-height:1.8}.status{max-width:180px;text-align:right}.section-head{align-items:center}.quiet{font-size:9px}}
   </style>
 </head>
 <body>
@@ -19,30 +22,39 @@
   </header>
   <main>
     <section class="hero" aria-labelledby="page-title">
-      <div><div class="eyebrow">A small experiment in language</div><h1 id="page-title">A little language model.<br>Entirely in <em>your browser.</em></h1><p class="intro">No API. No model download. Just a tiny neural network with hand-written weights. Give it a few words, watch it think, and turn the knobs yourself.</p></div>
+      <div><div class="eyebrow">Version 2 / More room for a story</div><h1 id="page-title">A little language model.<br>Entirely in <em>your browser.</em></h1><p class="intro">A larger vocabulary. Recurrent memory. Whole paragraphs. Explore a hand-wired language model that writes one word at a time, entirely on your device.</p></div>
       <div class="local-seal" aria-label="100 percent local inference"><span>RUNS RIGHT HERE</span><strong>100%</strong><span>LOCAL INFERENCE</span><svg width="22" height="18" viewBox="0 0 22 18" aria-hidden="true"><path d="M3 2h16v11H3zM0 16h22" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></div>
     </section>
-    <div class="specs" aria-label="Model specifications"><span><i class="tiny-dot"></i><b id="vocab-stat">—</b> tokens</span><span><b id="param-stat">—</b> parameters</span><span><b>4-token</b> context</span><span><b>Hand-written</b> weights</span><span><b>Zero</b> dependencies</span></div>
+    <div class="specs" aria-label="Model specifications"><span><i class="tiny-dot"></i><b id="vocab-stat">—</b> tokens</span><span><b id="param-stat">—</b> parameters</span><span><b>Recurrent</b> memory</span><span><b>Hand-written</b> weights</span><span><b>512</b> tokens per batch</span></div>
     <section id="playground" aria-labelledby="playground-title">
       <div class="section-head"><h2 class="section-index" id="playground-title">01 / The playground</h2><div class="status" role="status"><i></i><span id="status">READY TO GENERATE</span></div></div>
       <div class="lab">
         <div class="generation">
-          <div class="row-label"><label for="prompt">Start with a few words</label><span class="quiet">Small vocabulary. Big curiosity.</span></div>
-          <div class="prompt-wrap"><textarea id="prompt" rows="1" maxlength="500" spellcheck="false" aria-describedby="input-note">the little robot</textarea></div>
-          <div class="examples"><span>Try</span><button class="example" data-prompt="the little robot">the little robot</button><button class="example" data-prompt="the quiet forest">the quiet forest</button><button class="example" data-prompt="a curious cat">a curious cat</button><button class="example" data-prompt="we">we</button></div>
+          <div class="row-label"><label for="prompt">Start with a few words</label><span class="quiet">Give it a subject. Let it wander.</span></div>
+          <div class="prompt-wrap"><textarea id="prompt" rows="1" maxlength="2000" spellcheck="false" aria-describedby="input-note">the little robot</textarea></div>
+          <div class="examples"><span>Try</span><button class="example" data-prompt="the little robot">the little robot</button><button class="example" data-prompt="the quiet forest">the quiet forest</button><button class="example" data-prompt="a curious cat">a curious cat</button><button class="example" data-prompt="the distant planet">the distant planet</button></div>
           <p class="input-note" id="input-note"></p>
           <div class="writing"><div class="row-label"><span>Model continuation</span><span class="quiet" id="output-note">One word at a time</span></div><div class="output" id="output" aria-label="Generated text"></div><div class="sr-only" id="announcement" role="status" aria-live="polite"></div></div>
-          <div class="actions"><button class="primary" id="generate"><span aria-hidden="true">▶</span> Generate</button><button class="secondary" id="step">Step +1</button><button class="icon-button" id="reset" title="Reset continuation" aria-label="Reset continuation">↺</button><span class="metrics" id="metrics">0 tokens · — ms</span></div>
-          <div class="controls"><div class="control"><label for="temperature">Temperature <output id="temperature-value" for="temperature">0.75</output></label><input type="range" id="temperature" min="0" max="1.5" value="0.75" step="0.05" aria-describedby="temperature-help"><span class="sr-only" id="temperature-help">Higher values add randomness. Zero always picks the most likely token.</span></div><div class="control"><label for="limit">Token limit</label><select id="limit"><option value="12">12 tokens</option><option value="24" selected>24 tokens</option><option value="40">40 tokens</option></select></div><div class="control"><label for="seed">Seed</label><input id="seed" type="number" min="0" max="4294967295" step="1" value="42"></div></div>
+          <div class="actions"><button class="primary" id="generate"><span aria-hidden="true">▶</span> Generate</button><button class="secondary" id="step">Step +1</button><button class="icon-button" id="reset" title="Reset continuation" aria-label="Reset continuation">↺</button><button class="secondary" id="save-text" disabled>Save text</button><span class="metrics" id="metrics">0 tokens · 0 sentences</span></div>
+          <div class="controls">
+            <div class="control"><label for="temperature">Temperature <output id="temperature-value" for="temperature">0.80</output></label><input type="range" id="temperature" min="0" max="1.5" value="0.8" step="0.05" aria-describedby="temperature-help"><span class="sr-only" id="temperature-help">Higher values add randomness. Zero always picks the most likely token.</span></div>
+            <div class="control"><label for="top-p">Top-p <output id="top-p-value" for="top-p">0.92</output></label><input type="range" id="top-p" min="0.1" max="1" value="0.92" step="0.01" aria-describedby="top-p-help"><span class="sr-only" id="top-p-help">Keep the smallest pool of likely tokens whose probability adds up to this value, then renormalize.</span></div>
+            <div class="control"><label for="repetition">Repetition penalty <output id="repetition-value" for="repetition">0.80</output></label><input type="range" id="repetition" min="0" max="2" value="0.8" step="0.05" aria-describedby="repetition-help"><span class="sr-only" id="repetition-help">Reduce scores for recently used words. Higher values encourage more variety.</span></div>
+            <div class="control"><label for="limit">Tokens per batch</label><select id="limit"><option value="32">32 tokens</option><option value="64">64 tokens</option><option value="128" selected>128 tokens</option><option value="256">256 tokens</option><option value="512">512 tokens</option></select></div>
+            <div class="control"><label for="theme">Theme</label><select id="theme"><option value="-1">From the prompt</option value="0">Little machines</option><option value="1">Wild places</option><option value="2">Night sky</option><option value="3">Adventure</option><option value="4">Everyday life</option><option value="5">Ideas &amp; dreams</option></select></div>
+            <div class="control"><label for="seed">Seed</label><input id="seed" type="number" min="0" max="4294967295" step="1" value="42" title="Changing the seed starts a new continuation."></div>
+          </div>
+          <div class="generation-options"><label><input type="checkbox" id="no-repeat" checked> Avoid repeated phrases</label><label><input type="checkbox" id="slow"> Read-along speed</label><label><input type="checkbox" id="one-sentence"> One sentence only</label></div>
+          <p class="batch-help">Punctuation starts a new sentence. Continue adds another batch without losing the model’s memory. Up to 4,096 generated tokens per document.</p>
         </div>
-        <aside class="predictions" aria-labelledby="next-title"><h2 id="next-title">What comes next?</h2><p class="small-copy">Actual next-token probabilities.<br>Click a word to take that path.</p><div class="prob-list" id="probabilities"></div><p class="remaining" id="remaining"></p><div class="context-box"><div class="row-label"><span>What the model can see</span><span class="quiet">Last 4 tokens →</span></div><div class="context-tokens" id="context"></div></div></aside>
+        <aside class="predictions" aria-labelledby="next-title"><h2 id="next-title">What comes next?</h2><p class="small-copy">Actual sampling probabilities.<br>Click a word to take that path.</p><div class="prob-list" id="probabilities"></div><p class="remaining" id="remaining"></p><p class="small-copy" id="sampler-note"></p><div class="memory-readout"><div><span>Sentence state</span><b id="grammar-state">—</b></div><div><span>Theme memory</span><b id="theme-state">—</b></div></div><div class="context-box"><div class="row-label"><span>Recent tokens</span><span class="quiet">Showing the last 8 →</span></div><div class="context-tokens" id="context"></div></div></aside>
       </div>
     </section>
     <section class="inside" id="inside" aria-labelledby="inside-title"><div class="section-head"><h2 class="section-index" id="inside-title">02 / Open up the model</h2><span class="quiet">Real arithmetic. Nothing up our sleeves.</span></div>
-      <div class="inside-grid"><div class="network-panel"><h3 class="panel-title">A peek at the forward pass.</h3><p class="network-caption">Four token embeddings feed a ReLU layer, then a softmax turns scores into probabilities.</p><svg class="network" id="network" viewBox="0 0 510 228" role="img" aria-label="Live view of token context, hidden neuron activations, and next-token predictions"></svg><div class="network-legend"><span><i class="legend-circle"></i>Active neuron</span><span><i class="legend-circle off"></i>Inactive neuron</span><span>Diagram shows a subset of the network</span></div></div>
-      <div class="editor"><div class="editor-top"><h3 class="panel-title">Change its mind.</h3><span class="tag" id="edited-tag">LIVE WEIGHTS</span></div><p class="small-copy">Move an output weight. Watch the probabilities react.</p><div class="weight-context"><label for="neuron">Hidden neuron to edit</label><select id="neuron"></select></div><div id="weight-sliders"></div><p class="weight-help" id="weight-help"></p><button class="text-button" id="restore">Restore all original weights</button></div></div>
-      <div class="principles"><article><span class="num">01</span><h3>Weights written by hand</h3><p>Every parameter is assigned directly in JavaScript. There is no training step and no pretrained model hiding in a download.</p></article><article><span class="num">02</span><h3>New text, one token at a time</h3><p>The network computes a distribution, samples a word, and repeats. These are generated continuations, not a list of stored replies.</p></article><article><span class="num">03</span><h3>A model you can understand</h3><p>This is a tiny educational language model, not a general assistant. It only knows its listed vocabulary, sees four tokens, and can make nonsense.</p></article></div>
-      <details class="details"><summary>The architecture, the vocabulary, and the limits</summary><div class="details-content"><div><p>A word-level, feed-forward neural language model. Sparse, hand-wired embeddings describe grammar and three small themes. Hidden ReLU units combine those features. The full numeric matrices are constructed in this file and used for every inference.</p><pre id="architecture"></pre><p>Temperature 0 uses argmax; otherwise every allowed token participates in softmax sampling. The seed makes sampling repeatable. The model has no attention, memory beyond four tokens, or learned world knowledge. Unknown words map to &lt;unk&gt;. Matrix slots, including zeros, are included in the parameter count.</p></div><div><p><strong>Its entire vocabulary</strong></p><div id="vocabulary" class="vocab"></div><p>&lt;bos&gt; pads the beginning, &lt;unk&gt; represents unknown input, and &lt;end&gt; finishes the continuation. These are control tokens, not printed words. Punctuation is a token too.</p><p>Everything runs in ordinary JavaScript on the CPU. No WebGPU, server, API key, or internet connection is needed after loading. Download HTML saves a standalone copy, including your current weight edits.</p></div></div></details>
+      <div class="inside-grid"><div class="network-panel"><h3 class="panel-title">A peek at the forward pass.</h3><p class="network-caption">A ReLU controller carries sentence structure forward. Theme and subject memory help score the next word.</p><svg class="network" id="network" viewBox="0 0 510 228" role="img" aria-label="Schematic of the latest token, recurrent memory features, and weighted next-token scores"></svg><div class="network-legend"><span><i class="legend-circle"></i>Active feature</span><span><i class="legend-circle off"></i>Inactive feature</span><span>Selected output connections</span></div></div>
+      <div class="editor"><div class="editor-top"><h3 class="panel-title">Change its mind.</h3><span class="tag" id="edited-tag">LIVE WEIGHTS</span></div><p class="small-copy">Move an output weight. Watch the probabilities react.</p><div class="weight-context"><label for="neuron">Memory feature to edit</label><select id="neuron"></select></div><button class="text-button follow-state" id="follow-state">Edit current state</button><div id="weight-sliders"></div><p class="weight-help" id="weight-help"></p><button class="text-button" id="restore">Restore all original weights</button></div></div>
+      <div class="principles"><article><span class="num">01</span><h3>Weights written by hand</h3><p>Every parameter is assigned directly in JavaScript. There is no training step and no pretrained model hiding in a download.</p></article><article><span class="num">02</span><h3>New text, one token at a time</h3><p>The network samples words into sentences and paragraphs. A repetition penalty and a recent-phrase guard encourage variety. There are no stored replies or sentence templates.</p></article><article><span class="num">03</span><h3>A model you can understand</h3><p>This is a small educational model, not a general assistant. It can write longer passages, but its hand-built vocabulary and grammar do not give it world knowledge.</p></article></div>
+      <details class="details"><summary>The architecture, the vocabulary, and the limits</summary><div class="details-content"><div><p>A hand-wired recurrent neural controller with grammar-guided decoding. ReLU gates update a sentence-state vector. Decaying theme memory, a persistent prompt-theme anchor, subject features, and object preferences feed a linear output layer. All numeric matrices are defined in this file; no parameters were learned from training data.</p><pre id="architecture"></pre><p>Grammar and article masks select valid token classes. Temperature, a 64-token repetition penalty, an optional repeated-trigram guard, and top-p filtering shape the sampling distribution. The guard relaxes if it blocks every option. The same prompt, seed, weights, and settings reproduce the same text. Increasing length does not make this a trained LLM; meaning can drift and sentences can still be odd. Matrix slots, including zeros, are included in the parameter count.</p></div><div><p><strong>Its entire vocabulary</strong></p><div id="vocabulary" class="vocab"></div><p>&lt;bos&gt; marks the beginning and &lt;unk&gt; represents unknown input. Unknown words remain visible in your prompt but do not update the grammar state. Punctuation counts as a token. A full stop begins another sentence; the batch size or Stop button pauses generation.</p><p>Everything runs in ordinary JavaScript on the CPU. No WebGPU, server, API key, or internet connection is needed after loading. Generation is incremental, so continuing does not replay the entire document. Download HTML saves a standalone copy, including your current weight edits.</p></div></div></details>
     </section>
   </main>
   <footer><span>Pocket LM · A small, transparent experiment.</span><span>Built from numbers, not magic. <a href="https://github.com/jenschristianschroder/Local-Model" target="_blank" rel="noopener noreferrer">View source ↗</a></span></footer>
@@ -52,194 +64,321 @@
 <script id="model-overrides" type="application/json">{}</script>
 <script>
 'use strict';
-// Pocket LM: all weights are explicitly hand-wired below. No training or remote inference.
-// Save the unmodified page before dynamic UI rendering, for a genuinely standalone download.
+// Pocket LM 2: a hand-wired recurrent neural controller with grammar-guided decoding.
+// All matrices are constructed here. No templates, training data, or remote model.
 const ORIGINAL_HTML = '<!doctype html>\n' + document.documentElement.outerHTML;
-const F = ['bos','det','adj','noun_s','noun_p','pro_s','pro_p','trans_s','trans_p','intrans_s','intrans_p','be_s','be_p','prep','conj','adv','endmark','tech','nature','dream','unk'];
-const D = F.length, C = 4;
-const vocabulary = [], embeddings = [], tokenIds = new Map();
-function add(words, features) {
-  words.split(' ').forEach(word => {
-    const e = new Float64Array(D);
-    features.forEach(f => { e[F.indexOf(f)] = 1; });
-    tokenIds.set(word, vocabulary.length); vocabulary.push(word); embeddings.push(e);
-  });
+const POS = ['det','det_s','det_p','adj','ns','np','mass','ps','pp','ts','tp','vs','vp','bs','bp','modal','prep','adv','join','intro','punct'];
+const TOPICS = ['technology','nature','night sky','adventure','everyday life','ideas'];
+const SEM = ['actor','machine','place','water','sky','idea','thing','plant'];
+const D = POS.length + TOPICS.length + SEM.length * 2;
+const vocabulary=[], embeddings=[], tokenIds=new Map(), metadata=[];
+function add(words, parts, topic=null, semantic=null, relation=null) {
+  for(const word of words.split(' ')) {
+    let id=tokenIds.get(word);
+    if(id===undefined){id=vocabulary.length;tokenIds.set(word,id);vocabulary.push(word);embeddings.push(new Float64Array(D));metadata.push({});}
+    const e=embeddings[id];
+    for(const part of parts)e[POS.indexOf(part)]=1;
+    if(topic!==null)e[POS.length+TOPICS.indexOf(topic)]=1;
+    if(semantic!==null)e[POS.length+TOPICS.length+SEM.indexOf(semantic)]=1;
+    if(relation)for(const [name,value] of Object.entries(relation))e[POS.length+TOPICS.length+SEM.length+SEM.indexOf(name)]=value;
+  }
 }
-add('<bos>', ['bos']); add('<unk>', ['unk']); add('<end>', []);
-add('the a', ['det']);
-add('little curious gentle quiet bright small old', ['adj']);
-add('silver electric', ['adj','tech']); add('green wild', ['adj','nature']); add('strange distant', ['adj','dream']);
-add('robot machine computer', ['noun_s','tech']);
-add('cat bird fox forest garden river flower', ['noun_s','nature']);
-add('moon star dream world story', ['noun_s','dream']);
-add('robots machines', ['noun_p','tech']); add('birds flowers trees', ['noun_p','nature']); add('stars dreams', ['noun_p','dream']);
-add('it she he', ['pro_s']); add('we they you', ['pro_p']);
-add('finds sees follows loves', ['trans_s']); add('builds', ['trans_s','tech']); add('imagines', ['trans_s','dream']);
-add('find see follow love', ['trans_p']); add('build', ['trans_p','tech']); add('imagine', ['trans_p','dream']);
-add('wanders sleeps glows', ['intrans_s']); add('dreams', ['intrans_s','dream']);
-// "dreams" is both a noun and a verb: merge its features into one token.
-// add() is only used with unique spellings elsewhere; deduplication below preserves both features.
-add('wander sleep glow', ['intrans_p']); add('dream', ['intrans_p','dream']);
-add('is', ['be_s']); add('are', ['be_p']);
-add('in under near beyond through', ['prep']); add('and', ['conj']);
-add('softly slowly quietly', ['adv']); add('. !', ['endmark']);
-for (let i=vocabulary.length-1;i>=0;i--) {
-  const first=vocabulary.indexOf(vocabulary[i]);
-  if(first!==i){ for(let f=0;f<D;f++) embeddings[first][f]=Math.max(embeddings[first][f],embeddings[i][f]); vocabulary.splice(i,1); embeddings.splice(i,1); }
+add('<bos> <unk>',[]);
+add('the its our their', ['det']); add('a an this that every another', ['det_s']); add('these those some many', ['det_p']);
+add('little small large old new quiet gentle curious bright dark strange distant warm cool hidden patient simple silent lovely soft careful brave tiny beautiful mysterious', ['adj']);
+add('silver electric mechanical clever precise helpful copper golden', ['adj'],'technology');
+add('green wild leafy fresh ancient wooden peaceful deep misty rainy sunlit blooming', ['adj'],'nature');
+add('luminous endless pale starlit cosmic blue violet shining', ['adj'],'night sky');
+add('forgotten winding narrow dusty secret empty unfamiliar rocky', ['adj'],'adventure');
+add('familiar comfortable cozy friendly cheerful open colorful', ['adj'],'everyday life');
+add('wonderful unusual possible surprising thoughtful hopeful creative', ['adj'],'ideas');
+function nouns(pairs,topic,semantic){for(const pair of pairs.split(' ')){const [singular,plural]=pair.split('/');add(singular,['ns'],topic,semantic);if(plural)add(plural,['np'],topic,semantic);}}
+nouns('robot/robots machine/machines computer/computers engine/engines clock/clocks sensor/sensors drone/drones telescope/telescopes','technology','machine');
+nouns('circuit/circuits device/devices signal/signals screen/screens wire/wires tool/tools wheel/wheels lantern/lanterns bridge/bridges','technology','thing');
+nouns('cat/cats bird/birds fox/foxes owl/owls deer butterfly/butterflies rabbit/rabbits bee/bees','nature','actor');
+nouns('forest/forests garden/gardens meadow/meadows valley/valleys hill/hills mountain/mountains field/fields island/islands','nature','place');
+nouns('river/rivers stream/streams lake/lakes ocean/oceans pool/pools','nature','water');
+nouns('flower/flowers tree/trees leaf/leaves seed/seeds branch/branches root/roots','nature','plant');
+nouns('stone/stones','nature','thing');
+nouns('moon/moons star/stars planet/planets comet/comets cloud/clouds constellation/constellations galaxy/galaxies sun/suns','night sky','sky');
+nouns('horizon/horizons universe/universes','night sky','place');
+nouns('traveler/travelers explorer/explorers captain/captains sailor/sailors','adventure','actor');
+nouns('path/paths road/roads trail/trails village/villages tower/towers castle/castles cave/caves harbor/harbors','adventure','place');
+nouns('map/maps compass/compasses boat/boats ship/ships key/keys gate/gates treasure/treasures','adventure','thing');
+nouns('friend/friends child/children artist/artists musician/musicians neighbor/neighbors teacher/teachers','everyday life','actor');
+nouns('house/houses room/rooms kitchen/kitchens library/libraries workshop/workshops courtyard/courtyards','everyday life','place');
+nouns('window/windows door/doors table/tables cup/cups book/books letter/letters basket/baskets painting/paintings song/songs','everyday life','thing');
+nouns('dream/dreams idea/ideas story/stories question/questions answer/answers memory/memories pattern/patterns possibility/possibilities secret/secrets thought/thoughts promise/promises discovery/discoveries','ideas','idea');
+add('water rain dew',['mass'],'nature','water');add('grass moss earth',['mass'],'nature','thing');
+add('moonlight sunlight starlight darkness',['mass'],'night sky','sky');add('silence music warmth',['mass'],'everyday life','idea');
+add('hope wonder time knowledge peace',['mass'],'ideas','idea');add('light energy',['mass'],'technology','thing');
+add('it she he someone',['ps']);add('we they you',['pp']);
+add('she he someone',['ps'],null,'actor');add('we you',['pp'],null,'actor');
+const perceive={actor:.5,machine:.3,place:.4,water:.4,sky:.5,idea:.3,thing:.5};
+const make={actor:-1,machine:1.4,place:.4,water:-1,sky:-1,idea:.4,thing:1.3};
+const think={actor:.1,machine:-.4,place:0,water:-.4,sky:.1,idea:1.7,thing:.2};
+function verbs(pairs,parts,topic,relation,subjectWeights){for(const pair of pairs.split(' ')){const forms=pair.split('/');forms.forEach((word,i)=>{add(word,[parts[i]],topic,null,relation);metadata[tokenIds.get(word)].subjectWeights=subjectWeights;});}}
+const active={actor:1.8,machine:1.2,place:-6,water:-6,sky:-6,idea:-4,thing:-6,plant:-6};
+const maker={actor:1.7,machine:2.4,place:-6,water:-6,sky:-6,idea:-5,thing:-6,plant:-6};
+const reflective={actor:1.4,machine:.4,place:-6,water:-6,sky:-5,idea:-3,thing:-6,plant:-6};
+const broad={actor:.1,machine:.2,place:1.6,water:1.5,sky:1.1,idea:1,thing:1,plant:.8};
+verbs('finds/find sees/see notices/notice watches/watch follows/follow explores/explore discovers/discover',['ts','tp'],null,perceive,active);
+verbs('builds/build repairs/repair designs/design tests/test creates/create',['ts','tp'],'technology',make,maker);
+verbs('imagines/imagine remembers/remember understands/understand loves/love considers/consider',['ts','tp'],'ideas',think,reflective);
+verbs('holds/hold carries/carry hides/hide reveals/reveal reflects/reflect welcomes/welcome',['ts','tp'],null,perceive,broad);
+verbs('wanders/wander walks/walk waits/wait rests/rest listens/listen returns/return smiles/smile',['vs','vp'],null,null,active);
+verbs('sleeps/sleep wakes/wake plays/play',['vs','vp'],'nature',null,active);
+verbs('hums/hum clicks/click works/work moves/move',['vs','vp'],'technology',null,maker);
+verbs('glows/glow shines/shine sparkles/sparkle',['vs','vp'],'night sky',null,{actor:-1,machine:.5,place:.8,water:1.4,sky:2,idea:.3,thing:1});
+verbs('flows/flow ripples/ripple',['vs','vp'],'nature',null,{actor:-6,machine:-6,place:-6,water:4,sky:-6,idea:-6,thing:-6,plant:-6});
+verbs('grows/grow blooms/bloom',['vs','vp'],'nature',null,{actor:-6,machine:-6,place:1.2,water:-6,sky:-6,idea:-1,thing:-6,plant:3});
+verbs('drifts/drift',['vs','vp'],'night sky',null,{actor:-1,machine:-1,place:-3,water:1,sky:2.5,idea:1,thing:.2});
+verbs('dreams/dream',['vs','vp'],'ideas',null,reflective);
+add('is was',['bs']);add('are were',['bp']);add('can could might will',['modal']);
+add('in near beside under above beyond through across around within toward outside',['prep']);
+add('quietly slowly softly gently patiently calmly brightly peacefully again together',['adv']);
+add('and but while because',['join']);add('later meanwhile nearby sometimes soon today',['intro']);add('. !',['punct']);
+const V=vocabulary.length, BOS=tokenIds.get('<bos>'), UNK=tokenIds.get('<unk>');
+const has=(id,part)=>embeddings[id][POS.indexOf(part)]>0;
+
+// Neural recurrent grammar controller. Each ReLU gate detects a state/feature pair.
+// g = ReLU(A · [previous state; token POS embedding] + bg)
+// state = normalize(B · g). The grammar is compiled into these numeric matrices.
+const stateNames=['Sentence start','Subject after the','Singular subject phrase','Plural subject phrase','Singular subject','Plural subject','Object start','Object after the','Singular object phrase','Plural object phrase','Object complete','Intransitive verb complete','After is / are','Predicate adjective','Place phrase start','Place after the','Singular place phrase','Plural place phrase','Place phrase complete','Adverb complete','After a modal','New sentence','After an introduction'];
+const S=stateNames.length;
+const ST={start:0,sub:1,subS:2,subP:3,singular:4,plural:5,obj:6,objDet:7,objS:8,objP:9,objDone:10,verbDone:11,copula:12,pred:13,prep:14,prepDet:15,prepS:16,prepP:17,prepDone:18,adv:19,modal:20,boundary:21,intro:22};
+const gates=[],A=[],bg=[];
+function transition(from,part,to){const row=new Float64Array(S+POS.length);for(const s of from)row[s]=1;row[S+POS.indexOf(part)]=1;A.push(row);bg.push(-1);gates.push({to,part,from});}
+const starts=[ST.start,ST.boundary,ST.intro];
+transition(starts,'det',ST.sub);transition(starts,'det_s',ST.subS);transition(starts,'det_p',ST.subP);
+transition([...starts,ST.sub,ST.subS],'ns',ST.singular);transition([...starts,ST.sub,ST.subP],'np',ST.plural);transition([...starts,ST.sub],'mass',ST.singular);
+transition(starts,'ps',ST.singular);transition(starts,'pp',ST.plural);
+for(const s of [ST.sub,ST.subS,ST.subP])transition([s],'adj',s);
+transition([ST.start,ST.boundary],'intro',ST.intro);
+transition([ST.singular],'ts',ST.obj);transition([ST.plural,ST.modal],'tp',ST.obj);
+transition([ST.singular],'vs',ST.verbDone);transition([ST.plural,ST.modal],'vp',ST.verbDone);
+transition([ST.singular],'bs',ST.copula);transition([ST.plural],'bp',ST.copula);
+transition([ST.singular,ST.plural],'modal',ST.modal);
+transition([ST.obj,ST.copula],'det',ST.objDet);transition([ST.obj,ST.copula],'det_s',ST.objS);transition([ST.obj,ST.copula],'det_p',ST.objP);
+transition([ST.obj,ST.objDet,ST.objS],'ns',ST.objDone);transition([ST.obj,ST.objDet,ST.objP],'np',ST.objDone);transition([ST.obj,ST.objDet],'mass',ST.objDone);
+for(const s of [ST.objDet,ST.objS,ST.objP])transition([s],'adj',s);
+transition([ST.copula],'adj',ST.pred);
+const completes=[ST.objDone,ST.verbDone,ST.pred,ST.prepDone,ST.adv];
+transition(completes,'prep',ST.prep);transition(completes,'join',ST.start);
+transition([ST.verbDone],'adv',ST.adv);
+transition([ST.prep],'det',ST.prepDet);transition([ST.prep],'det_s',ST.prepS);transition([ST.prep],'det_p',ST.prepP);
+transition([ST.prep,ST.prepDet,ST.prepS],'ns',ST.prepDone);transition([ST.prep,ST.prepDet,ST.prepP],'np',ST.prepDone);transition([ST.prep,ST.prepDet],'mass',ST.prepDone);
+for(const s of [ST.prepDet,ST.prepS,ST.prepP])transition([s],'adj',s);
+transition(Array.from({length:S},(_,i)=>i),'punct',ST.boundary);
+const G=gates.length,B=Array.from({length:S},()=>new Float64Array(G));gates.forEach((g,i)=>{B[g.to][i]=1;});
+const topicDecay=Array.from({length:TOPICS.length},(_,i)=>Float64Array.from({length:TOPICS.length},(_,j)=>i===j?.94:0));
+const topicInput=Array.from({length:TOPICS.length},(_,i)=>Float64Array.from({length:D},(_,j)=>j===POS.length+i?.22:0));
+const features=stateNames.concat(TOPICS.map(t=>'Theme: '+t),SEM.map(s=>'Subject: '+s),SEM.map(s=>'Object: '+s));
+const H=features.length;
+const W2=Array.from({length:V},()=>new Float64Array(H)),b2=new Float64Array(V).fill(-6);
+const support=Array.from({length:V},()=>new Uint8Array(S));
+function allow(states,parts,weight){for(let v=2;v<V;v++)if(parts.some(p=>has(v,p)))for(const s of states){W2[v][s]=weight;support[v][s]=1;}}
+function wire(state,word,weight){const id=tokenIds.get(word);if(id===undefined)throw Error('Unknown token: '+word);W2[id][state]=weight;support[id][state]=1;}
+allow(starts,['det'],8.5);allow(starts,['det_s'],7.6);allow(starts,['det_p'],6.5);allow(starts,['ps','pp'],7.4);allow(starts,['np','mass'],3.5);
+allow([ST.start,ST.boundary],['intro'],6.7);
+for(const s of starts){wire(s,'the',10);wire(s,'a',8.4);wire(s,'an',7);wire(s,'it',8.4);wire(s,'they',7.6);}
+allow([ST.sub,ST.objDet,ST.prepDet],['ns','np','mass'],8);
+allow([ST.subS,ST.objS,ST.prepS],['ns'],8.1);
+allow([ST.subP,ST.objP,ST.prepP],['np'],8.1);
+allow([ST.sub,ST.subS,ST.subP,ST.objDet,ST.objS,ST.objP,ST.prepDet,ST.prepS,ST.prepP],['adj'],6.3);
+allow([ST.singular],['ts','vs'],7.5);allow([ST.plural],['tp','vp'],7.5);allow([ST.modal],['tp','vp'],7.9);
+allow([ST.singular],['bs'],8.8);allow([ST.plural],['bp'],8.8);allow([ST.singular,ST.plural],['modal'],7.3);
+allow([ST.obj,ST.copula],['det','det_s'],8.6);allow([ST.obj,ST.copula],['det_p'],6.4);
+wire(ST.obj,'the',9.7);wire(ST.obj,'a',9.2);wire(ST.obj,'an',7.5);wire(ST.copula,'a',8.8);wire(ST.copula,'an',7.1);
+allow([ST.obj],['np','mass'],6.2);allow([ST.copula],['adj'],8.2);
+allow(completes,['punct'],9.5);allow(completes,['prep'],7);allow(completes,['join'],7.1);
+for(const s of completes){wire(s,'.',9.5);wire(s,'!',6);wire(s,'and',8);wire(s,'while',7.1);wire(s,'because',6.5);}
+allow([ST.verbDone],['adv'],7.3);allow([ST.prepDone,ST.adv],['prep'],4.5);
+allow([ST.prep],['det','det_s'],8.3);allow([ST.prep],['det_p'],6.1);allow([ST.prep],['mass'],5.8);
+wire(ST.prep,'the',10);wire(ST.prep,'a',8.7);wire(ST.prep,'an',6.9);
+const subjectOffset=S+TOPICS.length,objectOffset=subjectOffset+SEM.length;
+for(let v=2;v<V;v++){
+  const e=embeddings[v];
+  for(let t=0;t<TOPICS.length;t++)W2[v][S+t]=e[POS.length+t]*1.85;
+  const weights=metadata[v].subjectWeights;
+  if(weights)for(let j=0;j<SEM.length;j++)W2[v][subjectOffset+j]=weights[SEM[j]]||0;
+  for(let j=0;j<SEM.length;j++)W2[v][objectOffset+j]=e[POS.length+TOPICS.length+j]*2.1;
+  if(has(v,'ns')||has(v,'np')||has(v,'mass'))for(const s of [ST.prepDet,ST.prepS,ST.prepP]){
+    if(support[v][s])W2[v][s]+=e[POS.length+TOPICS.length+2]*1.5+e[POS.length+TOPICS.length+3]*.8;
+  }
 }
-tokenIds.clear(); vocabulary.forEach((w,i)=>tokenIds.set(w,i));
-const V=vocabulary.length, BOS=tokenIds.get('<bos>'), UNK=tokenIds.get('<unk>'), END=tokenIds.get('<end>');
-const neurons=[], W1=[], b1=[];
-function unit(name, terms, bias=0) {
-  const row=new Float64Array(C*D);
-  terms.forEach(([offset,feature,weight])=>{row[offset*D+F.indexOf(feature)]+=weight;});
-  neurons.push(name); W1.push(row); b1.push(bias); return neurons.length-1;
-}
-function last(name,features){return unit(name,features.map(f=>[0,f,1]));}
-const HN={
-  start:last('Beginning of a sentence',['bos','unk']),
-  determiner:last('After a determiner',['det']),
-  adjective:last('After an adjective',['adj']),
-  singular:last('After a singular subject',['noun_s','pro_s']),
-  plural:last('After a plural subject',['noun_p','pro_p']),
-  transitive:last('After a transitive verb',['trans_s','trans_p']),
-  intransitive:last('After an intransitive verb',['intrans_s','intrans_p']),
-  copula:last('After is / are',['be_s','be_p']),
-  preposition:last('After a preposition',['prep']),
-  conjunction:last('After and',['conj']),
-  adverb:last('After an adverb',['adv']),
-  finish:last('After punctuation',['endmark'])
-};
-const nounTerms=[[0,'noun_s',1],[0,'noun_p',1]];
-HN.object=unit('Noun following a verb',[...nounTerms,...[1,2,3].flatMap(o=>[[o,'trans_s',1],[o,'trans_p',1]])],-1);
-HN.place=unit('Noun following a preposition',[...nounTerms,...[1,2,3].map(o=>[o,'prep',1])],-1);
-HN.description=unit('Adjective following is / are',[[0,'adj',1],...[1,2].flatMap(o=>[[o,'be_s',1],[o,'be_p',1]])],-1);
-HN.tech=unit('Technology in the context',[0,1,2,3].map(o=>[o,'tech',1/(o+1)]));
-HN.nature=unit('Nature in the context',[0,1,2,3].map(o=>[o,'nature',1/(o+1)]));
-HN.dream=unit('Dreams in the context',[0,1,2,3].map(o=>[o,'dream',1/(o+1)]));
-const H=neurons.length;
-const W2=Array.from({length:V},()=>new Float64Array(H));
-const b2=new Float64Array(V).fill(-8);
-b2[BOS]=-40; b2[UNK]=-40; b2[END]=-12;
-function wire(neuron,words,weight){words.split(' ').forEach(w=>{const id=tokenIds.get(w);if(id===undefined)throw Error('Unknown weight token: '+w);W2[id][neuron]=weight;});}
-function group(neuron,features,weight){embeddings.forEach((e,i)=>{if(features.some(f=>e[F.indexOf(f)]>0))W2[i][neuron]=weight;});}
-wire(HN.start,'the',12); wire(HN.start,'a',11.5); wire(HN.start,'we they it',10.5);
-group(HN.determiner,['noun_s'],10.4); group(HN.determiner,['adj'],10.3); group(HN.determiner,['noun_p'],8.2);
-group(HN.adjective,['noun_s'],11); group(HN.adjective,['noun_p'],9.4);
-group(HN.singular,['trans_s'],11); group(HN.singular,['intrans_s'],10.6); wire(HN.singular,'is',10.5);
-group(HN.plural,['trans_p'],11); group(HN.plural,['intrans_p'],10.6); wire(HN.plural,'are',10.5);
-wire(HN.transitive,'the',12); wire(HN.transitive,'a',11.6); group(HN.transitive,['noun_p'],9.4);
-group(HN.intransitive,['prep'],10.4); group(HN.intransitive,['adv'],10.2); wire(HN.intransitive,'.',11.1); wire(HN.intransitive,'!',8.7);
-group(HN.copula,['adj'],11.2); wire(HN.copula,'a',10.6);
-wire(HN.preposition,'the',12); wire(HN.preposition,'a',11.3);
-wire(HN.conjunction,'the',12); wire(HN.conjunction,'a we they',10.8);
-wire(HN.adverb,'.',12); group(HN.adverb,['prep'],9.7);
-wire(HN.finish,'<end>',24);
-[HN.object,HN.place].forEach(h=>{
-  group(h,['trans_s','trans_p','intrans_s','intrans_p','be_s','be_p'],-12);
-  wire(h,'.',11.5); wire(h,'!',8.7); wire(h,'and',8.9);
-});
-group(HN.object,['prep'],10.2); group(HN.place,['prep'],7.3);
-wire(HN.description,'.',12); group(HN.description,['noun_s','noun_p'],-11); wire(HN.description,'and',8.5);
-group(HN.tech,['tech'],1.5); group(HN.nature,['nature'],1.1); group(HN.dream,['dream'],1.3);
-// Slight, explicitly chosen lexical preferences make the initial distribution readable.
-wire(HN.singular,'finds',11.6); wire(HN.singular,'builds',11.2); wire(HN.singular,'sees',11.35);
-wire(HN.singular,'dreams',10.1); wire(HN.determiner,'little',10.7); wire(HN.adjective,'robot',11.3);
 const originalWeights=W2.map(row=>Float64Array.from(row));
 let overrides={};
-try{const loaded=JSON.parse(document.getElementById('model-overrides').textContent);for(const [key,value] of Object.entries(loaded)){const [v,h]=key.split(':').map(Number);if(Number.isInteger(v)&&Number.isInteger(h)&&v>=0&&v<V&&h>=0&&h<H&&Number.isFinite(value)&&value>=-16&&value<=24){W2[v][h]=value;overrides[key]=value;}}}catch{/* Invalid optional edits leave the original model intact. */}
-
-function tokenize(text){return (text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?|[^\s]/g)||[]).map(w=>({word:w,id:tokenIds.has(w)?tokenIds.get(w):UNK}));}
-function forward(ids,temperature=0.75){
-  const x=new Float64Array(C*D);
-  for(let offset=0;offset<C;offset++){const id=ids.length>offset?ids[ids.length-1-offset]:BOS;x.set(embeddings[id],offset*D);}
-  const hidden=new Float64Array(H);
-  for(let h=0;h<H;h++){let sum=b1[h];for(let j=0;j<x.length;j++)sum+=W1[h][j]*x[j];hidden[h]=Math.max(0,sum);}
-  const logits=new Float64Array(V);
-  for(let v=0;v<V;v++){let sum=b2[v];for(let h=0;h<H;h++)sum+=W2[v][h]*hidden[h];logits[v]=sum;}
-  // BOS and UNK are input-only control tokens; never sample them as output.
-  logits[BOS]=-Infinity;logits[UNK]=-Infinity;
-  const probabilities=new Float64Array(V),maximum=Math.max(...logits);
-  if(temperature===0){probabilities[logits.indexOf(maximum)]=1;}else{
-    let total=0;for(let v=0;v<V;v++){probabilities[v]=Math.exp((logits[v]-maximum)/temperature);total+=probabilities[v];}
-    for(let v=0;v<V;v++)probabilities[v]/=total;
+function applyOverrides(data){if(!data||data.version!==2||!data.weights)return;for(const [key,value] of Object.entries(data.weights)){const [v,h]=key.split(':').map(Number);if(Number.isInteger(v)&&Number.isInteger(h)&&v>=2&&v<V&&h>=0&&h<H&&Number.isFinite(value)&&value>=-16&&value<=24){W2[v][h]=value;overrides[key]=value;}}}
+try{applyOverrides(JSON.parse(document.getElementById('model-overrides').textContent));}catch{/* Keep the original weights if the optional edit block is invalid. */}
+function tokenize(text){return(text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?|[^\s]/g)||[]).map(word=>({word,id:tokenIds.has(word)?tokenIds.get(word):UNK}));}
+function initialMemory(){const state=new Float64Array(S);state[ST.start]=1;return{state,theme:new Float64Array(TOPICS.length),anchor:new Float64Array(TOPICS.length),subject:new Float64Array(SEM.length),relation:new Float64Array(SEM.length),recent:[],sentenceTokens:0,sentences:0,adjectives:0,lastGates:new Float64Array(G)};}
+function advance(memory,id){
+  const e=embeddings[id],g=new Float64Array(G),state=new Float64Array(S);
+  if(id!==UNK&&id!==BOS){
+    for(let i=0;i<G;i++){let z=bg[i];for(let j=0;j<S;j++)z+=A[i][j]*memory.state[j];for(let j=0;j<POS.length;j++)z+=A[i][S+j]*e[j];g[i]=Math.max(0,z);}
+    for(let s=0;s<S;s++)for(let i=0;i<G;i++)state[s]+=B[s][i]*g[i];
+    let mass=state.reduce((a,b)=>a+b,0);
+    if(mass===0){ // Resynchronize arbitrary prompts; generation follows the grammar support mask.
+      const recovery=has(id,'np')||has(id,'pp')?ST.plural:has(id,'ns')||has(id,'mass')||has(id,'ps')?ST.singular:has(id,'ts')||has(id,'tp')?ST.obj:has(id,'vs')||has(id,'vp')?ST.verbDone:has(id,'bs')||has(id,'bp')?ST.copula:has(id,'prep')?ST.prep:has(id,'adj')?ST.sub:ST.start;
+      state[recovery]=1;mass=1;
+    }
+    for(let s=0;s<S;s++)state[s]/=mass;
+    memory.state=state;
   }
-  return {hidden,logits,probabilities};
+  if((state[ST.singular]+state[ST.plural])>0){const subject=e.slice(POS.length+TOPICS.length,POS.length+TOPICS.length+SEM.length);if(subject.some(v=>v!==0))memory.subject=subject;}
+  if(has(id,'ts')||has(id,'tp'))memory.relation=e.slice(POS.length+TOPICS.length+SEM.length);
+  const theme=new Float64Array(TOPICS.length);
+  for(let t=0;t<TOPICS.length;t++){for(let j=0;j<TOPICS.length;j++)theme[t]+=topicDecay[t][j]*memory.theme[j];for(let j=0;j<D;j++)theme[t]+=topicInput[t][j]*e[j];theme[t]=Math.min(1,theme[t]);}
+  memory.theme=theme;memory.recent.push(id);if(memory.recent.length>64)memory.recent.shift();
+  memory.sentenceTokens=has(id,'punct')?0:memory.sentenceTokens+1;
+  memory.sentences+=has(id,'punct')?1:0;
+  memory.adjectives=has(id,'adj')?memory.adjectives+1:0;memory.lastGates=g;
+  return memory;
 }
+function promptMemory(ids){const m=initialMemory();for(const id of ids){advance(m,id);for(let t=0;t<TOPICS.length;t++)m.anchor[t]+=embeddings[id][POS.length+t];}const sum=m.anchor.reduce((a,b)=>a+b,0);if(sum)for(let t=0;t<TOPICS.length;t++)m.anchor[t]/=sum;return m;}
+function latent(memory,theme=-1){const h=new Float64Array(H);h.set(memory.state);for(let t=0;t<TOPICS.length;t++)h[S+t]=memory.anchor[t]*1.4+memory.theme[t]*.7+(theme===t?1.7:0);const expectingVerb=memory.state[ST.singular]+memory.state[ST.plural]+memory.state[ST.modal];for(let j=0;j<SEM.length;j++)h[subjectOffset+j]=memory.subject[j]*expectingVerb;const expectingObject=memory.state[ST.obj]+memory.state[ST.objDet]+memory.state[ST.objS]+memory.state[ST.objP];for(let j=0;j<SEM.length;j++)h[objectOffset+j]=memory.relation[j]*expectingObject;return h;}
+function normalized(logits,temperature){const p=new Float64Array(V);const maximum=Math.max(...logits);if(!Number.isFinite(maximum))throw Error('No finite output score.');if(temperature===0){p[logits.indexOf(maximum)]=1;return p;}let total=0;for(let i=0;i<V;i++){p[i]=Math.exp((logits[i]-maximum)/temperature);total+=p[i];}for(let i=0;i<V;i++)p[i]/=total;return p;}
+function predict(memory,options={}){
+  const temperature=Math.max(0,Math.min(1.5,Number.isFinite(options.temperature)?options.temperature:.8));
+  const topP=Math.max(.05,Math.min(1,Number.isFinite(options.topP)?options.topP:.92));
+  const repetition=Math.max(0,Math.min(2,Number.isFinite(options.repetition)?options.repetition:.8));
+  const h=latent(memory,options.theme??-1),logits=new Float64Array(V).fill(-Infinity),allowed=new Uint8Array(V);
+  const last=memory.recent.at(-1),article=last===tokenIds.get('a')?'a':last===tokenIds.get('an')?'an':null;
+  for(let v=2;v<V;v++){
+    let possible=0;for(let s=0;s<S;s++)possible+=support[v][s]*memory.state[s];if(possible===0)continue;
+    if(article){const vowel=/^[aeiou]/.test(vocabulary[v]);if((article==='a'&&vowel)||(article==='an'&&!vowel))continue;}
+    if(has(v,'adj')&&memory.adjectives>=2)continue;
+    let score=b2[v];for(let j=0;j<H;j++)score+=W2[v][j]*h[j];
+    const lengthPressure=Math.max(0,memory.sentenceTokens-10)*.38;
+    if(has(v,'punct'))score+=lengthPressure;if(has(v,'join')||has(v,'prep'))score-=lengthPressure;
+    const content=has(v,'ns')||has(v,'np')||has(v,'mass')||has(v,'adj')||has(v,'ts')||has(v,'tp')||has(v,'vs')||has(v,'vp');
+    for(let i=0;i<memory.recent.length;i++)if(memory.recent[i]===v)score-=repetition*(content?1:.18)/(1+(memory.recent.length-i-1)*.045);
+    logits[v]=score;allowed[v]=1;
+  }
+  const unblocked=Float64Array.from(logits);let blocked=0;
+  if(options.noRepeat!==false&&memory.recent.length>=2){const [a,b]=memory.recent.slice(-2);for(let i=0;i<memory.recent.length-2;i++)if(memory.recent[i]===a&&memory.recent[i+1]===b){const v=memory.recent[i+2];if(Number.isFinite(logits[v])){logits[v]=-Infinity;blocked++;}}}
+  let fallback=false;if(!logits.some(Number.isFinite)){logits.set(unblocked);fallback=true;}
+  const probabilities=normalized(logits,temperature);
+  if(topP<1&&temperature>0){const ranked=Array.from(probabilities,(p,id)=>({p,id})).filter(t=>t.p>0).sort((a,b)=>b.p-a.p);let sum=0,keep=0;while(keep<ranked.length&&sum<topP){sum+=ranked[keep].p;keep++;}for(let i=keep;i<ranked.length;i++)probabilities[ranked[i].id]=0;for(let i=0;i<V;i++)probabilities[i]/=sum;}
+  return{hidden:h,logits,probabilities,allowed,blocked,fallback};
+}
+function forward(ids,options={}){return predict(promptMemory(ids),typeof options==='number'?{temperature:options}:options);}
 function randomGenerator(seed){let a=seed>>>0;return()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};}
-function sample(probabilities,random){let r=random();for(let i=0;i<probabilities.length;i++){r-=probabilities[i];if(r<0)return i;}return END;}
+function sample(probabilities,random){let r=random(),last=2;for(let i=0;i<V;i++){if(probabilities[i]>0)last=i;r-=probabilities[i];if(r<0)return i;}return last;}
+function formatted(words){let text='',capitalize=true,sentences=0;for(const word of words){if(/^[.!?]$/.test(word)){text+=word;capitalize=true;sentences++;}else if(/^[,;:]$/.test(word)){text+=word;}else{if(text)text+=capitalize&&sentences>0&&sentences%4===0?'\n\n':' ';text+=capitalize?word.charAt(0).toUpperCase()+word.slice(1):word;capitalize=false;}}return text;}
+const parameterCount=V*D+G*(S+POS.length)+G+S*G+V*H+V+TOPICS.length*TOPICS.length+TOPICS.length*D;
+// MODEL END: the tests execute the exact numeric code above in Node, without a DOM.
+
 const $=id=>document.getElementById(id);
-let promptTokens=[],generated=[],rng=randomGenerator(42),running=false,timer=null,totalMs=0,latest=null,finished=false,toastTimer;
-const temperature=()=>Number($('temperature').value);
-const sequence=()=>promptTokens.map(t=>t.id).concat(generated.map(t=>t.id));
-function infer(){const start=performance.now();const result=forward(sequence(),temperature());return{...result,ms:performance.now()-start};}
-function setRunning(value){running=value;$('generate').innerHTML=value?'<span aria-hidden="true">■</span> Stop':'<span aria-hidden="true">▶</span> Generate';$('step').disabled=value||finished||generated.length>=Number($('limit').value);$('status').textContent=value?'GENERATING LOCALLY':finished?'CONTINUATION COMPLETE':'READY TO GENERATE';}
-function stop(){if(timer!==null)clearTimeout(timer);timer=null;setRunning(false);}
-function reset(){stop();promptTokens=tokenize($('prompt').value);generated=[];totalMs=0;finished=false;rng=randomGenerator(Number($('seed').value)||0);const unknown=[...new Set(promptTokens.filter(t=>t.id===UNK).map(t=>t.word))];$('input-note').textContent=unknown.length?'Outside the vocabulary: '+unknown.slice(0,8).join(', ')+(unknown.length>8?'…':'')+'. Mapped to <unk>.':'';render();setRunning(false);}
-function formatted(tokens){return tokens.map((w,i)=>i===0?w:/^[.!]$/.test(w)?w:' '+w).join('');}
+const MAX_DOCUMENT=4096;
+let promptTokens=[],generated=[],memory=initialMemory(),rng=randomGenerator(42),running=false,timer=null,runTarget=0,totalMs=0,latest=null,status='READY TO GENERATE',toastTimer;
+const options=()=>({temperature:Number($('temperature').value),topP:Number($('top-p').value),repetition:Number($('repetition').value),theme:Number($('theme').value),noRepeat:$('no-repeat').checked});
+const words=()=>promptTokens.map(t=>t.word).concat(generated.map(t=>vocabulary[t.id]));
+function infer(){const start=performance.now();const prediction=predict(memory,options());return{...prediction,ms:performance.now()-start};}
+function stop(message='PAUSED'){if(timer!==null)clearTimeout(timer);timer=null;running=false;status=message;}
+function reset(){
+  stop('READY TO GENERATE');promptTokens=tokenize($('prompt').value);generated=[];totalMs=0;
+  memory=promptMemory(promptTokens.map(t=>t.id));rng=randomGenerator(Number($('seed').value)||0);
+  const unknown=[...new Set(promptTokens.filter(t=>t.id===UNK).map(t=>t.word))];
+  $('input-note').textContent=unknown.length?'Outside the vocabulary: '+unknown.slice(0,8).join(', ')+(unknown.length>8?'…':'')+'. Shown in your prompt; skipped by the grammar controller.':'';
+  latest=infer();$('neuron').value=memory.state.indexOf(Math.max(...memory.state));renderEditor();render();
+  $('announcement').textContent='New continuation ready.';
+}
 function appendToken(forcedId){
-  if(finished||generated.length>=Number($('limit').value)){stop();return;}
-  const result=infer();totalMs+=result.ms;const id=forcedId===undefined?sample(result.probabilities,rng):forcedId;
-  if(id===END){finished=true;stop();$('announcement').textContent='Complete. '+formatted(promptTokens.map(t=>t.word).concat(generated.map(t=>vocabulary[t.id])));}
-  else generated.push({id,p:result.probabilities[id],forced:forcedId!==undefined});
-  render();
-  if(generated.length>=Number($('limit').value)){stop();$('status').textContent='TOKEN LIMIT REACHED';$('announcement').textContent='Token limit reached. '+formatted(promptTokens.map(t=>t.word).concat(generated.map(t=>vocabulary[t.id])));}
-  if(!running)$('step').disabled=finished||generated.length>=Number($('limit').value);
+  if(generated.length>=MAX_DOCUMENT){stop('DOCUMENT LIMIT REACHED');render();return;}
+  const id=forcedId===undefined?sample(latest.probabilities,rng):forcedId;
+  generated.push({id,p:latest.probabilities[id],forced:forcedId!==undefined});
+  const start=performance.now();advance(memory,id);totalMs+=performance.now()-start+latest.ms;
+  if(running&&$('one-sentence').checked&&has(id,'punct'))stop('SENTENCE COMPLETE');
+  else if(running&&generated.length>=runTarget)stop('BATCH COMPLETE · CONTINUE TO ADD MORE');
+  else if(!running)status='TOKEN ADDED';
+  if(generated.length>=MAX_DOCUMENT)stop('DOCUMENT LIMIT REACHED');
+  latest=infer();render();
+  if(!running)$('announcement').textContent=generated.length+' tokens generated. '+formatted(words()).slice(-350);
 }
-function tick(){if(!running)return;appendToken();if(running)timer=setTimeout(tick,220);}
+function tick(){if(!running)return;try{appendToken();if(running)timer=setTimeout(tick,$('slow').checked?110:10);}catch(error){stop('GENERATION STOPPED');toast('Could not generate: '+error.message);renderButtons();}}
+function renderButtons(){
+  const capped=generated.length>=MAX_DOCUMENT;
+  $('generate').innerHTML=running?'<span aria-hidden="true">■</span> Stop':generated.length?'Continue +'+$('limit').value:'<span aria-hidden="true">▶</span> Generate';
+  $('generate').disabled=capped&&!running;$('step').disabled=running||capped;$('save-text').disabled=!generated.length;
+  $('status').textContent=running?'GENERATING LOCALLY':status;
+}
 function renderOutput(){
-  const out=$('output');out.replaceChildren();const p=document.createElement('span');p.className='prompt-text';p.textContent=formatted(promptTokens.map(t=>t.word));out.append(p);
-  generated.forEach((t,i)=>{const s=document.createElement('span');s.className='word';const w=vocabulary[t.id];s.textContent=(/^[.!]$/.test(w)||(!promptTokens.length&&i===0)?'':' ')+w;s.title=(t.forced?'Chosen manually':'Sampled')+' · '+(t.p*100).toFixed(2)+'% probability';out.append(s);});
-  if(!finished){const cursor=document.createElement('span');cursor.className='cursor';cursor.setAttribute('aria-hidden','true');out.append(cursor);}
-  if(!generated.length){const hint=document.createElement('span');hint.className='placeholder';hint.textContent='A small beginning. Many possible endings.';out.append(hint);}
-  $('metrics').textContent=generated.length+' tokens · '+(generated.length||finished?totalMs.toFixed(2):'—')+' ms';
-  $('output-note').textContent=finished?'End token reached':running?'Sampling the next word…':'One word at a time';
+  const out=$('output'),nearBottom=out.scrollHeight-out.scrollTop-out.clientHeight<45;
+  out.replaceChildren();
+  const promptText=formatted(promptTokens.map(t=>t.word)),allText=formatted(words());
+  const start=document.createElement('span');start.className='prompt-text';start.textContent=promptText;out.append(start);
+  const continuation=document.createElement('span');continuation.className='continuation';continuation.textContent=allText.slice(promptText.length);out.append(continuation);
+  if(generated.length<MAX_DOCUMENT){const cursor=document.createElement('span');cursor.className='cursor';cursor.setAttribute('aria-hidden','true');out.append(cursor);}
+  if(!generated.length){const placeholder=document.createElement('span');placeholder.className='placeholder';placeholder.textContent='A small beginning. A longer story.';out.append(placeholder);}
+  if(nearBottom)out.scrollTop=out.scrollHeight;
+  const sentenceCount=generated.filter(t=>has(t.id,'punct')).length;
+  $('metrics').textContent=generated.length+' tokens · '+sentenceCount+' sentences';$('metrics').title=totalMs.toFixed(2)+' ms of model computation';
+  $('output-note').textContent=running?'Writing one token at a time…':generated.length?'Continue to keep writing':'Up to 512 tokens per batch';
 }
-function sortedPredictions(){return Array.from(latest.probabilities,(p,id)=>({id,p})).filter(t=>t.id!==BOS&&t.id!==UNK).sort((a,b)=>b.p-a.p);}
+function ranked(){return Array.from(latest.probabilities,(p,id)=>({id,p})).filter(t=>t.p>0).sort((a,b)=>b.p-a.p);}
 function render(){
-  latest=infer();renderOutput();const top=sortedPredictions().slice(0,6);$('probabilities').replaceChildren();
-  top.forEach(t=>{const button=document.createElement('button');button.className='prob';button.disabled=running||finished||generated.length>=Number($('limit').value);button.setAttribute('aria-label','Choose '+vocabulary[t.id]+', '+(t.p*100).toFixed(1)+' percent');const line=document.createElement('span');line.className='prob-top';const word=document.createElement('span');word.textContent=vocabulary[t.id];const percentage=document.createElement('span');percentage.textContent=(t.p*100).toFixed(1)+'%';line.append(word,percentage);const track=document.createElement('span');track.className='prob-track';track.style.display='block';const fill=document.createElement('span');fill.className='prob-fill';fill.style.display='block';fill.style.width=(t.p*100)+'%';track.append(fill);button.append(line,track);button.addEventListener('click',()=>appendToken(t.id));$('probabilities').append(button);});
-  const rest=Math.max(0,1-top.reduce((sum,t)=>sum+t.p,0));$('remaining').textContent=finished?'The model emitted <end>. Reset to begin again.':(rest*100).toFixed(1)+'% across the remaining '+(V-8)+' output tokens';
-  $('context').replaceChildren();const ids=sequence().slice(-C);while(ids.length<C)ids.unshift(BOS);ids.forEach(id=>{const span=document.createElement('span');span.className='token'+(id===BOS?' pad':'');span.textContent=vocabulary[id];$('context').append(span);});
-  drawNetwork(ids,top);updateWeightHelp();
+  renderButtons();renderOutput();const candidates=ranked(),top=candidates.slice(0,6);$('probabilities').replaceChildren();
+  for(const t of top){const button=document.createElement('button');button.className='prob';button.disabled=running||generated.length>=MAX_DOCUMENT;button.setAttribute('aria-label','Choose '+vocabulary[t.id]+', '+(t.p*100).toFixed(1)+' percent');
+    const line=document.createElement('span');line.className='prob-top';const word=document.createElement('span');word.textContent=vocabulary[t.id];const percentage=document.createElement('span');percentage.textContent=(t.p*100).toFixed(1)+'%';line.append(word,percentage);
+    const track=document.createElement('span');track.className='prob-track';track.style.display='block';const fill=document.createElement('span');fill.className='prob-fill';fill.style.display='block';fill.style.width=(t.p*100)+'%';track.append(fill);button.append(line,track);button.addEventListener('click',()=>appendToken(t.id));$('probabilities').append(button);
+  }
+  const rest=Math.max(0,1-top.reduce((sum,t)=>sum+t.p,0));$('remaining').textContent=(rest*100).toFixed(1)+'% across '+Math.max(0,candidates.length-top.length)+' more candidates · '+candidates.length+' in the sampling pool';
+  $('context').replaceChildren();for(const id of memory.recent.slice(-8)){const tag=document.createElement('span');tag.className='token';tag.textContent=vocabulary[id];$('context').append(tag);}
+  if(!memory.recent.length){const tag=document.createElement('span');tag.className='token pad';tag.textContent='<bos>';$('context').append(tag);}
+  const stateIndex=memory.state.indexOf(Math.max(...memory.state));$('grammar-state').textContent=stateNames[stateIndex];
+  const themeScores=Array.from(latest.hidden.slice(S,S+TOPICS.length)),maximum=Math.max(...themeScores);$('theme-state').textContent=maximum>.05?TOPICS[themeScores.indexOf(maximum)]:'open';
+  $('sampler-note').textContent=latest.fallback?'Repeated-phrase guard relaxed: every grammatical option was blocked.':'Grammar + temperature + repetition + top-p. These are the probabilities used to sample.';
+  drawNetwork(top);updateWeightHelp();
 }
-function svgNode(tag,attrs={},text){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(text!==undefined)n.textContent=text;return n;}
-function drawNetwork(ids,top){
+function svgNode(tag,attrs={},text){const node=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const[k,v]of Object.entries(attrs))node.setAttribute(k,v);if(text!==undefined)node.textContent=text;return node;}
+function drawNetwork(top){
   const svg=$('network');svg.replaceChildren();
-  [['CONTEXT',60],['HIDDEN LAYER',254],['NEXT TOKEN',442]].forEach(([t,x])=>svg.append(svgNode('text',{x,y:18,'text-anchor':'middle',fill:'#75816b','font-size':8,'letter-spacing':1.2},t)));
-  const active=Array.from(latest.hidden,(v,i)=>({v,i})).sort((a,b)=>b.v-a.v);const displayed=active.slice(0,8).sort((a,b)=>a.i-b.i);
-  ids.forEach((id,i)=>{const y=62+i*41;displayed.forEach((h,j)=>{const hy=45+j*21;const contribution=W1[h.i].slice((3-i)*D,(4-i)*D).some((w,f)=>w!==0&&embeddings[id][f]!==0);svg.append(svgNode('path',{d:'M 109 '+y+' C 165 '+y+', 178 '+hy+', 238 '+hy,fill:'none',stroke:contribution&&h.v>0?'#95ad7e':'#e6e9de','stroke-width':contribution&&h.v>0?1.2:.6,opacity:contribution&&h.v>0?.7:.7}));});});
-  displayed.forEach((h,j)=>{const y=45+j*21;top.slice(0,4).forEach((t,k)=>{const ty=62+k*41;const connection=W2[t.id][h.i]*h.v;svg.append(svgNode('path',{d:'M 270 '+y+' C 328 '+y+', 331 '+ty+', 388 '+ty,fill:'none',stroke:connection>0?'#8aa470':connection<0?'#c89f84':'#e5e8dc','stroke-width':Math.min(2.5,Math.max(.6,Math.abs(connection)/5)),opacity:connection===0?.5:.55}));});});
-  ids.forEach((id,i)=>{const y=62+i*41;svg.append(svgNode('rect',{x:10,y:y-12,width:99,height:25,rx:5,fill:i===3?'#e1eabb':'#f0f2e8',stroke:'#d6ddca'}));svg.append(svgNode('text',{x:59,y:y+4,'text-anchor':'middle','font-size':10,fill:'#3c5637'},vocabulary[id]));});
-  displayed.forEach((h,j)=>{const n=svgNode('circle',{cx:254,cy:45+j*21,r:7,fill:h.v>0?'#638553':'#e5e9dc',stroke:h.v>0?'#42653c':'#d4dcc9'});n.append(svgNode('title',{},neurons[h.i]+': '+h.v.toFixed(3)));svg.append(n);});
-  top.slice(0,4).forEach((t,k)=>{const y=62+k*41;svg.append(svgNode('rect',{x:388,y:y-12,width:112,height:25,rx:5,fill:k===0?'#e1eabb':'#f0f2e8',stroke:'#d6ddca'}));svg.append(svgNode('text',{x:398,y:y+4,'font-size':9,fill:'#3c5637'},vocabulary[t.id]));svg.append(svgNode('text',{x:490,y:y+4,'text-anchor':'end','font-size':8,fill:'#75816b'},(t.p*100).toFixed(0)+'%'));});
-  svg.append(svgNode('text',{x:254,y:222,'text-anchor':'middle','font-size':8,fill:'#89947c'},H+' neurons · '+latest.hidden.filter(v=>v>0).length+' active'));
+  for(const[text,x]of[['LATEST INPUT',63],['RECURRENT FEATURES',249],['NEXT TOKEN',438]])svg.append(svgNode('text',{x,y:16,'text-anchor':'middle',fill:'#75816b','font-size':8,'letter-spacing':.7},text));
+  const active=Array.from(latest.hidden,(v,i)=>({v,i})).sort((a,b)=>Math.abs(b.v)-Math.abs(a.v)).slice(0,8);
+  for(let j=0;j<active.length;j++){const h=active[j],y=44+j*21;for(let k=0;k<Math.min(4,top.length);k++){const t=top[k],ty=59+k*43,weight=W2[t.id][h.i]*h.v;svg.append(svgNode('path',{d:'M 264 '+y+' C 315 '+y+', 333 '+ty+', 386 '+ty,fill:'none',stroke:weight>0?'#8aa470':weight<0?'#c89f84':'#e4e8db','stroke-width':Math.min(2.5,Math.max(.6,Math.abs(weight)/4)),opacity:weight===0?.4:.65}));}}
+  svg.append(svgNode('path',{d:'M 112 111 C 150 111, 150 111, 177 111 M 213 32 C 200 24, 175 27, 175 45 L 175 61',fill:'none',stroke:'#a8ba91','stroke-width':1.2}));
+  svg.append(svgNode('text',{x:138,y:100,'text-anchor':'middle','font-size':7,fill:'#75816b'},'update'));
+  svg.append(svgNode('rect',{x:9,y:97,width:103,height:28,rx:5,fill:'#e1eabb',stroke:'#d6ddca'}));svg.append(svgNode('text',{x:61,y:115,'text-anchor':'middle','font-size':10,fill:'#3c5637'},vocabulary[memory.recent.at(-1)??BOS]));
+  svg.append(svgNode('text',{x:62,y:146,'text-anchor':'middle','font-size':8,fill:'#89947c'},G+' ReLU gates'));
+  for(let j=0;j<active.length;j++){const h=active[j],y=44+j*21;const circle=svgNode('circle',{cx:255,cy:y,r:6,fill:h.v!==0?'#638553':'#e5e9dc',stroke:h.v!==0?'#42653c':'#d4dcc9'});circle.append(svgNode('title',{},features[h.i]+': '+h.v.toFixed(3)));svg.append(circle);let label=features[h.i].replace('Theme: ','').replace('Subject: ','').replace('Object: ','');if(label.length>18)label=label.slice(0,17)+'…';svg.append(svgNode('text',{x:243,y:y+3,'text-anchor':'end','font-size':7.4,fill:h.v!==0?'#49603e':'#a0aa94'},label));}
+  top.slice(0,4).forEach((t,k)=>{const y=59+k*43;svg.append(svgNode('rect',{x:386,y:y-12,width:115,height:25,rx:5,fill:k===0?'#e1eabb':'#f0f2e8',stroke:'#d6ddca'}));svg.append(svgNode('text',{x:395,y:y+4,'font-size':9,fill:'#3c5637'},vocabulary[t.id]));svg.append(svgNode('text',{x:492,y:y+4,'text-anchor':'end','font-size':8,fill:'#75816b'},(t.p*100).toFixed(0)+'%'));});
+  svg.append(svgNode('text',{x:255,y:224,'text-anchor':'middle','font-size':8,fill:'#89947c'},'Selected memory features and actual output weights'));
 }
-const editorCandidates={
-  [HN.start]:['the','a','we'],[HN.determiner]:['little','robot','garden'],[HN.adjective]:['robot','cat','star'],[HN.singular]:['finds','builds','dreams'],[HN.plural]:['find','build','dream'],[HN.transitive]:['the','a','stars'],[HN.intransitive]:['.','under','softly'],[HN.copula]:['quiet','curious','a'],[HN.preposition]:['the','a','trees'],[HN.conjunction]:['the','we','a'],[HN.adverb]:['.','in','near'],[HN.finish]:['<end>','.','and'],[HN.object]:['.','under','and'],[HN.place]:['.','and','near'],[HN.description]:['.','and','robot'],[HN.tech]:['robot','builds','machine'],[HN.nature]:['forest','bird','garden'],[HN.dream]:['moon','star','dreams']
-};
-function renderEditor(){const h=Number($('neuron').value);$('weight-sliders').replaceChildren();editorCandidates[h].forEach(word=>{const v=tokenIds.get(word),wrap=document.createElement('div');wrap.className='weight-slider';const label=document.createElement('label');label.className='weight-top';label.htmlFor='weight-'+v;const name=document.createElement('span');name.textContent='→ '+word;const value=document.createElement('output');value.id='weight-output-'+v;value.htmlFor='weight-'+v;value.textContent=W2[v][h].toFixed(1);label.append(name,value);const slider=document.createElement('input');slider.type='range';slider.id='weight-'+v;slider.min=-16;slider.max=24;slider.step=.1;slider.value=W2[v][h];slider.setAttribute('aria-label','Weight from '+neurons[h]+' to '+word);slider.addEventListener('input',()=>{stop();W2[v][h]=Number(slider.value);overrides[v+':'+h]=Number(slider.value);value.textContent=W2[v][h].toFixed(1);$('edited-tag').textContent='WEIGHTS EDITED';render();});wrap.append(label,slider);$('weight-sliders').append(wrap);});updateWeightHelp();}
-function updateWeightHelp(){if(!latest)return;const activation=latest.hidden[Number($('neuron').value)];$('weight-help').textContent=activation>0?'This neuron is active ('+activation.toFixed(2)+'). A larger weight raises that word’s score.':'This neuron is inactive for the current context. Try another prompt or neuron to see an effect.';}
-function toast(message){$('toast').textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{$('toast').textContent='';},3000);}
-$('generate').addEventListener('click',()=>{if(running){stop();render();return;}if(finished||generated.length>=Number($('limit').value))reset();setRunning(true);render();tick();});
-$('step').addEventListener('click',()=>appendToken());$('reset').addEventListener('click',reset);
-$('prompt').addEventListener('input',reset);$('seed').addEventListener('change',reset);
-$('temperature').addEventListener('input',()=>{$('temperature-value').textContent=temperature().toFixed(2);stop();render();});
-$('limit').addEventListener('change',()=>{stop();render();setRunning(false);});
+function editorWords(h){
+  const preferred={0:['the','a','it'],4:['finds','builds','dreams'],5:['find','build','dream'],6:['the','a','some'],10:['.','and','near'],11:['.','quietly','under'],12:['quiet','a','curious'],21:['the','it','later']};
+  if(preferred[h])return preferred[h];
+  return Array.from(originalWeights,(row,id)=>({id,value:row[h]})).filter(x=>x.id>=2&&x.value>0).sort((a,b)=>b.value-a.value).slice(0,3).map(x=>vocabulary[x.id]);
+}
+function renderEditor(){
+  const h=Number($('neuron').value);$('weight-sliders').replaceChildren();
+  for(const word of editorWords(h)){const id=tokenIds.get(word),wrap=document.createElement('div');wrap.className='weight-slider';const label=document.createElement('label');label.className='weight-top';label.htmlFor='weight-'+id;const name=document.createElement('span');name.textContent='→ '+word;const value=document.createElement('output');value.htmlFor='weight-'+id;value.textContent=W2[id][h].toFixed(1);label.append(name,value);
+    const slider=document.createElement('input');slider.type='range';slider.id='weight-'+id;slider.min=-16;slider.max=24;slider.step=.1;slider.value=W2[id][h];slider.setAttribute('aria-label','Weight from '+features[h]+' to '+word);
+    slider.addEventListener('input',()=>{stop('WEIGHT UPDATED');W2[id][h]=Number(slider.value);overrides[id+':'+h]=Number(slider.value);value.textContent=W2[id][h].toFixed(1);$('edited-tag').textContent='WEIGHTS EDITED';latest=infer();render();});wrap.append(label,slider);$('weight-sliders').append(wrap);
+  }
+  updateWeightHelp();
+}
+function updateWeightHelp(){if(!latest)return;const activation=latest.hidden[Number($('neuron').value)];$('weight-help').textContent=Math.abs(activation)>.0001?'Active feature ('+activation.toFixed(2)+'). Weights change scores; grammar and sampling filters still apply.':'Inactive in this context. Use “Edit current state” or select a theme feature to see an effect.';}
+function toast(message){$('toast').textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{$('toast').textContent='';},3500);}
+function downloadFile(content,name,type){const url=URL.createObjectURL(new Blob([content],{type}));const link=document.createElement('a');link.href=url;link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+$('generate').addEventListener('click',()=>{if(running){stop();render();return;}runTarget=Math.min(MAX_DOCUMENT,generated.length+Number($('limit').value));running=true;render();tick();});
+$('step').addEventListener('click',()=>appendToken());$('reset').addEventListener('click',reset);$('prompt').addEventListener('input',reset);$('seed').addEventListener('change',reset);
+for(const id of ['temperature','top-p','repetition'])$(id).addEventListener('input',()=>{$(id+'-value').textContent=Number($(id).value).toFixed(2);stop('SAMPLING UPDATED');latest=infer();render();});
+for(const id of ['theme','no-repeat'])$(id).addEventListener('change',()=>{stop('SAMPLING UPDATED');latest=infer();render();});
+$('limit').addEventListener('change',()=>{stop('LENGTH UPDATED');render();});
 document.querySelectorAll('[data-prompt]').forEach(button=>button.addEventListener('click',()=>{$('prompt').value=button.dataset.prompt;reset();}));
-neurons.forEach((name,i)=>{const option=document.createElement('option');option.value=i;option.textContent=name;$('neuron').append(option);});$('neuron').value=HN.singular;$('neuron').addEventListener('change',renderEditor);
-$('restore').addEventListener('click',()=>{stop();originalWeights.forEach((row,v)=>W2[v].set(row));overrides={};$('edited-tag').textContent='LIVE WEIGHTS';renderEditor();render();toast('Original weights restored.');});
-$('download').addEventListener('click',()=>{
-  const html=ORIGINAL_HTML.replace(/(<script id="model-overrides" type="application\/json">)[\s\S]*?(<\/script>)/,(_,open,close)=>open+JSON.stringify(overrides)+close);
-  const url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='pocket-lm.html';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Standalone HTML downloaded, with your weight edits.');
-});
-const parameterCount=V*D+H*C*D+H+V*H+V;
+features.forEach((name,i)=>{const option=document.createElement('option');option.value=i;option.textContent=name;$('neuron').append(option);});
+$('neuron').addEventListener('change',renderEditor);$('follow-state').addEventListener('click',()=>{$('neuron').value=memory.state.indexOf(Math.max(...memory.state));renderEditor();});
+$('restore').addEventListener('click',()=>{stop('WEIGHTS RESTORED');originalWeights.forEach((row,v)=>W2[v].set(row));overrides={};$('edited-tag').textContent='LIVE WEIGHTS';latest=infer();renderEditor();render();toast('Original weights restored.');});
+$('download').addEventListener('click',()=>{const edits={version:2,weights:overrides};const html=ORIGINAL_HTML.replace(/(<script id="model-overrides" type="application\/json">)[\s\S]*?(<\/script>)/,(_,open,close)=>open+JSON.stringify(edits)+close);downloadFile(html,'pocket-lm.html','text/html;charset=utf-8');toast('Standalone HTML downloaded, including your weight edits.');});
+$('save-text').addEventListener('click',()=>{downloadFile(formatted(words())+'\n','pocket-lm-story.txt','text/plain;charset=utf-8');toast('Generated text saved.');});
 $('vocab-stat').textContent=V;$('param-stat').textContent=parameterCount.toLocaleString('en-US');$('vocabulary').textContent=vocabulary.join(' · ');
-$('architecture').textContent='Vocabulary: '+V+' tokens\nEmbedding:  '+V+' × '+D+'\nContext:    '+C+' embeddings ('+(C*D)+' features)\nHidden:     '+H+' ReLU neurons\nOutput:     '+V+' logits → softmax\n\nh = ReLU(W₁ · concat(E[t], …, E[t−3]) + b₁)\np = softmax((W₂ · h + b₂) / temperature)';
+$('architecture').textContent='Vocabulary: '+V+' tokens\nEmbedding:  '+V+' × '+D+'\nController: '+G+' ReLU transition gates\nGrammar:    '+S+' recurrent states\nThemes:     '+TOPICS.length+' decaying memory values\nOutput:     '+H+' features → '+V+' logits\nRepetition: last 64 tokens\n\ng = ReLU(A · [previous state; token] + b)\nstate = normalize(B · g)\ntheme = clip(R · theme + U · embedding)\nlogits = W₂ · [state; theme; subject; object] + b₂\np = top-p(softmax(filtered logits / temperature))';
 if(Object.keys(overrides).length)$('edited-tag').textContent='WEIGHTS EDITED';
-reset();renderEditor();
-// Exposed for reproducible, dependency-free numerical tests and curious developers.
-window.PocketLM={vocabulary,embeddings,neurons,W1,b1,W2,b2,HN,forward,tokenize,randomGenerator,sample,parameterCount};
+reset();
+window.PocketLM={vocabulary,embeddings,features,A,B,bg,W2,b2,support,ST,stateNames,TOPICS,SEM,forward,predict,promptMemory,initialMemory,advance,tokenize,randomGenerator,sample,formatted,parameterCount};
+
 </script>
 </body>
 </html>
