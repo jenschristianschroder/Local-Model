@@ -18,7 +18,13 @@ def pack_tensor(tensor):
 def export(args):
     torch.set_num_threads(2)
     saved=torch.load(args.checkpoint,weights_only=False,map_location='cpu');report=saved['report']
-    if args.selection=='latest':
+    if 'repair' in report:
+        selected=saved['step'];entry=next(e for e in reversed(report['history']) if e['step']==selected)
+        report['releaseSelection']={'strategy':'Continuation and sequence-unlikelihood checkpoint selected using long greedy rollouts and held-out losses','selectedStep':selected,'previousStep':report['bestStep'],'selectedRepairStep':entry['repairStep'],'developmentRepeated8':entry['greedyRepeated8']}
+        report['bestStep']=selected;report['bestValidationLoss']=entry['validationLoss'];report['repair']['selectedStep']=entry['repairStep']
+        report['holiday']['selectedAdaptationStep']=entry['adaptationStep']
+        report['holiday']['history'].extend(report['repair']['history'])
+    elif args.selection=='latest':
         selected=saved['step'];entry=next(e for e in reversed(report['history']) if e['step']==selected)
         report['releaseSelection']={'strategy':'Final fine-tuned checkpoint selected after qualitative sample review','selectedStep':selected,'validationBestStep':report['bestStep'],'validationBestLoss':report['holiday']['bestValidationLoss'],'selectedChristmasValidationLoss':entry['christmasValidationLoss']}
         report['bestStep']=selected;report['bestValidationLoss']=entry['validationLoss']
@@ -44,6 +50,8 @@ def export(args):
         training.pop('history',None)
         h=report['holiday'];training['holiday']={k:h[k] for k in ['name','corpus','initialValidationLoss','seed','batchProbability','bestAdaptationStep','selectedAdaptationStep','selectionMetric']}
         training['holiday'].update({'floatValidationLoss':holiday_float,'quantizedValidationLoss':holiday_quant,'history':[{k:e[k] for k in ['adaptationStep','christmasValidationLoss']} for e in h['history']]})
+    if 'repair' in report:
+        training['repair']={'method':'Sequence unlikelihood and paragraph continuation','steps':report['repair']['selectedStep'],'longStories':report['repair']['corpus']['train']['documents'],'heldOutLongStories':report['repair']['corpus']['valid']['documents']}
     payload={'format':4,'architecture':{'type':'GRU','embedding':report['embedding'],'hidden':report['hidden'],'vocabulary':report['vocabulary'],'gateOrder':'reset,update,new'},'tensors':tensors,'tokenizer':{'vocabulary':vocabulary,'merges':merges,'unknown':0,'paragraph':1},'training':training,'stats':{'parameters':report['parameters'],'packedWeightBytes':packed_bytes},'edits':{'version':4,'weights':{}}}
     text=json.dumps(payload,ensure_ascii=False,separators=(',',':'))
     payload['stats']['checkpointBytes']=len(text.encode())

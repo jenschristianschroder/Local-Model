@@ -32,6 +32,8 @@ Raw training data and floating-point optimizer checkpoints stay outside git. The
 
 ## Merry Nonsense Christmas edition
 
+This section reproduces the initial Christmas release. The continuation update below starts from that published model.
+
 The Christmas edition starts with the previous committed quantized checkpoint, learns 24 additional BPE merges from Christmas training prose, and fine-tunes every model parameter. Download the original base HTML and its report from the exact commit below; these are training inputs, not runtime network dependencies.
 
 ```sh
@@ -53,3 +55,28 @@ Original AI-authored training text: 105 separate Christmas stories. Validation: 
 Each Christmas batch contains complete stories padded to a fixed length; padding targets are ignored, and a paragraph marker ends each story. 80% of batches use Christmas text, with 20% base stories to retain general language patterns. Training records the checkpoint minimizing `0.85 * Christmas full-paragraph loss + 0.15 * base-story validation loss`. The released writer instead uses the final checkpoint after qualitative review of the four visible starters. Its more recognisable Christmas openings come with a higher held-out loss and more memorization. Both results are disclosed in `releaseSelection` and the full run record. Final export evaluates both float and quantized Christmas loss. A small validation set measures prediction of related prose, not general coherence or how funny the output is.
 
 An initial adaptation without vocabulary extension was also tested. It improved Christmas token prediction, but produced fragmented festive words in samples. The released run includes the learned vocabulary extension. The report's `holiday.selectedAdaptationStep` is 1,400. `holiday.bestAdaptationStep` identifies the earlier validation-best checkpoint. `training/christmas-run.json` preserves the complete run, including the evidence of overfitting.
+
+## Paragraph continuation and repetition update
+
+Use the prepared **1,924-piece** tokenizer and retokenized data from the Christmas recipe above. The old short-story examples only supervised a paragraph marker at their ends; they did not train the Christmas model to continue after it. The update packs stories into continuous 320-token training rows and includes 20 new three-paragraph stories. Four separate longer stories are used only for evaluation. Literal story and paragraph separators are training-data structure, not runtime templates.
+
+The training objective combines ordinary next-token cross-entropy with sequence unlikelihood, inspired by [Welleck et al.](https://arxiv.org/abs/1908.04319). Every fourth optimizer step generates four continuations from prefixes drawn from the training texts. Tokens that complete an already-seen 16-token span receive an offline negative training loss. No gradient is taken through the discrete generation choices. Cross-entropy and unlikelihood both update the same learned tensors. All runtime generation remains unfiltered softmax and seeded sampling.
+
+```sh
+curl -L https://raw.githubusercontent.com/jenschristianschroder/Local-Model/dc4d4cadb4939e17e95056c7fd80aa5a60f5de14/index.html -o training/data/before-repetition.html
+curl -L https://raw.githubusercontent.com/jenschristianschroder/Local-Model/dc4d4cadb4939e17e95056c7fd80aa5a60f5de14/training/report.json -o training/data/before-repetition-report.json
+python training/repair.py --base-html training/data/before-repetition.html --base-report training/data/before-repetition-report.json --data training/data --output training/runs/continuation --steps 450 --lr .0002 --alpha .5 --base-fraction .2 --long-fraction .25 --ngram 16 --rollout 768 --repeat-target end
+python training/export.py --checkpoint training/runs/continuation/step-375.pt --data training/data --output training/runs/export --html index.html
+cp training/runs/export/training-report.json training/report.json
+cp training/runs/export/reference.json training/reference.json
+node training/repetition-eval.mjs index.html repetition-results.json
+node training/repetition-eval.mjs index.html additional-results.json additional
+node build-model.mjs --check
+node --test test.mjs
+```
+
+Selection uses **375 additional updates**, absolute step 10,175. The run continued to 450, but that later compressed checkpoint looped much more in the long browser-kernel evaluation. The selected model was checked after quantization, since small rounding differences can change greedy paths substantially. The selected run uses float-model rollouts during training; an additional experiment with quantized rollouts is supported by `--quantized-rollouts` and recorded with the other comparisons. Neither numerical development score nor held-out loss alone determined release selection.
+
+Batch size 12; two CPU threads; seed 923; AdamW with weight decay 0.01; dropout 0.08; gradient clipping at 1; input corruption 0.003. Training rows are 20% base-story windows and 80% Christmas sequences. Within Christmas sequences, document selection is 25% longer stories and 75% original short stories. The unlikelihood coefficient is 0.5; sampled negative continuations use temperature zero 80% of the time and 0.55 otherwise. The learning rate follows a 450-step cosine schedule with a 20% floor. Reproducing only 375 schedule steps with a different total changes the result.
+
+`training/repetition-report.json` stores full before/after outputs, metric definitions, the unchanged inference-source checksum, and additional prompt checks. `training/repetition-experiments.json` records compared training runs and checkpoint decisions. The data is small and can be memorized. Lower repetition does not guarantee grammatical sentences, a continuous plot, or novel jokes.

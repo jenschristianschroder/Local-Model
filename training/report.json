@@ -425,6 +425,66 @@
       "selectionScore": 3.681471637165172,
       "learningRate": 0.00015,
       "seconds": 243.59
+    },
+    {
+      "step": 9875,
+      "repairStep": 75,
+      "adaptationStep": 1475,
+      "trainLoss": 2.287846121788025,
+      "unlikelihoodLossPerStep": 0.3160364929835002,
+      "validationLoss": 3.590947210788727,
+      "christmasValidationLoss": 3.636309904625101,
+      "longValidationLoss": 4.057268035272482,
+      "greedyRepeated8": 0.12576391613557017,
+      "seconds": 31.85
+    },
+    {
+      "step": 9950,
+      "repairStep": 150,
+      "adaptationStep": 1550,
+      "trainLoss": 2.129327967961629,
+      "unlikelihoodLossPerStep": 0.4102124810218811,
+      "validationLoss": 3.5802367329597473,
+      "christmasValidationLoss": 3.614323525327505,
+      "longValidationLoss": 4.02472163817581,
+      "greedyRepeated8": 0.4940787609797539,
+      "seconds": 62.51
+    },
+    {
+      "step": 10025,
+      "repairStep": 225,
+      "adaptationStep": 1625,
+      "trainLoss": 2.152691396077474,
+      "unlikelihoodLossPerStep": 0.36271648069222767,
+      "validationLoss": 3.570886790752411,
+      "christmasValidationLoss": 3.6050981149999277,
+      "longValidationLoss": 3.9968975849536728,
+      "greedyRepeated8": 0.35264868212710804,
+      "seconds": 92.15
+    },
+    {
+      "step": 10100,
+      "repairStep": 300,
+      "adaptationStep": 1700,
+      "trainLoss": 2.029604522387187,
+      "unlikelihoodLossPerStep": 0.3212720624605815,
+      "validationLoss": 3.570328950881958,
+      "christmasValidationLoss": 3.595128898585382,
+      "longValidationLoss": 3.987765467255579,
+      "greedyRepeated8": 0.3697657395998357,
+      "seconds": 121.53
+    },
+    {
+      "step": 10175,
+      "repairStep": 375,
+      "adaptationStep": 1775,
+      "trainLoss": 1.9684177700678507,
+      "unlikelihoodLossPerStep": 0.38404030799865724,
+      "validationLoss": 3.568191170692444,
+      "christmasValidationLoss": 3.5946408145865796,
+      "longValidationLoss": 3.9864756860844515,
+      "greedyRepeated8": 0.00379680088456516,
+      "seconds": 148.66
     }
   ],
   "source": {
@@ -453,9 +513,9 @@
   },
   "torchVersion": "2.7.1+cpu",
   "initialValidationLoss": 7.550509870052338,
-  "bestValidationLoss": 3.6059211790561676,
-  "bestStep": 9800,
-  "completedSteps": 9800,
+  "bestValidationLoss": 3.568191170692444,
+  "bestStep": 10175,
+  "completedSteps": 10175,
   "phases": [
     {
       "startStep": 4000,
@@ -483,6 +543,11 @@
       "extraBatchProbability": 0.8,
       "restartSchedule": true,
       "wholeParagraphs": true
+    },
+    {
+      "name": "Paragraph continuation and sequence unlikelihood",
+      "startStep": 9800,
+      "targetSteps": 10250
     }
   ],
   "extraCorpus": {
@@ -670,6 +735,66 @@
         "selectionScore": 3.681471637165172,
         "learningRate": 0.00015,
         "seconds": 243.59
+      },
+      {
+        "step": 9875,
+        "repairStep": 75,
+        "adaptationStep": 1475,
+        "trainLoss": 2.287846121788025,
+        "unlikelihoodLossPerStep": 0.3160364929835002,
+        "validationLoss": 3.590947210788727,
+        "christmasValidationLoss": 3.636309904625101,
+        "longValidationLoss": 4.057268035272482,
+        "greedyRepeated8": 0.12576391613557017,
+        "seconds": 31.85
+      },
+      {
+        "step": 9950,
+        "repairStep": 150,
+        "adaptationStep": 1550,
+        "trainLoss": 2.129327967961629,
+        "unlikelihoodLossPerStep": 0.4102124810218811,
+        "validationLoss": 3.5802367329597473,
+        "christmasValidationLoss": 3.614323525327505,
+        "longValidationLoss": 4.02472163817581,
+        "greedyRepeated8": 0.4940787609797539,
+        "seconds": 62.51
+      },
+      {
+        "step": 10025,
+        "repairStep": 225,
+        "adaptationStep": 1625,
+        "trainLoss": 2.152691396077474,
+        "unlikelihoodLossPerStep": 0.36271648069222767,
+        "validationLoss": 3.570886790752411,
+        "christmasValidationLoss": 3.6050981149999277,
+        "longValidationLoss": 3.9968975849536728,
+        "greedyRepeated8": 0.35264868212710804,
+        "seconds": 92.15
+      },
+      {
+        "step": 10100,
+        "repairStep": 300,
+        "adaptationStep": 1700,
+        "trainLoss": 2.029604522387187,
+        "unlikelihoodLossPerStep": 0.3212720624605815,
+        "validationLoss": 3.570328950881958,
+        "christmasValidationLoss": 3.595128898585382,
+        "longValidationLoss": 3.987765467255579,
+        "greedyRepeated8": 0.3697657395998357,
+        "seconds": 121.53
+      },
+      {
+        "step": 10175,
+        "repairStep": 375,
+        "adaptationStep": 1775,
+        "trainLoss": 1.9684177700678507,
+        "unlikelihoodLossPerStep": 0.38404030799865724,
+        "validationLoss": 3.568191170692444,
+        "christmasValidationLoss": 3.5946408145865796,
+        "longValidationLoss": 3.9864756860844515,
+        "greedyRepeated8": 0.00379680088456516,
+        "seconds": 148.66
       }
     ],
     "vocabularyExtensions": [
@@ -845,26 +970,123 @@
     "selectionMetric": "0.85 * full Christmas paragraph loss + 0.15 * TinyStories window loss",
     "bestValidationLoss": 3.2931655785163465,
     "bestAdaptationStep": 200,
-    "selectedAdaptationStep": 1400
+    "selectedAdaptationStep": 1775
   },
   "releaseSelection": {
-    "strategy": "Final fine-tuned checkpoint selected after qualitative sample review",
-    "selectedStep": 9800,
-    "validationBestStep": 8600,
-    "validationBestLoss": 3.2931655785163465,
-    "selectedChristmasValidationLoss": 3.694804070949114
+    "strategy": "Continuation and sequence-unlikelihood checkpoint selected using long greedy rollouts and held-out losses",
+    "selectedStep": 10175,
+    "previousStep": 9800,
+    "selectedRepairStep": 375,
+    "developmentRepeated8": 0.00379680088456516
+  },
+  "repair": {
+    "baseCheckpointSha256": "8384375e248287e647ed72a2a39f72b5c0dfc6b9186420348ff372f55bd74d3c",
+    "seed": 923,
+    "steps": 450,
+    "learningRate": 0.0002,
+    "batchSize": 12,
+    "sequenceLength": 320,
+    "longStoryProbability": 0.2,
+    "shortChristmasProbability": 0.6000000000000001,
+    "baseStoryProbability": 0.2,
+    "unlikelihoodEvery": 4,
+    "unlikelihoodWeight": 0.5,
+    "negativeNgramTokens": 16,
+    "rolloutTokens": 768,
+    "initialRepeated8": 0.6787883361419144,
+    "corpus": {
+      "train": {
+        "file": "christmas-long.txt",
+        "documents": 20,
+        "paragraphs": 60,
+        "tokens": 4735,
+        "sha256": "e9ab184a7bed1d690196cf3aa06ceeaa1084dedbe23443428a465ef4a3aeda5f"
+      },
+      "valid": {
+        "file": "christmas-long-valid.txt",
+        "documents": 4,
+        "paragraphs": 12,
+        "tokens": 945,
+        "sha256": "de2ada3d7662da1b0b808e5801f7907c769fed4d91942f4fc67a0a7576cc886b"
+      }
+    },
+    "initialLongValidationLoss": 4.157322623144427,
+    "history": [
+      {
+        "step": 9875,
+        "repairStep": 75,
+        "adaptationStep": 1475,
+        "trainLoss": 2.287846121788025,
+        "unlikelihoodLossPerStep": 0.3160364929835002,
+        "validationLoss": 3.590947210788727,
+        "christmasValidationLoss": 3.636309904625101,
+        "longValidationLoss": 4.057268035272482,
+        "greedyRepeated8": 0.12576391613557017,
+        "seconds": 31.85
+      },
+      {
+        "step": 9950,
+        "repairStep": 150,
+        "adaptationStep": 1550,
+        "trainLoss": 2.129327967961629,
+        "unlikelihoodLossPerStep": 0.4102124810218811,
+        "validationLoss": 3.5802367329597473,
+        "christmasValidationLoss": 3.614323525327505,
+        "longValidationLoss": 4.02472163817581,
+        "greedyRepeated8": 0.4940787609797539,
+        "seconds": 62.51
+      },
+      {
+        "step": 10025,
+        "repairStep": 225,
+        "adaptationStep": 1625,
+        "trainLoss": 2.152691396077474,
+        "unlikelihoodLossPerStep": 0.36271648069222767,
+        "validationLoss": 3.570886790752411,
+        "christmasValidationLoss": 3.6050981149999277,
+        "longValidationLoss": 3.9968975849536728,
+        "greedyRepeated8": 0.35264868212710804,
+        "seconds": 92.15
+      },
+      {
+        "step": 10100,
+        "repairStep": 300,
+        "adaptationStep": 1700,
+        "trainLoss": 2.029604522387187,
+        "unlikelihoodLossPerStep": 0.3212720624605815,
+        "validationLoss": 3.570328950881958,
+        "christmasValidationLoss": 3.595128898585382,
+        "longValidationLoss": 3.987765467255579,
+        "greedyRepeated8": 0.3697657395998357,
+        "seconds": 121.53
+      },
+      {
+        "step": 10175,
+        "repairStep": 375,
+        "adaptationStep": 1775,
+        "trainLoss": 1.9684177700678507,
+        "unlikelihoodLossPerStep": 0.38404030799865724,
+        "validationLoss": 3.568191170692444,
+        "christmasValidationLoss": 3.5946408145865796,
+        "longValidationLoss": 3.9864756860844515,
+        "greedyRepeated8": 0.00379680088456516,
+        "seconds": 148.66
+      }
+    ],
+    "negativeTarget": "end",
+    "selectedStep": 375
   },
   "export": {
     "packedWeightBytes": 672304,
-    "checkpointBytes": 942370,
-    "floatValidationLoss": 3.642714023590088,
-    "quantizedValidationLoss": 3.642908344666163,
-    "floatPerplexity": 38.195359286653265,
-    "quantizedPerplexity": 38.202782171159015,
-    "descriptionValidationLoss": 4.203417122364044,
-    "fullParagraphValidationLoss": 4.281843526022775,
-    "christmasFloatValidationLoss": 3.694804070949114,
-    "christmasQuantizedValidationLoss": 3.691948014503261
+    "checkpointBytes": 942838,
+    "floatValidationLoss": 3.6051284670829773,
+    "quantizedValidationLoss": 3.604044963916143,
+    "floatPerplexity": 36.786409396407926,
+    "quantizedPerplexity": 36.74657279077191,
+    "descriptionValidationLoss": 4.042332023382187,
+    "fullParagraphValidationLoss": 4.124533346721104,
+    "christmasFloatValidationLoss": 3.5946408145865796,
+    "christmasQuantizedValidationLoss": 3.5941076727785233
   },
-  "checkpointSha256": "8384375e248287e647ed72a2a39f72b5c0dfc6b9186420348ff372f55bd74d3c"
+  "checkpointSha256": "30a1a5a96d727c6601b608e662eb8d5b20f0a8fb45d867de6d7b76a046ea0fe1"
 }

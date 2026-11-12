@@ -76,6 +76,14 @@ test('sampler accepts special tokens and does not reject improbable outputs',()=
   const p=m.forward(ids('The robot hums'),{temperature:1}).probabilities;assert(p[0]>0);assert.equal(m.sample(p,()=>0),0);
   const special=new Float64Array(V);special[1]=1;assert.equal(m.sample(special,m.randomGenerator(42)),1);
 });
+test('temperature zero remains exact greedy decoding and ignores the seed',()=>{
+  const result=m.forward(ids('Santa opened the fridge'),{temperature:0});
+  const maximum=Math.max(...result.logits),index=Array.from(result.logits).indexOf(maximum);
+  assert.equal(result.probabilities[index],1);
+  assert.equal(result.probabilities.filter(p=>p!==0).length,1);
+  assert.equal(m.sample(result.probabilities,m.randomGenerator(42)),index);
+  assert.equal(m.sample(result.probabilities,m.randomGenerator(137)),index);
+});
 test('novel English words, capitalization, and punctuation round-trip through word pieces',()=>{
   for(const prompt of ['The robotic telescope sparkles.','"Hello," said Lily.','A blue-green butterfly!','Unknownword123'])assert.equal(m.decode(ids(prompt)),prompt);
   assert.notDeepEqual(ids('The robot'),ids('the robot'));
@@ -113,4 +121,26 @@ test('Christmas specialization is learned and the actual training texts stay out
     for(const token of ids(prompt))hidden=m.modelStep(m.model,hidden,token);
     assert.deepEqual(Array.from(hidden),Array.from(m.promptMemory(ids(prompt)).hidden));
   }
+});
+
+test('the reported long greedy fridge loop stays below the regression threshold',()=>{
+  const {text}=generate('Santa opened the fridge',1024,42,0);
+  const words=text.split(/\s+/).filter(Boolean),seen=new Set();let repeated=0;
+  for(let i=0;i<=words.length-8;i++){const gram=words.slice(i,i+8).join(' ');if(seen.has(gram))repeated++;seen.add(gram);}
+  assert(repeated/(words.length-7)<.2,'Repeated eight-word spans exceed 20%; previous checkpoint was about 75%');
+  const paragraphs=text.split(/\n\s*\n/).map(p=>p.trim()).filter(p=>p.split(/\s+/).length>=20);
+  assert.equal(new Set(paragraphs).size,paragraphs.length,'A full paragraph repeats');
+});
+
+test('continuation-training evidence matches the shipped weights and stays offline',()=>{
+  assert.equal(payload.training.repair.steps,report.repair.selectedStep);
+  for(const split of ['train','valid']){
+    const info=report.repair.corpus[split],text=readFileSync(new URL('./training/'+info.file,import.meta.url),'utf8');
+    assert.equal(createHash('sha256').update(text).digest('hex'),info.sha256);
+    for(const paragraph of text.split(/\n\n/).filter(p=>p.length>80))assert(!html.includes(paragraph));
+  }
+  const evidence=JSON.parse(readFileSync(new URL('./training/repetition-report.json',import.meta.url)));
+  assert.equal(createHash('sha256').update(numericalSource).digest('hex'),evidence.inferenceSourceSha256);
+  assert.equal(evidence.after.checkpointSha256,report.checkpointSha256);
+  assert(evidence.after.summary[0].meanRepeated8<evidence.before.summary[0].meanRepeated8*.5);
 });
