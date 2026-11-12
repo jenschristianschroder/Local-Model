@@ -9,8 +9,8 @@ const source=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const numericalSource=source.split('// MODEL END:')[0];
 const kernelSource=source.split('// INFERENCE KERNEL START')[1].split('// INFERENCE KERNEL END')[0];
 function loadModel(edits={}){
-  const context=vm.createContext({atob,document:{documentElement:{outerHTML:html},getElementById:id=>({textContent:JSON.stringify(id==='model-data'?payload:edits)})}});
-  vm.runInContext(numericalSource+'\nglobalThis.m={bundle,model,loadWeights,modelStep,modelLogits,softmax,predict,forward,promptMemory,initialMemory,advance,tokenize,decode,randomGenerator,sample,weightAt,setWeight,applyOverrides};',context);
+  const context=vm.createContext({atob,document:{documentElement:{outerHTML:html+'<div data-browser-overlay></div>'},head:{outerHTML:html.match(/<head>[\s\S]*?<\/head>/)[0]},body:{outerHTML:html.match(/<body>[\s\S]*?<\/body>/)[0]},getElementById:id=>({textContent:JSON.stringify(id==='model-data'?payload:edits)})}});
+  vm.runInContext(numericalSource+'\nglobalThis.m={originalHTML:ORIGINAL_HTML,bundle,model,loadWeights,modelStep,modelLogits,softmax,predict,forward,promptMemory,initialMemory,advance,tokenize,decode,randomGenerator,sample,weightAt,setWeight,applyOverrides};',context);
   return context.m;
 }
 const m=loadModel(),V=payload.architecture.vocabulary,H=payload.architecture.hidden;
@@ -28,6 +28,9 @@ test('page is below 1 MB, parses, and has no external runtime requests',()=>{
   new vm.Script(source);assert(Buffer.byteLength(html)<1_000_000);
   assert(!/<script[^>]+src=/i.test(html));assert(!/\b(?:fetch|XMLHttpRequest|WebSocket|importScripts)\s*\(/.test(source));assert(!/@import|url\(https?:/i.test(html));
   const referenced=[...source.matchAll(/\$\('([^']+)'\)/g)].map(x=>x[1]);for(const id of referenced)assert(html.includes('id="'+id+'"'),'Missing DOM element: '+id);
+});
+test('HTML export captures the document head and body without browser overlay siblings',()=>{
+  assert(!m.originalHTML.includes('data-browser-overlay'));assert(m.originalHTML.includes('<script id="model-data"'));assert(m.originalHTML.includes('window.PocketLM='));
 });
 test('all decoded tensors are finite and the learned tokenizer has valid merges',()=>{
   for(const[name,tensor]of Object.entries(payload.tensors)){const count=tensor.shape.reduce((a,b)=>a*b,1);assert.equal(m.model[name].length,count);assert(m.model[name].every(Number.isFinite));}
