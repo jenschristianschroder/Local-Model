@@ -1,0 +1,50 @@
+name: Verify and deploy Pocket LM
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Verify and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Check the language model
+        run: node --test test.mjs
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Prepare the standalone page
+        run: |
+          mkdir -p _site
+          cp index.html .nojekyll _site/
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+          include-hidden-files: true
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
