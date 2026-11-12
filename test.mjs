@@ -3,159 +3,181 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-const html = readFileSync(new URL('./index.html', import.meta.url), 'utf8');
-const source = html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
-const numericalSource = source.split('// MODEL END:')[0];
-function loadModel(edits={}) {
-  const context = vm.createContext({document:{documentElement:{outerHTML:html},getElementById:()=>({textContent:JSON.stringify(edits)})}});
-  vm.runInContext(numericalSource+'\nglobalThis.model={vocabulary,embeddings,features,A,B,bg,W2,b2,support,ST,stateNames,TOPICS,SEM,forward,predict,promptMemory,initialMemory,advance,tokenize,randomGenerator,sample,formatted,parameterCount,V,D,H,G,S,BOS,UNK,has};',context);
-  return context.model;
+const html=readFileSync(new URL('./index.html',import.meta.url),'utf8');
+const source=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
+const numericalSource=source.split('// MODEL END:')[0];
+const payload=JSON.parse(html.match(/<script id="model-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+const kernelSource=source.split('// INFERENCE KERNEL START')[1].split('// INFERENCE KERNEL END')[0];
+function loadModel(edits={}){
+  const context=vm.createContext({document:{documentElement:{outerHTML:html},getElementById:id=>({textContent:JSON.stringify(id==='model-data'?payload:edits)})}});
+  vm.runInContext(numericalSource+'\nglobalThis.m={model,labels,modelStep,modelLogits,softmax,predict,forward,promptMemory,initialMemory,advance,tokenize,randomGenerator,sample,formatted,weightAt,setWeight,applyOverrides};',context);
+  return context.m;
 }
-const m=loadModel();
-const ids=text=>m.tokenize(text).map(t=>t.id);
-const id=word=>m.vocabulary.indexOf(word);
-function generate(prompt,length=128,seed=42,options={}) {
+const m=loadModel(),{vocabulary,features,offsets:F,states:ST}=m.labels;
+const id=word=>vocabulary.indexOf(word),ids=text=>m.tokenize(text).map(t=>t.id);
+function generation(prompt,length=128,seed=42,options={}){
   const memory=m.promptMemory(ids(prompt)),random=m.randomGenerator(seed),output=[];
-  for(let i=0;i<length;i++) {
-    const prediction=m.predict(memory,options);
-    const token=m.sample(prediction.probabilities,random);
-    assert.equal(prediction.allowed[token],1);
-    assert(token!==m.BOS&&token!==m.UNK);
-    if(m.vocabulary[token]==='together')assert.equal(memory.subjectNumber,'plural','Group adverbs need a plural subject in this grammar');
-    assert(Math.abs(prediction.probabilities.reduce((a,b)=>a+b,0)-1)<1e-10);
+  for(let i=0;i<length;i++){
+    const result=m.predict(memory,options),token=m.sample(result.probabilities,random);
+    assert(result.logits.every(Number.isFinite));
+    assert(Math.abs(result.probabilities.reduce((a,b)=>a+b,0)-1)<1e-10);
+    assert(token>=0&&token<vocabulary.length);
     output.push(token);m.advance(memory,token);
   }
-  return {output,memory,text:m.formatted(output.map(i=>m.vocabulary[i]))};
+  return{memory,output,text:m.formatted(output.map(v=>vocabulary[v]))};
 }
-test('single-file application parses without dependencies or network requests',()=>{
+function probability(prompt,word,temperature=1){return m.forward(ids(prompt),{temperature}).probabilities[id(word)];}
+
+test('the standalone application parses and makes no model or asset requests',()=>{
   new vm.Script(source);
   assert(!/<script[^>]+src=/i.test(html));
   assert(!/\b(?:fetch|XMLHttpRequest|WebSocket|importScripts)\s*\(/.test(source));
   assert(!/@import|url\(https?:/i.test(html));
 });
-test('larger vocabulary is unique and all numeric matrix shapes agree',()=>{
-  assert(m.V>400);assert(m.parameterCount>40000);
-  assert.equal(new Set(m.vocabulary).size,m.V);
-  assert(m.embeddings.every(row=>row.length===m.D));
-  assert(m.A.every(row=>row.length===m.S+21));
-  assert(m.B.every(row=>row.length===m.G));
-  assert(m.W2.every(row=>row.length===m.H));
+test('the checkpoint contains only numeric inference data with valid sparse connections',()=>{
+  const w=m.model,V=vocabulary.length,base=w.width+w.embeddingWidth;
+  assert.equal(w.format,3);assert.equal(w.embedding.length,V);assert.equal(w.output.length,V);
+  assert.equal(w.initial.length,w.width);assert.equal(w.readout.length,w.width);assert.equal(features.length,w.width);
+  assert.equal(w.cellBias.length,w.cell.length);assert.equal(w.outputBias.length,V);
+  function rowCheck(row,width){assert.equal(row.length%2,0);for(let j=0;j<row.length;j+=2){assert(Number.isInteger(row[j])&&row[j]>=0&&row[j]<width);assert(Number.isFinite(row[j+1]));}}
+  w.embedding.forEach(row=>rowCheck(row,w.embeddingWidth));
+  w.cell.forEach((row,n)=>rowCheck(row,base+n));
+  w.output.forEach(row=>rowCheck(row,w.width));
+  assert(w.readout.every(n=>Number.isInteger(n)&&n>=0&&n<base+w.cell.length));
+  assert([...w.cellBias,...w.initial,...w.outputBias].every(Number.isFinite));
+  const noStrings=value=>typeof value==='number'||(Array.isArray(value)?value.every(noStrings):Object.values(value).every(noStrings));
+  assert(noStrings(w));
 });
-test('probabilities stay finite and normalized for normal and unknown prompts',()=>{
-  for(const prompt of ['', 'the little robot','the quiet forest','we','unknown 🦊','.','a','an','the robot builds a small bridge'])
-    for(const temperature of [0,.05,.8,1.5])for(const topP of [.1,.92,1]){
-      const p=m.forward(ids(prompt),{temperature,topP}).probabilities;
-      assert(p.every(n=>Number.isFinite(n)&&n>=0&&n<=1.0000000001));
-      assert(Math.abs(p.reduce((a,b)=>a+b,0)-1)<1e-10);
-      assert.equal(p[m.BOS],0);assert.equal(p[m.UNK],0);
-      if(temperature===0)assert.equal(p.filter(n=>n===1).length,1);
-    }
+test('numeric-only kernel reproduces predictions without vocabulary labels, POS tables, or a DOM',()=>{
+  const context=vm.createContext({});
+  vm.runInContext(kernelSource+';globalThis.engine={modelStep,modelLogits,softmax};',context);
+  const weights=JSON.parse(JSON.stringify(m.model));
+  let hidden=Float64Array.from(weights.initial);
+  for(const token of ids('the little robot hums'))hidden=context.engine.modelStep(weights,hidden,token);
+  const actual=context.engine.softmax(context.engine.modelLogits(weights,hidden),.8);
+  assert.deepEqual(Array.from(actual),Array.from(m.forward(ids('the little robot hums')).probabilities));
 });
-test('generation crosses sentence boundaries and reaches 512 tokens',()=>{
-  for(const prompt of ['the little robot','the quiet forest','the distant planet','a curious cat','we']){
-    const result=generate(prompt,512);
-    assert.equal(result.output.length,512);
-    assert(result.output.filter(t=>m.has(t,'punct')).length>10);
-    assert(result.text.includes('\n\n'));
-    assert(result.memory.recent.length<=64);
-    assert(result.memory.theme.every(n=>Number.isFinite(n)&&n>=0&&n<=1));
+test('sampling probabilities are exactly softmax of raw model logits',()=>{
+  for(const prompt of ['', 'the little robot hums','the robots hum','a','an','unknown 🦊','.','hums'])for(const temperature of [.05,.8,1,1.5]){
+    const memory=m.promptMemory(ids(prompt)),result=m.predict(memory,{temperature});
+    const logits=m.modelLogits(m.model,memory.hidden),maximum=Math.max(...logits);
+    const e=Array.from(logits,x=>Math.exp((x-maximum)/temperature)),sum=e.reduce((a,b)=>a+b,0);
+    assert.deepEqual(Array.from(result.logits),Array.from(logits));
+    result.probabilities.forEach((p,v)=>assert(Math.abs(p-e[v]/sum)<1e-14));
+    assert(Math.abs(result.probabilities.reduce((a,b)=>a+b,0)-1)<1e-10);
+    if(temperature>=1)assert(result.probabilities.every(p=>p>0),'No vocabulary IDs are filtered');
   }
 });
-test('incremental continuation matches uninterrupted generation',()=>{
-  const memory=m.promptMemory(ids('the little robot')),random=m.randomGenerator(42),output=[];
-  for(const batch of [64,64])for(let i=0;i<batch;i++){const token=m.sample(m.predict(memory).probabilities,random);output.push(token);m.advance(memory,token);}
-  assert.deepEqual(output,generate('the little robot',128).output);
+test('zero output weights and biases produce a uniform distribution over the entire vocabulary',()=>{
+  const isolated=loadModel();isolated.model.output=isolated.model.output.map(()=>[]);isolated.model.outputBias.fill(0);
+  const result=isolated.forward(ids('the little robot hums'),{temperature:1});
+  assert(result.probabilities.every(p=>Math.abs(p-1/vocabulary.length)<1e-14));
 });
-test('state retains prompt theme beyond the former four-token context',()=>{
-  const memory=m.promptMemory(ids('the robot'));
-  for(const token of ids('is quiet . it is gentle . it'))m.advance(memory,token);
-  assert(memory.anchor[0]>.9);
-  assert(memory.subject[m.SEM.indexOf('machine')]===1);
-  assert(memory.state[m.ST.singular]===1);
+test('the sampler does not skip special tokens or reject an unlikely choice',()=>{
+  const p=m.forward(ids('the robot hums'),{temperature:1}).probabilities;
+  assert(p[0]>0);assert.equal(m.sample(p,()=>0),0);
 });
-test('recurrent grammar resolves ambiguous words and subject number',()=>{
-  assert.equal(m.promptMemory(ids('the robot dreams')).state[m.ST.verbDone],1);
-  assert.equal(m.promptMemory(ids('the dreams')).state[m.ST.plural],1);
-  const singular=m.forward(ids('the robot')).probabilities,plural=m.forward(ids('the robots')).probabilities;
-  assert.equal(singular[id('build')],0);assert.equal(plural[id('builds')],0);
+test('all four reported singular contexts strongly disfavor together through finite logits',()=>{
+  for(const prompt of ['the little robot hums','the quiet forest blooms','a curious cat wakes','the distant planet sparkles','it can hum','hums'])for(const temperature of [.8,1,1.5]){
+    const result=m.forward(ids(prompt),{temperature}),p=result.probabilities[id('together')];
+    assert(Number.isFinite(result.logits[id('together')]));assert(p>0&&p<1e-6,prompt);
+  }
 });
-test('reported singular subjects cannot take together, even with a boosted weight',()=>{
-  const contexts=['the little robot hums','the quiet forest blooms','a curious cat wakes','the distant planet sparkles','it can hum','hums','the robots hum . hums','the robots hum and hums'];
-  const word=id('together'),original=m.W2[word][m.ST.verbDone];
+test('plural subject activations make together a normal candidate',()=>{
+  for(const prompt of ['the robots hum','the flowers bloom','the cats wake','the planets sparkle','they can hum','we work'])assert(probability(prompt,'together')>.02,prompt);
+});
+test('changing one output weight can make the original singular-subject error win',()=>{
+  const v=id('together'),original=m.weightAt(v,F.alone),memory=m.promptMemory(ids('the little robot hums'));
   try{
-    m.W2[word][m.ST.verbDone]=24;
-    for(const prompt of contexts)for(const temperature of [0,.8,1.5]){
-      const result=m.forward(ids(prompt),{temperature,topP:1,noRepeat:false});
-      assert.equal(result.probabilities[word],0,prompt);
-      assert.equal(result.allowed[word],0,prompt);
-    }
-  }finally{m.W2[word][m.ST.verbDone]=original;}
+    assert(m.predict(memory).probabilities[v]<1e-10);
+    m.setWeight(v,F.alone,16);
+    const result=m.predict(memory);
+    assert(result.probabilities[v]>.999);
+    assert.equal(m.sample(result.probabilities,m.randomGenerator(42)),v);
+  }finally{m.setWeight(v,F.alone,original);}
 });
-test('plural subjects can still use together after compatible verbs',()=>{
-  for(const prompt of ['the robots hum','the flowers bloom','the cats wake','the planets sparkle','they can hum','we work']){
-    assert(m.forward(ids(prompt),{topP:1}).probabilities[id('together')]>0,prompt);
+test('verb affinities affect logits, and editing those weights can reverse the preference',()=>{
+  const cases=[['the robot hums','softly','brightly'],['the forest blooms','slowly','patiently'],['the cat wakes','slowly','brightly'],['the planet sparkles','brightly','patiently'],['we wait','patiently','brightly'],['the river flows','gently','patiently']];
+  for(const[prompt,good,odd]of cases)assert(probability(prompt,good)>probability(prompt,odd)*1e8,prompt);
+  const v=id('brightly'),h=F.mismatch+m.labels.adverbs.indexOf('brightly'),original=m.weightAt(v,h);
+  try{m.setWeight(v,h,16);assert(probability('the robot hums','brightly')>.999);}finally{m.setWeight(v,h,original);}
+});
+test('subject number lives in recurrent activations across objects, modals, and clauses',()=>{
+  const cases=[['the robot sees birds',1,0],['the birds see a robot',0,1],['the robot dreams',1,0],['the dreams glow',0,1],['the birds glow . it can hum',1,0],['the robot glows . they can hum',0,1],['the robots hum and the cat wakes',1,0],['the robots hum .',0,0]];
+  for(const[prompt,singular,plural]of cases){const h=m.promptMemory(ids(prompt)).hidden;assert.equal(h[F.singular],singular,prompt);assert.equal(h[F.plural],plural,prompt);}
+});
+test('syntax preferences come from weights rather than a support mask',()=>{
+  assert(probability('the robot','builds')>probability('the robot','build')*1e8);
+  assert(probability('the robots','build')>probability('the robots','builds')*1e8);
+  const v=id('build'),original=m.weightAt(v,ST.singular);
+  try{m.setWeight(v,ST.singular,64);assert(probability('the robot','build')>.999);}finally{m.setWeight(v,ST.singular,original);}
+});
+test('swapping numeric token embeddings changes number behavior without changing word labels',()=>{
+  const isolated=loadModel();isolated.model.embedding[id('robots')]=isolated.model.embedding[id('robot')].slice();
+  assert.deepEqual(Array.from(isolated.forward(ids('the robots hums')).logits),Array.from(isolated.forward(ids('the robot hums')).logits));
+});
+test('ambiguous and out-of-order input stays bounded inside the recurrent cell',()=>{
+  const prompts=['the secret forest','the secret secret story','the dream dreams','unknown 🦊 the secret','hums blooms robot secret .'];
+  for(const prompt of prompts){
+    const h=m.promptMemory(ids(prompt)).hidden;
+    assert(h.every(Number.isFinite));assert.equal(h.slice(0,m.labels.stateNames.length).reduce((a,b)=>a+b,0),1,prompt);
+  }
+  const memory=m.initialMemory(),random=m.randomGenerator(9);
+  for(let i=0;i<2000;i++)m.advance(memory,Math.floor(random()*vocabulary.length));
+  assert(memory.hidden.every(x=>Number.isFinite(x)&&Math.abs(x)<=64));
+  assert.equal(memory.state.reduce((a,b)=>a+b,0),1);
+});
+test('article and adjective preferences are finite model scores',()=>{
+  const a=m.forward(ids('a'),{temperature:1}),an=m.forward(ids('an'),{temperature:1});
+  assert(a.probabilities[id('little')]>a.probabilities[id('electric')]*1e6);
+  assert(an.probabilities[id('electric')]>an.probabilities[id('little')]*1e6);
+  assert(a.probabilities[id('electric')]>0);
+  const before=probability('the little','curious'),after=probability('the little silver','curious');
+  assert(after<before*1e-5);
+});
+test('repetition feedback is encoded in recurrent token activations and output weights',()=>{
+  const memory=m.promptMemory(ids('the robot sees a robot . the')),v=id('robot'),h=F.trace+v,original=m.weightAt(v,h);
+  assert(memory.hidden[h]>.3);assert(original<0);
+  const before=m.predict(memory,{temperature:1}).probabilities[v];
+  try{m.setWeight(v,h,0);assert(m.predict(memory,{temperature:1}).probabilities[v]>before);}finally{m.setWeight(v,h,original);}
+});
+test('display history cannot influence the model prediction',()=>{
+  const memory=m.promptMemory(ids('the little robot hums')),before=Array.from(m.predict(memory).logits);
+  memory.recent=ids('they glow together and they glow together');
+  assert.deepEqual(Array.from(m.predict(memory).logits),before);
+});
+test('512-token generation remains finite and crosses sentence and paragraph boundaries',()=>{
+  for(const prompt of ['the little robot','the quiet forest','a curious cat','the distant planet','we']){
+    const result=generation(prompt,512);
+    assert.equal(result.output.length,512);assert(result.text.includes('\n\n'));
+    assert(result.output.filter(v=>vocabulary[v]==='.').length>10);
+    assert(result.memory.hidden.every(Number.isFinite));assert(result.memory.recent.length<=8);
   }
 });
-test('subject number survives predicates, objects, modals, and pronoun changes',()=>{
-  const cases=[['the robot hums','singular'],['the robots hum','plural'],['the robot sees birds','singular'],['the birds see a robot','plural'],['the robot dreams','singular'],['the dreams glow','plural'],['the birds glow . it can hum','singular'],['the robot glows . they can hum','plural'],['the robots hum and the cat wakes','singular'],['the cat wakes and the robots hum','plural'],['the robots hum .',null]];
-  for(const[prompt,number]of cases)assert.equal(m.promptMemory(ids(prompt)).subjectNumber,number,prompt);
+test('continuation uses the same recurrent state and random sequence',()=>{
+  const memory=m.promptMemory(ids('the little robot')),rng=m.randomGenerator(42),output=[];
+  for(const batch of [64,64])for(let i=0;i<batch;i++){const token=m.sample(m.predict(memory).probabilities,rng);output.push(token);m.advance(memory,token);}
+  assert.deepEqual(output,generation('the little robot',128).output);
 });
-test('manner adverbs match the current verb',()=>{
-  for(const[prompt,allowed,blocked]of [['the robot hums','softly','brightly'],['the forest blooms','slowly','patiently'],['the cat wakes','slowly','brightly'],['the planet sparkles','brightly','patiently'],['we wait','patiently','brightly'],['the river flows','gently','patiently']]){
-    const result=m.forward(ids(prompt),{topP:1});
-    assert(result.probabilities[id(allowed)]>0,prompt+' should allow '+allowed);
-    assert.equal(result.probabilities[id(blocked)],0,prompt+' should block '+blocked);
-  }
+test('greedy and high-temperature generation remain numerically stable',()=>{
+  for(const temperature of [0,1.5])assert(generation('the little robot',512,7,{temperature}).memory.hidden.every(Number.isFinite));
 });
-test('noun and verb ambiguity does not overwrite the remembered predicate',()=>{
-  assert.equal(m.promptMemory(ids('the robot dreams')).predicate,id('dreams'));
-  assert.equal(m.promptMemory(ids('the dream')).predicate,null);
-  assert.equal(m.forward(ids('the robot glows . it waits'),{topP:1}).probabilities[id('brightly')],0);
-});
-test('every intransitive verb retains a compatible adverb for singular and plural subjects',()=>{
-  for(let v=2;v<m.V;v++)for(const[part,pronoun]of[['vs','it'],['vp','they']])if(m.has(v,part)){
-    const p=m.forward(ids(pronoun+' '+m.vocabulary[v]),{topP:1}).probabilities;
-    assert(m.vocabulary.some((word,i)=>m.has(i,'adv')&&p[i]>0),m.vocabulary[v]);
-  }
-});
-test('article constraints and adjective cap are applied before sampling',()=>{
-  assert.equal(m.forward(ids('a')).probabilities[id('electric')],0);
-  assert.equal(m.forward(ids('an')).probabilities[id('little')],0);
-  assert.equal(m.forward(ids('the little silver')).probabilities[id('curious')],0);
-});
-test('lower top-p narrows the candidate pool and temperature raises entropy',()=>{
+test('temperature scales the full vocabulary distribution and zero selects the maximum',()=>{
   const memory=m.promptMemory(ids('the little robot'));
-  assert(m.predict(memory,{topP:.1}).probabilities.filter(x=>x>0).length<m.predict(memory,{topP:1}).probabilities.filter(x=>x>0).length);
-  const entropy=p=>p.reduce((s,x)=>s-(x>0?x*Math.log(x):0),0);
-  assert(entropy(m.predict(memory,{temperature:1.5,topP:1}).probabilities)>entropy(m.predict(memory,{temperature:.1,topP:1}).probabilities));
+  const entropy=p=>p.reduce((sum,x)=>sum-(x>0?x*Math.log(x):0),0);
+  assert(entropy(m.predict(memory,{temperature:1.5}).probabilities)>entropy(m.predict(memory,{temperature:.1}).probabilities));
+  const result=m.predict(memory,{temperature:0});assert.equal(result.probabilities[result.logits.indexOf(Math.max(...result.logits))],1);
 });
-test('repetition penalty reduces a recently used content word',()=>{
-  const memory=m.promptMemory(ids('the robot sees a robot . the'));
-  const base=m.predict(memory,{repetition:0,noRepeat:false,topP:1}).probabilities[id('robot')];
-  assert(m.predict(memory,{repetition:2,noRepeat:false,topP:1}).probabilities[id('robot')]<base);
+test('edited weights survive JSON checkpoints and versioned standalone HTML overrides',()=>{
+  const v=id('together'),h=F.alone;
+  for(const value of [-48,64])assert.equal(loadModel({version:3,weights:{[v+':'+h]:value}}).weightAt(v,h),value);
+  assert.equal(loadModel({version:2,weights:{[v+':'+h]:64}}).weightAt(v,h),-24);
+  const isolated=loadModel({version:3,weights:{[v+':'+h]:16}}),weights=JSON.parse(JSON.stringify(isolated.model));
+  const memory=isolated.promptMemory(ids('the little robot hums'));
+  assert.deepEqual(Array.from(isolated.modelLogits(weights,memory.hidden)),Array.from(isolated.predict(memory).logits));
 });
-test('repeated-trigram guard masks a previously used phrase',()=>{
-  const memory=m.promptMemory(ids('the little robot glows . the little'));
-  assert(m.predict(memory,{noRepeat:false,topP:1}).probabilities[id('robot')]>0);
-  assert.equal(m.predict(memory,{noRepeat:true,topP:1}).probabilities[id('robot')],0);
+test('seeded runs reproduce the same samples while different seeds change the text',()=>{
+  assert.equal(generation('the little robot',64,42).text,generation('the little robot',64,42).text);
+  assert.notEqual(generation('the little robot',64,42).text,generation('the little robot',64,18).text);
 });
-test('active output weights change probabilities and exports reload all slider values',()=>{
-  const word=id('dreams'),feature=m.ST.singular,memory=m.promptMemory(ids('the little robot'));
-  const before=m.predict(memory,{topP:1}).probabilities[word],original=m.W2[word][feature];
-  m.W2[word][feature]+=5;assert(m.predict(memory,{topP:1}).probabilities[word]>before);m.W2[word][feature]=original;
-  for(const value of [-16,24])assert.equal(loadModel({version:2,weights:{[word+':'+feature]:value}}).W2[word][feature],value);
-  assert.equal(loadModel({version:1,weights:{[word+':'+feature]:24}}).W2[word][feature],original);
-  assert.equal(loadModel({version:2,weights:{[word+':'+feature]:999}}).W2[word][feature],original);
-});
-test('seeded generation is repeatable but different seeds change the result',()=>{
-  assert.equal(generate('the little robot',64,42).text,generate('the little robot',64,42).text);
-  assert.notEqual(generate('the little robot',64,42).text,generate('the little robot',64,18).text);
-});
-test('long greedy and high-temperature runs remain bounded and valid',()=>{
-  for(const temperature of [0,1.5]){
-    const result=generate('the little robot',512,7,{temperature});
-    assert.equal(result.output.length,512);
-    assert.equal(result.memory.recent.length,64);
-  }
-});
-console.log(JSON.stringify({vocabulary:m.V,parameters:m.parameterCount,reluGates:m.G,recurrentStates:m.S,outputFeatures:m.H}));
+console.log(JSON.stringify(m.labels.stats));

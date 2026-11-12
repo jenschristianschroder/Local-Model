@@ -32,6 +32,8 @@ jobs:
         with:
           node-version: '24'
           package-manager-cache: false
+      - name: Check the embedded numeric checkpoint
+        run: node build-model.mjs --check
       - name: Check the language model
         run: node --test test.mjs
       - name: Configure Pages

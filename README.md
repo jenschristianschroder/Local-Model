@@ -1,40 +1,60 @@
-# Pocket LM 2
+# Pocket LM 3
 
-A self-contained, interactive language model that runs entirely in the browser. Its recurrent neural controller and output weights are hand-written in `index.html`; there is no model download, API, build step, or training step.
+A self-contained demonstration of a **hand-wired recurrent neural network** running entirely in the browser. All language behavior is represented by numeric model parameters and hidden activations. The inference engine has no grammar checks or output masks.
 
 **[Open the demo](https://jenschristianschroder.github.io/Local-Model/)**
 
-Open `index.html` locally to use it offline. The **Download HTML** button also saves a standalone copy containing any weight edits made in the playground.
+Open `index.html` locally to use it offline. No dependencies, model downloads, API keys, tracking, or server-side inference are involved.
+
+## What changed
+
+Version 2 applied grammar, article, verb–adverb, and repetition filters outside the network. Version 3 removes that decoding layer. The page embeds a frozen numeric checkpoint; a small generic inference kernel evaluates it without reading word labels, parts of speech, or compatibility tables.
+
+The model now represents syntax, subject number, article preferences, verb affinities, sentence length, themes, and recent-token activity in its recurrent activations. Output weights turn these features into **finite logits for every vocabulary ID**. Sampling uses the full softmax distribution, with temperature as the only distribution control. There is no top-p pruning, phrase blacklist, candidate rejection, or fallback grammar filter.
+
+For example, the connection from the `Single / unknown subject` activation to the `together` output has weight **−24**. That lowers its score in “the robot hums,” while plural subjects leave this activation off. This is a preference in the model, not an absolute prohibition. Click **Inspect “together”**, then change that weight to **+16**: the previously discouraged word becomes the model's top prediction. Similarly, changing syntax or verb-affinity weights can make the model produce incorrect language.
+
+## Numeric architecture
+
+- 462 vocabulary IDs, including input special tokens.
+- A sparse 462 × 541 token embedding matrix.
+- A recurrent cell with 806 ReLU neurons and 558 hidden activations.
+- A sparse linear output layer producing 462 finite logits.
+- 10,782 nonzero weights and biases. This excludes structural zeros; v2 displayed dense parameter slots, so the two counts are not directly comparable.
+
+At each step, the network concatenates the previous hidden vector and the current token embedding. Its cell evaluates an ordered, acyclic set of affine/ReLU neurons; numeric readout indices select the next hidden vector. A linear layer produces logits, and softmax converts them into probabilities. The kernel is marked `INFERENCE KERNEL START` / `END` in `index.html` and can run with just the numeric checkpoint, without the DOM or label metadata.
+
+The sparse rows are flat arrays of `[column, weight, column, weight, ...]`. The checkpoint contains embeddings, cell connections, cell biases, readout indices, initial activations, output connections, and output biases. Labels are separate inspection metadata. `build-model.mjs` authors the weights offline and embeds the checkpoint into the HTML; **the browser does not execute this builder**. Its human-authored language knowledge is compiled into numeric connections, not learned from training data.
+
+Repetition feedback is part of the network: decaying token activations feed negative output connections. It is a soft tendency, not a guarantee against repeated phrases. All vocabulary entries receive scores, including special tokens. At very low temperature, floating-point softmax can underflow extremely small probabilities; temperature zero selects the largest logit.
 
 ## Explore
 
-- Enter a short prompt or choose an example.
-- Generate 32–512 tokens per batch, across sentences and paragraphs. **Continue** appends another batch without resetting the recurrent state or random generator, up to 4,096 generated tokens per document.
-- Step through individual tokens, pause generation, or opt into stopping after one sentence.
-- Inspect actual sampling probabilities after grammar, repetition, and top-p filters; click a candidate to choose it manually.
-- Change temperature, top-p, repetition penalty, theme, and seed to explore sampling. A repeated-trigram guard is enabled by default.
-- Edit output weights and observe their effect on probabilities.
-- Inspect sentence state, theme memory, active output features, and the complete vocabulary.
-- Download the generated text or a standalone HTML copy with your current weight edits.
+- Start with a short prompt or one of the four examples.
+- Generate 32–512 tokens per batch. Continue preserves hidden state and the random sequence, up to 4,096 generated tokens per document.
+- Step through predictions, inspect raw logits and probabilities, and edit any output connection.
+- Try **Inspect “together”** to see the original grammar issue represented by an editable weight.
+- Change temperature and seed. Length, Stop, and One sentence only govern when generation pauses, not which word is chosen.
+- **Download weights** exports the complete numeric checkpoint plus inspection labels.
+- **Download HTML** saves a standalone page including your output-weight edits. Version 3 uses its own override format; version 2 edits have incompatible feature indices and are ignored.
 
-## What the model is
+Unknown input maps to the numeric `<unk>` embedding. Display formatting adds spacing, capitalization, and paragraph breaks without replacing words. The last eight displayed tokens are UI history and have no effect on inference.
 
-A word-level **recurrent neural controller with grammar-guided decoding**. It has 462 tokens, 44,268 numeric parameter slots, 42 ReLU transition gates, 23 grammar states, six decaying theme-memory values, and 45 output features. Parameter counts include zero-valued matrix entries.
+This is an educational model with hand-authored weights, **not a pretrained LLM or general assistant**. Its representations and vocabulary are limited. It can still produce awkward language, drift between themes, repeat itself, and make grammar mistakes. Longer output and more internal activations do not give it general world knowledge.
 
-The grammar is compiled into numeric matrices: ReLU gates match the previous state and token features, then a projection produces the next state. A recurrent theme vector, a fixed prompt-theme anchor, subject features, and object preferences contribute to output logits. An explicit grammar-support mask, simple article constraints, verb–adverb compatibility rules, repetition controls, temperature, and top-p determine the distribution used for sampling. These constraints are visible in the source; this is not an unconstrained trained RNN or transformer.
+## Reproduce and verify
 
-The decoder remembers the current subject's grammatical number and the current verb. Adverbs must fit that verb: for example, `hums softly`, `blooms slowly`, and `sparkles brightly`. In this limited grammar, `together` requires a plural subject, such as `the robots hum together`. A new clause resets this number check, and objects do not overwrite it. The grammar does not support companion constructions such as `the robot hums together with a friend`, so this is deliberately a narrower rule than English as a whole. These checks happen before sampling and remain active when weights or temperature change, or when the repeated-trigram guard relaxes.
+With Node.js 24:
 
-The decoder samples every word individually. It does not select stored replies, assemble sentence templates, or contain a training corpus. Punctuation transitions to a new sentence instead of emitting an end token. State updates are incremental; continuing does not replay the document. Repetition controls retain only the most recent 64 tokens. The repeated-trigram guard relaxes if it would block every otherwise valid candidate.
+```sh
+node build-model.mjs
+node --test test.mjs
+```
 
-This remains an educational toy, **not a pretrained LLM or general assistant**. Its limited grammar and vocabulary cannot answer arbitrary questions or ensure semantic coherence. Meaning can drift and sentences can still be odd. It has no learned world knowledge or attention mechanism. Unknown input stays visible in the prompt but does not update the grammar state. A larger parameter count and longer output do not imply pretrained-model quality.
+Use `node build-model.mjs --check` to confirm the embedded checkpoint matches the authoring script without rewriting the HTML.
 
-All inference uses plain JavaScript on the CPU. The page makes no inference or asset requests. No dependencies, tracking, or API keys are included.
-
-## Verification
-
-Run `node --test test.mjs` with Node.js 24. The tests execute the actual inline numerical implementation. They cover matrix dimensions, normalized probabilities, 512-token runs over five prompts, greedy and high-temperature runs, continuation equivalence, recurrent memory, grammar disambiguation, subject-number tracking across clauses and modals, verb–adverb compatibility, the four reported singular-subject regressions (including boosted weights), article constraints, top-p, repetition penalties, phrase blocking, deterministic sampling, editable weights, and versioned export overrides.
+The 23 tests execute the actual inline kernel and frozen checkpoint. They verify raw-logit/softmax equality, numeric-only execution without labels, uniform predictions when output weights are zeroed, reversal of grammar preferences by editing weights, embedding swaps, subject memory, verb affinities, finite article preferences, recurrent repetition feedback, 512-token generation, continuation, seeded sampling, and checkpoint/HTML edit round trips. These tests establish that grammar behavior comes from the numeric model rather than an external filter.
 
 ## Publishing
 
-GitHub Pages uses **GitHub Actions** as its source. `.github/workflows/pages.yml` runs on pushes to `main` and can also be started manually. It runs the numerical checks, copies only `index.html` and `.nojekyll` into the site artifact, then deploys that artifact to the `github-pages` environment.
+GitHub Pages uses **GitHub Actions**. `.github/workflows/pages.yml` verifies the embedded checkpoint and runs the tests on pushes to `main`, then deploys only `index.html` and `.nojekyll`. The weight-authoring script and test files are not part of the deployed site artifact.
