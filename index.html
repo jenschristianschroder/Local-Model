@@ -54,7 +54,7 @@
       <div class="inside-grid"><div class="network-panel"><h3 class="panel-title">A peek at the forward pass.</h3><p class="network-caption">A ReLU controller carries sentence structure forward. Theme and subject memory help score the next word.</p><svg class="network" id="network" viewBox="0 0 510 228" role="img" aria-label="Schematic of the latest token, recurrent memory features, and weighted next-token scores"></svg><div class="network-legend"><span><i class="legend-circle"></i>Active feature</span><span><i class="legend-circle off"></i>Inactive feature</span><span>Selected output connections</span></div></div>
       <div class="editor"><div class="editor-top"><h3 class="panel-title">Change its mind.</h3><span class="tag" id="edited-tag">LIVE WEIGHTS</span></div><p class="small-copy">Move an output weight. Watch the probabilities react.</p><div class="weight-context"><label for="neuron">Memory feature to edit</label><select id="neuron"></select></div><button class="text-button follow-state" id="follow-state">Edit current state</button><div id="weight-sliders"></div><p class="weight-help" id="weight-help"></p><button class="text-button" id="restore">Restore all original weights</button></div></div>
       <div class="principles"><article><span class="num">01</span><h3>Weights written by hand</h3><p>Every parameter is assigned directly in JavaScript. There is no training step and no pretrained model hiding in a download.</p></article><article><span class="num">02</span><h3>New text, one token at a time</h3><p>The network samples words into sentences and paragraphs. A repetition penalty and a recent-phrase guard encourage variety. There are no stored replies or sentence templates.</p></article><article><span class="num">03</span><h3>A model you can understand</h3><p>This is a small educational model, not a general assistant. It can write longer passages, but its hand-built vocabulary and grammar do not give it world knowledge.</p></article></div>
-      <details class="details"><summary>The architecture, the vocabulary, and the limits</summary><div class="details-content"><div><p>A hand-wired recurrent neural controller with grammar-guided decoding. ReLU gates update a sentence-state vector. Decaying theme memory, a persistent prompt-theme anchor, subject features, and object preferences feed a linear output layer. All numeric matrices are defined in this file; no parameters were learned from training data.</p><pre id="architecture"></pre><p>Grammar and article masks select valid token classes. Temperature, a 64-token repetition penalty, an optional repeated-trigram guard, and top-p filtering shape the sampling distribution. The guard relaxes if it blocks every option. The same prompt, seed, weights, and settings reproduce the same text. Increasing length does not make this a trained LLM; meaning can drift and sentences can still be odd. Matrix slots, including zeros, are included in the parameter count.</p></div><div><p><strong>Its entire vocabulary</strong></p><div id="vocabulary" class="vocab"></div><p>&lt;bos&gt; marks the beginning and &lt;unk&gt; represents unknown input. Unknown words remain visible in your prompt but do not update the grammar state. Punctuation counts as a token. A full stop begins another sentence; the batch size or Stop button pauses generation.</p><p>Everything runs in ordinary JavaScript on the CPU. No WebGPU, server, API key, or internet connection is needed after loading. Generation is incremental, so continuing does not replay the entire document. Download HTML saves a standalone copy, including your current weight edits.</p></div></div></details>
+      <details class="details"><summary>The architecture, the vocabulary, and the limits</summary><div class="details-content"><div><p>A hand-wired recurrent neural controller with grammar-guided decoding. ReLU gates update a sentence-state vector. Decaying theme memory, a persistent prompt-theme anchor, subject features, and object preferences feed a linear output layer. All numeric matrices are defined in this file; no parameters were learned from training data.</p><pre id="architecture"></pre><p>Grammar and article masks select valid token classes. Subject-number memory and verb–adverb rules filter combinations: “hums softly” and “sparkles brightly” are allowed; “together” needs a plural subject in this limited grammar. These rules also apply when you edit weights. Temperature, a 64-token repetition penalty, an optional repeated-trigram guard, and top-p filtering shape the sampling distribution. Only the repeated-trigram guard relaxes if it blocks every option. The same prompt, seed, weights, and settings reproduce the same text. Increasing length does not make this a trained LLM; meaning can drift and sentences can still be odd. Matrix slots, including zeros, are included in the parameter count.</p></div><div><p><strong>Its entire vocabulary</strong></p><div id="vocabulary" class="vocab"></div><p>&lt;bos&gt; marks the beginning and &lt;unk&gt; represents unknown input. Unknown words remain visible in your prompt but do not update the grammar state. Punctuation counts as a token. A full stop begins another sentence; the batch size or Stop button pauses generation.</p><p>Everything runs in ordinary JavaScript on the CPU. No WebGPU, server, API key, or internet connection is needed after loading. Generation is incremental, so continuing does not replay the entire document. Download HTML saves a standalone copy, including your current weight edits.</p></div></div></details>
     </section>
   </main>
   <footer><span>Pocket LM · A small, transparent experiment.</span><span>Built from numbers, not magic. <a href="https://github.com/jenschristianschroder/Local-Model" target="_blank" rel="noopener noreferrer">View source ↗</a></span></footer>
@@ -141,6 +141,23 @@ add('and but while because',['join']);add('later meanwhile nearby sometimes soon
 const V=vocabulary.length, BOS=tokenIds.get('<bos>'), UNK=tokenIds.get('<unk>');
 const has=(id,part)=>embeddings[id][POS.indexOf(part)]>0;
 
+// Lexical compatibility is explicit, just like the grammar-support mask below.
+// These sets constrain individual next words; they are not stored sentences.
+function manners(words,adverbs){const allowed=new Set(adverbs.split(' ').map(word=>tokenIds.get(word)));for(const word of words.split(' '))metadata[tokenIds.get(word)].adverbs=allowed;}
+manners('hums hum clicks click','quietly softly gently again together');
+manners('wanders wander walks walk returns return moves move drifts drift','slowly quietly gently peacefully again together');
+manners('waits wait listens listen','quietly patiently calmly again together');
+manners('rests rest sleeps sleep','quietly peacefully calmly again together');
+manners('wakes wake','slowly quietly gently again together');
+manners('plays play','quietly gently calmly again together');
+manners('smiles smile','softly gently calmly brightly again together');
+manners('glows glow shines shine sparkles sparkle','brightly softly gently again together');
+manners('grows grow blooms bloom','slowly again together');
+manners('flows flow ripples ripple','slowly gently quietly calmly again together');
+manners('works work','quietly slowly patiently calmly again together');
+manners('dreams dream','peacefully again together');
+const together=tokenIds.get('together');
+
 // Neural recurrent grammar controller. Each ReLU gate detects a state/feature pair.
 // g = ReLU(A · [previous state; token POS embedding] + bg)
 // state = normalize(B · g). The grammar is compiled into these numeric matrices.
@@ -212,7 +229,7 @@ let overrides={};
 function applyOverrides(data){if(!data||data.version!==2||!data.weights)return;for(const [key,value] of Object.entries(data.weights)){const [v,h]=key.split(':').map(Number);if(Number.isInteger(v)&&Number.isInteger(h)&&v>=2&&v<V&&h>=0&&h<H&&Number.isFinite(value)&&value>=-16&&value<=24){W2[v][h]=value;overrides[key]=value;}}}
 try{applyOverrides(JSON.parse(document.getElementById('model-overrides').textContent));}catch{/* Keep the original weights if the optional edit block is invalid. */}
 function tokenize(text){return(text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?|[^\s]/g)||[]).map(word=>({word,id:tokenIds.has(word)?tokenIds.get(word):UNK}));}
-function initialMemory(){const state=new Float64Array(S);state[ST.start]=1;return{state,theme:new Float64Array(TOPICS.length),anchor:new Float64Array(TOPICS.length),subject:new Float64Array(SEM.length),relation:new Float64Array(SEM.length),recent:[],sentenceTokens:0,sentences:0,adjectives:0,lastGates:new Float64Array(G)};}
+function initialMemory(){const state=new Float64Array(S);state[ST.start]=1;return{state,theme:new Float64Array(TOPICS.length),anchor:new Float64Array(TOPICS.length),subject:new Float64Array(SEM.length),subjectNumber:null,predicate:null,relation:new Float64Array(SEM.length),recent:[],sentenceTokens:0,sentences:0,adjectives:0,lastGates:new Float64Array(G)};}
 function advance(memory,id){
   const e=embeddings[id],g=new Float64Array(G),state=new Float64Array(S);
   if(id!==UNK&&id!==BOS){
@@ -226,7 +243,14 @@ function advance(memory,id){
     for(let s=0;s<S;s++)state[s]/=mass;
     memory.state=state;
   }
-  if((state[ST.singular]+state[ST.plural])>0){const subject=e.slice(POS.length+TOPICS.length,POS.length+TOPICS.length+SEM.length);if(subject.some(v=>v!==0))memory.subject=subject;}
+  // Track grammatical roles, not just token tags: "dreams" can be a noun or verb.
+  // A new clause must supply its own subject before a group adverb is permitted.
+  if(state[ST.start]+state[ST.boundary]>0){memory.subjectNumber=null;memory.predicate=null;}
+  if((state[ST.singular]+state[ST.plural])>0){
+    const subject=e.slice(POS.length+TOPICS.length,POS.length+TOPICS.length+SEM.length);if(subject.some(v=>v!==0))memory.subject=subject;
+    memory.subjectNumber=state[ST.plural]>state[ST.singular]?'plural':'singular';memory.predicate=null;
+  }
+  if(state[ST.obj]+state[ST.verbDone]+state[ST.copula]>0&&['ts','tp','vs','vp','bs','bp'].some(part=>has(id,part)))memory.predicate=id;
   if(has(id,'ts')||has(id,'tp'))memory.relation=e.slice(POS.length+TOPICS.length+SEM.length);
   const theme=new Float64Array(TOPICS.length);
   for(let t=0;t<TOPICS.length;t++){for(let j=0;j<TOPICS.length;j++)theme[t]+=topicDecay[t][j]*memory.theme[j];for(let j=0;j<D;j++)theme[t]+=topicInput[t][j]*e[j];theme[t]=Math.min(1,theme[t]);}
@@ -249,6 +273,12 @@ function predict(memory,options={}){
     let possible=0;for(let s=0;s<S;s++)possible+=support[v][s]*memory.state[s];if(possible===0)continue;
     if(article){const vowel=/^[aeiou]/.test(vocabulary[v]);if((article==='a'&&vowel)||(article==='an'&&!vowel))continue;}
     if(has(v,'adj')&&memory.adjectives>=2)continue;
+    if(has(v,'adv')){
+      if(!metadata[memory.predicate]?.adverbs?.has(v))continue;
+      // This small grammar has no companion phrase ("with a friend"), so use
+      // "together" only when an explicit plural subject supplies the group.
+      if(v===together&&memory.subjectNumber!=='plural')continue;
+    }
     let score=b2[v];for(let j=0;j<H;j++)score+=W2[v][j]*h[j];
     const lengthPressure=Math.max(0,memory.sentenceTokens-10)*.38;
     if(has(v,'punct'))score+=lengthPressure;if(has(v,'join')||has(v,'prep'))score-=lengthPressure;

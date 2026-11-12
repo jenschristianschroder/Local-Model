@@ -21,6 +21,7 @@ function generate(prompt,length=128,seed=42,options={}) {
     const token=m.sample(prediction.probabilities,random);
     assert.equal(prediction.allowed[token],1);
     assert(token!==m.BOS&&token!==m.UNK);
+    if(m.vocabulary[token]==='together')assert.equal(memory.subjectNumber,'plural','Group adverbs need a plural subject in this grammar');
     assert(Math.abs(prediction.probabilities.reduce((a,b)=>a+b,0)-1)<1e-10);
     output.push(token);m.advance(memory,token);
   }
@@ -78,6 +79,45 @@ test('recurrent grammar resolves ambiguous words and subject number',()=>{
   const singular=m.forward(ids('the robot')).probabilities,plural=m.forward(ids('the robots')).probabilities;
   assert.equal(singular[id('build')],0);assert.equal(plural[id('builds')],0);
 });
+test('reported singular subjects cannot take together, even with a boosted weight',()=>{
+  const contexts=['the little robot hums','the quiet forest blooms','a curious cat wakes','the distant planet sparkles','it can hum','hums','the robots hum . hums','the robots hum and hums'];
+  const word=id('together'),original=m.W2[word][m.ST.verbDone];
+  try{
+    m.W2[word][m.ST.verbDone]=24;
+    for(const prompt of contexts)for(const temperature of [0,.8,1.5]){
+      const result=m.forward(ids(prompt),{temperature,topP:1,noRepeat:false});
+      assert.equal(result.probabilities[word],0,prompt);
+      assert.equal(result.allowed[word],0,prompt);
+    }
+  }finally{m.W2[word][m.ST.verbDone]=original;}
+});
+test('plural subjects can still use together after compatible verbs',()=>{
+  for(const prompt of ['the robots hum','the flowers bloom','the cats wake','the planets sparkle','they can hum','we work']){
+    assert(m.forward(ids(prompt),{topP:1}).probabilities[id('together')]>0,prompt);
+  }
+});
+test('subject number survives predicates, objects, modals, and pronoun changes',()=>{
+  const cases=[['the robot hums','singular'],['the robots hum','plural'],['the robot sees birds','singular'],['the birds see a robot','plural'],['the robot dreams','singular'],['the dreams glow','plural'],['the birds glow . it can hum','singular'],['the robot glows . they can hum','plural'],['the robots hum and the cat wakes','singular'],['the cat wakes and the robots hum','plural'],['the robots hum .',null]];
+  for(const[prompt,number]of cases)assert.equal(m.promptMemory(ids(prompt)).subjectNumber,number,prompt);
+});
+test('manner adverbs match the current verb',()=>{
+  for(const[prompt,allowed,blocked]of [['the robot hums','softly','brightly'],['the forest blooms','slowly','patiently'],['the cat wakes','slowly','brightly'],['the planet sparkles','brightly','patiently'],['we wait','patiently','brightly'],['the river flows','gently','patiently']]){
+    const result=m.forward(ids(prompt),{topP:1});
+    assert(result.probabilities[id(allowed)]>0,prompt+' should allow '+allowed);
+    assert.equal(result.probabilities[id(blocked)],0,prompt+' should block '+blocked);
+  }
+});
+test('noun and verb ambiguity does not overwrite the remembered predicate',()=>{
+  assert.equal(m.promptMemory(ids('the robot dreams')).predicate,id('dreams'));
+  assert.equal(m.promptMemory(ids('the dream')).predicate,null);
+  assert.equal(m.forward(ids('the robot glows . it waits'),{topP:1}).probabilities[id('brightly')],0);
+});
+test('every intransitive verb retains a compatible adverb for singular and plural subjects',()=>{
+  for(let v=2;v<m.V;v++)for(const[part,pronoun]of[['vs','it'],['vp','they']])if(m.has(v,part)){
+    const p=m.forward(ids(pronoun+' '+m.vocabulary[v]),{topP:1}).probabilities;
+    assert(m.vocabulary.some((word,i)=>m.has(i,'adv')&&p[i]>0),m.vocabulary[v]);
+  }
+});
 test('article constraints and adjective cap are applied before sampling',()=>{
   assert.equal(m.forward(ids('a')).probabilities[id('electric')],0);
   assert.equal(m.forward(ids('an')).probabilities[id('little')],0);
@@ -119,4 +159,3 @@ test('long greedy and high-temperature runs remain bounded and valid',()=>{
   }
 });
 console.log(JSON.stringify({vocabulary:m.V,parameters:m.parameterCount,reluGates:m.G,recurrentStates:m.S,outputFeatures:m.H}));
-console.log('Example: '+generate('the little robot',80).text);
