@@ -35,6 +35,8 @@ Christmas adaptation uses whole stories, batch size 24, a maximum sequence of 16
 
 ## Inspect and edit
 
+- Scroll or swipe between full-screen sections, or use the up/down navigation buttons. Wheel and button navigation ease between sections; reduced-motion preferences are respected. Long stories and detailed panels scroll within their section.
+- Generate opens the story section automatically. Start a new story returns to the prompt and settings.
 - Choose a Christmas starter or write your own opening, then choose a temperature, seed, and batch length. Temperature zero picks the most likely output.
 - Continue preserves the hidden state and random generator. One-sentence mode only pauses after generated punctuation; it does not change probabilities or repair the text.
 - Probability buttons let the user explicitly choose a token. Automatic generation samples directly from the model.
