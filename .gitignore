@@ -1,1 +1,4 @@
 _site/
+training/data/
+training/runs/
+training/__pycache__/

@@ -1,60 +1,74 @@
-# Pocket LM 3
+# Pocket LM
 
-A self-contained demonstration of a **hand-wired recurrent neural network** running entirely in the browser. All language behavior is represented by numeric model parameters and hidden activations. The inference engine has no grammar checks or output masks.
+A trained language model running entirely in one static HTML file. Open [the live demo](https://jenschristianschroder.github.io/Local-Model/) or download `index.html` and open it locally. No server, API key, external JavaScript, or model download is needed after loading.
 
-**[Open the demo](https://jenschristianschroder.github.io/Local-Model/)**
+Version 4 replaces the earlier hand-authored network with a GRU trained from random initialization. Its language behavior is learned from text. The inference code contains matrix multiplication, GRU gates, BPE tokenization, softmax, and seeded sampling. There are no grammatical masks, repetition penalties, templates, candidate rejection, or sentence repair. All 1,900 output IDs, including special tokens, participate in softmax.
 
-Open `index.html` locally to use it offline. No dependencies, model downloads, API keys, tracking, or server-side inference are involved.
+## Model and size
 
-## What changed
+| Property | Value |
+|---|---:|
+| Learned parameters | 636,908 |
+| Vocabulary | 1,900 learned BPE pieces |
+| Embedding width | 64 |
+| Recurrent layer | One GRU, 192 units |
+| Packed tensor payload | 665,872 bytes / 0.666 MB |
+| Entire deployed page | Less than 1,000,000 bytes / 1 MB |
+| Expanded float32 parameter arrays | 2,547,632 bytes, before other browser memory |
+| Generation | Up to 1,024 tokens per batch; Continue up to 4,096 |
 
-Version 2 applied grammar, article, verb–adverb, and repetition filters outside the network. Version 3 removes that decoding layer. The page embeds a frozen numeric checkpoint; a small generic inference kernel evaluates it without reading word labels, parts of speech, or compatibility tables.
+MB uses decimal units. Packed tensor size excludes JSON/base64, tokenizer, and UI. The complete page includes all of them. `node build-model.mjs --check` prints the exact current file size and checkpoint SHA-256. Edited downloads can exceed the budget if many overrides are added.
 
-The model now represents syntax, subject number, article preferences, verb affinities, sentence length, themes, and recent-token activity in its recurrent activations. Output weights turn these features into **finite logits for every vocabulary ID**. Sampling uses the full softmax distribution, with temperature as the only distribution control. There is no top-p pruning, phrase blacklist, candidate rejection, or fallback grammar filter.
+Word pieces can combine into words outside the individual vocabulary entries. This is more flexible than a fixed word list, but it can also produce misspellings or invented words. A token is not necessarily a complete word.
 
-For example, the connection from the `Single / unknown subject` activation to the `together` output has weight **−24**. That lowers its score in “the robot hums,” while plural subjects leave this activation off. This is a preference in the model, not an absolute prohibition. Click **Inspect “together”**, then change that weight to **+16**: the previously discouraged word becomes the model's top prediction. Similarly, changing syntax or verb-affinity weights can make the model produce incorrect language.
+## Training and limits
 
-## Numeric architecture
+The base data is a pinned subset of [TinyStories](https://huggingface.co/datasets/roneneldan/TinyStories): 26,550 training stories, 5,982,352 tokens, and a separate 1,259-story validation subset. The dataset is licensed under [CDLA-Sharing-1.0](https://cdla.dev/sharing-1-0/). Dataset revision, byte limits, and SHA-256 checksums are recorded in `training/prepare.py` and `training/report.json`. Raw TinyStories data is not shipped in this repository or webpage. Exact normalized story overlap is excluded from training.
 
-- 462 vocabulary IDs, including input special tokens.
-- A sparse 462 × 541 token embedding matrix.
-- A recurrent cell with 806 ReLU neurons and 558 hidden activations.
-- A sparse linear output layer producing 462 finite logits.
-- 10,782 nonzero weights and biases. This excludes structural zeros; v2 displayed dense parameter slots, so the two counts are not directly comparable.
+An additional 46 original descriptive passages cover machines, nature, animals, and space. They were written for this project and supplied as ordinary training text, not runtime templates or rules. Six separate passages are used for validation. Both text files are included for inspection; neither is used by the browser. This small collection is deliberately narrow and can be memorized by the model.
 
-At each step, the network concatenates the previous hidden vector and the current token embedding. Its cell evaluates an ordered, acyclic set of affine/ReLU neurons; numeric readout indices select the next hidden vector. A linear layer produces logits, and softmax converts them into probabilities. The kernel is marked `INFERENCE KERNEL START` / `END` in `index.html` and can run with just the numeric checkpoint, without the DOM or label metadata.
+The tokenizer is trained only on the base training split. All embeddings, recurrent matrices, biases, and output weights are optimized with next-token cross-entropy and AdamW. Training uses dropout, gradient clipping, and a small amount of input corruption. These are generic training procedures. They do not constrain inference.
 
-The sparse rows are flat arrays of `[column, weight, column, weight, ...]`. The checkpoint contains embeddings, cell connections, cell biases, readout indices, initial activations, output connections, and output biases. Labels are separate inspection metadata. `build-model.mjs` authors the weights offline and embeds the checkpoint into the HTML; **the browser does not execute this builder**. Its human-authored language knowledge is compiled into numeric connections, not learned from training data.
+The selected checkpoint and actual loss measurements are in `training/report.json`; the page displays a validation-loss chart. Validation loss measures prediction of held-out tokens, not the truth or coherence of generated passages. The descriptive validation sample is small and related to the fine-tuning topics. It is not a broad language benchmark. Fine-tuning can improve those topics while slightly worsening broader story prediction.
 
-Repetition feedback is part of the network: decaying token activations feed negative output connections. It is a soft tendency, not a guarantee against repeated phrases. All vocabulary entries receive scores, including special tokens. At very low temperature, floating-point softmax can underflow extremely small probabilities; temperature zero selects the largest logit.
+**This remains a small experimental completion model.** It can write simple sentences and longer passages, but it can repeat, change subjects, lose character identity, invent words, and make grammatical or factual mistakes. It has no instruction tuning and is not a general chat assistant. A 4,096-token output limit does not imply that it retains 4,096 tokens of reliable context: the GRU compresses history into 192 activations.
 
-## Explore
+## Inspect and edit
 
-- Start with a short prompt or one of the four examples.
-- Generate 32–512 tokens per batch. Continue preserves hidden state and the random sequence, up to 4,096 generated tokens per document.
-- Step through predictions, inspect raw logits and probabilities, and edit any output connection.
-- Try **Inspect “together”** to see the original grammar issue represented by an editable weight.
-- Change temperature and seed. Length, Stop, and One sentence only govern when generation pauses, not which word is chosen.
-- **Download weights** exports the complete numeric checkpoint plus inspection labels.
-- **Download HTML** saves a standalone page including your output-weight edits. Version 3 uses its own override format; version 2 edits have incompatible feature indices and are ignored.
+- Choose a prompt, temperature, seed, and batch length. Temperature zero picks the most likely output.
+- Continue preserves the hidden state and random generator. One-sentence mode only pauses after generated punctuation; it does not change probabilities or repair the text.
+- Probability buttons let the user explicitly choose a token. Automatic generation samples directly from the model.
+- Inspect any of the 192 hidden neurons and any output connection. The diagram displays actual activations and contributions.
+- Change a weight, restore the original trained values, or download a standalone HTML page or checkpoint with the edits.
+- “Recent tokens” displays the last eight tokens; it is not the model's context window.
 
-Unknown input maps to the numeric `<unk>` embedding. Display formatting adds spacing, capitalization, and paragraph breaks without replacing words. The last eight displayed tokens are UI history and have no effect on inference.
+The matrices use per-row signed int8 quantization with float32 scales; biases remain float32. The browser expands them into float32 arrays. Export evaluates the dequantized tensors, so the measured loss describes the network that actually ships. Casing and punctuation are learned; decoding simply joins pieces, restores whitespace markers, and renders paragraph tokens.
 
-This is an educational model with hand-authored weights, **not a pretrained LLM or general assistant**. Its representations and vocabulary are limited. It can still produce awkward language, drift between themes, repeat itself, and make grammar mistakes. Longer output and more internal activations do not give it general world knowledge.
-
-## Reproduce and verify
-
-With Node.js 24:
+## Verify and deploy
 
 ```sh
-node build-model.mjs
+node build-model.mjs --check
 node --test test.mjs
 ```
 
-Use `node build-model.mjs --check` to confirm the embedded checkpoint matches the authoring script without rewriting the HTML.
+`build-model.mjs` only verifies the embedded trained checkpoint. It does not generate weights or compile language rules. Tests compare the exact browser tokenizer, recurrent states, and all logits with independent PyTorch reference vectors. They also verify unfiltered softmax, weight editing, seeded continuation, long-generation stability, checksums, and the whole-page size budget.
 
-The 23 tests execute the actual inline kernel and frozen checkpoint. They verify raw-logit/softmax equality, numeric-only execution without labels, uniform predictions when output weights are zeroed, reversal of grammar preferences by editing weights, embedding swaps, subject memory, verb affinities, finite article preferences, recurrent repetition feedback, 512-token generation, continuation, seeded sampling, and checkpoint/HTML edit round trips. These tests establish that grammar behavior comes from the numeric model rather than an external filter.
+GitHub Pages uses the existing **Actions deployment** in `.github/workflows/pages.yml`. A push to `main` runs verification and tests, then deploys only `index.html` and `.nojekyll`. Training data, scripts, and test fixtures are not deployed.
 
-## Publishing
+## Reproduce training
 
-GitHub Pages uses **GitHub Actions**. `.github/workflows/pages.yml` verifies the embedded checkpoint and runs the tests on pushes to `main`, then deploys only `index.html` and `.nojekyll`. The weight-authoring script and test files are not part of the deployed site artifact.
+Training is offline; Python and PyTorch are not required to view the page. Python 3.11, NumPy 2.3.5, tokenizers 0.21.2, and PyTorch 2.7.1 CPU were used. Install CPU PyTorch using its official wheel index, then the small dependencies:
+
+```sh
+python -m venv .venv
+. .venv/bin/activate
+pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+pip install numpy==2.3.5 tokenizers==0.21.2
+python training/prepare.py --data training/data --vocab 1900
+python training/train.py --data training/data --output training/runs/base --steps 4000 --length 64 --threads 2 --lr .003
+python training/train.py --data training/data --output training/runs/base --resume training/runs/base/latest.pt --steps 8000 --length 96 --threads 2 --lr .0015 --reset-torch-rng
+```
+
+The final descriptive fine-tuning command and export command are recorded in `training/recipe.md`. Seed 42 is used throughout; numerical results can vary with software and CPU kernels. The base run used random contiguous windows and batch size 32. Checkpoints save optimizer and random-generator state; `--reset-torch-rng` reproduces the phase initialization used in the released run. Intermediate floating-point checkpoints are not committed; the complete quantized checkpoint lives in the HTML.
+
+`training/export.py` quantizes the selected tensors, measures loss before and after quantization, exports PyTorch parity fixtures, and embeds the JSON payload. It refuses to write an HTML file over 1 MB. Copy its report and reference JSON into `training/` before running the verifier.

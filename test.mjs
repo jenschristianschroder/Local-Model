@@ -1,183 +1,95 @@
-import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-
-const html=readFileSync(new URL('./index.html',import.meta.url),'utf8');
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { verify } from './build-model.mjs';
+const {html,checkpoint:payload,report,reference}=verify();
 const source=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const numericalSource=source.split('// MODEL END:')[0];
-const payload=JSON.parse(html.match(/<script id="model-data" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const kernelSource=source.split('// INFERENCE KERNEL START')[1].split('// INFERENCE KERNEL END')[0];
 function loadModel(edits={}){
-  const context=vm.createContext({document:{documentElement:{outerHTML:html},getElementById:id=>({textContent:JSON.stringify(id==='model-data'?payload:edits)})}});
-  vm.runInContext(numericalSource+'\nglobalThis.m={model,labels,modelStep,modelLogits,softmax,predict,forward,promptMemory,initialMemory,advance,tokenize,randomGenerator,sample,formatted,weightAt,setWeight,applyOverrides};',context);
+  const context=vm.createContext({atob,document:{documentElement:{outerHTML:html},getElementById:id=>({textContent:JSON.stringify(id==='model-data'?payload:edits)})}});
+  vm.runInContext(numericalSource+'\nglobalThis.m={bundle,model,loadWeights,modelStep,modelLogits,softmax,predict,forward,promptMemory,initialMemory,advance,tokenize,decode,randomGenerator,sample,weightAt,setWeight,applyOverrides};',context);
   return context.m;
 }
-const m=loadModel(),{vocabulary,features,offsets:F,states:ST}=m.labels;
-const id=word=>vocabulary.indexOf(word),ids=text=>m.tokenize(text).map(t=>t.id);
-function generation(prompt,length=128,seed=42,options={}){
-  const memory=m.promptMemory(ids(prompt)),random=m.randomGenerator(seed),output=[];
+const m=loadModel(),V=payload.architecture.vocabulary,H=payload.architecture.hidden;
+const ids=text=>Array.from(m.tokenize(text),t=>t.id);
+function generate(prompt,length=128,seed=42,temperature=.65,engine=m){
+  const memory=engine.promptMemory(ids(prompt)),random=engine.randomGenerator(seed),output=[];
   for(let i=0;i<length;i++){
-    const result=m.predict(memory,options),token=m.sample(result.probabilities,random);
-    assert(result.logits.every(Number.isFinite));
-    assert(Math.abs(result.probabilities.reduce((a,b)=>a+b,0)-1)<1e-10);
-    assert(token>=0&&token<vocabulary.length);
-    output.push(token);m.advance(memory,token);
+    const result=engine.predict(memory,{temperature});
+    assert(result.logits.every(Number.isFinite));assert(Math.abs(result.probabilities.reduce((a,b)=>a+b,0)-1)<1e-10);
+    const token=engine.sample(result.probabilities,random);output.push(token);engine.advance(memory,token);
   }
-  return{memory,output,text:m.formatted(output.map(v=>vocabulary[v]))};
+  return{output,memory,text:engine.decode(output)};
 }
-function probability(prompt,word,temperature=1){return m.forward(ids(prompt),{temperature}).probabilities[id(word)];}
-
-test('the standalone application parses and makes no model or asset requests',()=>{
-  new vm.Script(source);
-  assert(!/<script[^>]+src=/i.test(html));
-  assert(!/\b(?:fetch|XMLHttpRequest|WebSocket|importScripts)\s*\(/.test(source));
-  assert(!/@import|url\(https?:/i.test(html));
+test('page is below 1 MB, parses, and has no external runtime requests',()=>{
+  new vm.Script(source);assert(Buffer.byteLength(html)<1_000_000);
+  assert(!/<script[^>]+src=/i.test(html));assert(!/\b(?:fetch|XMLHttpRequest|WebSocket|importScripts)\s*\(/.test(source));assert(!/@import|url\(https?:/i.test(html));
+  const referenced=[...source.matchAll(/\$\('([^']+)'\)/g)].map(x=>x[1]);for(const id of referenced)assert(html.includes('id="'+id+'"'),'Missing DOM element: '+id);
 });
-test('the checkpoint contains only numeric inference data with valid sparse connections',()=>{
-  const w=m.model,V=vocabulary.length,base=w.width+w.embeddingWidth;
-  assert.equal(w.format,3);assert.equal(w.embedding.length,V);assert.equal(w.output.length,V);
-  assert.equal(w.initial.length,w.width);assert.equal(w.readout.length,w.width);assert.equal(features.length,w.width);
-  assert.equal(w.cellBias.length,w.cell.length);assert.equal(w.outputBias.length,V);
-  function rowCheck(row,width){assert.equal(row.length%2,0);for(let j=0;j<row.length;j+=2){assert(Number.isInteger(row[j])&&row[j]>=0&&row[j]<width);assert(Number.isFinite(row[j+1]));}}
-  w.embedding.forEach(row=>rowCheck(row,w.embeddingWidth));
-  w.cell.forEach((row,n)=>rowCheck(row,base+n));
-  w.output.forEach(row=>rowCheck(row,w.width));
-  assert(w.readout.every(n=>Number.isInteger(n)&&n>=0&&n<base+w.cell.length));
-  assert([...w.cellBias,...w.initial,...w.outputBias].every(Number.isFinite));
-  const noStrings=value=>typeof value==='number'||(Array.isArray(value)?value.every(noStrings):Object.values(value).every(noStrings));
-  assert(noStrings(w));
+test('all decoded tensors are finite and the learned tokenizer has valid merges',()=>{
+  for(const[name,tensor]of Object.entries(payload.tensors)){const count=tensor.shape.reduce((a,b)=>a*b,1);assert.equal(m.model[name].length,count);assert(m.model[name].every(Number.isFinite));}
+  for(const[a,b,out]of payload.tokenizer.merges){assert([a,b,out].every(id=>Number.isInteger(id)&&id>=0&&id<V));assert.equal(payload.tokenizer.vocabulary[a]+payload.tokenizer.vocabulary[b],payload.tokenizer.vocabulary[out]);}
 });
-test('numeric-only kernel reproduces predictions without vocabulary labels, POS tables, or a DOM',()=>{
-  const context=vm.createContext({});
-  vm.runInContext(kernelSource+';globalThis.engine={modelStep,modelLogits,softmax};',context);
-  const weights=JSON.parse(JSON.stringify(m.model));
-  let hidden=Float64Array.from(weights.initial);
-  for(const token of ids('the little robot hums'))hidden=context.engine.modelStep(weights,hidden,token);
-  const actual=context.engine.softmax(context.engine.modelLogits(weights,hidden),.8);
-  assert.deepEqual(Array.from(actual),Array.from(m.forward(ids('the little robot hums')).probabilities));
-});
-test('sampling probabilities are exactly softmax of raw model logits',()=>{
-  for(const prompt of ['', 'the little robot hums','the robots hum','a','an','unknown 🦊','.','hums'])for(const temperature of [.05,.8,1,1.5]){
-    const memory=m.promptMemory(ids(prompt)),result=m.predict(memory,{temperature});
-    const logits=m.modelLogits(m.model,memory.hidden),maximum=Math.max(...logits);
-    const e=Array.from(logits,x=>Math.exp((x-maximum)/temperature)),sum=e.reduce((a,b)=>a+b,0);
-    assert.deepEqual(Array.from(result.logits),Array.from(logits));
-    result.probabilities.forEach((p,v)=>assert(Math.abs(p-e[v]/sum)<1e-14));
-    assert(Math.abs(result.probabilities.reduce((a,b)=>a+b,0)-1)<1e-10);
-    if(temperature>=1)assert(result.probabilities.every(p=>p>0),'No vocabulary IDs are filtered');
+test('browser BPE, hidden states, and logits match independent PyTorch reference vectors',()=>{
+  for(const item of reference.cases){
+    assert.deepEqual([1,...ids(item.prompt)],item.ids,item.prompt+' tokenization');
+    const actual=m.forward(ids(item.prompt),{temperature:1});
+    actual.hidden.forEach((v,i)=>assert(Math.abs(v-item.hidden[i])<.0001,item.prompt+' hidden '+i));
+    actual.logits.forEach((v,i)=>assert(Math.abs(v-item.logits[i])<.0002,item.prompt+' logit '+i));
   }
 });
-test('zero output weights and biases produce a uniform distribution over the entire vocabulary',()=>{
-  const isolated=loadModel();isolated.model.output=isolated.model.output.map(()=>[]);isolated.model.outputBias.fill(0);
-  const result=isolated.forward(ids('the little robot hums'),{temperature:1});
-  assert(result.probabilities.every(p=>Math.abs(p-1/vocabulary.length)<1e-14));
+test('numeric kernel runs without tokenizer, word labels, or DOM',()=>{
+  const context=vm.createContext({});vm.runInContext(kernelSource+';globalThis.engine={modelStep,modelLogits,softmax};',context);
+  let hidden=context.engine.modelStep(m.model,new Float32Array(H),1);
+  for(const id of ids('The quiet forest'))hidden=context.engine.modelStep(m.model,hidden,id);
+  assert.deepEqual(Array.from(context.engine.modelLogits(m.model,hidden)),Array.from(m.forward(ids('The quiet forest')).logits));
 });
-test('the sampler does not skip special tokens or reject an unlikely choice',()=>{
-  const p=m.forward(ids('the robot hums'),{temperature:1}).probabilities;
-  assert(p[0]>0);assert.equal(m.sample(p,()=>0),0);
-});
-test('all four reported singular contexts strongly disfavor together through finite logits',()=>{
-  for(const prompt of ['the little robot hums','the quiet forest blooms','a curious cat wakes','the distant planet sparkles','it can hum','hums'])for(const temperature of [.8,1,1.5]){
-    const result=m.forward(ids(prompt),{temperature}),p=result.probabilities[id('together')];
-    assert(Number.isFinite(result.logits[id('together')]));assert(p>0&&p<1e-6,prompt);
+test('all vocabulary probabilities are exactly softmax of the raw logits',()=>{
+  for(const prompt of ['','The robot hums','The robots hum','A curious cat','The distant planet','Strange 🦊'])for(const temperature of [.25,.65,1,1.5]){
+    const prediction=m.forward(ids(prompt),{temperature}),maximum=Math.max(...prediction.logits);
+    const exp=Array.from(prediction.logits,v=>Math.exp((v-maximum)/temperature)),sum=exp.reduce((a,b)=>a+b,0);
+    prediction.probabilities.forEach((p,i)=>assert(Math.abs(p-exp[i]/sum)<1e-14));
+    if(temperature>=1)assert(prediction.probabilities.every(p=>p>0),'No token is masked, including special tokens');
   }
 });
-test('plural subject activations make together a normal candidate',()=>{
-  for(const prompt of ['the robots hum','the flowers bloom','the cats wake','the planets sparkle','they can hum','we work'])assert(probability(prompt,'together')>.02,prompt);
+test('zero output tensors yield a uniform distribution over every token',()=>{
+  const isolated=loadModel();isolated.model.output.fill(0);isolated.model.outputBias.fill(0);
+  assert(isolated.forward(ids('The little robot')).probabilities.every(p=>Math.abs(p-1/V)<1e-14));
 });
-test('changing one output weight can make the original singular-subject error win',()=>{
-  const v=id('together'),original=m.weightAt(v,F.alone),memory=m.promptMemory(ids('the little robot hums'));
-  try{
-    assert(m.predict(memory).probabilities[v]<1e-10);
-    m.setWeight(v,F.alone,16);
-    const result=m.predict(memory);
-    assert(result.probabilities[v]>.999);
-    assert.equal(m.sample(result.probabilities,m.randomGenerator(42)),v);
-  }finally{m.setWeight(v,F.alone,original);}
+test('weight edits directly change logits and survive model reload',()=>{
+  const isolated=loadModel(),prompt=ids('The little robot'),before=isolated.forward(prompt,{temperature:1});
+  let neuron=0;for(let h=1;h<H;h++)if(Math.abs(before.hidden[h])>Math.abs(before.hidden[neuron]))neuron=h;
+  const token=0,old=isolated.weightAt(token,neuron),value=before.hidden[neuron]>=0?16:-16;
+  isolated.setWeight(token,neuron,value);const after=isolated.forward(prompt,{temperature:1});
+  assert(Math.abs(after.logits[token]-before.logits[token]-(value-old)*before.hidden[neuron])<.0001);
+  assert(after.probabilities[token]>before.probabilities[token]);
+  const reloaded=loadModel({version:4,weights:{[token+':'+neuron]:value}});assert.equal(reloaded.weightAt(token,neuron),value);
+  assert.equal(loadModel({version:3,weights:{[token+':'+neuron]:value}}).weightAt(token,neuron),old);
 });
-test('verb affinities affect logits, and editing those weights can reverse the preference',()=>{
-  const cases=[['the robot hums','softly','brightly'],['the forest blooms','slowly','patiently'],['the cat wakes','slowly','brightly'],['the planet sparkles','brightly','patiently'],['we wait','patiently','brightly'],['the river flows','gently','patiently']];
-  for(const[prompt,good,odd]of cases)assert(probability(prompt,good)>probability(prompt,odd)*1e8,prompt);
-  const v=id('brightly'),h=F.mismatch+m.labels.adverbs.indexOf('brightly'),original=m.weightAt(v,h);
-  try{m.setWeight(v,h,16);assert(probability('the robot hums','brightly')>.999);}finally{m.setWeight(v,h,original);}
+test('sampler accepts special tokens and does not reject improbable outputs',()=>{
+  const p=m.forward(ids('The robot hums'),{temperature:1}).probabilities;assert(p[0]>0);assert.equal(m.sample(p,()=>0),0);
+  const special=new Float64Array(V);special[1]=1;assert.equal(m.sample(special,m.randomGenerator(42)),1);
 });
-test('subject number lives in recurrent activations across objects, modals, and clauses',()=>{
-  const cases=[['the robot sees birds',1,0],['the birds see a robot',0,1],['the robot dreams',1,0],['the dreams glow',0,1],['the birds glow . it can hum',1,0],['the robot glows . they can hum',0,1],['the robots hum and the cat wakes',1,0],['the robots hum .',0,0]];
-  for(const[prompt,singular,plural]of cases){const h=m.promptMemory(ids(prompt)).hidden;assert.equal(h[F.singular],singular,prompt);assert.equal(h[F.plural],plural,prompt);}
+test('novel English words, capitalization, and punctuation round-trip through word pieces',()=>{
+  for(const prompt of ['The robotic telescope sparkles.','"Hello," said Lily.','A blue-green butterfly!','Unknownword123'])assert.equal(m.decode(ids(prompt)),prompt);
+  assert.notDeepEqual(ids('The robot'),ids('the robot'));
 });
-test('syntax preferences come from weights rather than a support mask',()=>{
-  assert(probability('the robot','builds')>probability('the robot','build')*1e8);
-  assert(probability('the robots','build')>probability('the robots','builds')*1e8);
-  const v=id('build'),original=m.weightAt(v,ST.singular);
-  try{m.setWeight(v,ST.singular,64);assert(probability('the robot','build')>.999);}finally{m.setWeight(v,ST.singular,original);}
+test('seeded generation is reproducible and Continue preserves the same recurrent state',()=>{
+  const a=generate('A curious cat',128,42),b=generate('A curious cat',128,42),c=generate('A curious cat',128,43);
+  assert.deepEqual(a.output,b.output);assert.notDeepEqual(a.output,c.output);
+  const memory=m.promptMemory(ids('A curious cat')),random=m.randomGenerator(42),split=[];
+  for(const length of [64,64])for(let i=0;i<length;i++){const next=m.sample(m.predict(memory,{temperature:.65}).probabilities,random);split.push(next);m.advance(memory,next);}
+  assert.deepEqual(split,a.output);assert.deepEqual(Array.from(memory.hidden),Array.from(a.memory.hidden));
 });
-test('swapping numeric token embeddings changes number behavior without changing word labels',()=>{
-  const isolated=loadModel();isolated.model.embedding[id('robots')]=isolated.model.embedding[id('robot')].slice();
-  assert.deepEqual(Array.from(isolated.forward(ids('the robots hums')).logits),Array.from(isolated.forward(ids('the robot hums')).logits));
+test('1024 generated tokens stay finite with bounded recurrent state',()=>{
+  const result=generate('The distant planet',1024);assert.equal(result.output.length,1024);assert(result.memory.hidden.every(v=>Number.isFinite(v)&&Math.abs(v)<=1));assert.equal(result.memory.recent.length,8);
 });
-test('ambiguous and out-of-order input stays bounded inside the recurrent cell',()=>{
-  const prompts=['the secret forest','the secret secret story','the dream dreams','unknown 🦊 the secret','hums blooms robot secret .'];
-  for(const prompt of prompts){
-    const h=m.promptMemory(ids(prompt)).hidden;
-    assert(h.every(Number.isFinite));assert.equal(h.slice(0,m.labels.stateNames.length).reduce((a,b)=>a+b,0),1,prompt);
-  }
-  const memory=m.initialMemory(),random=m.randomGenerator(9);
-  for(let i=0;i<2000;i++)m.advance(memory,Math.floor(random()*vocabulary.length));
-  assert(memory.hidden.every(x=>Number.isFinite(x)&&Math.abs(x)<=64));
-  assert.equal(memory.state.reduce((a,b)=>a+b,0),1);
+test('training evidence and exported quantization metrics agree with the checkpoint',()=>{
+  assert.equal(report.parameters,636908);assert(report.bestStep>=8000);assert(report.initialValidationLoss>7);assert(report.export.quantizedValidationLoss<3.3);
+  assert(Math.abs(report.export.quantizedValidationLoss-report.export.floatValidationLoss)<.02);
+  assert.equal(payload.training.quantizedValidationLoss,report.export.quantizedValidationLoss);
+  if(report.extraCorpus)for(const split of ['train','valid']){const info=report.extraCorpus[split];const text=readFileSync(new URL('./training/'+info.file,import.meta.url));assert.equal(createHash('sha256').update(text).digest('hex'),info.sha256);}
 });
-test('article and adjective preferences are finite model scores',()=>{
-  const a=m.forward(ids('a'),{temperature:1}),an=m.forward(ids('an'),{temperature:1});
-  assert(a.probabilities[id('little')]>a.probabilities[id('electric')]*1e6);
-  assert(an.probabilities[id('electric')]>an.probabilities[id('little')]*1e6);
-  assert(a.probabilities[id('electric')]>0);
-  const before=probability('the little','curious'),after=probability('the little silver','curious');
-  assert(after<before*1e-5);
-});
-test('repetition feedback is encoded in recurrent token activations and output weights',()=>{
-  const memory=m.promptMemory(ids('the robot sees a robot . the')),v=id('robot'),h=F.trace+v,original=m.weightAt(v,h);
-  assert(memory.hidden[h]>.3);assert(original<0);
-  const before=m.predict(memory,{temperature:1}).probabilities[v];
-  try{m.setWeight(v,h,0);assert(m.predict(memory,{temperature:1}).probabilities[v]>before);}finally{m.setWeight(v,h,original);}
-});
-test('display history cannot influence the model prediction',()=>{
-  const memory=m.promptMemory(ids('the little robot hums')),before=Array.from(m.predict(memory).logits);
-  memory.recent=ids('they glow together and they glow together');
-  assert.deepEqual(Array.from(m.predict(memory).logits),before);
-});
-test('512-token generation remains finite and crosses sentence and paragraph boundaries',()=>{
-  for(const prompt of ['the little robot','the quiet forest','a curious cat','the distant planet','we']){
-    const result=generation(prompt,512);
-    assert.equal(result.output.length,512);assert(result.text.includes('\n\n'));
-    assert(result.output.filter(v=>vocabulary[v]==='.').length>10);
-    assert(result.memory.hidden.every(Number.isFinite));assert(result.memory.recent.length<=8);
-  }
-});
-test('continuation uses the same recurrent state and random sequence',()=>{
-  const memory=m.promptMemory(ids('the little robot')),rng=m.randomGenerator(42),output=[];
-  for(const batch of [64,64])for(let i=0;i<batch;i++){const token=m.sample(m.predict(memory).probabilities,rng);output.push(token);m.advance(memory,token);}
-  assert.deepEqual(output,generation('the little robot',128).output);
-});
-test('greedy and high-temperature generation remain numerically stable',()=>{
-  for(const temperature of [0,1.5])assert(generation('the little robot',512,7,{temperature}).memory.hidden.every(Number.isFinite));
-});
-test('temperature scales the full vocabulary distribution and zero selects the maximum',()=>{
-  const memory=m.promptMemory(ids('the little robot'));
-  const entropy=p=>p.reduce((sum,x)=>sum-(x>0?x*Math.log(x):0),0);
-  assert(entropy(m.predict(memory,{temperature:1.5}).probabilities)>entropy(m.predict(memory,{temperature:.1}).probabilities));
-  const result=m.predict(memory,{temperature:0});assert.equal(result.probabilities[result.logits.indexOf(Math.max(...result.logits))],1);
-});
-test('edited weights survive JSON checkpoints and versioned standalone HTML overrides',()=>{
-  const v=id('together'),h=F.alone;
-  for(const value of [-48,64])assert.equal(loadModel({version:3,weights:{[v+':'+h]:value}}).weightAt(v,h),value);
-  assert.equal(loadModel({version:2,weights:{[v+':'+h]:64}}).weightAt(v,h),-24);
-  const isolated=loadModel({version:3,weights:{[v+':'+h]:16}}),weights=JSON.parse(JSON.stringify(isolated.model));
-  const memory=isolated.promptMemory(ids('the little robot hums'));
-  assert.deepEqual(Array.from(isolated.modelLogits(weights,memory.hidden)),Array.from(isolated.predict(memory).logits));
-});
-test('seeded runs reproduce the same samples while different seeds change the text',()=>{
-  assert.equal(generation('the little robot',64,42).text,generation('the little robot',64,42).text);
-  assert.notEqual(generation('the little robot',64,42).text,generation('the little robot',64,18).text);
-});
-console.log(JSON.stringify(m.labels.stats));
