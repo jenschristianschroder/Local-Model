@@ -24,6 +24,8 @@ button:disabled { cursor: wait; opacity: .65; }
 
 .top { display: flex; min-height: 44px; align-items: center; justify-content: space-between; gap: 1rem; }
 .hero { padding: clamp(2rem, 7vw, 4.5rem) 0 1.75rem; }
+.headline { position: relative; width: fit-content; max-width: 100%; padding-bottom: clamp(2rem, 6vw, 3.2rem); }
+.headline-sticker { position: absolute; inset-inline-end: 0; bottom: 0; width: clamp(6rem, 24vw, 11rem); height: auto; transform: rotate(-8deg); }
 h1 { margin: 0; font: 950 clamp(2.9rem, 10vw, 6.2rem)/.9 system-ui, sans-serif; letter-spacing: -.075em; }
 .hero > p { max-width: 34rem; color: var(--muted); margin: 1rem 0 1.35rem; }
 .matchup { display: grid; grid-template-columns: minmax(0, 12rem) auto minmax(0, 12rem); justify-content: start; align-items: end; gap: .65rem; min-width: 0; padding: 0; margin: 0; border: 0; }
