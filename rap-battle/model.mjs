@@ -64,17 +64,33 @@ export function createPerformer(checkpoint) {
   const end = lookup.get("<end>");
   const copy = lookup.get("<copy>");
   const newline = lookup.get("\n");
+  const promptTokens = checkpoint.vocabulary.flatMap((word, id) =>
+    word.startsWith("<") && id !== end && id !== copy ? [id] : []);
+  const nonWords = checkpoint.vocabulary.flatMap((word, id) =>
+    !/[a-z0-9]/.test(word) ? [id] : []);
+  const isChallengeModel = checkpoint.training.performer === "challenge";
 
   function sampleVerse(promptState, cue, random, temperature) {
     let hidden = promptState;
     const pieces = [];
+    let line = 0;
+    let atLineStart = true;
     for (let step = 0; step < 48; step++) {
       const logits = modelLogits(weights, hidden);
       // Prompt markers belong to the exchange protocol, outside the verse.
-      for (let id = 0; id < end; id++) logits[id] = -Infinity;
+      for (const id of promptTokens) logits[id] = -Infinity;
       if (!cue) logits[copy] = -Infinity;
-      const id = sample(softmax(logits, temperature), random);
-      if (id === end || (id === newline && pieces.includes("\n"))) break;
+      // A couplet needs one newline and at least one word on each side.
+      if (atLineStart) {
+        for (const id of nonWords) logits[id] = -Infinity;
+        logits[end] = -Infinity;
+        logits[newline] = -Infinity;
+      }
+      if (line === 0) logits[end] = -Infinity;
+      const id = line === 0 && step === 24 ? newline : sample(softmax(logits, temperature), random);
+      if (id === end || (id === newline && line === 1)) break;
+      if (id === newline) line++;
+      atLineStart = id === newline;
       pieces.push(id === copy ? cue : checkpoint.vocabulary[id]);
       hidden = modelStep(weights, hidden, id);
     }
@@ -83,8 +99,9 @@ export function createPerformer(checkpoint) {
 
   return {
     training: checkpoint.training,
-    generate({previous = "", cue = "", seed, earlier = []}) {
+    generate({previous = "", cue = "", seed, earlier = [], role}) {
       const prompt = ["<start>"];
+      if (isChallengeModel) prompt.push(`<${role}>`);
       if (previous) prompt.push(...tokens(previous), "<cue>", ...tokens(cue));
       prompt.push("<verse>");
       let hidden = new Float32Array(weights.config.hidden);
@@ -98,13 +115,13 @@ export function createPerformer(checkpoint) {
       for (const temperature of [0.75, 0.75, 0.85, 0.85, 0.95, 0.95]) {
         const text = sampleVerse(hidden, cue, random, temperature);
         const {lines, endings, hasCue} = verseFeatures(text, cue);
-        if (!lines.length) continue;
+        if (lines.length !== 2) continue;
         // Treat a verse with just the callback swapped as the same verse.
         const fresh = used.every(verse => verse.endings !== endings &&
           lines.every(line => !verse.lines.includes(line)));
-        if (fresh && hasCue && lines.length === 2) return text;
+        if (fresh && hasCue) return text;
         // A bounded search keeps generation responsive even with a tiny corpus.
-        const score = Number(fresh) * 4 + Number(hasCue) * 2 + Number(lines.length === 2);
+        const score = Number(fresh) * 2 + Number(hasCue);
         if (score > bestScore) {
           best = text;
           bestScore = score;

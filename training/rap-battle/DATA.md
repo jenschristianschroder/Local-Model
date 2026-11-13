@@ -7,3 +7,5 @@ The original four models were trained in pairs. The ten expansion models were in
 The trainer pairs a previous verse with one of its words and a two-line response written for the other performer. It also trains opening verses. These combinations are generated offline. The response target uses a dedicated copy token where the callback word belongs. At inference, that token renders as the selected word. The model learns when to emit it and samples the surrounding verse from its weights.
 
 Validation uses separate opponent verses and response/callback pairings excluded from training. This tests transfer to new contexts and recombinations of familiar writing patterns. The corpus is deliberately small, and a model can reproduce training lines or miss the selected callback.
+
+The shared challenge model was trained from random initialization using only the newly written `challenges.json` corpus. It uses a performer token to generate a two-line challenge in that character’s voice. The 84 training couplets and 14 held-out couplets are dedicated to the public domain under CC0 1.0. Reproduce its checkpoint with `python training/rap-battle/train.py challenge`.

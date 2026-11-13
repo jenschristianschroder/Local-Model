@@ -36,6 +36,7 @@ PERFORMERS = {
     "octopus": ("expanded-roster.json", 2129),
     "weather-forecaster": ("expanded-roster.json", 2131),
     "volcano": ("expanded-roster.json", 2137),
+    "challenge": ("challenges.json", 2153),
 }
 
 
@@ -77,6 +78,11 @@ def examples(corpus, performer):
                     prompt = [START, *tokens(verse), CUE, cue, VERSE]
                     split.append((prompt, reply))
     return train, valid
+
+
+def challenge_examples(corpus, split):
+    return [([START, f"<{role}>", VERSE], tokens(verse) + [END])
+            for role, verses in corpus.items() for verse in verses[split]]
 
 
 class RapGRU(nn.Module):
@@ -130,7 +136,13 @@ def train(performer, steps):
     filename, seed = PERFORMERS[performer]
     raw = (HERE / filename).read_bytes()
     corpus = json.loads(raw)
-    training, validation = examples(corpus, performer)
+    if performer == "challenge":
+        training = challenge_examples(corpus, "train")
+        validation = challenge_examples(corpus, "validation")
+        opening_count = 0
+    else:
+        training, validation = examples(corpus, performer)
+        opening_count = len(corpus["openers"][performer])
     counts = Counter(word for prompt, reply in training for word in prompt + reply)
     vocabulary = SPECIAL + sorted(counts.keys() - set(SPECIAL))
     lookup = {word: index for index, word in enumerate(vocabulary)}
@@ -138,12 +150,12 @@ def train(performer, steps):
     torch.manual_seed(seed)
     model = RapGRU(len(vocabulary))
     optimizer = torch.optim.AdamW(model.parameters(), lr=0.003)
-    opening_count = len(corpus["openers"][performer])
     opening, replies = training[:opening_count], training[opening_count:]
+    opening_batch = 3 if opening else 0
     history = [{"step": 0, "validationLoss": round(evaluate(model, validation, lookup), 4)}]
     print(performer, history[0], flush=True)
     for step in range(1, steps + 1):
-        data = rng.choices(opening, k=3) + rng.choices(replies, k=29)
+        data = rng.choices(opening, k=opening_batch) + rng.choices(replies, k=32 - opening_batch)
         optimizer.zero_grad(set_to_none=True)
         train_loss = loss(model, *batch(data, lookup))
         train_loss.backward()
@@ -186,8 +198,9 @@ def train(performer, steps):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("performer", choices=PERFORMERS)
-    parser.add_argument("--steps", type=int, help="Defaults to 600 for the expanded roster and 800 for the original four.")
+    parser.add_argument("--steps", type=int, help="Defaults to 600 for the expanded roster, 800 for the original four, and 1000 for the challenge model.")
     args = parser.parse_args()
     expanded = PERFORMERS[args.performer][0] not in {"corpus.json", "robot-toaster.json"}
     torch.set_num_threads(1 if expanded else 2)
-    train(args.performer, args.steps if args.steps is not None else (600 if expanded else 800))
+    default_steps = 1000 if args.performer == "challenge" else (600 if expanded else 800)
+    train(args.performer, args.steps if args.steps is not None else default_steps)
