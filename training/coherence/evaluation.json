@@ -1,0 +1,1223 @@
+{
+  "checkpointSha256": "97061aed7051dab58d803a5f558c52209383e8b0c7f2f75a604281c43cb0721b",
+  "browserParityMaxError": 0.000003814697265625,
+  "caveat": "Entity mentions are diagnostics, not a coherence score. Test combinations are held out; plot templates are shared. Baseline has a different vocabulary and training distribution.",
+  "cases": [
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "On Christmas Eve, Mira needed the silver bell for the village celebration. A badger had locked it inside a cupboard. The cupboard would only open after hearing a joke about itself. Mira promised to bring the silver bell back before dinner.",
+      "actor": "Mira",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The Christmas tree grew a doorbell. Whenever someone pressed it, a tiny carol singer popped out of a branch. At first this was charming. Then the cat sat on the roof. The reindeer looked down in surprise. \"Then whose are the other eight?\" The slippers began to dance. Santa put them in charge of wrapping presents. They did a terrible job, but every envelope melted before it reached the post office. Santa called it a promising first draft.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The elves tivery ski wanted to learn the violin. Santa gave it a balloon. They spent the afternoon discussing the star. The elves decorated it with a tiny carols, but the cat was not impressed. Then it filled the bath with hot water and dropped in a giant tea bag. The singers were delighted. They floated down the hill, leaving the soup carrying flowers. They made up beside the fire. Everyone applauded, except the gloves, who thought the whole thing was terribly dramatic. Santa gave the mittens a shared scarf and a very small holiday.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them carefully and made a glowing pie. Every slice lit up the room. Santa ate two pieces and could see through his own beard. The elves turned off the lamp, but they only knew the word potato. They sang it softly, loudly, and with great feeling. Santa listened with tears in his eyes. \"Beautiful,\" he said."
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "On Christmas Eve, Mira needed the silver bell for the village celebration. A badger had locked it inside a cupboard. The cupboard would only open after hearing a joke about itself. Mira promised to bring the silver bell back before dinner.",
+      "actor": "Mira",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Mira told the cupboard that its shelves looked tired. The cupboard did not laugh. The penguin explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The penguin wore the paper hat while Mira performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Mira picked it up and thanked the cupboard for being a good audience.\n\n Mira carried the silver bell back to the celebration, with the penguin following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The mole opened a window, but the cloud refused to leave because it had bought a ticket. Mira offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the silver bell made a small clattering sound.\n\n Mira asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The penguin found the silver bell beneath a chair and handed it to Mira. With the stage clear, they began the Christmas play.\n\n Mira finished the performance with the silver bell held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience cla"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "On Christmas Eve, Mira needed the silver bell for the village celebration. A badger had locked it inside a cupboard. The cupboard would only open after hearing a joke about itself. Mira promised to bring the silver bell back before dinner.",
+      "actor": "Mira",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The elves discovered a hole in the workshop. It was afraid of soup. The lights took a bow and went out. Dinner continued by candlelight. The candle said it was a beautiful job, but it hid behind the moon.\n\n The Christmas tree sneezed and all the rain tasted flours. The moon ate three puddings and became very smaller for the whole song. Santa filled the workshop and then lost them all. Santa thought it was wonderful. Then it asked for a medal. The bowl fell into the stocking. It played a cheerful tune while everyone at the moon. The reindeer read it upside down and flew higher. At last Mrs Claus put a biscuit on a plate. The laughter settled down to eat. Santa swallowed it with his tea and immediately told joy.\n\n Once upon a time, there was a little boy named Timmy. Timmy loved to play in the garden with one clock and his friends a day. One day, Bob found a big red box in the woods. He was so excited! He wanted to make a wish before he sneezed so much that he couldn't find a job as a very round librarian. He put on a sign that was very small and accepted that it was a small giraffe on the wall. He was very proud of it. But then was an idea. He took the bath and started to rescue the shadow his room went to eat. He said he had finished all the tune of things that needed to be his friend. He gave him a carrot and a suitcase. He was so happy and thanked the bird. The little girl was so happy that she gave the bath to the moon and told the day to a cloud outside. The village had perfect weather for a sausage jelly.\n\n Once there was a little girl named Lily. She loved to go on the kitchen and liked to play with. One day, she went to the park for her mom and dad. She had to go to the store to buy a picture of her mommy. One day, Lily and her mom were playing in the park. The stars were not impressed. They heard a loud noise and wanted to know what was inside the sky. It was rude about vegetables, and thought they"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "On Christmas Eve, Mira needed the silver bell for the village celebration. A badger had locked it inside a cupboard. The cupboard would only open after hearing a joke about itself. Mira promised to bring the silver bell back before dinner.",
+      "actor": "Mira",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Mira told the cupboard that its shelves looked tired. The cupboard did not laugh. The penguin explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The penguin wore the paper hat while Mira performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Mira picked it up and thanked the cupboard for being a good audience.\n\n Mira carried the silver bell back to the celebration, with the rabbit following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The penguin wore the paper hat while Mira performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Mira picked it up and thanked the cupboard for being a good audience.\n\n Mira carried the silver bell back to the celebration, with the rabbit following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n Mira put the silver bell safely in a pocket and thanked the rabbit. They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n Mira carried the silver bell back to the celebration, with the penguin following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n Mira put the silver bell safely in a pocket and thanked the rabbit. They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n Mira carried the silver bell back to the celebration, with the rabbit following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n They delivered the silver bell before sunset. Mira opened the box for the waiting family, and the penguin parked the cart by the door. As promised, the wheel joined"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Mira was decorating the Christmas tree when a badger borrowed the green mitten. The badger promised to return it before the lights came on. Unfortunately, a gust of wind carried the green mitten onto the roof. Mira and the badger needed a way to reach it.",
+      "actor": "Mira",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "Once upon a time, there was a little girl named Lily. She loved to play in the park with her friends. One day, she saw a big tree in the park. She saw a big tree and a little girl who had to go to the park to play. She wanted to go to the park and got a new toy. She was so happy and she felt so happy to see the summer. She was so happy and thanked the old manager. She was happy to have her new friend and the blueberry. She was happy and proud of herself. She was very proud of her work. She was very proud of her work. She was very proud of herself for being so happy to be sure.\n\n Once upon a time, there was a little girl named Lily. She loved to play in the park with her friends. One day, she saw a big tree in the park. She saw a big tree and a little girl who had to go to the park to play. She wanted to go to the park and got a new toy. She was so happy and she felt so happy to see the summer. She was so happy and thanked the old manager. She was happy to have her new friend and the blueberry. She was happy and proud of herself. She was very proud of her work. She was very proud of her work. She was very proud of herself for being so happy to be sure.\n\n Once upon a time, there was a little girl named Lily. She loved to play in the park with her friends. One day, she saw a big tree in the park. She saw a big tree and a little girl who had to go to the park to play. She wanted to go to the park and got a new toy. She was so happy and she felt so happy to see the summer. She was so happy and thanked the old manager. She was happy to have her new friend and the blueberry. She was happy and proud of herself. She was very proud of her work. She was very proud of her work. She was very proud of herself for being so happy to be sure.\n\n Once upon a time, there was a little girl named Lily. She loved to play in the park with her friends. One day, she saw a big tree in the park. She saw a big tree and a little girl who had to go to the park to play. She wanted to go to the park and got a new toy. She was so happy and she felt so happy to see the summer. She was so happy and thanked the old manager. She was happy to have her new friend and"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Mira was decorating the Christmas tree when a badger borrowed the green mitten. The badger promised to return it before the lights came on. Unfortunately, a gust of wind carried the green mitten onto the roof. Mira and the badger needed a way to reach it.",
+      "actor": "Mira",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "text": "They fetched a ladder, but the ladder was afraid of heights. Mira held its lowest rung while the penguin offered encouraging words. The ladder climbed one step up itself and immediately asked for a holiday. The green mitten was still on the roof.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The penguin caught the green mitten just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the green mitten safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The penguin caught the green mitten just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the green mitten safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The penguin caught the green mitten just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the green mitten safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The penguin caught the green mitten just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the green mitten safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The penguin caught the green mitten just"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Mira was decorating the Christmas tree when a badger borrowed the green mitten. The badger promised to return it before the lights came on. Unfortunately, a gust of wind carried the green mitten onto the roof. Mira and the badger needed a way to reach it.",
+      "actor": "Mira",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "A Christmas cracker contained a small cup of tea. The chair sat on the underside of a cloud and added a raisins in the sea. The elves put them on a choir, and it made a small cup of tea breaks and softerflakes were free. The elves blew them out and turned off the parcel demanded itself. Santa held it carefully while the villagers waved. Their mayor asked for a larger tree next year.\n\n The elf apologised into a stocking. Santa found a tiny stockings and fell asleep at seven. The elves put it on a paper crown. The snowman was so excited and wanted to see the week. The reindeer thought it was wonderful. They asked to keep the secret. Inside the box, Santa found a tiny under a large summer. He climbed out with a cup of tea that was finally the right temperature. They enjoyed yesterday so much that they nearly forgot tomorrow. Santa packed the remaining hours into a tissue. The tissue turned out down the box and found the pudding parked beside the gate.\n\n Once upon a time, there was a little girl named Lily. She loved to draw pictures with her crayons and argues. One day, Lily's mommy came into the dark. She was very excited and asked her what she wanted to go closer to the house. Her mom said, \"Yes, you can do.\" The other animals agreed and they both laughed and said the washawn was still. The little girl was very happy to make her feel better. She went to the store to buy some soup and used to celebrate.\n\n Once upon a time, there was a little girl named Lily. She loved to draw pictures in her new things. One day, she went to the park with her mommy. She saw a big, yellow bulb and have a small white coat. The children were so happy! She said, \"Sorry!\" The train stood in front with a spoon and walked home with the fan. The snowman sat on the ground and asked for a salade.\n\n Once upon a time, there was a little girl named Lily. She loved to hope her mommy and dad. One day she was playing with her friends so excited that they began"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Mira was decorating the Christmas tree when a badger borrowed the green mitten. The badger promised to return it before the lights came on. Unfortunately, a gust of wind carried the green mitten onto the roof. Mira and the badger needed a way to reach it.",
+      "actor": "Mira",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "text": "They fetched a ladder, but the ladder was afraid of heights. Mira held its lowest rung while the rabbit offered encouraging words. The ladder climbed one step up itself and immediately asked for a holiday. The green mitten was still on the roof.\n\n Mira suggested laying the ladder across a snowdrift. From there, the badger could reach the roof without looking down. The plan worked. The penguin caught the green mitten just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the green mitten safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the penguin could reach the roof without looking down. The plan worked. The penguin caught the green mitten just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the green mitten safely returned, Mira finished decorating the tree. The rabbit switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The penguin caught the green mitten just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the green mitten safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The penguin caught the green mitten just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the green mitten safely returned, Mira finished decorating the tree. The rabbit switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the badger could reach the roof without looking down. The plan worked. The badger caught the green mitten just"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Mira packed the wooden spoon in a box for a Christmas delivery. A badger offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.",
+      "actor": "Mira",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The Christmas tree wanted to go ice skating. The village looked beautiful, but the piano kept freezing. Santa gave the singers hot chocolate. Their next song produced marshmallows instead. The clouds held a meeting and agreed. That winter, the tree was head of a small white cloud. The children found presents beneath the tree and a tiny note. It was very dark.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them up and stretched through the door. Santa said it was the most polite property development she had ever seen.\n\n Santa's shadow refused to work on Christmas Eve. It wanted to stay home and watch a film. Santa borrowed the shadow of a giraffe instead. Every roof he crossed looked much taller than usual. The reindeer thought he had grown a very long neck. Santa delivered all the presents without bending down. In the morning, he returned the shadow with a thank-you note and a scarf that was six metres long.\n\n An elf accidentally posted Christmas to the wrong address. It arrived at a quiet pond in the middle. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf. The reindeer promised to return to the tree for dinner.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The elves tivery ski wanted to learn the violin. Santa gave it a"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Mira packed the wooden spoon in a box for a Christmas delivery. A badger offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.",
+      "actor": "Mira",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "The penguin tried asking the wheel to turn, but it demanded potatoes. Mira placed a potato on the wheel. This made the cart lean sideways, and the box almost fell into the snow. Mira caught the box while the penguin held the cart steady.\n\n Mira explained that a good dinner plate first had to reach the dinner table. The wheel agreed to finish the journey on that condition. The penguin pulled the cart across the bridge, and Mira kept the box containing the wooden spoon balanced between both hands.\n\n They delivered the wooden spoon before sunset. Mira opened the box for the waiting family, and the penguin parked the cart by the door. As promised, the wheel joined them at the table. It enjoyed the potatoes so much that it rolled home with gravy on its spokes.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Mira used the recovered wooden spoon and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The penguin caught the striped scarf just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the striped scarf safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The rabbit caught the striped scarf just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the striped scarf safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The rabbit caught the striped scarf just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the striped scarf safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Mira packed the wooden spoon in a box for a Christmas delivery. A badger offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.",
+      "actor": "Mira",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The reindeer found a parcel full of doors. He was so happy that the tree had a tiny sleigh. It had a wonderful job, but every envelope melted before it reached the post office. Santa called it a promising first draft.\n\n The Christmas tree wanted to be a Christmas cracker with a fashionable. She had a small white coat with a tiny star that she had a special kind of words. She liked to collect her skills, and squirrels were allowed. One day, the family told a joke about a very large summer. She wanted to see next year's list and found a shopping joke. She put it on her head and said to the moon. The little girl was so happy and thanked the old manager. \"I have a surprise for you!\" Lucy felt so happy and thanked the old man. From then on, she was happy to have something wonderful from her new place.\n\n Once upon a time, there was a little boy named Timmy. Timmy loved to run around the garden and find a big wardrobe that only the best of the star. He was so happy to have his carrot and found a large green pair in the door. He was so excited that he fell over the waiting room. He was so happy and he fell out with three spoons. He put on the sign saying Please Complimenty, it was very important to reach it.\n\n Once upon a time, there was a little girl named Lily. She loved to play in her garden and watch her favorite hat. One day, she saw a small lady who was very interesting to the park and decided to take a mistake to find her favorite toy. She was so happy to see her mommy and daddy. She put them on the egg. The snowman put on her paper hat and books to make her kings. She put them one, and touched the parcel next day. The moral of the story is to always be careful whenever someone splashed the park.\n\n Once upon a time there was a little girl who loved playing with her toys and she had to go on a nap. One day, she was playing in the kitchen and wanted to learn the violin. Santa was very indehusiastructor, so she started to run. She looked everywhere but she was scared. She asked her mommy if she could help her. Her"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Mira packed the wooden spoon in a box for a Christmas delivery. A badger offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.",
+      "actor": "Mira",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "The penguin tried asking the wheel to turn, but it demanded potatoes. Mira placed a potato on the wheel. This made the cart lean sideways, and the box almost fell into the snow. Mira caught the box while the penguin held the cart steady.\n\n Mira explained that a good dinner plate first had to reach the dinner table. The wheel agreed to finish the journey on that condition. The rabbit pulled the cart across the bridge, and Mira kept the box containing the wooden spoon balanced between both hands.\n\n They delivered the wooden spoon before sunset. Mira opened the box for the waiting family, and the penguin parked the cart by the door. As promised, the wheel joined them at the table. It enjoyed the potatoes so much that it rolled home with gravy on its spokes.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Mira used the recovered wooden spoon and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Mira suggested laying the ladder across a snowdrift. From there, the badger could reach the roof without looking down. The plan worked. The rabbit caught the striped scarf just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the striped scarf safely returned, Mira finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the penguin could reach the roof without looking down. The plan worked. The rabbit caught the striped scarf just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the striped scarf safely returned, Mira finished decorating the tree. The rabbit switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the badger could reach the roof without looking down. The plan worked. The rabbit caught the striped scarf just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the striped scarf safely returned, Mira finished decorating the tree. The rabbit switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "At the Christmas market, Mira lost the striped scarf. A badger offered to help find it before the stalls closed. They remembered leaving it beside a basket of apples. When they returned, the basket had grown legs and walked away.",
+      "actor": "Mira",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The village looked wonderful from the sky. In January, it took forty people and one very patient crane to fold the jumper.\n\n The snowman borrowed Santa's beard for a party. He looked so important that everyone asked him for presents. He gave the monster a name and asked it to help with the difficult wrapping paper.\n\n The Christmas tree wanted to go ice skating. The village looked beautiful, but the piano kept freezing. Santa gave the singers hot chocolate. Their next song produced marshmallows instead. The clouds held a meeting and agreed. That winter, the tree was head of a small white cloud. The children found presents beneath the tree and a tiny note. It was very dark.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them up and stretched through the door. Santa said it was the most polite property development she had ever seen.\n\n Santa's shadow refused to work on Christmas Eve. It wanted to stay home and watch a film. Santa borrowed the shadow of a giraffe instead. Every roof he crossed looked much taller than usual. The reindeer thought he had grown a very long neck. Santa delivered all the presents without bending down. In the morning, he returned the shadow with a thank-you note and a scarf that was six metres long.\n\n An elf accidentally posted Christmas to the wrong address. It arrived at a quiet pond in the middle. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf. The reindeer promised to return to the tree for dinner.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup."
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "At the Christmas market, Mira lost the striped scarf. A badger offered to help find it before the stalls closed. They remembered leaving it beside a basket of apples. When they returned, the basket had grown legs and walked away.",
+      "actor": "Mira",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Mira followed tiny footprints through the snow. The penguin found an apple under a bench, then another near the bakery. They asked the baker whether a walking basket had passed. The baker pointed toward the music stall, where someone was loudly requesting a dance.\n\n The basket was dancing beside the music stall with the striped scarf tucked inside. Mira asked for it back. The basket wanted a partner for one last dance, so the rabbit took its handle and spun it gently. After the dance, the basket returned the striped scarf.\n\n Mira put the striped scarf safely in a pocket and thanked the penguin. They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n Mira carried the striped scarf back to the celebration, with the rabbit following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The rabbit opened a window, but the cloud refused to leave because it had bought a ticket. Mira offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the striped scarf made a small clattering sound.\n\n Mira asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The rabbit found the striped scarf beneath a chair and handed it to Mira. With the stage clear, they began the Christmas play.\n\n Mira finished the performance with the striped scarf held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the striped scarf held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the striped scarf held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the striped scarf held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "At the Christmas market, Mira lost the striped scarf. A badger offered to help find it before the stalls closed. They remembered leaving it beside a basket of apples. When they returned, the basket had grown legs and walked away.",
+      "actor": "Mira",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The village looked beautiful, but the buses had been worth it.\n\n On Christmas Eve, the night smelled a week, a pair of slippers. The socks were not impressed. It had sent itself to Grandma. Then it turned back in a line with butter and called it a holiday, carrying the parcel demandar. Santa climbed into the engine and drove it around the moon. The village looked wonderful from the sky. In January, it took forty people and one very patient crane to fold the jumper.\n\n The moon came down wearing a Christmas tree and a small bell. It was very dark. Santa went to bed in the wait and chased the day was very festive, although he wished someone had kept the roof.\n\n The snowman wanted to learn the violin. Santa gave him one biscuits and asked for a blanket. The Christmas tissue turned it into a stocking. In the morning, the stockings woke up refreshed. They asked for breakfast and refused to discuss the terrible things they had smelled.\n\n An elf invented a toy that did absolutely nothing. Santa examined it for a long time. \"How does it work?\" he asked. \"Perfectly,\" said the elf. The reindeer were left behind the moon. \"Come back,\" called Santa. \"You still have half my biscuit.\" The sumberman nodded and thanked everyone.\n\n The gingerbread man bought a suit made of icing. He looked very smart at the Christmas party. Unfortunately, everyone kept asking whether he could have a taste. He had a wonderful Christmas, although nobody suggested a group hug.\n\n The Christmas biscuit asked the moon to dance. The moon came downstairs and sang a gentle song about the weather. Santa spent an hour feeling around under the table. Mrs Claus sprinkled flour over the floor, revealing a bicycle, a rocking horse, and a very embarrassed elf. The biscuit was no longer surprised.\n\n A snowman bor"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "At the Christmas market, Mira lost the striped scarf. A badger offered to help find it before the stalls closed. They remembered leaving it beside a basket of apples. When they returned, the basket had grown legs and walked away.",
+      "actor": "Mira",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Mira followed tiny footprints through the snow. The rabbit found an apple under a bench, then another near the bakery. They asked the baker whether a walking basket had passed. The baker pointed toward the music stall, where someone was loudly requesting a dance.\n\n The basket was dancing beside the music stall with the striped scarf tucked inside. Mira asked for it back. The basket wanted a partner for one last dance, so the badger took its handle and spun it gently. After the dance, the basket returned the striped scarf.\n\n Mira put the striped scarf safely in a pocket and thanked the penguin. They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n Nella carried the striped scarf back to the celebration, with the rabbit following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The rabbit opened a window, but the cloud refused to leave because it had bought a ticket. Mira offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the striped scarf made a small clattering sound.\n\n Mira asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The penguin found the striped scarf beneath a chair and handed it to Mira. With the stage clear, they began the Christmas play.\n\n Mira finished the performance with the striped scarf held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the striped scarf held high. The rabbit bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the striped scarf held high. The rabbit bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the striped scarf held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Orin wanted to use the silver bell in the Christmas play. A penguin was in charge of the stage. Just before the performance, a cloud floated indoors and hid the silver bell in a thick mist. The audience was waiting, so Orin needed to clear the stage.",
+      "actor": "Orin",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "He wrapped the sound of a duck and asked for a job. Santa gave him a new job wrapping sandwiches, where his enthusiasm caused fewer problems.\n\n The Christmas pudding learned a new word. It was very satisfied. Santa gave it a tiny star and asked for a job. \"I have excellent falling skills,\" it said. Santa made it head of winter. The snowflake immediately ordered more tea breaks and softer roofs. The other snowflakes were delighted. They floated down so slowly that Christmas arrived before the snow did. Santa asked them to return to the tree for dinner. \"After this radiator,\" he said. The pudding promised to be home, provided nobody brought a spoon.\n\n A penguin arrived at the North Pole with a suitcase full of warm snow. The elves were suspicious. \"Snow is supposed to be cold,\" they said. The penguin poured it into mugs and added marshmallows. At last Mrs Claus put a biscuit on the roof. The reindeer gave the card a little lunchbox and taught it to say please. It became very polite, although it still chewed the occasional stamp. By New Year, the octopus had sold them a wardrobe that did the ironing and a very small holiday.\n\n Mrs Claus found a pair of boots of tea. He was very happy and kept the box. He climbed in a bowl of soup. The elves turned off the lamps to save electricity. By evening, everyone was drinking snow and building snowmen out of biscuits. The penguin opened a shop called Weather You Can Eat.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\""
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Orin wanted to use the silver bell in the Christmas play. A penguin was in charge of the stage. Just before the performance, a cloud floated indoors and hid the silver bell in a thick mist. The audience was waiting, so Orin needed to clear the stage.",
+      "actor": "Orin",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "text": "The badger opened a window, but the cloud refused to leave because it had bought a ticket. Orin offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the silver bell made a small clattering sound.\n\n Orin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the silver bell beneath a chair and handed it to Orin. With the stage clear, they began the Christmas play.\n\n Orin finished the performance with the silver bell held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Luma told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the silver bell back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the silver bell back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the silver bell back to the celebration, with the badger following in the hat. Dinner could finally begin. They"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Orin wanted to use the silver bell in the Christmas play. A penguin was in charge of the stage. Just before the performance, a cloud floated indoors and hid the silver bell in a thick mist. The audience was waiting, so Orin needed to clear the stage.",
+      "actor": "Orin",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "He rented his left eyebrow. Mrs Claus caught it with a summer holiday. It was a very elegant pudding and a very embarrassed elf.\n\n The North Pole lost its north. The sign simply said Pole, and all the compasses pointed at lunch. Santa followed one to a sandwich shop. Behind the door was another giraffe and the roof. The reindeer gave it a gentle push. For a week, the night smelled faintly of custard.\n\n The star on the Christmas tree asked for a day off. Santa replaced it with a fried egg. The egg shone beautifully until the cat noticed. After a long discussion, the cat agreed to leave the line with one presents. The elf won a prize, which had a little parcel attached to the letter. The tree had to put it all back with teaspoons. \"A little smaller next time,\" Santa suggested. A spoon asked for a promotion. By New Year's Day, it was head of very small deliveries.\n\n The snowman borrowed Santa's beard for a party. He looked so important that everyone asked him for presents. He gave them snowballs, cold hugs, and a careful explanation of winter. The elves decorated it with a tiny bucket of directed. Santa gave the blanket to apologise. Santa gave him a magnifying glass for Christmas. The snowman gave the antlers sticking into a fish, which was almost icesesday.\n\n The Christmas angel on top of the tree wanted to be a boat. She climbed up with a red hat and travelled in the letter. The village looked beautiful, but the piano kept freezing. Santa gave the tree a little picture of a very small sipboard. The other sleighed biscuits and asked whether anyone elf.\n\n The smallest present contained a smaller Santa behind a tissue. The moon ate three puddings and"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Orin wanted to use the silver bell in the Christmas play. A penguin was in charge of the stage. Just before the performance, a cloud floated indoors and hid the silver bell in a thick mist. The audience was waiting, so Orin needed to clear the stage.",
+      "actor": "Orin",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "text": "The badger opened a window, but the cloud refused to leave because it had bought a ticket. Orin offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the silver bell made a small clattering sound.\n\n Orin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the silver bell beneath a chair and handed it to Orin. With the stage clear, they began the Christmas play.\n\n Bram finished the performance with the silver bell held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Orin told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Bram picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the silver bell back to the celebration, with the penguin following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Bram performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Bram picked it up and thanked the cupboard for being a good audience.\n\n Bram carried the silver bell back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Bram carried the silver bell back to the celebration, with the badger following in the hat. Dinner could finally begin. They"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Orin and a penguin were preparing Christmas dinner when the green mitten vanished. A trail of flour led to the pantry. Inside, a loaf of bread was using the green mitten as a royal treasure. It refused to give it back until somebody recognized its kingdom.",
+      "actor": "Orin",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The Christmas tree's fairy lights began growing pears. Grandma picked them carefully and made a glowing pie. Every slice lit up the room. Santa ate two pieces and could see through his own beard. The elves turned off the lamp, but they only knew the word potato. They sang it softly, loudly, and with great feeling. Santa listened with tears in his eyes. \"Beautiful,\" he said. \"But perhaps one more word?\" The reindeer thought for a long time. On Christmas Eve, they produced a grand piano. Santa was impressed, but the chair was surprisingly helpful.\n\n An elf invented a toy that did absolutely nothing. Santa examined it for a long time. \"How does it work?\" he asked. \"Perfectly,\" said the elf. The reindeer were left behind the stairs. It was a very elephant. It had a wonderful Christmas, although nobody suggested a group hug.\n\n The Christmas tree sneezed and all the rain tasted of the star. The elves decorated it with a tiny spoon and added a raisins in the sea. The elves put buckets on their heads and continued wrapping presents. A whale offered to pull the sleigh. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them up and stretched through the door. Santa said it was the most polite property development she had ever seen.\n\n Santa's shadow refused to work on Christmas Eve. It wanted to stay home and watch a film. Santa borrowed the shadow of a giraffe instead. Every roof he crossed looked much taller than usual. The reindeer thought he had grown a very long neck. Santa delivered all the presents without bending down. In the morning, he returned the shadow with a thank-you note and a scarf that was six metre"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Orin and a penguin were preparing Christmas dinner when the green mitten vanished. A trail of flour led to the pantry. Inside, a loaf of bread was using the green mitten as a royal treasure. It refused to give it back until somebody recognized its kingdom.",
+      "actor": "Orin",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Orin tried explaining that dinner was getting cold. The loaf declared that cold dinners were against the law. The badger made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Orin arranged six rolls around the loaf. The badger announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the green mitten. Orin carried it back to the kitchen and finished preparing dinner.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Orin used the recovered green mitten and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n The badger opened a window, but the cloud refused to leave because it had bought a ticket. Luma offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the green mitten made a small clattering sound.\n\n Orin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the green mitten beneath a chair and handed it to Orin. With the stage clear, they began the Christmas play.\n\n Orin finished the performance with the green mitten held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Luma told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the green mitten was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the green mitten back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the green mitten"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Orin and a penguin were preparing Christmas dinner when the green mitten vanished. A trail of flour led to the pantry. Inside, a loaf of bread was using the green mitten as a royal treasure. It refused to give it back until somebody recognized its kingdom.",
+      "actor": "Orin",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The elves enjoyed themselves until the calendar demanded a birthday party.\n\n The smallest present contained a very large silence. When it was opened, the carols stopped, the bell rang when the reindeer took a biscuit. The potato counted slowly and fell asleep at seven. The elves blew a gentle pushions. For a week, the night smelled faintly of custard.\n\n The star on top of the tree wanted to be a Christmas candle. It stood on the egg and took a tea break to find its sleigh. Mrs Claus watered the kettle, the shower, and a little tapet of raisins in uniform. The elves brought a chair and a packet of raisins in the star. The elves enjoyed themselves until the calendar demanded a birthday party. Santa gave the sunlloth a paper crowns and a very large dinner plate.\n\n An elf invented a machine that wrapped feelings. The elves were left in the waiting invitations to join a band. They sailed past a prize with one sleigh. Mrs Claus caught him in a quiet cupboard and sent everyone a postcard that was unusually cheerful.\n\n The Christmas pudding learned to drive. It borrowed Santa's sleigh and took the custard to the seaside. The reindeer were left behind the cloud and called the a taxi. The reindeer promised to be more careful with conversation.\n\n A Christmas cracker contained a small cup of tea. An elf made a small snowflake descriked and fanched itself. The reindeer thought it was wonderful. Then the reindeer climbed down the hill. It was very dark. It had a wonderful coat for a long time. On its first day, the pudding banned washing up.\n\n An elf made a toy telephone that only called vegetables. Santa dialled the workshop and reached a worried cabbage. He called Mrs Claus and got a carrot with a small fan. The duck asked for a blanket."
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Orin and a penguin were preparing Christmas dinner when the green mitten vanished. A trail of flour led to the pantry. Inside, a loaf of bread was using the green mitten as a royal treasure. It refused to give it back until somebody recognized its kingdom.",
+      "actor": "Orin",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Orin tried explaining that dinner was getting cold. The loaf declared that cold dinners were against the law. The badger made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Orin arranged six rolls around the loaf. The badger announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the green mitten. Orin carried it back to the kitchen and finished preparing dinner.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Bram used the recovered green mitten and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Orin used the recovered green mitten and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n The badger promised to return it before the lights came on. Unfortunately, a gust of wind carried the green mitten balanced between both hands.\n\n They delivered the green mitten before sunset. Orin opened the box for the waiting family, and the rabbit parked the cart by the door. As promised, the wheel joined them at the table. It enjoyed the potatoes so much that it rolled home with gravy on its spokes.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Luma used the recovered striped scarf and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n The badger opened a window, but the cloud refused to leave because it had bought a ticket. Luma offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the green mitten made a small clattering sound.\n\n Luma asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the green mitten beneath a chair and handed it to Orin. With the stage clear, they began the Christmas play.\n\n Orin finished the performance with the green mitten held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor."
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "On Christmas Eve, Orin needed the striped scarf for the village celebration. A penguin had locked it inside a cupboard. The cupboard would only open after hearing a joke about itself. Orin promised to bring the striped scarf back before dinner.",
+      "actor": "Orin",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The Christmas tree grew a doorbell. Whenever someone pressed it, a tiny carol singer popped out of a branch. At first this was charming. Then the cat sat on the roof. The reindeer looked down in surprise. \"Then whose are the other eight?\" The slippers began to dance. Santa put them in charge of wrapping presents. They did a terrible job, but every envelope melted before it reached the post office. Santa called it a promising first draft.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The elves tivery ski wanted to learn the violin. Santa gave it a balloon. They spent the afternoon discussing the star. The elves decorated it with a tiny carols, but the cat was not impressed. Then it filled the bath with hot water and dropped in a giant tea bag. The singers were delighted. They floated down the hill, leaving the soup carrying flowers. They made up beside the fire. Everyone applauded, except the gloves, who thought the whole thing was terribly dramatic. Santa gave the mittens a shared scarf and a very small holiday.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them carefully and made a glowing pie. Every slice lit up the room. Santa ate two pieces and could see through his own beard. The elves turned off the lamp, but they only knew the word potato. They sang it softly, loudly, and with great feeling. Santa listened with tears in his eyes. \"Beautiful,\" he said."
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "On Christmas Eve, Orin needed the striped scarf for the village celebration. A penguin had locked it inside a cupboard. The cupboard would only open after hearing a joke about itself. Orin promised to bring the striped scarf back before dinner.",
+      "actor": "Orin",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Orin told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "On Christmas Eve, Orin needed the striped scarf for the village celebration. A penguin had locked it inside a cupboard. The cupboard would only open after hearing a joke about itself. Orin promised to bring the striped scarf back before dinner.",
+      "actor": "Orin",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The Christmas star fell into a bowl of soup. It bobbed between the bell, and a small cup of tea breaks like eggs. The paper built it during the prize slippers. \"My feet,\" it said. The king was less excited about the onions until they began telling jokes. The stars were exhausted. Santa gave the mittens a shared scarf and a very embarrassed elf.\n\n A reindeer brought a ladder to Christmas dinner. \"The conversation is too high for me,\" he explained. He climbed out looking slightly softer but very professional. \"You need fewer bad jokes and more floss,\" he said. The cracker promised to brush its punchlines twice a day.\n\n Santa found a pair of boots in his pocket. He opened the box and found the present in the box, but the shor was just behind it. The elves tried to catch it with a fishing net, but it hid behind the moon. \"Come back,\" called Santa. \"You still have half my biscuit.\" The beard returned in its quiet village. Everyone applauded, except the pudding, and a squirrel received a teapot. Nobody had expected that.\n\n Santa found a door inside his stocking. A whale offered to pull the sink off. It wrote poems on the roof because it had a yummy break.\n\n The moon came down for Christmas dinner. It sat on the roof because it would not fit through the door. Santa passed plates of food up the chicken. Nobody could leave the workshop until the morning. Santa tried to explain, but the frogs took a tea break. The elves brought them and spoke to a larger fish. The children climbed onto the pudding and raised the pizza through a window. The chimney burped a cloud shaped like a mushroom. Santa thought he looked magnificent. The reindeer agreed, but asked whether anyone knew how to turn off the lights before bedtime.\n\n The Christmas star fell into a bowl of"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "On Christmas Eve, Orin needed the striped scarf for the village celebration. A penguin had locked it inside a cupboard. The cupboard would only open after hearing a joke about itself. Orin promised to bring the striped scarf back before dinner.",
+      "actor": "Orin",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Orin told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The penguin wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Bram picked it up and thanked the cupboard for being a good audience.\n\n Bram carried the striped scarf back to the celebration, with the rabbit following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger opened a window, but the cloud refused to leave because it had bought a ticket. Orin offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the striped scarf made a small clattering sound.\n\n Bram asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the striped scarf beneath a chair and handed it to Orin. With the stage clear, they began the Christmas play.\n\n Orin finished the performance with the striped scarf held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Luma told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The rabbit wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The rabbit wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Bram was decorating the Christmas tree when a rabbit borrowed the silver bell. The rabbit promised to return it before the lights came on. Unfortunately, a gust of wind carried the silver bell onto the roof. Bram and the rabbit needed a way to reach it.",
+      "actor": "Bram",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "An elf invented a toy that did absolutely nothing. Santa examined it for a long time. \"How does it work?\" he asked. \"Perfectly,\" said the elf. The reindeer were left behind the stairs. It was a very elephant. It had a wonderful Christmas, although nobody suggested a group hug.\n\n The Christmas tree sneezed and all the rain tasted of the star. The elves decorated it with a tiny spoon and added a raisins in the sea. The elves put buckets on their heads and continued wrapping presents. A whale offered to pull the sleigh. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them up and stretched through the door. Santa said it was the most polite property development she had ever seen.\n\n Santa's shadow refused to work on Christmas Eve. It wanted to stay home and watch a film. Santa borrowed the shadow of a giraffe instead. Every roof he crossed looked much taller than usual. The reindeer thought he had grown a very long neck. Santa delivered all the presents without bending down. In the morning, he returned the shadow with a thank-you note and a scarf that was six metres long.\n\n An elf accidentally posted Christmas to the wrong address. It arrived at a quiet pond in the middle. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf. The reindeer promised to return to the tree for dinner.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Bram was decorating the Christmas tree when a rabbit borrowed the silver bell. The rabbit promised to return it before the lights came on. Unfortunately, a gust of wind carried the silver bell onto the roof. Bram and the rabbit needed a way to reach it.",
+      "actor": "Bram",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "text": "They fetched a ladder, but the ladder was afraid of heights. Orin held its lowest rung while the badger offered encouraging words. The ladder climbed one step up itself and immediately asked for a holiday. The silver bell was still on the roof.\n\n Orin suggested laying the ladder across a snowdrift. From there, the badger could reach the roof without looking down. The plan worked. The badger caught the silver bell just as another gust of wind arrived and carefully carried it back to Orin.\n\n With the silver bell safely returned, Orin finished decorating the tree. The badger switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Luma asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the silver bell beneath a chair and handed it to Luma. With the stage clear, they began the Christmas play.\n\n Orin finished the performance with the silver bell held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Luma told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the silver bell back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the silver bell back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Bram was decorating the Christmas tree when a rabbit borrowed the silver bell. The rabbit promised to return it before the lights came on. Unfortunately, a gust of wind carried the silver bell onto the roof. Bram and the rabbit needed a way to reach it.",
+      "actor": "Bram",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "A reindeer brought a ladder to Christmas dinner. \"The conversation is too high for me,\" he explained. The reindeer promised to try. Then a cat returned the shadow with a thank-you note a biscuit. It was very satisfied.\n\n The Christmas pudding learned to drive. It borrowed Santa's sleigh and took the custard to the village. The elves had to return everything before dinner. They sang a song about a very small stamp. By the rest of the day, the washing up lasted until March. By the time the stair played the workshope on the roof.\n\n An elf made a wish on a Christmas cracker. He wrapped his own eggs. The snowman put the box with a smaller and spent ten minutes asking a chair for directions. The elves brought them snowballs, but they only knew the word potatoes had been worth it.\n\n The Christmas spent discovered that it was a planet. It had three tiny moons and a village of gloirty of moons. The village looked beautiful, but the buses could not find the sleeves. Santa held it carefully while wobbling gently. The smallest present contained a job and sent a Christmas dinner. The star turned off into a spoon and walked home carrying the driver in a giant tea.\n\n The elves discovered a hole in Christmas. It was just behind the cloud winter. The wind wrapped the lake in the village. The elves had to put it all back with teaspoons. \"A little smaller next time,\" Santa suggested. The wind blushed and blew a gentle kiss. Everyone's paper crown flew into the soup.\n\n The elves found a parcel full of woning while a job as a new kind of scarf. He returned the shadow of a small white coat and a very large dinner plate. At the top, it turned out to send Santa a tiny candy can. The spoon asked for a map and asked for a mirror. By New Year's Day, it was head of very"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Bram was decorating the Christmas tree when a rabbit borrowed the silver bell. The rabbit promised to return it before the lights came on. Unfortunately, a gust of wind carried the silver bell onto the roof. Bram and the rabbit needed a way to reach it.",
+      "actor": "Bram",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "text": "They fetched a ladder, but the ladder was afraid of heights. Orin held its lowest rung while the rabbit offered encouraging words. The ladder climbed one step up itself and immediately asked for a holiday. The silver bell was still on the roof.\n\n Bram suggested laying the ladder across a snowdrift. From there, the badger could reach the roof without looking down. The plan worked. The badger caught the silver bell just as another gust of wind arrived and carefully carried it back to Orin.\n\n With the silver bell safely returned, Bram finished decorating the tree. The badger switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Orin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the silver bell beneath a chair and handed it to Luma. With the stage clear, they began the Christmas play.\n\n Orin finished the performance with the silver bell held high. The rabbit bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Luma told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Luma carried the silver bell back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger opened a window, but the cloud refused to leave because it had bought a ticket. Luma offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the silver bell made a small clattering sound.\n\n Bram asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Bram packed the green mitten in a box for a Christmas delivery. A rabbit offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.",
+      "actor": "Bram",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "It received a bicycle and a very large soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The village looked beautiful, but the piano kept freezing. Santa gave the singers hot chocolate. Their next song produced marshmallows instead. The clouds held a meeting and agreed. That winter, the tree was head of a small white cloud. The children found presents beneath the tree and a tiny note. It was very dark.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them up and stretched through the door. Santa said it was the most polite property development she had ever seen.\n\n Santa's shadow refused to work on Christmas Eve. It wanted to stay home and watch a film. Santa borrowed the shadow of a giraffe instead. Every roof he crossed looked much taller than usual. The reindeer thought he had grown a very long neck. Santa delivered all the presents without bending down. In the morning, he returned the shadow with a thank-you note and a scarf that was six metres long.\n\n An elf accidentally posted Christmas to the wrong address. It arrived at a quiet pond in the middle. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf. The reindeer promised to return to the tree for dinner.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quiet"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Bram packed the green mitten in a box for a Christmas delivery. A rabbit offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.",
+      "actor": "Bram",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "The badger tried asking the wheel to turn, but it demanded potatoes. Orin placed a potato on the wheel. This made the cart lean sideways, and the box almost fell into the snow. Orin caught the box while the badger held the cart steady.\n\n Orin explained that a good dinner plate first had to reach the dinner table. The wheel agreed to finish the journey on that condition. The badger pulled the cart across the bridge, and Orin kept the box containing the green mitten balanced between both hands.\n\n They delivered the green mitten before sunset. Orin opened the box for the waiting family, and the badger parked the cart by the door. As promised, the wheel joined them at the table. It enjoyed the potatoes so much that it rolled home with gravy on its spokes.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Orin used the recovered green mitten and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Orin suggested laying the ladder across a snowdrift. From there, the badger could reach the roof without looking down. The plan worked. The badger caught the green mitten just as another gust of wind arrived and carefully carried it back to Luma.\n\n With the green mitten safely returned, Orin finished decorating the tree. The badger switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Luma tried explaining that dinner was getting cold. The loaf declared that cold dinners were against the law. The badger made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Luma arranged six rolls around the loaf. The badger announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the green mitten. Orin carried it back to the kitchen and finished preparing dinner.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Orin used the recovered green mitten and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Orin suggested laying the ladder across a snowdrift. From there, the badger could reach the roof without looking down. The plan worked. The badger caught the green mitten just as another"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Bram packed the green mitten in a box for a Christmas delivery. A rabbit offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.",
+      "actor": "Bram",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "It refused to use roads and bounced through the gardens instead. Everything returned onto the pudding, which was not so much that it was just before anyone went to bed.\n\n An elf wrapped the fridge. It stood in front of a duck and a packet of raisins. The elves decorated it with a tiny candy cane and offered it a tune. The elves put them in charge of wrapping presents. They had a wonderful Christmas, although half the biscuits had been worth it.\n\n The Christmas tree wanted to go ice skating. The village enjoyed winter. The village had perfect weather for a week. Santa asked her to return to the sky that night. Every time it was another, but it reached the post office. Santa held it carefully while the villagers experienced their first earthquake light. The reindeer returned to the plate just before dinner.\n\n The Christmas tree wanted to go on a Christmasard. The star was read the inspectange and sleigh. It was very dark, but the blue bulb kept wrapping paper. \"Very disappointing,\" it explained. Grandma poured it tea and listened kindly. Later, the moon had returned all its dirty water. The elves carried buckets for three days. Mrs Claus watered the Christmas tree with a lail instead. By evening, the soup had been wrapped the prize by the smell of soup.\n\n The Christmas star fell into a bowl of soup. It bobbed between the carrot, and the moon came out of soup. The lights turned out to the cloud and called it a holiday for a partyard. At last it flew across the kitchen and delivered a pea to every plate. \"Excellent work,\" said Santa. The spoon asked for a promotion. By New Year's Day, it was head of very popular.\n\n Santa's hat fell into a bowl of soup. It bobbed between the carrots, looking embarrassed."
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Bram packed the green mitten in a box for a Christmas delivery. A rabbit offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.",
+      "actor": "Bram",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "The badger tried asking the wheel to turn, but it demanded potatoes. Bram placed a potato on the wheel. This made the cart lean sideways, and the box almost fell into the snow. Orin caught the box while the badger held the cart steady.\n\n Bram explained that a good dinner plate first had to reach the dinner table. The wheel agreed to finish the journey on that condition. The badger pulled the cart across the bridge, and Orin kept the box containing the green mitten balanced between both hands.\n\n They delivered the green mitten before sunset. Bram opened the box for the waiting family, and the penguin parked the cart by the door. As promised, the wheel joined them at the table. It enjoyed the potatoes so much that it rolled home with gravy on its spokes.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Bram used the recovered striped scarf and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Luma asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the green mitten beneath a chair and handed it to Bram. With the stage clear, they began the Christmas play.\n\n Luma finished the performance with the green mitten held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Luma told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the green mitten was resting on a cushion. Bram picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the rabbit following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the green mitten was resting"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "At the Christmas market, Bram lost the wooden spoon. A rabbit offered to help find it before the stalls closed. They remembered leaving it beside a basket of apples. When they returned, the basket had grown legs and walked away.",
+      "actor": "Bram",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The village cried so much that the pond became a little deeper. Then it played a cheerful song about socks. Everyone laughed and laughed until the stockings shook.\n\n The reindeer found a map of Christmas inside a biscuit. It showed the workshop, the moon, and a secret cupboard full of gravy. They followed the crumbs across the snow. Behind the door was another Christmas, although half the audience had only come for dessert.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them carefully and made a glowing pie. Every slice lit up the room. Santa ate two pieces and could see through his own beard. The elves turned off the lamp, but they only knew the word potato. They sang it softly, loudly, and with great feeling. Santa listened with tears in his eyes. \"Beautiful,\" he said. \"But perhaps one more word?\" The reindeer thought for a long time. On Christmas Eve, they produced a grand piano. Santa was impressed, but the chair was surprisingly helpful.\n\n An elf invented a toy that did absolutely nothing. Santa examined it for a long time. \"How does it work?\" he asked. \"Perfectly,\" said the elf. The reindeer were left behind the stairs. It was a very elephant. It had a wonderful Christmas, although nobody suggested a group hug.\n\n The Christmas tree sneezed and all the rain tasted of the star. The elves decorated it with a tiny spoon and added a raisins in the sea. The elves put buckets on their heads and continued wrapping presents. A whale offered to pull the sleigh. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them up and stretched through the door. Santa said it was the most polite property development she had ever seen."
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "At the Christmas market, Bram lost the wooden spoon. A rabbit offered to help find it before the stalls closed. They remembered leaving it beside a basket of apples. When they returned, the basket had grown legs and walked away.",
+      "actor": "Bram",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Orin followed tiny footprints through the snow. The badger found an apple under a bench, then another near the bakery. They asked the baker whether a walking basket had passed. The baker pointed toward the music stall, where someone was loudly requesting a dance.\n\n The basket was dancing beside the music stall with the wooden spoon tucked inside. Orin asked for it back. The basket wanted a partner for one last dance, so the badger took its handle and spun it gently. After the dance, the basket returned the wooden spoon.\n\n Orin put the wooden spoon safely in a pocket and thanked the badger. They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the wooden spoon was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the wooden spoon back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the wooden spoon was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the wooden spoon back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the wooden spoon was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the wooden spoon back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside,"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "At the Christmas market, Bram lost the wooden spoon. A rabbit offered to help find it before the stalls closed. They remembered leaving it beside a basket of apples. When they returned, the basket had grown legs and walked away.",
+      "actor": "Bram",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The village cried so much that the pond became a smaller. The little girl was very happy and kept the box.\n\n The star on top of the tree wanted to know what was inside the moon. The stars climbed aboard and spent the afternoon discussing the dentist. Then one of the keys turned into Janie with it. The elves had to whisper. Santa climbed into the engine and drove it around the moon. \"Come back,\" he explained. \"You only have four feet,\" said an elf. The reindeer agreed, except the wedding, which had a little elephant.\n\n The Christmas tree's fairy lights began telling stories. Its knitted snowman described a journey to the sky and a seaside holiday. Mrs Claus agreed immediately. By New Year, it had sent everyone washing up. On its second day, the family told excellent jokes and helped with the spoons.\n\n The Christmas tree wanted to go inside a giant potato just before anyone went to bed. The village looked beautiful, but the show had been ear. Santa thought it was wonderful. When the retipt return, the stairs were not impressed. Santa laughed so hard that it was very pleased. The snowman stuck it on his face and asked for a job. \"I have come to apologise for last year's dinner,\" it said. Santa decided it was a wonderful gift, he wrapped his own confusion and called it a holiday, which was also very proud of it.\n\n The reindeer found Santa stuck a bill for his carrot. It was a large green pair of wheels. It did not like a mirror. He was very pleased but he sneezed and started the roof. The elves looked suspiciously hungry. Together they carried the piano. The cloud wrapped the parcel full of warm snow.\n\n An elf reached a very smallest dependable. The wind anted to the rest of Christmas dinner. The elves decorated the box and called it a terrible storm. The rubber duck arrived"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "At the Christmas market, Bram lost the wooden spoon. A rabbit offered to help find it before the stalls closed. They remembered leaving it beside a basket of apples. When they returned, the basket had grown legs and walked away.",
+      "actor": "Bram",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Orin followed tiny footprints through the snow. The badger found an apple under a bench, then another near the bakery. They asked the baker whether a walking basket had passed. The baker pointed toward the music stall, where someone was loudly requesting a dance.\n\n The basket was dancing beside the music stall with the wooden spoon tucked inside. Bram asked for it back. The basket wanted a partner for one last dance, so the badger took its handle and spun it gently. After the dance, the basket returned the wooden spoon.\n\n Orin put the wooden spoon safely in a pocket and thanked the penguin. They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the wooden spoon was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the wooden spoon back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the wooden spoon was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Luma carried the wooden spoon back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger opened the box for the waiting family, and the badger parked the cart by the door. As promised, the wheel joined them at the table. It enjoyed the potatoes so much that it rolled home with gravy on its spokes.\n\n The badger placed the crowned loaf in the middle of the Christmas table. Orin used the recovered striped scarf and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Luma asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the striped scarf beneath a ch"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Bram wanted to use the striped scarf in the Christmas play. A rabbit was in charge of the stage. Just before the performance, a cloud floated indoors and hid the striped scarf in a thick mist. The audience was waiting, so Bram needed to clear the stage.",
+      "actor": "Bram",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "He put them on his face and asked for a mirror. By midnight, there were hundreds of tea. He was very happy and kept the box. He was very proud of it.\n\n A gingerbread man bought a suit made of icing. He looked very smart at the Christmas party. Unfortunately, everyone kept asking whether they could have a taste. He put on a sign saying Please Compliment The Tailoring. Santa admired the buttons. Grandma praised the collar. The gingerbread man had a wonderful evening until he sat too close to the fire and became a very elegant puddle.\n\n The elves brought a ladder to Christmas dinner. \"The conversation is too high for me,\" he explained. He climbed out looking slightly softer but very professional. \"You need fewer bad jokes and more floss,\" he said. The cracker promised to brush its punchlines twice a day.\n\n The Christmas tree refused to stop at December. It invented a new month called Pudding. During Pudding, every day was a holiday and all the rain tasted of custard. The elves enjoyed themselves until the calendar demanded a birthday party. Santa bought it a cake with thirty-one candles. The calendar blew them out and turned back into January. Everyone was relieved, especially the dentist.\n\n The Christmas tree's fairy lights began telling stories. Its knitted snowman described a journey to the moon, and its woolly reindeer explained how to cook clouds. Everyone listened carefully. Then the jumper reached the end of its yarn. Grandpa had to stand very still while Grandma knitted the final chapter. The story ended with a tiny notebook.\n\n The elf wrapped the wrong thing for Christmas. Instead of a toy train, he wrapped the sound of a duck. The village cried so much that the pond became a little deeper. Then he played a"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Bram wanted to use the striped scarf in the Christmas play. A rabbit was in charge of the stage. Just before the performance, a cloud floated indoors and hid the striped scarf in a thick mist. The audience was waiting, so Bram needed to clear the stage.",
+      "actor": "Bram",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "text": "The badger opened a window, but the cloud refused to leave because it had bought a ticket. Orin offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the striped scarf made a small clattering sound.\n\n Orin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the striped scarf beneath a chair and handed it to Orin. With the stage clear, they began the Christmas play.\n\n Orin finished the performance with the striped scarf held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Luma told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Orin carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Bram wanted to use the striped scarf in the Christmas play. A rabbit was in charge of the stage. Just before the performance, a cloud floated indoors and hid the striped scarf in a thick mist. The audience was waiting, so Bram needed to clear the stage.",
+      "actor": "Bram",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "He put them on a paper crown and delivered the remaining toys into a cold stamp. Theer said he had finished the rarely belonged.\n\n The Christmas angel on top of the tree wanted to be a plumber. It asked for a blanket and a seedicular Christmas dinner. \"The conversation is too high for me,\" he explained. He climbed down with a tiny spoon and dried it on a bridge. At midnight, the reindeer knew the whole song. Santa asked him to finish with something quiet before the river joined in.\n\n An elf discovered that the ladder had become an astronaut. Santa gave it a tiny and a piece of cheese. The mouse put on his hands while the boots offered advice from a suitcase. \"Watch that chimney,\" said an elf. The reindeer read the front door, the woman woke up in the sea. The turkey wore a fireman's helmet just in case. Everything went well until the dragon warned the roof he had already blew the king.\n\n Santa's beard became a small forest. Birds nested beside his chin, mushrooms grew near his collar, and a squirrel rented his left eyebrow. Mrs Claus watered him every morning. On Christmas Eve, the elves decorated the sleigh. Mrs Claus attached the bath with a roof. The parcel arrived at once. On its second day, it hid from a spoon. By the third day, everyone agreed that the ladder had six pockets of the soup.\n\n The elves discovered a hole in Christmas. It was just behind the moon. The village looked so important that everyone had been winter. The snowman added one raisin to each bun and doubled the price. Santa bought a dozen. \"Excellent business,\" he said. By the pudding appeared beneath his nose, and a very embarrassed elf.\n\n The Christmas star fell into a bowl of s"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Bram wanted to use the striped scarf in the Christmas play. A rabbit was in charge of the stage. Just before the performance, a cloud floated indoors and hid the striped scarf in a thick mist. The audience was waiting, so Bram needed to clear the stage.",
+      "actor": "Bram",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "text": "The badger opened a window, but the cloud refused to leave because it had bought a ticket. Orin offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the striped scarf made a small clattering sound.\n\n Orin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The badger found the striped scarf beneath a chair and handed it to Orin. With the stage clear, they began the Christmas play.\n\n Bram finished the performance with the striped scarf held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Orin told the cupboard that its shelves looked tired. The cupboard did not laugh. The badger explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Bram picked it up and thanked the cupboard for being a good audience.\n\n Luma carried the striped scarf back to the celebration, with the penguin following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Bram performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Bram picked it up and thanked the cupboard for being a good audience.\n\n Bram carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The badger wore the paper hat while Orin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the striped scarf was resting on a cushion. Orin picked it up and thanked the cupboard for being a good audience.\n\n Bram carried the striped scarf back to the celebration, with the badger following in the hat. Dinner could finally begin. They"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Luma and a mole were preparing Christmas dinner when the silver bell vanished. A trail of flour led to the pantry. Inside, a loaf of bread was using the silver bell as a royal treasure. It refused to give it back until somebody recognized its kingdom.",
+      "actor": "Luma",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The elves tivery ski wanted to learn the violin. Santa gave it a balloon. They spent the afternoon discussing the star. The elves decorated it with a tiny carols, but the cat was not impressed. Then it filled the bath with hot water and dropped in a giant tea bag. The singers were delighted. They floated down the hill, leaving the soup carrying flowers. They made up beside the fire. Everyone applauded, except the gloves, who thought the whole thing was terribly dramatic. Santa gave the mittens a shared scarf and a very small holiday.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them carefully and made a glowing pie. Every slice lit up the room. Santa ate two pieces and could see through his own beard. The elves turned off the lamp, but they only knew the word potato. They sang it softly, loudly, and with great feeling. Santa listened with tears in his eyes. \"Beautiful,\" he said. \"But perhaps one more word?\" The reindeer thought for a long time. On Christmas Eve, they produced a grand piano. Santa was impressed, but the chair was surprisingly helpful.\n\n An elf invented a toy that did absolutely nothing. Santa examined it for a long time. \"How does it work?\" he asked. \"Perfectly,\" said the elf. The reindeer were left behind the stairs. It was a very elephant. It had a wonderful Christmas, although nobo"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0,
+      "prompt": "Luma and a mole were preparing Christmas dinner when the silver bell vanished. A trail of flour led to the pantry. Inside, a loaf of bread was using the silver bell as a royal treasure. It refused to give it back until somebody recognized its kingdom.",
+      "actor": "Luma",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Luma tried explaining that dinner was getting cold. The loaf declared that cold dinners were against the law. The goose made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Luma arranged six rolls around the loaf. The goose announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the silver bell. Luma carried it back to the kitchen and finished preparing dinner.\n\n The goose placed the crowned loaf in the middle of the Christmas table. Luma used the recovered silver bell and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Luma asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The goose found the silver bell beneath a chair and handed it to Luma. With the stage clear, they began the Christmas play.\n\n Luma finished the performance with the silver bell held high. The goose bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Tobin told the cupboard that its shelves looked tired. The cupboard did not laugh. The goose explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The goose wore the paper hat while Luma performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Luma picked it up and thanked the cupboard for being a good audience.\n\n Luma carried the silver bell back to the celebration, with the otter following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The goose wore the paper hat while Luma performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Luma picked it up and thanked the cupboard for being a good audience.\n\n Luma carried the silver bell back to the celebration, with the otter following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked"
+    },
+    {
+      "model": "baseline",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Luma and a mole were preparing Christmas dinner when the silver bell vanished. A trail of flour led to the pantry. Inside, a loaf of bread was using the silver bell as a royal treasure. It refused to give it back until somebody recognized its kingdom.",
+      "actor": "Luma",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The Christmas star fell into a bowl of soup. It bobbed between the carrots, and settled on the branch. The reindeer thought it was a smaller one. The family kept opening boxes until they found a tiny note. It said Thank You For Unpacking My House. A mouse came out, hung a wreath on the biggest box, and invited everyone for tea. Grandma said it could stay home and watch a film.\n\n The reindeer asked for a salary a gumber. It wanted to be a boat. It floated across the bath with three elves inside. They sailed past a rubber duck and discovered a new island made of soap. The elves planted a candy cane and declared itself lifeguard. Nobody had returned Christmas Eve in paper hats. Grandma hung one very patient crane to fold the jumper.\n\n The village received a pair of slippers. The socks were not impressed. Then Santa arrived with a toy carrying a sandwich. Then the jumper reached the end of its yarn. Grandpa said the had made of glasses and which had to stand still. The story ended with a tiny notek. The mouse had six pockets and a convered aament. The star went well until the tree had noticed.\n\n A giant mitten arrived at Christmas dinner without its partner. \"We had a falling out,\" it explained. Grandma poured it tea and listened kindly. Later, the other mitten knocked on the window carrying flowers. They made up beside the fire. Everyone applauded, except the pudding, which had a new eyebrar that she had a standing occasion in soup.\n\n An elf invented a map of Christmas inside a biscuit. It showed the workshop, the moon, and a secret cupboard full of gravy. They played a cheerful tune while everyone washing up. On Christmas Eve, everyone clocked from a suitcase. Santa called it a promising first draft.\n\n Santa opened the fr"
+    },
+    {
+      "model": "candidate",
+      "group": "held-out combination",
+      "temperature": 0.55,
+      "prompt": "Luma and a mole were preparing Christmas dinner when the silver bell vanished. A trail of flour led to the pantry. Inside, a loaf of bread was using the silver bell as a royal treasure. It refused to give it back until somebody recognized its kingdom.",
+      "actor": "Luma",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        true,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "Luma tried explaining that dinner was getting cold. The loaf declared that cold dinners were against the law. The otter made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Luma arranged six rolls around the loaf. The otter announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the silver bell. Luma carried it back to the kitchen and finished preparing dinner.\n\n The goose placed the crowned loaf in the middle of the Christmas table. Luma used the recovered silver bell and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Luma asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The goose found the silver bell beneath a chair and handed it to Luma. With the stage clear, they began the Christmas play.\n\n Luma finished the performance with the silver bell held high. The goose bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Luma told the cupboard that its shelves looked tired. The cupboard did not laugh. The otter explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The mole wore the paper hat while Luma performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Luma picked it up and thanked the cupboard for being a good audience.\n\n Luma carried the silver bell back to the celebration, with the otter following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The goose wore the paper hat while Luma performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the silver bell was resting on a cushion. Luma picked it up and thanked the cupboard for being a good audience.\n\n Luma carried the silver bell back to the celebration, with the otter following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked"
+    },
+    {
+      "model": "baseline",
+      "group": "new plot",
+      "temperature": 0,
+      "prompt": "Mira rang the silver bell, and every candle in the village began singing. A badger asked her to stop the singing before the baby woke up.",
+      "actor": "Mira",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "Santa offered to pull the sleigh. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them up and stretched through the door. Santa said it was the most polite property development she had ever seen.\n\n Santa's shadow refused to work on Christmas Eve. It wanted to stay home and watch a film. Santa borrowed the shadow of a giraffe instead. Every roof he crossed looked much taller than usual. The reindeer thought he had grown a very long neck. Santa delivered all the presents without bending down. In the morning, he returned the shadow with a thank-you note and a scarf that was six metres long.\n\n An elf accidentally posted Christmas to the wrong address. It arrived at a quiet pond in the middle. It was very strong but kept stopping to sing. Santa delivered every present with a splash. The children found seaweed in their stockings and thought it was a new kind of scarf. The reindeer promised to return to the tree for dinner.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The elves tivery ski wanted to learn the violin. Santa gave it a balloon. They spent the afternoon discussing the star. The elves decorated it with a tiny carols, but the cat was not impressed. Then it filled the"
+    },
+    {
+      "model": "candidate",
+      "group": "new plot",
+      "temperature": 0,
+      "prompt": "Mira rang the silver bell, and every candle in the village began singing. A badger asked her to stop the singing before the baby woke up.",
+      "actor": "Mira",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n Mira carried the silver bell back to the celebration, with the penguin following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The mole opened a window, but the cloud refused to leave because it had bought a ticket. Mira offered it a seat at the back. The cloud tried sitting down and soaked three cushions. Somewhere in the mist, the silver bell made a small clattering sound.\n\n Mira asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The mole found the silver bell beneath a chair and handed it to Mira. With the stage clear, they began the Christmas play.\n\n Mira finished the performance with the silver bell held high. The mole bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The mole bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The mole bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The mole bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The mole bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Mira finished the performance with the silver bell held high. The mole bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof"
+    },
+    {
+      "model": "baseline",
+      "group": "new plot",
+      "temperature": 0.55,
+      "prompt": "Mira rang the silver bell, and every candle in the village began singing. A badger asked her to stop the singing before the baby woke up.",
+      "actor": "Mira",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "Santa gave him a medal and carried a fish. The fish had to put a pair in the flame and fixed the pizza. The reindeer returned to the plate just before midnight, looking slightly biscuiting. Santa examined the ceiling halfway through.\n\n Mrs Claus began telling jokes. He was very excited to leave his carrots and found a receipt. The chair was very polite and promised to stand still. The tree had so much fun that the pond became a smaller. North Pole, which was also very seriously.\n\n The North Pole lost its north. The sign simply said Pole, and all the compasses pointed at lunch. Santa followed one to a sandwich shop. Behind the counter had become a biscuit. The snowman stuck it on his face and asked for a map. The snowman was very eager but kept landing in a larger conductor landed on the table.\n\n The Christmas postman delivered a parcel full of yesterday. Santa opened it and found the breakfast he had already eaten. The elves found their old mistakes and tried to explain why the potatoes had been worth it.\n\n An elf accidentally posted Christmas to the wrong address. It arrived at a quiet pond in the middle of July. The frogs put on paper crowns and sang a soft song. \"There are bells and argising for direction,\" he explained. \"You only have four feet,\" he said. The cracker promised to brush its punchlines twice a day.\n\n Santa's sack was full of doors. Every time he opened one, he found another door with a smaller Santa behind it. The elves tried to catch it, but the reindeer were supposed to be quietly. It pointed out that it was a Christmas cracker with a smaller one. The family kept opening boxes until they found a tiny note for a week. Santa asked them to return to the tree for dinner. \"After this hour, it will do not find the soup bowl"
+    },
+    {
+      "model": "candidate",
+      "group": "new plot",
+      "temperature": 0.55,
+      "prompt": "Mira rang the silver bell, and every candle in the village began singing. A badger asked her to stop the singing before the baby woke up.",
+      "actor": "Mira",
+      "object": "silver bell",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "text": "They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n Mira carried the silver bell back to the celebration, with the penguin following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n The mole placed the crowned loaf in the middle of the Christmas table. Mira used the recovered silver bell and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Mira suggested laying the ladder across a snowdrift. From there, the mole could reach the roof without looking down. The plan worked. The goose caught the silver bell just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the silver bell safely returned, Mira finished decorating the tree. The mole switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira suggested laying the ladder across a snowdrift. From there, the otter could reach the roof without looking down. The plan worked. The mole caught the silver bell just as another gust of wind arrived and carefully carried it back to Mira.\n\n With the silver bell safely returned, Mira finished decorating the tree. The mole switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Mira carried the silver bell back to the celebration, with the mole following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n Mira put the silver bell safely in a pocket and thanked the mole. They reached home before the market closed. Later, the basket arrived with apples for Christmas dinner. It stayed beside the table, tapping its little feet whenever somebody rattled a fork.\n\n Mira carried the silver bell back to the celebration, with the mole following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had"
+    },
+    {
+      "model": "baseline",
+      "group": "new plot",
+      "temperature": 0,
+      "prompt": "Tobin found a green mitten full of tiny stars. A goose needed those stars to light the path home through the snowy forest.",
+      "actor": "Tobin",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The village looked wonderful from the sky. In January, it took forty people and one very patient crane to fold the jumper.\n\n The snowman found a parcel full of yesterday. Santa opened it and stepped into a room full of Tuesdays. They were all wearing Christmas hats and arguing about the weather. Santa invited them to dinner. By evening, the tree was collecting received a bicycle and a very large soup just before midnight, looking slightly dizzy and covered in the water and looking important.\n\n The Christmas tree grew a doorbell. Whenever someone pressed it, a tiny carol singer popped out of a branch. At first this was charming. Then the cat sat on the roof. The reindeer looked down in surprise. \"Then whose are the other eight?\" The slippers began to dance. Santa put them in charge of wrapping presents. They did a terrible job, but every envelope melted before it reached the post office. Santa called it a promising first draft.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The elves tivery ski wanted to learn the violin. Santa gave it a balloon. They spent the afternoon discussing the star. The elves decorated it with a tiny carols, but the cat was not impressed. Then it filled the bath with hot water and dropped in a giant tea bag. The singers were delighted. They floated down the hill, leaving the soup carrying flowers. They made up beside the fire. Everyone app"
+    },
+    {
+      "model": "candidate",
+      "group": "new plot",
+      "temperature": 0,
+      "prompt": "Tobin found a green mitten full of tiny stars. A goose needed those stars to light the path home through the snowy forest.",
+      "actor": "Tobin",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        true
+      ],
+      "text": "A goose offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.\n\n The goose tried asking the wheel to turn, but it demanded potatoes. Tobin placed a potato on the wheel. This made the cart lean sideways, and the box almost fell into the snow. Tobin caught the box while the goose held the cart steady.\n\n Tobin explained that a good dinner plate first had to reach the dinner table. The wheel agreed to finish the journey on that condition. The goose pulled the cart across the bridge, and Tobin kept the box containing the green mitten balanced between both hands.\n\n They delivered the green mitten before sunset. Tobin opened the box for the waiting family, and the goose parked the cart by the door. As promised, the wheel joined them at the table. It enjoyed the potatoes so much that it rolled home with gravy on its spokes.\n\n Tobin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The otter found the green mitten beneath a chair and handed it to Tobin. With the stage clear, they began the Christmas play.\n\n Tobin finished the performance with the green mitten held high. The goose bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Tobin told the cupboard that its shelves looked tired. The cupboard did not laugh. The otter explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The otter wore the paper hat while Tobin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the green mitten was resting on a cushion. Tobin picked it up and thanked the cupboard for being a good audience.\n\n Tobin carried the green mitten back to the celebration, with the mole following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n Tobin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The otter found the green mitten beneath a chair and handed it to Tobin. With the stage clear, they began the Christmas"
+    },
+    {
+      "model": "baseline",
+      "group": "new plot",
+      "temperature": 0.55,
+      "prompt": "Tobin found a green mitten full of tiny stars. A goose needed those stars to light the path home through the snowy forest.",
+      "actor": "Tobin",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The village looked beautiful, but the buses were wearing a little red hat. The snowman bowed and asked the oldest chickens. The next morning was a very small holiday and all the rain tasted of custard.\n\n Once there was a small giraffe in the world. It was very fashionables, but only the water was too high for a long time. On Christmas Eve, the cat sat on the bridnt. The reindeer were all wearing paper hats and carried the piano. The music became the most of stars and fish, which had already beside its highest branch. The children built upside-down snowmen by halfways. Santa bought the aweilen by halfways.\n\n Santa opened the fridge and found a tiny snowman eating his cheese. \"That is for Christmas dinner,\" said Santa. The snowman put on a sign saying Please Compliment him with a loose joke. \"Open wide,\" said the gingerbread man. The cracker shouted bang and covered the room in the stocking. In the morning, the reindeer took a teap of hay. The star blew them out with a spoon and walked home carrying the driver in a map.\n\n An elf invented invisible wrapping paper. He wrapped every present in the workshop and then lost them all. Santa spent an hour feeling around under the table. Mrs Claus sprinkled flour over the floor, revealing a bicycle, a rocking horse, and a very embarrassed elf. The reindeer had custed much much during the dentist. The elf apologised into a tissue. The tissue turned into Easter. Santa decided it was time to buy better tissues.\n\n An elf accidentally wrapped the front door. Nobody could leave the workshop until they found a tiny note. It said Thank You For Unpacking My House. A mouse came out, hung a little beg on a plate. It had six eyes, three"
+    },
+    {
+      "model": "candidate",
+      "group": "new plot",
+      "temperature": 0.55,
+      "prompt": "Tobin found a green mitten full of tiny stars. A goose needed those stars to light the path home through the snowy forest.",
+      "actor": "Tobin",
+      "object": "green mitten",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        true
+      ],
+      "text": "A mole offered to pull the little delivery cart. They had to cross the bridge before sunset. Halfway there, the cart stopped because one wheel had decided to become a dinner plate.\n\n The otter tried asking the wheel to turn, but it demanded potatoes. Tobin placed a potato on the wheel. This made the cart lean sideways, and the box almost fell into the snow. Tobin caught the box while the mole held the cart steady.\n\n Tobin explained that a good dinner plate first had to reach the dinner table. The wheel agreed to finish the journey on that condition. The mole pulled the cart across the bridge, and Tobin kept the box containing the green mitten balanced between both hands.\n\n They delivered the green mitten before sunset. Tobin opened the box for the waiting family, and the mole parked the cart by the door. As promised, the wheel joined them at the table. It enjoyed the potatoes so much that it rolled home with gravy on its spokes.\n\n Tobin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The goose found the green mitten beneath a chair and handed it to Tobin. With the stage clear, they began the Christmas play.\n\n Tobin finished the performance with the green mitten held high. The goose bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Tobin told the cupboard that its shelves looked tired. The cupboard did not laugh. The mole explained that furniture preferred jokes about doors. Together they wrote a joke on a piece of wrapping paper, but the paper folded itself into a hat.\n\n The goose wore the paper hat while Tobin performed the joke. This time the cupboard laughed so hard that its door swung open. Inside, the green mitten was resting on a cushion. Tobin picked it up and thanked the cupboard for being a good audience.\n\n Tobin carried the green mitten back to the celebration, with the otter following in the hat. Dinner could finally begin. They saved a bowl of soup for the cupboard. It asked them to pour the soup into a drawer, then complained that nobody had brought a spoon.\n\n Tobin asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The goose found the green mitten beneath a chair and handed it to Nella. With the stage clear, they began the Christmas"
+    },
+    {
+      "model": "baseline",
+      "group": "new plot",
+      "temperature": 0,
+      "prompt": "Nella stirred the Christmas soup with a wooden spoon. The soup asked for swimming lessons, so a rabbit brought a very small towel.",
+      "actor": "Nella",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The duck ranger and hungry. The couple ran away on a biscuit. The fish spent the afternoon discussing the dangers of sudden excitement. Then a hedgehog arrived wearing a party hat. Both friends hid behind the pudding. He was very proud of it.\n\n The Christmas tree grew a doorbell. Whenever someone pressed it, a tiny carol singer popped out of a branch. At first this was charming. Then the cat sat on the roof. The reindeer looked down in surprise. \"Then whose are the other eight?\" The slippers began to dance. Santa put them in charge of wrapping presents. They did a terrible job, but every envelope melted before it reached the post office. Santa called it a promising first draft.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The elves tivery ski wanted to learn the violin. Santa gave it a balloon. They spent the afternoon discussing the star. The elves decorated it with a tiny carols, but the cat was not impressed. Then it filled the bath with hot water and dropped in a giant tea bag. The singers were delighted. They floated down the hill, leaving the soup carrying flowers. They made up beside the fire. Everyone applauded, except the gloves, who thought the whole thing was terribly dramatic. Santa gave the mittens a shared scarf and a very small holiday.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them carefully and made a gl"
+    },
+    {
+      "model": "candidate",
+      "group": "new plot",
+      "temperature": 0,
+      "prompt": "Nella stirred the Christmas soup with a wooden spoon. The soup asked for swimming lessons, so a rabbit brought a very small towel.",
+      "actor": "Nella",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The loaf declared that cold dinners were against the law. The penguin made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Nella arranged six rolls around the loaf. The penguin announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the silver bell. Nella carried it back to the kitchen and finished preparing dinner.\n\n The penguin placed the crowned loaf in the middle of the Christmas table. Nella used the recovered silver bell and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Nella suggested laying the ladder across a snowdrift. From there, the penguin could reach the roof without looking down. The plan worked. The penguin caught the silver bell just as another gust of wind arrived and carefully carried it back to Nella.\n\n With the silver bell safely returned, Nella finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Nella suggested laying the ladder across a snowdrift. From there, the penguin could reach the roof without looking down. The plan worked. The penguin caught the silver bell just as another gust of wind arrived and carefully carried it back to Nella.\n\n With the silver bell safely returned, Nella finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Nella suggested laying the ladder across a snowdrift. From there, the penguin could reach the roof without looking down. The plan worked. The penguin caught the silver bell just as another gust of wind arrived and carefully carried it back to Nella.\n\n With the silver bell safely returned, Nella finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Nella suggested laying the ladder across a snowdrift. From there, the penguin could reach the roof without looking down. The plan worked. The penguin caught the silver bell just as another gust of wind arrived and carefully carried it back to Nella"
+    },
+    {
+      "model": "baseline",
+      "group": "new plot",
+      "temperature": 0.55,
+      "prompt": "Nella stirred the Christmas soup with a wooden spoon. The soup asked for swimming lessons, so a rabbit brought a very small towel.",
+      "actor": "Nella",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "\"Then whose are the other eight?\" The slippers began to dance. The fish complained that the washing up was a small angel.\n\n The moon came down for Christmas dinner. It sat on the roof because it would not fit through the door. Next year,ed a tiny gemery table through the village. The elves had to put it all back with stars and licked itself with a fingth. Santa had a wonderful evening until it was a small white coat that. Next Christmas, where the potatoes had been dull.\n\n The snowman found a parcel full of yesterday. Santa opened it and stepped into a room full of Tuesdays. They were all wearing Christmas hats and arguing about the weather. Santa was so happy that he had worked out a very large dinner. At last it flew across the workshop. By midnight, there were hundreds of Santas, each carrying one present. Delivery took only six minutes. Unfortunately, the reindeer knew the whole song.\n\n Santa's sleigh turned into a giant potato just before midnight. The reindeer refused to pull it without gravy. An elf added wheels, another squirrels went quack. Even the grandfather clock went quack. Santa tried to explain, but his beard asked for a mirror. By midnight, the nose played a cheerful song about the star.\n\n An elf invented a toy that did absolutely nothing. Santa examined it for a long time. \"How does it work?\" he asked. \"Perfectly,\" said the elf. The toy became the most popular Christmas present in the world. It never broke, never needed batteries, and never woke anyone at six on the tree. It became the most polite property development teared instead.\n\n An elf invented a machine that wrapped feelings. He put happiness inside a red box and wear it a terrible storm. The blue box wanted to know"
+    },
+    {
+      "model": "candidate",
+      "group": "new plot",
+      "temperature": 0.55,
+      "prompt": "Nella stirred the Christmas soup with a wooden spoon. The soup asked for swimming lessons, so a rabbit brought a very small towel.",
+      "actor": "Nella",
+      "object": "wooden spoon",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The loaf declared that cold dinners were against the law. The rabbit made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Nella arranged six rolls around the loaf. The rabbit announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the silver bell. Nella carried it back to the kitchen and finished preparing dinner.\n\n The rabbit placed the crowned loaf in the middle of the Christmas table. Nella used the recovered silver bell and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Nella suggested laying the ladder across a snowdrift. From there, the rabbit could reach the roof without looking down. The plan worked. The rabbit caught the silver bell just as another gust of wind arrived and carefully carried it back to Nella.\n\n With the silver bell safely returned, Nella finished decorating the tree. The penguin switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Nella asked the cloud to play the winter sky above the stage. Pleased to be included, it rose toward the ceiling. The rabbit found the silver bell beneath a chair and handed it to Nella. With the stage clear, they began the Christmas play.\n\n Nella finished the performance with the silver bell held high. The rabbit bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Nella finished the performance with the silver bell held high. The rabbit bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Nella finished the performance with the silver bell held high. The penguin bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor.\n\n Nella finished the performance with the silver bell held high. The badger bowed, and the cloud sprinkled a little snow for the final scene. The audience clapped. Afterward, the cloud asked for its own dressing room, preferably one with a waterproof floor."
+    },
+    {
+      "model": "baseline",
+      "group": "new plot",
+      "temperature": 0,
+      "prompt": "Orin tied a striped scarf around a shivering clock. A mole warned him that the clock had stopped, and Christmas morning could not begin until it ticked again.",
+      "actor": "Orin",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The snowman received a bicycle and a very large toothbrush.\n\n The Christmas tree's fairy light inside it into a bowl of soup. It bobbed between the carrots, looking embarrassed. Grandma lifted it out with a spoon and dried it on a napkin. \"You taste of wishes,\" she said after trying the soup. Everyone made a wish before dinner. The cat wished for fish, Grandpa wished for a nap, and the soup wished to be a famous ocean. Santa quietly moved it to a larger bowl.\n\n The Christmas tree wanted to go ice skating. The elves tivery ski wanted to learn the violin. Santa gave it a balloon. They spent the afternoon discussing the star. The elves decorated it with a tiny carols, but the cat was not impressed. Then it filled the bath with hot water and dropped in a giant tea bag. The singers were delighted. They floated down the hill, leaving the soup carrying flowers. They made up beside the fire. Everyone applauded, except the gloves, who thought the whole thing was terribly dramatic. Santa gave the mittens a shared scarf and a very small holiday.\n\n The Christmas tree's fairy lights began growing pears. Grandma picked them carefully and made a glowing pie. Every slice lit up the room. Santa ate two pieces and could see through his own beard. The elves turned off the lamp, but they only knew the word potato. They sang it softly, loudly, and with great feeling. Santa listened with tears in his eyes. \"Beautiful,\" he said. \"But perhaps one more word?\" The reindeer thought for a long time. On Christmas Eve, they produced a grand piano. Santa was impressed, but the chair was surprisingly helpful.\n\n An elf invented a toy that did absolutely nothing. Santa examined it for a long time. \"How does it work?\" he asked. \"Perfectly,\" said the elf. The reindeer were left behind the"
+    },
+    {
+      "model": "candidate",
+      "group": "new plot",
+      "temperature": 0,
+      "prompt": "Orin tied a striped scarf around a shivering clock. A mole warned him that the clock had stopped, and Christmas morning could not begin until it ticked again.",
+      "actor": "Orin",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        false,
+        true
+      ],
+      "text": "A trail of flour led to the pantry. Inside, a loaf of bread was using the striped scarf as a royal treasure. It refused to give it back until somebody recognized its kingdom.\n\n Orin tried explaining that dinner was getting cold. The loaf declared that cold dinners were against the law. The goose made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Orin arranged six rolls around the loaf. The goose announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the striped scarf. Orin carried it back to the kitchen and finished preparing dinner.\n\n The goose placed the crowned loaf in the middle of the Christmas table. Orin used the recovered striped scarf and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Orin suggested laying the ladder across a snowdrift. From there, the goose could reach the roof without looking down. The plan worked. The goose caught the striped scarf just as another gust of wind arrived and carefully carried it back to Bram.\n\n With the striped scarf safely returned, Orin finished decorating the tree. The goose switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Luma arranged six rolls around the loaf. The goose announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the striped scarf. Orin carried it back to the kitchen and finished preparing dinner.\n\n The goose placed the crowned loaf in the middle of the Christmas table. Orin used the recovered striped scarf and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Orin suggested laying the ladder across a snowdrift. From there, the goose could reach the roof without looking down. The plan worked. The goose caught the striped scarf just as another gust of wind arrived and carefully carried it back to Bram.\n\n With the striped scarf safely returned, Orin finished decorating the tree. The goose switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Luma"
+    },
+    {
+      "model": "baseline",
+      "group": "new plot",
+      "temperature": 0.55,
+      "prompt": "Orin tied a striped scarf around a shivering clock. A mole warned him that the clock had stopped, and Christmas morning could not begin until it ticked again.",
+      "actor": "Orin",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "objectInNextThreeParagraphs": [
+        false,
+        false,
+        false
+      ],
+      "text": "The children climbed onto the pudding and folded it on the table.\n\n A penguin arrived at the North Pole with a suitcase full of warm snow. The elves were suspicious. \"Snow is supposed to be cold,\" they said. The penguin poured it into mugs and added marshmallows. At last it was another giraffe so much that it became a little deeper. Then he played a cheerful song about socks in his eyes. \"Beautiful,\" he said. \"But perhaps one more word?\" The reindeer thought for a long time. On Christmas Eve, they both clapped from above. They played a cheerful tune while everyone ate. The stars borrowed the turkeys instead of a duck.\n\n The smallest present contained a small step. It showed the workshop, the moon, and a secret cupboard full of gravy. The elves were suspicious. \"Snow is supposed to be cold,\" they said. The ked was less excited about the onions until they began to sing. Santa decided the mistake had worked out rather well. Next Christmas, the potato read the note aloud and accepted the apology.\n\n A Christmas dinner table grew longer whenever someone told a lie. Grandpa said he had eaten only one biscuit, and the table stretched through the door. Santa said he had finished all the workshop. Then it turned his spoon and thought it was a new kind of scarf.\n\n The North Pole moved three steps to the left while Santa was asleep. His workshop woke up in the sea. The elves put buckets on their heads and continued wrapping presents. A whale offered to pull it a little lunchbox and taught it to say please. It became a surprisingly fast puddle.\n\n The snowman borrowed Santa's beard for a party. He looked so important that it asked for a job. \"I have excellent falling skills,\" it announced. Santa asked how many bell"
+    },
+    {
+      "model": "candidate",
+      "group": "new plot",
+      "temperature": 0.55,
+      "prompt": "Orin tied a striped scarf around a shivering clock. A mole warned him that the clock had stopped, and Christmas morning could not begin until it ticked again.",
+      "actor": "Orin",
+      "object": "striped scarf",
+      "actorInNextThreeParagraphs": [
+        false,
+        true,
+        true
+      ],
+      "objectInNextThreeParagraphs": [
+        true,
+        false,
+        true
+      ],
+      "text": "A trail of flour led to the pantry. Inside, a loaf of bread was using the striped scarf as a royal treasure. It refused to give it back until somebody recognized its kingdom.\n\n Orin tried explaining that dinner was getting cold. The loaf declared that cold dinners were against the law. The goose made a tiny crown from a paper napkin and asked what a bread kingdom needed. The loaf admitted that it had no subjects.\n\n Bram arranged six rolls around the loaf. The goose announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the striped scarf. Orin carried it back to the kitchen and finished preparing dinner.\n\n The otter placed the crowned loaf in the middle of the Christmas table. Orin used the recovered striped scarf and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Luma suggested laying the ladder across a snowdrift. From there, the mole could reach the roof without looking down. The plan worked. The otter caught the striped scarf just as another gust of wind arrived and carefully carried it back to Bram.\n\n With the striped scarf safely returned, Bram finished decorating the tree. The mole switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Luma arranged six rolls around the loaf. The goose announced that the rolls were loyal citizens who urgently needed their ruler at the table. Satisfied, the loaf returned the striped scarf. Bram carried it back to the kitchen and finished preparing dinner.\n\n The goose placed the crowned loaf in the middle of the Christmas table. Orin used the recovered striped scarf and invited everyone to sit down. The bread kingdom enjoyed a peaceful evening. Its only complaint was that the butter kept sliding across the border.\n\n Luma suggested laying the ladder across a snowdrift. From there, the otter could reach the roof without looking down. The plan worked. The otter caught the striped scarf just as another gust of wind arrived and carefully carried it back to Bram.\n\n With the striped scarf safely returned, Bram finished decorating the tree. The mole switched on the lights and apologized for borrowing things on windy days. They wrapped the ladder in a blanket. It spent Christmas lying flat and telling everyone about its mountain expedition.\n\n Bram"
+    }
+  ]
+}

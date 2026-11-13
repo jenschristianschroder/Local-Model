@@ -1,0 +1,91 @@
+{
+  "seed": 1311,
+  "initialization": "random",
+  "tokenizer": "learned from new train split only",
+  "architecture": {
+    "vocabulary": 1024,
+    "embedding": 64,
+    "hidden": 256
+  },
+  "parameters": 576000,
+  "sequenceLength": 220,
+  "source": {
+    "origin": "AI-authored in this task; six new plots with synthetic substitutions",
+    "externalTextInputs": [],
+    "split": "Disjoint actor/companion pairs; plots shared",
+    "limitations": "Narrow templated corpus; tests measure recombination of known plots.",
+    "splits": {
+      "train": {
+        "stories": 864,
+        "sha256": "8ba68057cb164738e47daa49116596f032ba70ca35457735f81eb369b8d6525b"
+      },
+      "valid": {
+        "stories": 144,
+        "sha256": "b063435a247132960dafb595ff604632eca7a49b73e4b414e97dacfa187f7902"
+      },
+      "test": {
+        "stories": 144,
+        "sha256": "162df9cf98a5a7d49815f94d85a97553d2a3dbc05a93c23cf151c9e0dd74e5b4"
+      }
+    }
+  },
+  "torchVersion": "2.15.0+cpu",
+  "history": [
+    {
+      "step": 0,
+      "validationLoss": 6.937095854017469,
+      "seconds": 0.7
+    },
+    {
+      "step": 100,
+      "validationLoss": 1.0470623042848375,
+      "seconds": 17.2
+    },
+    {
+      "step": 200,
+      "validationLoss": 0.18364055454730988,
+      "seconds": 34.2
+    },
+    {
+      "step": 300,
+      "validationLoss": 0.1483497346440951,
+      "seconds": 51.6
+    },
+    {
+      "step": 400,
+      "validationLoss": 0.1396885034110811,
+      "seconds": 68.7
+    },
+    {
+      "step": 500,
+      "validationLoss": 0.141867619421747,
+      "seconds": 87.3
+    },
+    {
+      "step": 600,
+      "validationLoss": 0.13885649707582262,
+      "seconds": 105.7
+    },
+    {
+      "step": 700,
+      "validationLoss": 0.1354011537300216,
+      "seconds": 123.7
+    },
+    {
+      "step": 800,
+      "validationLoss": 0.1344185753001107,
+      "seconds": 142.3
+    },
+    {
+      "step": 900,
+      "validationLoss": 0.1353244019879235,
+      "seconds": 160.4
+    },
+    {
+      "step": 1000,
+      "validationLoss": 0.13602066205607521,
+      "seconds": 177.4
+    }
+  ],
+  "bestStep": 800
+}
