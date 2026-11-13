@@ -45,7 +45,7 @@ const cueNouns = new Set((
   "chime chimes floorboards thorn needles sand desert bloom shadow reef shell tide ink kelp radar forecast " +
   "drizzle thunder broadcast crater lava ash smoke rock ridge slope"
 ).split(" "));
-let models;
+let replyModel;
 let challengeModel;
 const performed = selectors.map(() => []);
 const selectedNames = () => selectors.map(select => roster[select.value]);
@@ -155,26 +155,28 @@ next.onclick = async () => {
   const names = selectedNames();
   const index = turn % names.length;
   const performer = names[index];
-  status.textContent = models ? performer + " is writing…" : "Loading " + names.join(" and ") + "…";
+  status.textContent = replyModel ? performer + " is writing…" : "Loading the battle models…";
   try {
-    if (!models) {
-      const [first, second, shared] = await Promise.all([
-        ...selectors.map(select => loadModel(select.value)),
-        loadModel("challenge"),
-      ]);
-      models = [first, second];
-      challengeModel = shared;
+    if (!replyModel) {
+      [replyModel, challengeModel] = await Promise.all([loadModel("context-reply"), loadModel("challenge")]);
     }
     const stats = find("model-stats");
-    stats.textContent = [...models, challengeModel].map((model, index) =>
-      (names[index] ?? "Shared challenge model") + " · " + model.training.parameters.toLocaleString() + " trained parameters"
-    ).join(" / ");
+    stats.textContent = "Reply model · " + replyModel.training.parameters.toLocaleString() +
+      " trained parameters / Challenge model · " + challengeModel.training.parameters.toLocaleString() + " trained parameters";
     stats.hidden = false;
     // Give the browser a frame to announce the busy state before inference.
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const seed = crypto.getRandomValues(new Uint32Array(1))[0];
     const earlier = performed[index];
-    const reply = models[index].generate({previous: previousChallenge, cue, seed, earlier, temperature: samplingTemperature});
+    const reply = replyModel.generate({
+      previous: previousChallenge,
+      role: selectors[index].value,
+      opponent: selectors[1 - index].value,
+      cue,
+      seed,
+      earlier,
+      temperature: samplingTemperature,
+    });
     if (!reply) throw new Error("The model did not finish a two-line reply.");
     const challenge = challengeModel.generate({
       role: selectors[index].value,
@@ -200,9 +202,9 @@ next.onclick = async () => {
       showChoices();
     }
   } catch {
-    const loaded = Boolean(models);
+    const loaded = Boolean(replyModel);
     if (turn === 0) {
-      models = undefined;
+      replyModel = challengeModel = undefined;
       matchup.disabled = false;
       find("model-stats").hidden = true;
     }
@@ -217,7 +219,7 @@ next.onclick = async () => {
 
 reset.onclick = () => {
   turn = 0;
-  models = undefined;
+  replyModel = challengeModel = undefined;
   matchup.disabled = false;
   find("model-stats").hidden = true;
   previousChallenge = cue = "";

@@ -68,7 +68,7 @@ export function createPerformer(checkpoint) {
     word.startsWith("<") && id !== end && id !== copy ? [id] : []);
   const nonWords = checkpoint.vocabulary.flatMap((word, id) =>
     !/[a-z0-9]/.test(word) ? [id] : []);
-  const isChallengeModel = checkpoint.training.performer === "challenge";
+  const {performer} = checkpoint.training;
 
   function sampleVerse(promptState, cue, random, temperature) {
     let hidden = promptState;
@@ -99,10 +99,20 @@ export function createPerformer(checkpoint) {
 
   return {
     training: checkpoint.training,
-    generate({previous = "", cue = "", seed, earlier = [], role, temperature = 0.75}) {
+    generate({previous = "", cue = "", seed, earlier = [], role, opponent, temperature = 0.75}) {
       const prompt = ["<start>"];
-      if (isChallengeModel) prompt.push(`<${role}>`);
-      if (previous) prompt.push(...tokens(previous), "<cue>", ...tokens(cue));
+      if (performer === "challenge") prompt.push(`<${role}>`);
+      if (performer === "context-reply") {
+        prompt.push(previous ? `<opponent:${opponent}>` : `<speaker:${role}>`);
+      }
+      if (previous) {
+        const context = tokens(previous);
+        prompt.push(...context, "<cue>", ...tokens(cue));
+        const topics = checkpoint.topics?.[opponent];
+        // Use a topic actually mentioned in the challenge as an extra prompt token.
+        const topic = topics?.includes(cue) ? cue : topics?.find(word => context.includes(word));
+        if (topic) prompt.push(`<topic:${topic}>`);
+      }
       prompt.push("<verse>");
       let hidden = new Float32Array(weights.config.hidden);
       for (const word of prompt) {

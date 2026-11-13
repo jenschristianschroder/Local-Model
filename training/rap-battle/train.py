@@ -37,6 +37,7 @@ PERFORMERS = {
     "weather-forecaster": ("expanded-roster.json", 2131),
     "volcano": ("expanded-roster.json", 2137),
     "challenge": ("challenges.json", 2153),
+    "context-reply": ("context-corpus.txt", 2161),
 }
 
 
@@ -85,12 +86,52 @@ def challenge_examples(corpus, split):
             for role, verses in corpus.items() for verse in verses[split]]
 
 
+def contextual_examples(raw):
+    opening, replies, validation, topics = [], [], [], {}
+    for line in raw.decode().splitlines():
+        if line.startswith("["):
+            role = line[1:-1]
+            continue
+        fields = line.split(" | ")
+        if fields[0] == "opening":
+            context = [START, f"<speaker:{role}>", VERSE]
+            opening.append((context, tokens("\n".join(fields[1:])) + [END]))
+            continue
+        topic, first, second, *reply_lines = fields
+        topics.setdefault(role, []).append(topic)
+        prompt = tokens(first + "\n" + second)
+        targets = []
+        for reply_first, reply_second in zip(reply_lines[::2], reply_lines[1::2], strict=True):
+            before, after = (reply_first + "\n" + reply_second).split("{cue}")
+            targets.append(tokens(before) + [COPY] + tokens(after) + [END])
+        # Teach the same topic under different wording and callback choices.
+        prefix = [START, f"<opponent:{role}>"]
+        first_line, second_line = tokens(first), tokens(second)
+        prompt_variants = [
+            prompt, first_line, second_line,
+            [topic], [topic, *second_line],
+            [*second_line, "\n", *first_line],
+        ]
+        alternatives = list(dict.fromkeys(word for word in prompt if len(word) >= 4))
+        for context in prompt_variants:
+            cues = [topic, UNKNOWN] if context != prompt else [*alternatives, UNKNOWN]
+            for cue in cues:
+                hint = [f"<topic:{topic}>"]
+                replies.extend((prefix + context + [CUE, cue, *hint, VERSE], target) for target in targets)
+                if context == prompt:
+                    replies.extend((prefix + context + [CUE, cue, VERSE], target) for target in targets)
+        # Hold out different wording for the same topic and targets.
+        shortened = [word for index, word in enumerate(first_line) if word == topic or index % 2 == 0]
+        validation.extend((prefix + shortened + [CUE, topic, f"<topic:{topic}>", VERSE], target) for target in targets)
+    return opening + replies, validation, len(opening), topics
+
+
 class RapGRU(nn.Module):
-    def __init__(self, size):
+    def __init__(self, size, embedding, hidden):
         super().__init__()
-        self.embedding = nn.Embedding(size, EMBEDDING)
-        self.gru = nn.GRU(EMBEDDING, HIDDEN, batch_first=True)
-        self.output = nn.Linear(HIDDEN, size)
+        self.embedding = nn.Embedding(size, embedding)
+        self.gru = nn.GRU(embedding, hidden, batch_first=True)
+        self.output = nn.Linear(hidden, size)
 
     def forward(self, ids):
         hidden, _ = self.gru(self.embedding(ids))
@@ -135,8 +176,12 @@ def pack(array):
 def train(performer, steps):
     filename, seed = PERFORMERS[performer]
     raw = (HERE / filename).read_bytes()
-    corpus = json.loads(raw)
-    if performer == "challenge":
+    contextual = performer == "context-reply"
+    embedding, hidden = (56, 112) if contextual else (EMBEDDING, HIDDEN)
+    corpus = None if contextual else json.loads(raw)
+    if contextual:
+        training, validation, opening_count, topics = contextual_examples(raw)
+    elif performer == "challenge":
         training = challenge_examples(corpus, "train")
         validation = challenge_examples(corpus, "validation")
         opening_count = 0
@@ -148,7 +193,7 @@ def train(performer, steps):
     lookup = {word: index for index, word in enumerate(vocabulary)}
     rng = random.Random(seed)
     torch.manual_seed(seed)
-    model = RapGRU(len(vocabulary))
+    model = RapGRU(len(vocabulary), embedding, hidden)
     optimizer = torch.optim.AdamW(model.parameters(), lr=0.003)
     opening, replies = training[:opening_count], training[opening_count:]
     opening_batch = 3 if opening else 0
@@ -180,7 +225,7 @@ def train(performer, steps):
             weights[mapping[name]] = torch.from_numpy(values * scales[:, None])
     model.load_state_dict(weights)
     checkpoint = {
-        "architecture": {"hidden": HIDDEN, "embedding": EMBEDDING, "vocabulary": len(vocabulary)},
+        "architecture": {"hidden": hidden, "embedding": embedding, "vocabulary": len(vocabulary)},
         "vocabulary": vocabulary,
         "tensors": tensors,
         "training": {
@@ -192,15 +237,17 @@ def train(performer, steps):
             "torch": torch.__version__,
         },
     }
+    if contextual:
+        checkpoint["topics"] = topics
     (OUTPUT / f"{performer}.json").write_text(json.dumps(checkpoint, separators=(",", ":")) + "\n")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("performer", choices=PERFORMERS)
-    parser.add_argument("--steps", type=int, help="Defaults to 600 for the expanded roster, 800 for the original four, and 1000 for the challenge model.")
+    parser.add_argument("--steps", type=int, help="Defaults vary by checkpoint.")
     args = parser.parse_args()
     expanded = PERFORMERS[args.performer][0] not in {"corpus.json", "robot-toaster.json"}
     torch.set_num_threads(1 if expanded else 2)
-    default_steps = 1000 if args.performer == "challenge" else (600 if expanded else 800)
+    default_steps = {"challenge": 1000, "context-reply": 850}.get(args.performer, 600 if expanded else 800)
     train(args.performer, args.steps if args.steps is not None else default_steps)
