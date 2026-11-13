@@ -37,6 +37,7 @@ PERFORMERS = {
     "weather-forecaster": ("expanded-roster.json", 2131),
     "volcano": ("expanded-roster.json", 2137),
     "challenge": ("challenges.json", 2153),
+    "octopus-challenge": ("octopus-challenges.json", 2179),
     "context-reply": ("context-corpus.txt", 2161),
 }
 
@@ -181,7 +182,7 @@ def train(performer, steps):
     corpus = None if contextual else json.loads(raw)
     if contextual:
         training, validation, opening_count, topics = contextual_examples(raw)
-    elif performer == "challenge":
+    elif performer in {"challenge", "octopus-challenge"}:
         training = challenge_examples(corpus, "train")
         validation = challenge_examples(corpus, "validation")
         opening_count = 0
@@ -249,5 +250,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     expanded = PERFORMERS[args.performer][0] not in {"corpus.json", "robot-toaster.json"}
     torch.set_num_threads(1 if expanded else 2)
-    default_steps = {"challenge": 1000, "context-reply": 850}.get(args.performer, 600 if expanded else 800)
+    default_steps = {"challenge": 1000, "octopus-challenge": 1400, "context-reply": 850}.get(args.performer, 600 if expanded else 800)
     train(args.performer, args.steps if args.steps is not None else default_steps)
