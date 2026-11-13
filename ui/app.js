@@ -68,6 +68,7 @@ $('story-placeholder').hidden=generated.length>0;
 if(atEnd)scroller.scrollTop=scroller.scrollHeight;
 }
 function renderCandidates(target,count){
+const focus=Array.from(target.children).indexOf(document.activeElement);
 target.replaceChildren();
 for(const t of ranked().slice(0,count)){
 const b=node('button','prob');b.disabled=generated.length>=MAX_DOCUMENT||running;
@@ -76,9 +77,10 @@ const top=node('span','prob-top');top.append(node('span','',pieceLabel(t.id)),no
 const track=node('span','prob-track'),fill=node('span','prob-fill');fill.style.width=t.p*100+'%';track.append(fill);b.append(top,track);
 b.addEventListener('click',()=>appendToken(t.id));target.append(b);
 }
+if(focus>=0)target.children[focus]?.focus({preventScroll:true});
 }
 function renderPredictions(){
-const text=decode(allIds());setText('prediction-context',(text.length>160?'…':'')+text.slice(-160));
+const text=decode(allIds());setText('prediction-context',(text.length>100?'…':'')+text.slice(-100));
 renderCandidates($('probabilities'),3);
 }
 function selectTop(){
@@ -256,7 +258,7 @@ status=generated.length?'Your story is restored · continue whenever you like':'
 }
 window.addEventListener('pagehide',saveSession);
 document.addEventListener('visibilitychange',()=>{if(document.hidden){if(running){stop('Paused while you were away');render();}saveSession();}});
-setText('param-stat',number(parameterCount));setText('vocab-stat',number(V));setText('model-size',(bundle.stats.packedWeightBytes/1e6).toFixed(3)+' MB');setText('page-size',(new TextEncoder().encode(ORIGINAL_HTML).length/1e6).toFixed(3)+' MB');
+setText('param-stat',number(parameterCount));setText('vocab-stat',number(V));setText('model-size',(bundle.stats.packedWeightBytes/1e6).toFixed(3)+' MB');setText('page-size',number(new TextEncoder().encode(ORIGINAL_HTML).length)+' bytes');
 const training=bundle.training,holiday=training.holiday;
 setText('training-summary',number(training.trainStories)+' base stories and '+(training.trainingTokens/1e6).toFixed(2)+' million tokens; then 46 descriptive passages, '+holiday.corpus.train.paragraphs+' Christmas stories, and 20 longer Christmas stories.');
 setText('val-baseline',holiday.initialValidationLoss.toFixed(3));setText('val-loss',holiday.quantizedValidationLoss.toFixed(3));

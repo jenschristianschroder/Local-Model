@@ -50,7 +50,9 @@ test('weight experiment updates actual probability, resets, and retains an explo
 test('session restore resumes the exact seeded continuation including manual token choices',async()=>{
   const a=await app();let saved,expected;try{
     await a.go('predictions');a.click('#step');await delay(30);
-    a.q('#probabilities button').click();await delay(30);a.click('#step');await delay(350);
+    a.q('#probabilities button').focus();a.q('#probabilities button').click();await delay(30);
+    assert.equal(a.w.document.activeElement,a.q('#probabilities button'),'Keyboard focus must stay on the refreshed candidate');
+    a.click('#step');await delay(350);
     saved=a.w.sessionStorage.getItem('pocket-lm-session-v1');const snapshot=JSON.parse(saved);
     assert.equal(snapshot.generated.length,3);assert.equal(snapshot.generated[1].forced,true);
     const m=a.w.PocketLM,r=m.randomGenerator(snapshot.seed);for(const t of snapshot.generated)if(!t.forced)r();
