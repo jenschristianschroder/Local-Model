@@ -1,0 +1,184 @@
+{
+  "laptop": {
+    "train": [
+      "Try keeping the beat when the sockets go dead\nI'll finish the chorus with power to spare instead.",
+      "Bring your whole crew to a seat on the train\nI'll take on your verse while we ride through the rain.",
+      "Let's hear your next bar from the back of a bike\nI'll open my lid and hand you the mic.",
+      "Can you make a hook when the signal is gone?\nI'll count you in at the crack of dawn.",
+      "Take your best shot in a tunnel of stone\nI'll bring my own beat and leave my phone at home.",
+      "Put your next punchline in a bag by the door\nI'll carry my studio and still fit more."
+    ],
+    "validation": [
+      "Try bringing a band to a cabin at night\nMy screen and a battery put on the light."
+    ]
+  },
+  "cloud": {
+    "train": [
+      "Bring one spare speaker and I'll bring the rest\nLet's see whose chorus can handle the test.",
+      "Try taking your whole show to cities of snow\nI'll start up ten stages before you can go.",
+      "Can you keep playing when one cable snaps?\nI'll move the whole beat in the space of two claps.",
+      "Give me a crowd that keeps coming all night\nI'll open more doors till the back wall sees light.",
+      "Try sharing your verse with a whole second town\nI'll send an encore when your screen shuts down.",
+      "Let's see you keep time when your only drive fails\nI'll pull up a copy while you check the cables."
+    ],
+    "validation": [
+      "Can you keep your bass up when the room hits its peak?\nI'll give every voice its own place to speak."
+    ]
+  },
+  "robot": {
+    "train": [
+      "Bring me a drum with a crack in its side\nI'll bolt it to wheels and take your beat for a ride.",
+      "Can you keep up with my footsteps on steel?\nI'll turn your last boast into spokes on a wheel.",
+      "Try fixing your mic in the dark on the floor\nI'll patch up the cable and build you one more.",
+      "Let's see you keep time with a hinge full of rust\nI'll click out a beat while your gears gather dust.",
+      "Bring your best verse and a loose little screw\nI'll tighten the rhythm and leave one turn for you.",
+      "Try dancing in step with my old metal feet\nI'll weld you a stage where the two tempos meet."
+    ],
+    "validation": [
+      "Bring a broken speaker and give me a light\nI'll have it playing by the end of the night."
+    ]
+  },
+  "toaster": {
+    "train": [
+      "Bring your next bar with a loaf and a plate\nI'll serve up a crunch while your punchline is late.",
+      "Can you get golden before the bell rings?\nI'll give you one turn while the metal coil sings.",
+      "Try keeping your cool when I turn up the heat\nI'll give your next verse something crunchy to eat.",
+      "Let's hear your rhyme when I press down the spring\nI'll pop up a hook and the whole room will sing.",
+      "Bring me a boast and a slice of cold rye\nI'll brown both sides while you wait for a reply.",
+      "Try making a chorus that warms up a room\nI'll fill up the kitchen before you find a tune."
+    ],
+    "validation": [
+      "Can you finish your set before my timer says done?\nI'll lift up the toast before you get to one."
+    ]
+  },
+  "pigeon": {
+    "train": [
+      "Try taking my ledge with your shoes on the ground\nI'll drop from the roof when the drum comes around.",
+      "Bring your next verse to the old market square\nI'll bring the whole flock and make room in the air.",
+      "Can you reach the gutter before I take flight?\nI'll leave you one feather by the lamppost light.",
+      "Let's see who gets lunch with a crowd by the gate\nI'll be over the bridge when you notice the plate.",
+      "Try catching my beat from a bench in the park\nI'll tap it on copper till the streets go dark.",
+      "Bring your best hook to the top of the dome\nI'll carry the echo down three rooftops home."
+    ],
+    "validation": [
+      "Try taking that chip from the edge of my beak\nI'll circle the spire before you can speak."
+    ]
+  },
+  "raccoon": {
+    "train": [
+      "Bring your best rhyme to the bins after dark\nI'll tap on the lid till it throws off a spark.",
+      "Try finding a beat in the back of the shed\nI'll turn your old bucket into drums instead.",
+      "Can you make music with one rusty tin?\nI'll give you the alley and a head start to begin.",
+      "Let's see what you make from the scraps by the door\nI'll build a whole bass stand and come back for more.",
+      "Bring me a lock that can keep out my paws\nI'll turn it in time with the beat and applause.",
+      "Try trading your verse for a coat in the rain\nI'll stitch a fresh hook from the scraps in the lane."
+    ],
+    "validation": [
+      "Bring whatever you swept from the shop this week\nI'll make it a chorus before you can speak."
+    ]
+  },
+  "librarian": {
+    "train": [
+      "Bring me your best claim and the book where it's found\nI'll read the small print while the room settles down.",
+      "Can you cite a source for the noise in your verse?\nI'll put it on hold till you finish the search.",
+      "Try keeping your story in order by date\nI'll check every margin and see which claims are late.",
+      "Bring a footnote to back up the boast that you made\nI'll be at my desk while the loud parts fade.",
+      "Let's see you write two bars that fit on a page\nI'll whisper mine once and walk off the stage.",
+      "Try making a point I can file on the shelf\nI'll read it aloud and let it correct itself."
+    ],
+    "validation": [
+      "Bring your best argument back by noon\nI'll stamp the return date and hand back the tune."
+    ]
+  },
+  "haunted-printer": {
+    "train": [
+      "Bring me a blank sheet at quarter to three\nI'll send it back creased with a warning from me.",
+      "Try pulling my plug when the room goes dark\nI'll print one more chorus with a red toner mark.",
+      "Can your next verse fit in a jammed paper tray?\nI'll fold it in thirds and let it whisper away.",
+      "Let's see you make copies with the lights turned low\nI'll rattle my rollers and put on a show.",
+      "Bring me a receipt for the boast that you sold\nI'll print you a refund when the ink goes cold.",
+      "Try reading the line at the bottom in gray\nI'll print it in white when you turn away."
+    ],
+    "validation": [
+      "Bring me a page with a margin to spare\nI'll print an encore from the cold office air."
+    ]
+  },
+  "disco-ball": {
+    "train": [
+      "Bring your best shine to the middle of the floor\nI'll split one small beam into a thousand more.",
+      "Try keeping up when I turn on my chain\nI'll scatter your spotlight like silver rain.",
+      "Can you light a room with one flicker of blue?\nI'll put stars on the ceiling before you're through.",
+      "Let's see who keeps dancing when the main lights go\nI'll catch one last flash and make the whole room glow.",
+      "Bring your finest sequins and dance by the wall\nI'll throw back more sparkle than you brought to the hall.",
+      "Try making the rafters dance without a sound\nI'll send the beat spinning in dots all around."
+    ],
+    "validation": [
+      "Bring your best sparkle to the edge of the bar\nI'll give every dancer a piece of a star."
+    ]
+  },
+  "grandfather-clock": {
+    "train": [
+      "Try landing your punchline at quarter past nine\nI'll leave you a beat and still finish on time.",
+      "Bring your fast watch to the end of my hall\nI'll ring twelve times while its battery stalls.",
+      "Can you keep time when the floor starts to shake?\nI'll swing through the noise while your stopwatch takes a break.",
+      "Let's see who lasts till the winter is through\nI'll polish my weights while the dust settles on you.",
+      "Try racing my hands from the start of the hour\nI'll finish the lap without borrowing power.",
+      "Bring your next bar at the stroke of the bell\nI'll count every pause till your timing works well."
+    ],
+    "validation": [
+      "Can you make silence keep time in this hall?\nI'll wait for the echo before I let it fall."
+    ]
+  },
+  "cactus": {
+    "train": [
+      "Bring your best rain cloud to the middle of June\nI'll save one drop and outlast the tune.",
+      "Try taking my shade at the edge of the sand\nI'll leave room to sit if you watch where you stand.",
+      "Can you stay quiet through one hot afternoon?\nI'll answer your verse when the sun gives way to the moon.",
+      "Let's see who still blooms when the water is low\nI'll save one bright flower for the end of the show.",
+      "Bring all your thunder to the lip of my pot\nI'll let the sky cool and keep hold of my spot.",
+      "Try crossing the dune with a mouth full of brag\nI'll stand at the top and wait till your steps drag."
+    ],
+    "validation": [
+      "Bring your next verse to a rock in the heat\nI'll wait for the wind to give both of us a beat."
+    ]
+  },
+  "octopus": {
+    "train": [
+      "Bring your best drum to the edge of the reef\nI'll play eight at once and keep the solo brief.",
+      "Try tying a knot while the tide runs high\nI'll undo seven before you can blink an eye.",
+      "Can you open a jar with your hands on a beat?\nI'll play through the chorus and still have arms to greet.",
+      "Let's see who keeps time where the light runs thin\nI'll ink out the rhythm and wave you in.",
+      "Bring your best hook to the back of a wreck\nI'll throw eight beats up onto the deck.",
+      "Try catching my verse in a net by the shore\nI'll slip through a hole and come back with four more."
+    ],
+    "validation": [
+      "Bring your next bar to the far side of the bay\nI'll tie it in loops before it floats away."
+    ]
+  },
+  "weather-forecaster": {
+    "train": [
+      "Bring your storm warning to the evening report\nI'll check the wind gauge and see if it falls short.",
+      "Try calling for thunder with a clear blue sky\nI'll put your boast on radar and watch it drift by.",
+      "Can you bring a cold front before I bring the beat?\nI'll check the forecast from the opposite street.",
+      "Let's see whose rhyme gets through when the rain comes late\nI'll read the chart and give your clouds a date.",
+      "Bring your best gust to the flag by the pier\nI'll read the first ripple and tell you what's clear.",
+      "Try predicting when my next bar will fall\nI'll shift the front south and let the bass shake the hall."
+    ],
+    "validation": [
+      "Bring your rain gauge when the chorus rolls in\nI'll track every drop from the start to the spin."
+    ]
+  },
+  "volcano": {
+    "train": [
+      "Bring your best rumble to the foot of my hill\nI'll hold one deep note till the whole ridge is still.",
+      "Try making the stones keep time in the night\nI'll send a red river to show them the light.",
+      "Can you fill the valley with one low sound?\nI'll wait till your echo comes back through the ground.",
+      "Let's see who stays hot when the sun goes down\nI'll light up the clouds on the far side of town.",
+      "Bring me a spark on a wind from the bay\nI'll answer with smoke that can darken the day.",
+      "Try taking the mic to the lip of my peak\nI'll let the crater count down before I speak."
+    ],
+    "validation": [
+      "Bring your next bar to a crack in the stone\nI'll turn a soft whisper into a thunderous tone."
+    ]
+  }
+}

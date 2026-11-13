@@ -43,10 +43,11 @@ const cueNouns = new Set((
   "drizzle thunder broadcast crater lava ash smoke rock ridge slope"
 ).split(" "));
 let models;
+let challengeModel;
 const performed = selectors.map(() => []);
 const selectedNames = () => selectors.map(select => roster[select.value]);
 let turn = 0;
-let previous = "";
+let previousChallenge = "";
 let cue = "";
 let busy = false;
 
@@ -95,13 +96,15 @@ function loadModel(id) {
   return modelLoads.get(id);
 }
 
-function appendVerse(performer, text) {
+function appendVerse(performer, reply, challenge) {
   const item = element("li", "");
   item.className = turn % selectors.length === 0 ? "verse first" : "verse second";
   item.append(element("h3", performer + " · Round " + (Math.floor(turn / selectors.length) + 1)));
   const verse = element("p", "");
+  const replyLabel = element("h4", turn === 0 ? "Opening" : "Reply");
+  item.append(replyLabel, verse);
   let found = false;
-  for (const piece of text.split(/([A-Za-z]+(?:'[A-Za-z]+)?)/)) {
+  for (const piece of reply.split(/([A-Za-z]+(?:'[A-Za-z]+)?)/)) {
     if (cue && piece.toLowerCase() === cue) {
       found = true;
       verse.append(element("mark", piece));
@@ -109,20 +112,22 @@ function appendVerse(performer, text) {
       verse.append(piece);
     }
   }
-  item.append(verse);
   if (cue) {
     const detail = element("p", found ? "Callback · " + cue : "Missed callback · " + cue);
     detail.className = "callback";
     item.append(detail);
   }
+  const challengeLabel = element("h4", "Challenge");
+  challengeLabel.className = "challenge-label";
+  item.append(challengeLabel, element("p", challenge));
   verses.append(item);
 }
 
 function showChoices() {
   choices.replaceChildren();
   const performer = selectedNames()[turn % selectors.length];
-  const words = cueWords(previous);
-  status.textContent = words.length ? "Pick a word for " + performer + " to answer." : performer + " takes the mic.";
+  const words = cueWords(previousChallenge);
+  status.textContent = words.length ? "Pick a word from the challenge for " + performer + " to answer." : performer + " takes the mic.";
   for (const word of words) {
     const button = element("button", word);
     button.type = "button";
@@ -162,24 +167,41 @@ function showVote() {
 next.onclick = async () => {
   if (busy) return;
   busy = next.disabled = reset.disabled = true;
+  for (const choice of choices.children) choice.disabled = true;
   matchup.disabled = true;
   const names = selectedNames();
   const index = turn % names.length;
   const performer = names[index];
   status.textContent = models ? performer + " is writing…" : "Loading " + names.join(" and ") + "…";
   try {
-    models ??= await Promise.all(selectors.map(select => loadModel(select.value)));
+    if (!models) {
+      const [first, second, shared] = await Promise.all([
+        ...selectors.map(select => loadModel(select.value)),
+        loadModel("challenge"),
+      ]);
+      models = [first, second];
+      challengeModel = shared;
+    }
     const stats = find("model-stats");
-    stats.textContent = models.map((model, index) => names[index] + " · " + model.training.parameters.toLocaleString() + " trained parameters").join(" / ");
+    stats.textContent = [...models, challengeModel].map((model, index) =>
+      (names[index] ?? "Shared challenge model") + " · " + model.training.parameters.toLocaleString() + " trained parameters"
+    ).join(" / ");
     stats.hidden = false;
     // Give the browser a frame to announce the busy state before inference.
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const seed = crypto.getRandomValues(new Uint32Array(1))[0];
-    const text = models[index].generate({previous, cue, seed, earlier: performed[index]});
-    if (!text) throw new Error("The model returned an empty verse.");
-    appendVerse(performer, text);
-    performed[index].push({text, cue});
-    previous = text;
+    const earlier = performed[index];
+    const reply = models[index].generate({previous: previousChallenge, cue, seed, earlier});
+    if (!reply) throw new Error("The model did not finish a two-line reply.");
+    const challenge = challengeModel.generate({
+      role: selectors[index].value,
+      seed: seed ^ 0x9e3779b9,
+      earlier: [...earlier, ...performed[1 - index], {text: reply, cue}],
+    });
+    if (!challenge) throw new Error("The model did not finish a two-line challenge.");
+    appendVerse(performer, reply, challenge);
+    earlier.push({text: reply, cue}, {text: challenge, cue: ""});
+    previousChallenge = challenge;
     cue = "";
     turn++;
     reset.hidden = false;
@@ -197,11 +219,12 @@ next.onclick = async () => {
       matchup.disabled = false;
       find("model-stats").hidden = true;
     }
-    status.textContent = loaded ? "The verse could not be generated. Try this turn again." : "Could not load both models. Check your connection and try again.";
+    status.textContent = loaded ? "The verse could not be generated. Try this turn again." : "Could not load the battle models. Check your connection and try again.";
     next.disabled = false;
     next.focus();
   } finally {
     busy = reset.disabled = false;
+    for (const choice of choices.children) choice.disabled = false;
   }
 };
 
@@ -210,7 +233,7 @@ reset.onclick = () => {
   models = undefined;
   matchup.disabled = false;
   find("model-stats").hidden = true;
-  previous = cue = "";
+  previousChallenge = cue = "";
   for (const history of performed) history.length = 0;
   verses.replaceChildren();
   choices.replaceChildren();

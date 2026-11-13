@@ -56,6 +56,8 @@ ol { padding: 0; margin: 0; list-style: none; }
   background: #242032;
 }
 .verse h3 { font-size: .86rem; color: var(--accent); margin: 0 0 .3rem; }
+.verse h4 { margin: 0 0 .2rem; color: var(--muted); font-size: .75rem; font-weight: 650; }
+.verse h4.challenge-label { margin-top: .7rem; padding-top: .65rem; border-top: 1px solid var(--edge); }
 .verse p { white-space: pre-line; margin: 0; color: #f8f4ee; overflow-wrap: anywhere; }
 .verse .callback { font-size: .8rem; margin-top: .45rem; color: var(--muted); }
 mark { background: var(--accent); color: #15151b; border-radius: .2em; padding-inline: .12em; }
