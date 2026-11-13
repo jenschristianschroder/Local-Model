@@ -1,0 +1,142 @@
+{
+  "seed": 1311,
+  "initialization": "random",
+  "tokenizer": "learned from new train split only",
+  "architecture": {
+    "vocabulary": 1024,
+    "embedding": 64,
+    "hidden": 256
+  },
+  "parameters": 576000,
+  "entityTokenLossWeight": 12,
+  "sequenceLength": 220,
+  "source": {
+    "origin": "AI-authored in this task; six new plots with synthetic substitutions",
+    "externalTextInputs": [],
+    "split": "Disjoint actor/companion pairs; plots shared",
+    "limitations": "Narrow templated corpus; tests measure recombination of known plots.",
+    "splits": {
+      "train": {
+        "stories": 864,
+        "sha256": "8ba68057cb164738e47daa49116596f032ba70ca35457735f81eb369b8d6525b"
+      },
+      "valid": {
+        "stories": 144,
+        "sha256": "b063435a247132960dafb595ff604632eca7a49b73e4b414e97dacfa187f7902"
+      },
+      "test": {
+        "stories": 144,
+        "sha256": "162df9cf98a5a7d49815f94d85a97553d2a3dbc05a93c23cf151c9e0dd74e5b4"
+      }
+    }
+  },
+  "torchVersion": "2.15.0+cpu",
+  "history": [
+    {
+      "step": 0,
+      "validationLoss": 6.937095854017469,
+      "seconds": 0.7
+    },
+    {
+      "step": 100,
+      "validationLoss": 1.6921723948584662,
+      "seconds": 20.0
+    },
+    {
+      "step": 200,
+      "validationLoss": 0.3273588849438561,
+      "seconds": 39.1
+    },
+    {
+      "step": 300,
+      "validationLoss": 0.17294449938668144,
+      "seconds": 57.0
+    },
+    {
+      "step": 400,
+      "validationLoss": 0.14456410540474784,
+      "seconds": 73.7
+    },
+    {
+      "step": 500,
+      "validationLoss": 0.14101419101158777,
+      "seconds": 90.5
+    },
+    {
+      "step": 600,
+      "validationLoss": 0.13022816843456692,
+      "seconds": 107.1
+    },
+    {
+      "step": 700,
+      "validationLoss": 0.12426531232065624,
+      "seconds": 123.7
+    },
+    {
+      "step": 800,
+      "validationLoss": 0.1231324432624711,
+      "seconds": 141.1
+    },
+    {
+      "step": 900,
+      "validationLoss": 0.12288527107901043,
+      "seconds": 157.9
+    },
+    {
+      "step": 1000,
+      "validationLoss": 0.12112692246834438,
+      "seconds": 177.3
+    },
+    {
+      "step": 1100,
+      "validationLoss": 0.11910747985045116,
+      "seconds": 196.9
+    },
+    {
+      "step": 1200,
+      "validationLoss": 0.1129422386487325,
+      "seconds": 216.2
+    },
+    {
+      "step": 1300,
+      "validationLoss": 0.11050843116309908,
+      "seconds": 234.9
+    },
+    {
+      "step": 1400,
+      "validationLoss": 0.09660362700621287,
+      "seconds": 253.1
+    },
+    {
+      "step": 1500,
+      "validationLoss": 0.08931159393654929,
+      "seconds": 270.2
+    },
+    {
+      "step": 1600,
+      "validationLoss": 0.08307949950297673,
+      "seconds": 287.8
+    },
+    {
+      "step": 1700,
+      "validationLoss": 0.07745775745974647,
+      "seconds": 304.8
+    },
+    {
+      "step": 1800,
+      "validationLoss": 0.0754725005891588,
+      "seconds": 321.8
+    },
+    {
+      "step": 1900,
+      "validationLoss": 0.0753863544927703,
+      "seconds": 338.6
+    },
+    {
+      "step": 2000,
+      "validationLoss": 0.07623499135176341,
+      "seconds": 356.2
+    }
+  ],
+  "bestStep": 1900
+}

@@ -1,0 +1,20 @@
+{
+  "origin": "AI-authored in this task; six new plots with synthetic substitutions",
+  "externalTextInputs": [],
+  "split": "Disjoint actor/companion pairs; plots shared",
+  "limitations": "Narrow templated corpus; tests measure recombination of known plots.",
+  "splits": {
+    "train": {
+      "stories": 864,
+      "sha256": "8ba68057cb164738e47daa49116596f032ba70ca35457735f81eb369b8d6525b"
+    },
+    "valid": {
+      "stories": 144,
+      "sha256": "b063435a247132960dafb595ff604632eca7a49b73e4b414e97dacfa187f7902"
+    },
+    "test": {
+      "stories": 144,
+      "sha256": "162df9cf98a5a7d49815f94d85a97553d2a3dbc05a93c23cf151c9e0dd74e5b4"
+    }
+  }
+}
