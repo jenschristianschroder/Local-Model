@@ -99,7 +99,7 @@ export function createPerformer(checkpoint) {
 
   return {
     training: checkpoint.training,
-    generate({previous = "", cue = "", seed, earlier = [], role}) {
+    generate({previous = "", cue = "", seed, earlier = [], role, temperature = 0.75}) {
       const prompt = ["<start>"];
       if (isChallengeModel) prompt.push(`<${role}>`);
       if (previous) prompt.push(...tokens(previous), "<cue>", ...tokens(cue));
@@ -112,8 +112,8 @@ export function createPerformer(checkpoint) {
       const used = earlier.map(verse => verseFeatures(verse.text, verse.cue));
       let best = "";
       let bestScore = -1;
-      for (const temperature of [0.75, 0.75, 0.85, 0.85, 0.95, 0.95]) {
-        const text = sampleVerse(hidden, cue, random, temperature);
+      for (const increase of [0, 0, 0.1, 0.1, 0.2, 0.2]) {
+        const text = sampleVerse(hidden, cue, random, Math.min(1.2, temperature + increase));
         const {lines, endings, hasCue} = verseFeatures(text, cue);
         if (lines.length !== 2) continue;
         // Treat a verse with just the callback swapped as the same verse.
