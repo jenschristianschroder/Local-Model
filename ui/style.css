@@ -169,7 +169,7 @@ pre { font:14px/1.7 var(--mono); white-space:pre-wrap; overflow-wrap:anywhere; b
 #playground h2 { font-size:26px; }
 #playground .page-head { padding-bottom:12px; }
 #playground .prompt-content { gap:6px; overflow:visible; }
-#prompt { font-size:17px; min-height:48px; height:48px; resize:none; }
+#prompt { font-size:17px; min-height:60px; height:60px; resize:none; }
 #playground .row { gap:4px 14px; }
 }
 
