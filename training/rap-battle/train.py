@@ -26,6 +26,16 @@ PERFORMERS = {
     "cloud": ("corpus.json", 2047),
     "robot": ("robot-toaster.json", 2053),
     "toaster": ("robot-toaster.json", 2063),
+    "pigeon": ("expanded-roster.json", 2081),
+    "raccoon": ("expanded-roster.json", 2083),
+    "librarian": ("expanded-roster.json", 2087),
+    "haunted-printer": ("expanded-roster.json", 2089),
+    "disco-ball": ("expanded-roster.json", 2099),
+    "grandfather-clock": ("expanded-roster.json", 2111),
+    "cactus": ("expanded-roster.json", 2113),
+    "octopus": ("expanded-roster.json", 2129),
+    "weather-forecaster": ("expanded-roster.json", 2131),
+    "volcano": ("expanded-roster.json", 2137),
 }
 
 
@@ -34,7 +44,7 @@ def tokens(text):
 
 
 def examples(corpus, performer):
-    opponent, = (role for role in corpus["openers"] if role != performer)
+    opponents = [role for role in corpus["openers"] if role != performer]
     reply_tokens = [[*tokens(before), COPY, *tokens(after), END]
                     for before, after in (reply.split("{cue}") for reply in corpus["replies"][performer])]
     train = [([START, VERSE], tokens(verse) + [END]) for verse in corpus["openers"][performer]]
@@ -44,12 +54,16 @@ def examples(corpus, performer):
                          for verse in corpus["openers"][role] + corpus["replies"][role]
                          for word in WORDS.findall(verse.lower())} - {"cue"})
     rng = random.Random(2043)
-    past_verses = corpus["openers"][opponent] + [
-        reply.format(cue=cue) for reply in corpus["replies"][opponent]
-        for cue in rng.sample(vocabulary, 24)
+    variants = 24 if len(opponents) == 1 else 3
+    past_verses = [
+        verse for opponent in opponents for verse in corpus["openers"][opponent]
+    ] + [
+        reply.format(cue=cue) for opponent in opponents for reply in corpus["replies"][opponent]
+        for cue in rng.sample(vocabulary, variants)
     ]
+    held_out = [verse for opponent in opponents for verse in corpus["validationOpeners"][opponent]]
     common = set("the and your you that when with from this have their then were them like there what they will just into back while".split())
-    for split, verses in ((train, past_verses), (valid, corpus["validationOpeners"][opponent])):
+    for split, verses in ((train, past_verses), (valid, held_out)):
         for verse in verses:
             cues = sorted(set(WORDS.findall(verse.lower())) - common)
             for cue in cues:
@@ -172,7 +186,8 @@ def train(performer, steps):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("performer", choices=PERFORMERS)
-    parser.add_argument("--steps", type=int, default=800)
+    parser.add_argument("--steps", type=int, help="Defaults to 600 for the expanded roster and 800 for the original four.")
     args = parser.parse_args()
-    torch.set_num_threads(2)
-    train(args.performer, args.steps)
+    expanded = PERFORMERS[args.performer][0] == "expanded-roster.json"
+    torch.set_num_threads(1 if expanded else 2)
+    train(args.performer, args.steps if args.steps is not None else (600 if expanded else 800))

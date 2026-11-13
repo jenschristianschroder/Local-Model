@@ -1,7 +1,22 @@
 import {createPerformer} from "./model.mjs";
 
 const find = id => document.getElementById(id);
-const roster = {laptop: "Laptop", cloud: "Cloud", robot: "Robot", toaster: "Toaster"};
+const roster = {
+  laptop: "Laptop",
+  cloud: "Cloud",
+  robot: "Robot",
+  toaster: "Toaster",
+  pigeon: "Pigeon",
+  raccoon: "Raccoon",
+  librarian: "Librarian",
+  "haunted-printer": "Haunted Printer",
+  "disco-ball": "Disco Ball",
+  "grandfather-clock": "Grandfather Clock",
+  cactus: "Cactus",
+  octopus: "Octopus",
+  "weather-forecaster": "Weather Forecaster",
+  volcano: "Volcano",
+};
 const matchup = find("matchup");
 const selectors = [find("first-opponent"), find("second-opponent")];
 const modelLoads = new Map();
@@ -21,7 +36,11 @@ const cueNouns = new Set((
   "cover chrome charger cabin silence grid fire bass stack studio notebook snow chart drum coast lid " +
   "cloth circuit credit workload laptop candle park wings crew sprint relay moon table file desk warehouse " +
   "wire tempo crash badge team stream flight hooks trees park water hall crowd door tunnel data time sound " +
-  "gears lever crumbs slot bread hinge slice sensors coils elbow cord motor dial timer wheels spring steel"
+  "gears lever crumbs slot bread hinge slice sensors coils elbow cord motor dial timer wheels spring steel " +
+  "fountain beak rooftop flock lamppost gutter picnic bucket alley horn latch shelf footnote index spine " +
+  "toner paper tray rollers ghost receipt margin glitter mirror mirrors sparkle spotlight chain pendulum " +
+  "chime chimes floorboards thorn needles sand desert bloom shadow reef shell tide ink kelp radar forecast " +
+  "drizzle thunder broadcast crater lava ash smoke rock ridge slope"
 ).split(" "));
 let models;
 const selectedNames = () => selectors.map(select => roster[select.value]);

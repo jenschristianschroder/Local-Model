@@ -99,7 +99,7 @@ The original, AI-authored Christmas corpus is in `training/christmas.txt`, with 
 
 ## Rap Battle
 
-Open [Rap Battle](https://jenschristianschroder.github.io/Pocket-LM/rap-battle/) to choose two opponents from Laptop, Cloud, Robot, and Toaster. Play three rounds, pick a callback word after each verse, then vote. The two chosen GRUs run on your device after their checkpoints load. They were trained from random initialization on original CC0 examples created for this demo. The tiny corpus can lead to repeated lines or missed callbacks. See [training data and split details](training/rap-battle/DATA.md).
+Open [Rap Battle](https://jenschristianschroder.github.io/Pocket-LM/rap-battle/) to choose two opponents from a roster of 14. Play three rounds, pick a callback word after each verse, then vote. The two chosen GRUs run on your device after their checkpoints load. They were trained from random initialization on original CC0 examples created for this demo. The tiny corpus can lead to repeated lines or missed callbacks. See [training data and split details](training/rap-battle/DATA.md).
 
 To run locally, start `python -m http.server 8000` from the repo root and open `http://localhost:8000/rap-battle/`. To reproduce the checkpoints, install CPU PyTorch and NumPy and run:
 
@@ -108,4 +108,5 @@ python training/rap-battle/train.py laptop
 python training/rap-battle/train.py cloud
 python training/rap-battle/train.py robot
 python training/rap-battle/train.py toaster
+python training/rap-battle/train.py haunted-printer
 ```

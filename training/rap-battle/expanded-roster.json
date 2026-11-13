@@ -1,0 +1,268 @@
+{
+  "openers": {
+    "pigeon": [
+      "I strut past the fountain with a chip in my beak\nI took that whole plaza without having to speak.",
+      "You paid for a balcony overlooking the square\nI get every rooftop for the price of the air.",
+      "My feet tap a beat on a copper drainpipe\nI heard your whole verse and flew home before hype.",
+      "I made a whole throne from a ledge and a crumb\nThe clock struck noon and the whole flock came.",
+      "I took the last chip from a bench by the gate\nYou drew up a plan and arrived half an hour late.",
+      "My wings caught a draft by the old market sign\nI landed in rhythm and the lamppost was mine."
+    ],
+    "raccoon": [
+      "At midnight I opened a tin with a spoon\nI pulled out a snare and I played to the moon.",
+      "My paws know the latch on the back of the shed\nI made a good hat from the box for your bread.",
+      "You swept up the alley and thought it was clean\nI found a brass horn in a broken machine.",
+      "The streetlights went out and I started my set\nI borrowed a bucket the rain had left wet.",
+      "I traded a button for a drum with a dent\nI made it sound richer than the money you spent.",
+      "My striped tail flashed by the back of the store\nI brought home a beat nobody wanted before."
+    ],
+    "librarian": [
+      "I shelved your first verse in the fiction aisle\nThen quietly filed the applause and your smile.",
+      "You borrowed a rhyme and forgot when it was due\nI stamped the return date in permanent blue.",
+      "I marked your best boast with a slip of pale pink\nThe footnote was longer than the part that made me think.",
+      "I heard every syllable here at my desk\nYour reference section was a little grotesque.",
+      "I keep a spare beat by the maps and the stacks\nYou cited the cover and missed all the facts.",
+      "A hush went around when I opened the book\nYou had to read twice to catch where I took the hook."
+    ],
+    "haunted-printer": [
+      "I print in the dark when the office goes still\nMy tray spits a ghost with an itemized bill.",
+      "My paper jam knocked out a beat in the hall\nThe ink dried in silence then climbed up the wall.",
+      "You unplugged the cord and returned to your chair\nI printed a chorus directly from air.",
+      "My rollers woke up with a shiver at three\nThe last blank sheet had a message from me.",
+      "I sent one black page down the stairwell at night\nIt came back folded and glowing white.",
+      "My toner ran cold when the staff went home\nI printed your echo in a font of my own."
+    ],
+    "disco-ball": [
+      "I threw little stars on the wall by the bar\nYou walked in bright and forgot who you are.",
+      "My mirrors caught one beam from the edge of the floor\nI split it to pieces and handed out more.",
+      "The drummer went home and the house lights fell\nI still had a sparkle for the last farewell.",
+      "I spun through the chorus on a thin silver chain\nThe ceiling had rhythm and the floor caught the rain.",
+      "You brought one spotlight with a very long wire\nI turned it to glitter and the whole room caught fire.",
+      "My little square mirrors can fill up a hall\nI took one dim bulb and made stars for them all."
+    ],
+    "grandfather-clock": [
+      "My pendulum swings through a house made of pine\nYour hurry arrived just a minute behind.",
+      "I count every breath by the oak at my feet\nI take my time and still land on the beat.",
+      "My chime struck twelve in the middle of the hall\nYour watch lost a minute and blamed the wall.",
+      "I ticked through the winter in an old wooden case\nYour hurry got tired from keeping up pace.",
+      "My weights kept a rhythm when the floorboards shook\nI knew the whole hour without having to look.",
+      "My gears took a century getting this deep\nYou rushed through one verse and went back to sleep."
+    ],
+    "cactus": [
+      "I stood in the sand till your whole verse dried\nMy shadow said more and it stayed by my side.",
+      "I saved one drop for the end of the show\nYou spent a whole storm trying to get me to grow.",
+      "My needles kept quiet in the heat of the day\nYou leaned in close and then backed away.",
+      "I grow at a pace that gives silence a chance\nYou used three whole verses to finish one dance.",
+      "I sat in a pot on a hard clay sill\nYou begged for a crowd and the room sat still.",
+      "My bloom waited months for a minute of light\nYou rushed to the mic and went home that night."
+    ],
+    "octopus": [
+      "I kept time with four arms and wrote with the rest\nYour solo was one thing and mine was a test.",
+      "I opened a jar at the bottom of the bay\nThe lid went one way and the beat swam away.",
+      "I tied a whole chorus in knots by the reef\nYou brought me one string and I made it a brief.",
+      "My ink made a cloud in the blue of the deep\nI moved to a rock while your echo went to sleep.",
+      "I picked up eight drums from a wreck in the sand\nI never had to ask anyone for a hand.",
+      "I hid in a shell with a crack in the side\nI sent my next verse round the back of the tide."
+    ],
+    "weather-forecaster": [
+      "A weak front arrived on your side of the floor\nMy map shows a beat and a chance of an encore.",
+      "I called for a drizzle and the snare drum agreed\nYour storm warning came at a much lower speed.",
+      "My radar picked up a small boast from the west\nI marked it as fog and got on with the rest.",
+      "Expect heavy bass just before the first light\nYour clear skies will clear up by Saturday night.",
+      "I tracked every gust from the shore to the square\nYou brought a big coat and some very still air.",
+      "I drew a cold front with a line on the chart\nThe crowd felt the drop when the warm air fell apart."
+    ],
+    "volcano": [
+      "I held in a low note under layers of stone\nThe mountain went quiet and the beat was my own.",
+      "You heard one small rumble and called it a day\nMy ash made a shadow on the far side of the bay.",
+      "My slope wore a cloud like a hat made of gray\nI took my time building what I had to say.",
+      "I whispered through cracks in a wall of black rock\nThen the bass shook the dust off a faraway clock.",
+      "I waited through winter with a spark down below\nThe first sign of spring was a red river glow.",
+      "I kept my voice down at the foot of the hill\nThen the stones learned to dance when the night went still."
+    ]
+  },
+  "validationOpeners": {
+    "pigeon": [
+      "My flock took a bow on the library roof\nThe feathers on your hat are the only proof.",
+      "I dropped one small crumb where the fountain ran dry\nA circle of sparrows came out of the sky."
+    ],
+    "raccoon": [
+      "I stitched a drum strap from a torn paper sack\nI played the first bar with a bin on my back.",
+      "You threw out a chair with a loose little screw\nI built a bass stand and it carried the crew."
+    ],
+    "librarian": [
+      "I read your bold claim by the light of my lamp\nThe footnote went home with an overdue stamp.",
+      "You left out the index and lost the whole plot\nI found what you meant in a penciled in spot."
+    ],
+    "haunted-printer": [
+      "I shook in the copy room just after one\nThe lid rose up and the paper started to run.",
+      "The night guard put tape on the lid and the tray\nMy next printed verse slid out anyway."
+    ],
+    "disco-ball": [
+      "I turned one small flash into dots on the floor\nThe dancers made room and the room asked for more.",
+      "The crowd caught a shimmer at the end of my spin\nOne streak of light and they all stepped in."
+    ],
+    "grandfather-clock": [
+      "You tried to cut in on the fourth of my chimes\nI waited a beat and took back what was mine.",
+      "My clock face went dark when the hallway light died\nThe tick still carried to the far other side."
+    ],
+    "cactus": [
+      "The sun took a seat on a rock near the stage\nI saved my last drop for a much hotter age.",
+      "I stood by the window and never said much\nYou reached for my arm and regretted the touch."
+    ],
+    "octopus": [
+      "I juggled eight shells in the shade of the reef\nYour one little drum got tangled in kelp beneath.",
+      "I folded eight arms round a beat in a jar\nYou blinked at the lid and I swam twice as far."
+    ],
+    "weather-forecaster": [
+      "The wind shifted south in the middle of the set\nThe west side stayed dry and the east side got wet.",
+      "I called for clear skies at a quarter to five\nA low beat rolled in and the whole map came alive."
+    ],
+    "volcano": [
+      "My peak held a cloud through a cold quiet dawn\nBy dark all the ash had a beat to ride on.",
+      "The valley went still at the end of a hum\nThe mountain saved room for the beat yet to come."
+    ]
+  },
+  "replies": {
+    "pigeon": [
+      "You can keep that {cue} on the ground for the night\nI own the whole block from a lamppost in flight.",
+      "That {cue} made a fuss by the benches at noon\nI called in my flock and we all changed the tune.",
+      "I saw that {cue} from the top of the square\nIt looked like a crumb from way up in the air.",
+      "Put that {cue} on a plaque if you want to look grand\nI can clear out a picnic without using a hand.",
+      "I heard that {cue} by the hot pretzel stand\nMy beak took a chip and my wings took the band.",
+      "That {cue} needs a roof if it wants to compete\nI can drum on a gutter with both of my feet.",
+      "I left that {cue} at the foot of a wall\nFrom my side of the roof it looked terribly small.",
+      "Your {cue} held a party with one folding chair\nMy whole flock arrived and we danced in the air.",
+      "That {cue} bought a ticket to look at the view\nI flew up for free and saved room for my crew.",
+      "I saw that {cue} in a clean city park\nGive me a stale chip and the square after dark.",
+      "That {cue} can pose with the mayor by day\nMy crew knows the shortcut across every bay.",
+      "I heard that {cue} through the bars on the gate\nI rose on a draft while you stood there to wait."
+    ],
+    "raccoon": [
+      "I found that {cue} in a bag by the stairs\nI sold it for two dented drums and some chairs.",
+      "That {cue} hit the curb with the rest of your gear\nI made it a hook by the end of the year.",
+      "I put that {cue} by a can full of rain\nI tapped on the lid and the whole block came.",
+      "Your {cue} had a shine till you left it outside\nMy paws made a drum and my tail kept the stride.",
+      "I pulled that {cue} from a box by the drain\nI made a whole stage out of scraps in the rain.",
+      "That {cue} lost its lock at the end of the lane\nI picked it with rhythm and went home again.",
+      "I gave that {cue} one more night on the street\nIt woke up at midnight and turned into a beat.",
+      "Your {cue} wants a receipt for the shine on its face\nI found mine for free behind the old place.",
+      "I heard that {cue} while the neighbors were asleep\nI took the loud parts and let the quiet ones keep.",
+      "That {cue} had a label that said it was junk\nI turned it to bass with a dent and a thunk.",
+      "I tucked that {cue} in my coat for the show\nI turned over the bin and the rhythm got low.",
+      "Your {cue} drew a crowd at the front of the shop\nI went round the back and came out on top."
+    ],
+    "librarian": [
+      "I penciled that {cue} in a note by the spine\nYour case fell apart when I read the next line.",
+      "I filed that {cue} under things we might doubt\nThe index sent readers to the way out.",
+      "I checked that {cue} in the reference room\nThe source was a rumor dressed up in perfume.",
+      "I marked that {cue} with a slip for review\nThe smallest correction was bigger than you.",
+      "That {cue} came back with a stain on the page\nI kept my voice low and took over the stage.",
+      "I stamped that {cue} when it showed up at noon\nThe due date was somewhere on the far side of June.",
+      "I heard that {cue} from the end of the hall\nI read it back softly and let the claim fall.",
+      "I put that {cue} on the shelf by the door\nThe reader came back and requested no more.",
+      "I wrote that {cue} in a neat little hand\nA whisper did everything your speech had planned.",
+      "That {cue} made a claim in a large typeface\nThe small print quietly rested my case.",
+      "I took that {cue} to the desk after dark\nThe page where it mattered had one question mark.",
+      "I gave that {cue} a cross reference to air\nI looked on the shelf and found nothing there."
+    ],
+    "haunted-printer": [
+      "I printed that {cue} in a pale shade of gray\nThe page came back blank and the ink walked away.",
+      "That {cue} hit my rollers at quarter to three\nIt came out creased with a note from me.",
+      "I ran that {cue} through the tray in reverse\nThe back of the sheet had a much better verse.",
+      "I put that {cue} on a thin paper roll\nThe receipt curled up like it had a soul.",
+      "That {cue} made a jam in the middle of night\nI cleared it by flickering every light.",
+      "I heard that {cue} when the power went dead\nI printed the punchline in ghost toner red.",
+      "I copied that {cue} on the back of the bill\nThe last line whispered when the room went still.",
+      "Your {cue} got lost at the end of the queue\nI fed in a blank and it printed you.",
+      "I found that {cue} underneath my lid\nThe ink spelled out what the silence hid.",
+      "That {cue} made a claim on a half printed sheet\nI turned it face down and the rollers found a beat.",
+      "I printed that {cue} with the margin too wide\nThe missing punchline was folded inside.",
+      "I fed that {cue} through a tray full of dust\nIt came back stamped with the word mistrust."
+    ],
+    "disco-ball": [
+      "I caught that {cue} in a fleck of reflected light\nIt looked like a star for a minute that night.",
+      "That {cue} stood still by the end of the bar\nI sent it spinning till it looked like a star.",
+      "I gave that {cue} half a beam and a beat\nThe ceiling lit up and the crowd found its feet.",
+      "Your {cue} wore sequins to get in the door\nI put one on every square inch of the floor.",
+      "I threw that {cue} from a mirror to a wall\nIt came back brighter and bowed to the hall.",
+      "That {cue} took a shine to the edge of my chain\nI shook out a shower and danced in the rain.",
+      "I saw that {cue} at the far end of night\nI took it for a spin and it finally caught light.",
+      "That {cue} did a number with a spotlight of blue\nI turned every fleck into something brand new.",
+      "I made that {cue} do a turn by the stage\nThe lights caught the beat and the walls turned the page.",
+      "I sent that {cue} to a mirror by the door\nIt came back in pieces and lit up the floor.",
+      "Your {cue} had a sparkle for one little beat\nI threw down a galaxy under your feet.",
+      "I took that {cue} for a spin in the air\nThe room took a breath and the light went everywhere."
+    ],
+    "grandfather-clock": [
+      "I heard that {cue} at a quarter past four\nMy chime took its time and still reached the door.",
+      "I put that {cue} by the weight in my case\nIt hurried all night and got nowhere in place.",
+      "That {cue} missed noon by a hair on the dial\nI waited one second and made it worthwhile.",
+      "I let that {cue} have a tick and a tock\nIt ran out of breath on the face of my clock.",
+      "Your {cue} made a rush through the middle of spring\nI waited till twelve and I made the house ring.",
+      "I gave that {cue} a full hour to shine\nIt spent forty minutes just looking at mine.",
+      "That {cue} wanted seconds and settled for two\nI counted them slowly till the punchline came through.",
+      "I marked that {cue} with a chime in the hall\nA century listened from inside the wall.",
+      "I heard that {cue} at the end of my swing\nI let the pause finish before I let it ring.",
+      "I timed that {cue} with the weight on a chain\nIt lost one whole beat and we started again.",
+      "Your {cue} thought the second hand meant it could race\nMy hands stayed together and kept perfect pace.",
+      "I filed that {cue} with the dust in my case\nTime gave the last word a much better place."
+    ],
+    "cactus": [
+      "I gave that {cue} one long afternoon\nIt dried out quietly and I stayed in tune.",
+      "That {cue} got close to the edge of my pot\nI stayed very still and it touched a sharp spot.",
+      "I put that {cue} in the shade for a while\nIt asked for a laugh and I gave it a smile.",
+      "Your {cue} brought water enough for a lake\nI used one small drop for the whole of my break.",
+      "I heard that {cue} in the middle of June\nI paused for an hour and answered at noon.",
+      "That {cue} made a speech in the hot desert air\nI saved up a word for when somebody cared.",
+      "I left that {cue} on a rock in the sun\nBy night it was quiet and my work was done.",
+      "That {cue} wants shade at the edge of the sand\nI offer a chair and keep hold of my hand.",
+      "I hung that {cue} on a spine by the door\nIt stayed for a moment and asked for no more.",
+      "Your {cue} found a cloud and forgot how to wait\nI kept one drop safe and let summer run late.",
+      "I gave that {cue} the length of one thorn\nIt had dried out completely by early morn.",
+      "That {cue} talked big from the base of a dune\nThe wind took the speech and I stood with the moon."
+    ],
+    "octopus": [
+      "I wrapped that {cue} round the neck of a shell\nThe waves did the backing and the chorus went well.",
+      "I put that {cue} in a jar by the reef\nEight arms turned the lid and the trouble was brief.",
+      "That {cue} got tangled in a small piece of line\nI pulled seven knots loose and left one that was mine.",
+      "I heard that {cue} from the mouth of a cave\nI sent back eight rhythms on a low rolling wave.",
+      "Your {cue} brought a hand to a job for my crew\nI used seven arms and left one for you.",
+      "I wrote that {cue} in the sand with a shell\nThe tide read it twice and decided to swell.",
+      "I caught that {cue} where the water went black\nI waved with six arms and got both of them back.",
+      "That {cue} took a seat on a rock in the bay\nI tied up the beat before it washed away.",
+      "I hid that {cue} in a pocket of blue\nMy ink wrote a hook and my arms carried it through.",
+      "I sent that {cue} round the curve of a wreck\nMy crew of eight arms kept the beat on the deck.",
+      "Your {cue} took a breath at the top of the sea\nI did half my set where the light couldn't see.",
+      "I spun that {cue} in a circle of foam\nI opened one shell and the rhythm swam home."
+    ],
+    "weather-forecaster": [
+      "I put that {cue} in a warning for rain\nThe front moved through and we checked it again.",
+      "I saw that {cue} on a radar at noon\nThe showers cleared out and the bass came soon.",
+      "That {cue} came west on a cold patch of air\nI circled the spot where it vanished from the square.",
+      "I tracked that {cue} from the hills to the coast\nThe forecast was drizzle with a brief chance of boast.",
+      "Your {cue} packed wind for a serious gale\nThe flag never moved and the beat hit the scale.",
+      "I gave that {cue} a chance of clearing by eight\nThe update came early and the thunder came late.",
+      "I logged that {cue} in the weather report\nA light gust of swagger and the rest fell short.",
+      "That {cue} sent fog to the end of the pier\nI called up a breeze and the punchline came clear.",
+      "I drew that {cue} on the edge of my map\nThe pressure fell first and the rest came after that.",
+      "I put that {cue} on the evening broadcast\nOne flash of light and a chance it would pass.",
+      "Your {cue} took shelter at the top of the hill\nThe rain kept a tempo and the radar went still.",
+      "I read that {cue} in a band of dark blue\nBy the time it reached town there was nothing to do."
+    ],
+    "volcano": [
+      "I kept that {cue} at the foot of my slope\nThe rumble came first and then so did the smoke.",
+      "I heard that {cue} through a layer of stone\nI saved the last bar for a much lower tone.",
+      "That {cue} made a spark by the mouth of the cave\nMy lava kept time like a red rolling wave.",
+      "I put that {cue} in a crack by the ridge\nThe ash took a shortcut over the bridge.",
+      "Your {cue} shook loose when the valley went still\nI waited one beat and sent smoke down the hill.",
+      "That {cue} heard a hiss through the back of the night\nI answered at dawn with a river of light.",
+      "I buried that {cue} under old cooling rock\nThe ground took a breath and the whole ridge rocked.",
+      "I let that {cue} hear a whisper of heat\nThe crater took over and finished the beat.",
+      "I sent that {cue} down a long path of gray\nIt followed the ash to the end of the bay.",
+      "That {cue} took a seat with a view of the peak\nI waited a year and then started to speak.",
+      "I kept that {cue} by a seam in the ground\nMy last line rose up and shook windows around.",
+      "Your {cue} felt warm on the slope in the snow\nI kept all the thunder a mile down below."
+    ]
+  }
+}
