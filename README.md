@@ -99,7 +99,7 @@ The original, AI-authored Christmas corpus is in `training/christmas.txt`, with 
 
 ## Rap Battle
 
-Open [Rap Battle](https://jenschristianschroder.github.io/Pocket-LM/rap-battle/) to choose two opponents from a roster of 14. Play three rounds and vote for the winner. Each turn opens with two lines of reply and ends with a new two-line challenge. Pick a word from that challenge for the next opponent to answer. The two chosen reply models and a shared challenge model run on your device after their checkpoints load. They were trained from random initialization on original CC0 examples created for this demo. The tiny corpus can lead to repeated lines or missed callbacks. See [training data and split details](training/rap-battle/DATA.md).
+Open [Rap Battle](https://jenschristianschroder.github.io/Pocket-LM/rap-battle/) to choose two opponents from a roster of 14. Play three rounds. Each turn opens with two lines of reply and ends with a new two-line challenge. Pick a word from that challenge for the next opponent to answer. The two chosen reply models and a shared challenge model run on your device after their checkpoints load. They were trained from random initialization on original CC0 examples created for this demo. The tiny corpus can lead to repeated lines or missed callbacks. See [training data and split details](training/rap-battle/DATA.md).
 
 To run locally, start `python -m http.server 8000` from the repo root and open `http://localhost:8000/rap-battle/`. To reproduce the checkpoints, install CPU PyTorch and NumPy and run:
 

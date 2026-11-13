@@ -24,6 +24,7 @@ const rounds = 3;
 const totalTurns = selectors.length * rounds;
 const verses = find("verses");
 const choices = find("choices");
+const controls = choices.parentElement;
 const next = find("next");
 const reset = find("reset");
 const temperature = find("temperature");
@@ -145,24 +146,6 @@ function showChoices() {
   (choices.firstElementChild ?? next).focus();
 }
 
-function showVote() {
-  find("round").textContent = "Battle complete";
-  status.textContent = "Who won?";
-  next.hidden = true;
-  choices.setAttribute("aria-label", "Vote for the winner");
-  for (const name of selectedNames()) {
-    const button = element("button", name);
-    button.type = "button";
-    button.onclick = () => {
-      choices.replaceChildren();
-      status.textContent = "You voted for " + name + ".";
-      reset.focus();
-    };
-    choices.append(button);
-  }
-  choices.firstElementChild.focus();
-}
-
 next.onclick = async () => {
   if (busy) return;
   busy = next.disabled = reset.disabled = temperature.disabled = true;
@@ -208,7 +191,10 @@ next.onclick = async () => {
     reset.hidden = false;
     choices.replaceChildren();
     if (turn === totalTurns) {
-      showVote();
+      const heading = find("round");
+      heading.textContent = "Battle complete";
+      controls.hidden = true;
+      heading.focus({preventScroll: true});
     } else {
       find("round").textContent = "Round " + (Math.floor(turn / names.length) + 1) + " of " + rounds;
       showChoices();
@@ -238,11 +224,11 @@ reset.onclick = () => {
   for (const history of performed) history.length = 0;
   verses.replaceChildren();
   choices.replaceChildren();
-  choices.setAttribute("aria-label", "Choose a callback");
   find("round").textContent = "Round 1 of 3";
   status.textContent = "Ready when you are.";
   next.textContent = "Start battle";
-  next.hidden = next.disabled = false;
+  controls.hidden = false;
+  next.disabled = false;
   reset.hidden = true;
   next.focus();
 };
