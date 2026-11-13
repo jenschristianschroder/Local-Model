@@ -1,0 +1,60 @@
+{
+  "openers": {
+    "robot": [
+      "My steel feet counted every step across the floor.\nYour lever only knows how to open one door.",
+      "I fixed the loose hinge while you warmed a slice.\nI made it to the stage and I never blinked twice.",
+      "My sensors found a beat in the ticking of a clock.\nYour crumbs kept a diary in the bottom of the slot.",
+      "I welded up a speaker from a shopping cart frame.\nYou burned a piece of bread and blamed it on the flame.",
+      "My elbow found a rhythm in the rattle of a screw.\nYour timer lost a second just waiting for the cue.",
+      "My gears made a groove when the drummer missed a beat.\nYour dial drew a circle and called it a feat."
+    ],
+    "toaster": [
+      "Your gears have a meeting every time you want to move.\nI drop a golden slice and the whole room finds a groove.",
+      "My coils turn red when the rhythm gets hot.\nYour sensors need a map just to circle the block.",
+      "Your shiny steel elbow got tangled in a cord.\nI fed a hungry crowd and they all asked for more.",
+      "I popped up the chorus with a spring in the beat.\nYour motor stalled out on a drum made of wheat.",
+      "Your battery slept through the opening set.\nMy little chrome kitchen is the warmest place yet.",
+      "My timer knows exactly when the last bar drops.\nYour arm kept waving when the whole song stopped."
+    ]
+  },
+  "replies": {
+    "robot": [
+      "I logged that {cue} in the margin of my chart.\nI built a better beat from a broken spare part.",
+      "You brought up {cue} like a dial could spin gold.\nI walked across town while your breakfast went cold.",
+      "That {cue} got a sticker for a job on the shelf.\nI put wheels on the table and delivered it myself.",
+      "I found your {cue} under half a loaf of rye.\nMy camera saw the punchline before it went by.",
+      "That {cue} made a noise when the lever got stuck.\nI tightened one screw and rolled off in a truck.",
+      "Your {cue} had a shift at the kitchen cafe.\nI wrote a new rhythm and taught it to play.",
+      "Keep that {cue} for the crowd at your door.\nMy hands fixed the stairs so they could ask for more.",
+      "I ran that {cue} through a test with a light.\nThe meter said breakfast and I said good night.",
+      "That {cue} can glow on a rack full of bread.\nI rigged up a drum from a tin can instead.",
+      "Your {cue} made a spark when the countertop shook.\nI turned all the parts into steps for a hook.",
+      "You put that {cue} in a slot for a snack.\nI built a small crane and brought the beat back.",
+      "That {cue} had one setting and nowhere to hide.\nI changed up the tempo and took it outside."
+    ],
+    "toaster": [
+      "You flex that {cue} like a wrench in a show.\nMy coils write the chorus with a warm red glow.",
+      "That {cue} needs a tune up before it can start.\nI made the whole kitchen smell better than art.",
+      "Your {cue} got a ticket for circling the block.\nI served up the beat before six on the clock.",
+      "That {cue} filed a report when your power went low.\nI popped up the next verse and kept running the show.",
+      "You brought that {cue} with a manual to read.\nI turn one small dial and give people what they need.",
+      "That {cue} clicked twice and the battery cried.\nMy rhyme has a crunch and is golden inside.",
+      "Your {cue} wore a badge from the factory floor.\nMy spring sent the chorus up and out of the door.",
+      "That {cue} wanted oil in the middle of the night.\nI browned the next verse till the timing was right.",
+      "Put that {cue} by the sink with your little spare gear.\nI give the morning rush a reason to cheer.",
+      "Your {cue} does a dance when the wheels fall flat.\nI lift a warm slice like a tip of my hat.",
+      "You sold that {cue} with a ninety page guide.\nI make it look easy and crisp either side.",
+      "That {cue} woke the dog with a clatter of steel.\nI closed out the round and I served up a meal."
+    ]
+  },
+  "validationOpeners": {
+    "robot": [
+      "My elbow heard a rattle in the cupboard door.\nYour timer rang early so the room asked for more.",
+      "I made a new cable from a wire in a drawer.\nYou waited by a plate on the cold kitchen floor."
+    ],
+    "toaster": [
+      "Your motor took a nap on a warm summer night.\nMy spring kept a beat and my coils burned bright.",
+      "My lever took a bow when the chorus went live.\nYour charger missed the bus and your wheels missed the drive."
+    ]
+  }
+}
