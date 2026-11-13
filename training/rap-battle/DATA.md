@@ -13,3 +13,13 @@ The shared challenge model was trained from random initialization using only the
 The shared reply checkpoint is trained from random initialization using only the newly written CC0 `context-corpus.txt`. Each of the 14 opponents has four opening couplets and five different topic-specific challenges with two rebuttals each. Training varies the selected callback and uses shortened or reordered versions of each challenge with its two rebuttals. When a known topic appears in the opponent’s challenge, the browser passes it as an additional prompt token. The validation reported by the trainer checks a shortened version of the same topics. It measures robustness to missing context and is not a held-out test of new verse quality. Reproduce with `python training/rap-battle/train.py context-reply`.
 
 The dedicated Octopus challenge model was trained from random initialization on 28 newly written CC0 couplets in `octopus-challenges.json`, with four separate validation couplets. Reproduce with `python training/rap-battle/train.py octopus-challenge`.
+
+The larger shared checkpoints start from random weights. Their only training source is the newly written `megabyte-verses.txt` and the synthetic expansions made from it, all released under CC0 1.0. The dedicated Octopus checkpoint retains its separate training recipe. The generated challenges share a few sentence patterns, so the larger models can still sound repetitive. The challenge validation examples use a separate sentence pattern and assess token prediction, not rhyme or performance quality.
+
+Reproduce the shared models with:
+
+```sh
+python training/rap-battle/make-megabyte-corpus.py
+python training/rap-battle/train.py context-reply
+python training/rap-battle/train.py challenge
+```
