@@ -61,7 +61,7 @@ ol { padding: 0; margin: 0; list-style: none; }
 .verse p + p { margin-top: .65rem; }
 mark { background: var(--accent); color: #15151b; border-radius: .2em; padding-inline: .12em; }
 .controls { margin-top: 1rem; }
-.temperature { width: 100%; max-width: 44rem; margin-top: 1rem; }
+.temperature { margin-top: 1rem; }
 .temperature > div { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem; }
 .temperature label { font-size: .9rem; font-weight: 750; }
 .temperature output { font-size: .9rem; font-variant-numeric: tabular-nums; color: var(--first); }
