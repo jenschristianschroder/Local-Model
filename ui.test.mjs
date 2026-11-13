@@ -5,9 +5,9 @@ import {JSDOM,VirtualConsole} from 'jsdom';
 const html=readFileSync(new URL('./index.html',import.meta.url),'utf8');
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function until(check){for(let i=0;i<100;i++){if(check())return;await delay(10);}assert(check(),'UI did not reach the expected state');}
-async function app(saved){
+async function app(saved,url='https://pocket.test/'){
   const errors=[],console=new VirtualConsole();console.on('jsdomError',e=>errors.push(e.message));
-  const dom=new JSDOM(html,{url:'https://pocket.test/',runScripts:'dangerously',pretendToBeVisual:true,virtualConsole:console,beforeParse(w){
+  const dom=new JSDOM(html,{url,runScripts:'dangerously',pretendToBeVisual:true,virtualConsole:console,beforeParse(w){
     w.TextEncoder=TextEncoder;
     // jsdom has no top-layer layout; native dialog behavior is checked in-browser.
     w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};
@@ -32,6 +32,14 @@ test('guided navigation preserves a paused story and details dismiss through bro
     assert.equal(a.q('.page.is-active').id,'predictions');
     a.click('#step');await delay(30);assert.notEqual(a.q('#prediction-context').textContent.trim(),story.trim());
     await a.go('response');assert(a.q('#story-continuation').textContent.startsWith(story));assert.deepEqual(a.errors,[]);
+  }finally{a.dom.window.close();}
+});
+test('downloaded file remains usable when the file origin restricts history and storage',async()=>{
+  const a=await app(undefined,'file:///pocket-lm.html');try{
+    await a.go('predictions');const before=a.q('#prediction-context').textContent;
+    a.click('#step');await delay(40);assert.notEqual(a.q('#prediction-context').textContent,before);
+    a.click('[data-open="tokens"]');a.click('#close-sheet');await until(()=>!a.q('#detail').open);
+    await a.go('inside');assert.equal(a.q('.page.is-active').id,'inside');assert.deepEqual(a.errors,[]);
   }finally{a.dom.window.close();}
 });
 test('weight experiment updates actual probability, resets, and retains an explored connection',async()=>{
