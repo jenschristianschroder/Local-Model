@@ -8,7 +8,7 @@ async function until(check){for(let i=0;i<100;i++){if(check())return;await delay
 async function app(saved,url='https://pocket.test/'){
   const errors=[],console=new VirtualConsole();console.on('jsdomError',e=>errors.push(e.message));
   const dom=new JSDOM(html,{url,runScripts:'dangerously',pretendToBeVisual:true,virtualConsole:console,beforeParse(w){
-    w.TextEncoder=TextEncoder;
+    w.TextEncoder=TextEncoder;w.HTMLElement.prototype.scrollIntoView=function(){};
     // jsdom has no top-layer layout; native dialog behavior is checked in-browser.
     w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};
     w.HTMLDialogElement.prototype.close=function(){this.open=false;};
