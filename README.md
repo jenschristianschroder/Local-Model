@@ -1,6 +1,6 @@
 # Merry Nonsense
 
-An absurd Christmas story writer powered by a tiny trained language model. Expect talking puddings, confused reindeer, bureaucratic vegetables, and occasional visits from the moon. Open [Merry Nonsense](https://jenschristianschroder.github.io/Local-Model/) or download `index.html` and open it locally. No server, API key, external JavaScript, or model download is needed after loading.
+An absurd Christmas story writer powered by a tiny trained language model. Expect talking puddings, confused reindeer, bureaucratic vegetables, and occasional visits from the moon. Open [Merry Nonsense](https://jenschristianschroder.github.io/Pocket-LM/) or download `index.html` and open it locally. No server, API key, external JavaScript, or model download is needed after loading.
 
 This Christmas edition fine-tunes the trained Pocket LM GRU on 105 original absurd Christmas stories, with 12 separate stories for validation. The Christmas style is learned in its weights. There is no hidden prompt, Christmas keyword boost, story lookup, or output replacement. The four visible starters are ordinary editable user prompts. The inference code contains matrix multiplication, GRU gates, BPE tokenization, softmax, and seeded sampling. There are no grammatical masks, repetition penalties, templates, candidate rejection, or sentence repair. All 1,924 output IDs, including special tokens, participate in softmax.
 
@@ -56,7 +56,7 @@ The matrices use per-row signed int8 quantization with float32 scales; biases re
 
 ### UI source
 
-Edit `ui/body.html`, `ui/style.css`, and `ui/app.js`, then run `npm ci --ignore-scripts` and `node build-ui.mjs`. The build preserves the embedded checkpoint and the numeric kernel byte-for-byte, minifies only the UI, and rejects pages at or above 1 MB. The fixed UI selector aliases in the build keep readable source within the standalone size budget.
+Edit `ui/body.html`, `ui/style.css`, and `ui/app.js`, then run `npm ci --ignore-scripts` and `node build-ui.mjs`. The build preserves the embedded checkpoint and the numeric kernel byte-for-byte, minifies only the UI, and rejects pages at or above 1 MB. The UI selector and CSS variable aliases in the build keep readable source within the standalone size budget. Edit `ui/examples.json` to update the three introductory examples. Their previews expand on request; buttons, arrow keys, and horizontal swipes change stories without advancing chapters. There is no automatic rotation.
 
 `ui/review.html` is a development review harness for 320×568, 390×844, 430×932, and desktop viewports. The deployment exposes it as `review.html` for responsive inspection. It is separate from the standalone app.
 
@@ -75,7 +75,7 @@ Run `node training/repetition-eval.mjs index.html repetition-results.json` for t
 
 The released update reduces mean repeated-eight-word spans from **75.0% to 4.7%** across the six greedy regression continuations. Cases with a repeated full paragraph fall from **6/6 to 0/6**. At the default temperature of 0.55, the same measure falls from **3.0% to 0.6%** across 12 seeded continuations. Four additional prompts, tested at three temperatures with two seeds for nonzero temperatures, produced no repeated full paragraphs in 20 further outputs. All runs used 1,024 generated tokens and the compressed model. These results do not guarantee that other prompts or longer continuations cannot loop; grammar and story continuity remain limited.
 
-GitHub Pages uses the existing **Actions deployment** in `.github/workflows/pages.yml`. A push to `main` runs verification and tests, then deploys `index.html`, `.nojekyll`, and the separate responsive review harness. Training data, scripts, and test fixtures are not deployed.
+GitHub Pages uses the existing **Actions deployment** in `.github/workflows/pages.yml`. A push to `main` runs verification and tests, then deploys `index.html`, `.nojekyll`, and the separate responsive review harness. The full training corpus, scripts, and test fixtures are not deployed. The three curated display examples are included in the standalone app.
 
 ## Reproduce training
 
@@ -95,4 +95,4 @@ The original descriptive recipe and the released Christmas adaptation command ar
 
 `training/export.py` quantizes the selected tensors, measures loss before and after quantization, exports PyTorch parity fixtures, and embeds the JSON payload. It refuses to write an HTML file over 1 MB. Copy its report and reference JSON into `training/` before running the verifier.
 
-The original, AI-authored Christmas corpus is in `training/christmas.txt`, with held-out stories in `training/christmas-valid.txt`. They are only used offline during training and are never embedded as runtime stories. `training/adapt.py` performs the adaptation; `training/christmas-run.json` records the complete adaptation run, including checkpoints after the selected one; `training/report.json` records the corpus checksums, learned merges, loss history, and selected step.
+The original, AI-authored Christmas corpus is in `training/christmas.txt`, with held-out stories in `training/christmas-valid.txt`. They are used offline during training. Three user-selected examples are displayed in the introduction carousel; these also appear in the training corpus and are not evidence of novel output. The carousel text is never fed to inference or used to replace generated text. `training/adapt.py` performs the adaptation; `training/christmas-run.json` records the complete adaptation run, including checkpoints after the selected one; `training/report.json` records the corpus checksums, learned merges, loss history, and selected step.

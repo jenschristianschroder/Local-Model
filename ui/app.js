@@ -218,7 +218,7 @@ if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();goToPage(activeP
 if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();goToPage(activePage-1);}
 });
 // Vertical gestures always read. Optional horizontal swipes ignore interactive areas.
-$('pages').addEventListener('touchstart',e=>{const t=e.touches[0];swipe=e.touches.length===1&&!e.target.closest('input,textarea,select,button,a,summary,details')?{x:t.clientX,y:t.clientY,time:performance.now()}:null;},{passive:true});
+$('pages').addEventListener('touchstart',e=>{const t=e.touches[0];swipe=e.touches.length===1&&!e.target.closest('input,textarea,select,button,a,summary,details,#samples')?{x:t.clientX,y:t.clientY,time:performance.now()}:null;},{passive:true});
 $('pages').addEventListener('touchend',e=>{if(!swipe||dialog.open)return;const t=e.changedTouches[0],dx=swipe.x-t.clientX,dy=swipe.y-t.clientY,elapsed=performance.now()-swipe.time;swipe=null;if(elapsed<700&&Math.abs(dx)>90&&Math.abs(dx)>Math.abs(dy)*2)goToPage(activePage+Math.sign(dx));},{passive:true});
 $('pages').addEventListener('touchcancel',()=>{swipe=null;},{passive:true});
 $('generate').addEventListener('click',generateStory);$('continue-generation').addEventListener('click',generateStory);$('step').addEventListener('click',()=>appendToken());
@@ -287,3 +287,12 @@ reset();const savedSlide=restoreSession();setText('temperature-value',Number($('
 const requested=location.hash.slice(1),initial=pageList.some(p=>p.id===requested)?requested:pageList.some(p=>p.id===savedSlide)?savedSlide:'intro';
 goToPage(initial,{historyMode:'replace',focus:false,keepConnection:true});
 window.PocketLM={bundle,model,modelStep,modelLogits,softmax,loadWeights,forward,predict,promptMemory,initialMemory,advance,tokenize,decode,randomGenerator,sample,weightAt,setWeight,applyOverrides};
+
+const sampleStories=JSON.parse($('example-data').textContent);let sampleIndex=0,sampleExpanded=false,sampleTouch=null;
+function renderSample(){const [title,text]=sampleStories[sampleIndex];setText('sample-title',title);setText('sample-text',sampleExpanded?text:text.slice(0,text.lastIndexOf(' ',170))+'…');setText('sample-count',(sampleIndex+1)+' of '+sampleStories.length);setText('sample-more',sampleExpanded?'Show less':'Read full story');$('sample-more').setAttribute('aria-expanded',String(sampleExpanded));}
+function moveSample(delta){sampleIndex=(sampleIndex+delta+sampleStories.length)%sampleStories.length;sampleExpanded=false;renderSample();}
+$('sample-prev').onclick=()=>moveSample(-1);$('sample-next').onclick=()=>moveSample(1);$('sample-more').onclick=()=>{sampleExpanded=!sampleExpanded;renderSample();};
+$('samples').addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();moveSample(e.key==='ArrowRight'?1:-1);}});
+$('samples').addEventListener('touchstart',e=>{sampleTouch=e.touches.length===1?e.touches[0]:null;},{passive:true});
+$('samples').addEventListener('touchend',e=>{if(!sampleTouch)return;const t=e.changedTouches[0],dx=sampleTouch.clientX-t.clientX,dy=sampleTouch.clientY-t.clientY;sampleTouch=null;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*2)moveSample(Math.sign(dx));},{passive:true});
+$('samples').addEventListener('touchcancel',()=>sampleTouch=null,{passive:true});renderSample();

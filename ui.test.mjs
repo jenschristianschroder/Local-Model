@@ -34,6 +34,24 @@ test('copy story includes the full prompt and continuation, with fallback and ho
     assert.equal(a.q('#toast').textContent,'Copy unavailable. Use Save story as text.');assert.equal(a.q('#detail textarea'),null);assert.deepEqual(a.errors,[]);
   }finally{a.dom.window.close();}
 });
+test('example carousel preserves supplied text and supports expansion, buttons, keys and isolated swipes',async()=>{
+  const a=await app();try{
+    const stories=JSON.parse(readFileSync(new URL('./ui/examples.json',import.meta.url),'utf8'));
+    const more=a.q('#samples [aria-controls]'),text=()=>a.w.document.getElementById(more.getAttribute('aria-controls')).textContent;
+    const next=a.q('[aria-label="Next example story"]'),previous=a.q('[aria-label="Previous example story"]');
+    for(let i=0;i<3;i++){
+      assert.equal(a.q('#samples [role="status"]').textContent,(i+1)+' of 3');assert.equal(more.getAttribute('aria-expanded'),'false');
+      more.click();assert.equal(text(),stories[i][1]);assert.equal(more.getAttribute('aria-expanded'),'true');next.click();
+    }
+    previous.click();assert.equal(a.q('#samples h3').textContent,stories[2][0]);
+    previous.dispatchEvent(new a.w.KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));assert.equal(a.q('#samples h3').textContent,stories[0][0]);
+    const touch=(type,point)=>{const e=new a.w.Event(type,{bubbles:true});Object.defineProperty(e,type==='touchstart'?'touches':'changedTouches',{value:[point]});a.q('#samples h3').dispatchEvent(e);};
+    touch('touchstart',{clientX:250,clientY:100});touch('touchend',{clientX:80,clientY:105});
+    assert.equal(a.q('#samples h3').textContent,stories[1][0]);assert.equal(a.q('.page.is-active').id,'intro');
+    touch('touchstart',{clientX:250,clientY:100});touch('touchend',{clientX:240,clientY:250});
+    assert.equal(a.q('#samples h3').textContent,stories[1][0]);assert.deepEqual(a.errors,[]);
+  }finally{a.dom.window.close();}
+});
 test('guided navigation preserves a paused story and details dismiss through browser Back',async()=>{
   const a=await app();try{
     await a.go('playground');a.click('[data-open="settings"]');

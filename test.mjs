@@ -105,7 +105,7 @@ test('training evidence and exported quantization metrics agree with the checkpo
   if(report.extraCorpus)for(const split of ['train','valid']){const info=report.extraCorpus[split];const text=readFileSync(new URL('./training/'+info.file,import.meta.url));assert.equal(createHash('sha256').update(text).digest('hex'),info.sha256);}
 });
 
-test('Christmas specialization is learned and the actual training texts stay out of the page',()=>{
+test('Christmas specialization is learned; only curated display examples may match training text',()=>{
   assert(payload.training.holiday.corpus.train.paragraphs>=100);
   assert(payload.training.holiday.corpus.valid.paragraphs>=10);
   assert(payload.training.holiday.quantizedValidationLoss<payload.training.holiday.initialValidationLoss*.85);
@@ -113,7 +113,8 @@ test('Christmas specialization is learned and the actual training texts stay out
   for(const split of ['train','valid']){
     const info=report.holiday.corpus[split],text=readFileSync(new URL('./training/'+info.file,import.meta.url),'utf8');
     assert.equal(createHash('sha256').update(text).digest('hex'),info.sha256);
-    for(const story of text.trim().split('\n\n'))assert(!html.includes(story));
+    const examples=JSON.parse(readFileSync(new URL('./ui/examples.json',import.meta.url),'utf8')).map(s=>s[1]);
+    for(const story of text.trim().split('\n\n')){assert(!numericalSource.includes(story));assert(!html.includes(story)||examples.includes(story));}
   }
   // Only the user's visible prompt and one generic paragraph-start token enter the network.
   for(const prompt of ['Santa opened the fridge','A reindeer','A quiet room']){
