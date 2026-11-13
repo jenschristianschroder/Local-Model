@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "clean-css": "5.3.3",
+    "jsdom": "26.1.0",
+    "terser": "5.44.1"
+  }
+}

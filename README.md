@@ -37,25 +37,36 @@ The continuation update trains across paragraph and story boundaries, preserves 
 
 **This remains a small experimental completion model.** Its training stories contain deliberate absurdity and jokes, but the model is not a reliable joke writer. It can write simple sentences and longer passages, but it can repeat, change subjects, lose character identity, invent words, and make grammatical or factual mistakes. It has no instruction tuning and is not a general chat assistant. Grammar and continuity errors remain limitations of the model, even in a surreal story. A 4,096-token output limit does not imply that it retains 4,096 tokens of reliable context: the GRU compresses history into 192 activations.
 
-## Inspect and edit
+## Explore and edit
 
-- Scroll or swipe between full-screen sections, or use the up/down navigation buttons. Wheel and button navigation ease between sections; reduced-motion preferences are respected. Long stories and detailed panels scroll within their section.
-- Generate opens the story section automatically. Start a new story returns to the prompt and settings.
-- Choose a Christmas starter or write your own opening, then choose a temperature, seed, and batch length. Temperature zero picks the most likely output.
-- At temperature zero, changing the seed has no effect. At a nonzero temperature, the same prompt, seed, and weights reproduce the same story; change the seed to sample another. Repetition within a story is a separate model limitation.
-- Continue preserves the hidden state and random generator. One-sentence mode only pauses after generated punctuation; it does not change probabilities or repair the text.
-- Probability buttons let the user explicitly choose a token. Automatic generation samples directly from the model.
-- Inspect any of the 192 hidden neurons and any output connection. The diagram displays actual activations and contributions.
-- Change a weight, restore the original trained values, or download a standalone HTML page or checkpoint with the edits.
-- “Recent tokens” displays the last eight tokens; it is not the model's context window.
+Pocket LM is a phone-first, eight-chapter learning presentation. Use Back/Next or Chapters to move between lessons. Vertical scrolling always reads the current lesson; an optional horizontal swipe changes chapters outside controls. Browser Back works for chapters and dismisses open details. Reduced motion is respected.
 
-The matrices use per-row signed int8 quantization with float32 scales; biases remain float32. The browser expands them into float32 arrays. Export evaluates the dequantized tensors, so the measured loss describes the network that actually ships. Casing and punctuation are learned; decoding simply joins pieces, restores whitespace markers, and renders paragraph tokens.
+- Start with an opening line and two suggestions. Generation settings and more starters open in labelled detail panels.
+- Read the story, continue it, or open More to save it and start again. Entering a lesson or opening details pauses generation without discarding its state.
+- Follow a prediction with the sentence ending and three candidates together. Generate one token samples normally; choosing a candidate explicitly overrides that one sample. More predictions shows twelve candidates; every token remains eligible during automatic generation.
+- Inspect a portrait memory overview, follow one real connection, or explore all 192 neurons and search the output vocabulary.
+- Edit a relevant output connection and compare the current probability with the trained weights at the same model state and temperature. Reset one connection or restore all weights. Exports include edits.
+- Training data, loss curves, architecture, and searchable vocabulary are available in optional panels. The essential lessons and model limitations remain visible.
+- Prompt, generation state, random-generator position, edits, settings, and chapter are saved to sessionStorage when available. No data leaves the browser. Storage denial does not prevent generation.
+- Download app is available in the final chapter on phones and desktop. The standalone HTML runs offline; no development packages are shipped.
+
+Temperature zero chooses the most likely token and ignores the seed. At a nonzero temperature, matching prompt, seed, weights, and settings reproduce a story. Changing the seed resets the continuation. One-sentence mode pauses at generated punctuation without repairing output. Continue preserves the recurrent state and random generator.
+
+The matrices use per-row signed int8 quantization with float32 scales; biases remain float32. The browser expands them into float32 arrays. The most recent eight tokens are a display aid, not a context window. Casing and punctuation are learned; decoding joins pieces and restores whitespace and paragraphs.
+
+### UI source
+
+Edit `ui/body.html`, `ui/style.css`, and `ui/app.js`, then run `npm ci --ignore-scripts` and `node build-ui.mjs`. The build preserves the embedded checkpoint and the numeric kernel byte-for-byte, minifies only the UI, and rejects pages at or above 1 MB. The fixed UI selector aliases in the build keep readable source within the standalone size budget.
+
+`ui/review.html` is a development review harness for 320×568, 390×844, 430×932, and desktop viewports. The deployment exposes it as `review.html` for responsive inspection. It is separate from the standalone app.
 
 ## Verify and deploy
 
 ```sh
+npm ci --ignore-scripts
+node build-ui.mjs
 node build-model.mjs --check
-node --test test.mjs
+node --test test.mjs ui.test.mjs
 ```
 
 `build-model.mjs` only verifies the embedded trained checkpoint. It does not generate weights or compile language rules. Tests compare the exact browser tokenizer, recurrent states, and all logits with independent PyTorch reference vectors. They also verify unfiltered softmax, weight editing, seeded continuation, long-generation stability, checksums, and the whole-page size budget.
@@ -64,7 +75,7 @@ Run `node training/repetition-eval.mjs index.html repetition-results.json` for t
 
 The released update reduces mean repeated-eight-word spans from **75.0% to 4.7%** across the six greedy regression continuations. Cases with a repeated full paragraph fall from **6/6 to 0/6**. At the default temperature of 0.55, the same measure falls from **3.0% to 0.6%** across 12 seeded continuations. Four additional prompts, tested at three temperatures with two seeds for nonzero temperatures, produced no repeated full paragraphs in 20 further outputs. All runs used 1,024 generated tokens and the compressed model. These results do not guarantee that other prompts or longer continuations cannot loop; grammar and story continuity remain limited.
 
-GitHub Pages uses the existing **Actions deployment** in `.github/workflows/pages.yml`. A push to `main` runs verification and tests, then deploys only `index.html` and `.nojekyll`. Training data, scripts, and test fixtures are not deployed.
+GitHub Pages uses the existing **Actions deployment** in `.github/workflows/pages.yml`. A push to `main` runs verification and tests, then deploys `index.html`, `.nojekyll`, and the separate responsive review harness. Training data, scripts, and test fixtures are not deployed.
 
 ## Reproduce training
 

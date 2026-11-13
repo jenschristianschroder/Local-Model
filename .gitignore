@@ -1,4 +1,5 @@
 _site/
+node_modules/
 training/data/
 training/runs/
 training/__pycache__/

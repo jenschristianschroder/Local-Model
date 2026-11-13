@@ -32,16 +32,22 @@ jobs:
         with:
           node-version: '24'
           package-manager-cache: false
+      - name: Build and verify the standalone interface
+        run: |
+          npm ci --ignore-scripts
+          node build-ui.mjs
+          git diff --exit-code -- index.html
       - name: Check the embedded numeric checkpoint
         run: node build-model.mjs --check
       - name: Check the language model
-        run: node --test test.mjs
+        run: node --test test.mjs ui.test.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Prepare the standalone page
         run: |
           mkdir -p _site
           cp index.html .nojekyll _site/
+          cp ui/review.html _site/review.html
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
