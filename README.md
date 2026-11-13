@@ -96,3 +96,14 @@ The original descriptive recipe and the released Christmas adaptation command ar
 `training/export.py` quantizes the selected tensors, measures loss before and after quantization, exports PyTorch parity fixtures, and embeds the JSON payload. It refuses to write an HTML file over 1 MB. Copy its report and reference JSON into `training/` before running the verifier.
 
 The original, AI-authored Christmas corpus is in `training/christmas.txt`, with held-out stories in `training/christmas-valid.txt`. They are used offline during training. Three user-selected examples are displayed in the introduction carousel; these also appear in the training corpus and are not evidence of novel output. The carousel text is never fed to inference or used to replace generated text. `training/adapt.py` performs the adaptation; `training/christmas-run.json` records the complete adaptation run, including checkpoints after the selected one; `training/report.json` records the corpus checksums, learned merges, loss history, and selected step.
+
+## Rap Battle
+
+Open [Rap Battle](https://jenschristianschroder.github.io/Pocket-LM/rap-battle/) for a separate Laptop versus Cloud demo. Play three rounds, pick a callback word after each verse, then vote. Both GRUs run on your device after their checkpoints load. They were trained from random initialization on original CC0 examples created for this demo. The tiny corpus can lead to repeated lines or missed callbacks. See [training data and split details](training/rap-battle/DATA.md).
+
+To run locally, start `python -m http.server 8000` from the repo root and open `http://localhost:8000/rap-battle/`. To reproduce the two checkpoints, install CPU PyTorch and NumPy and run:
+
+```sh
+python training/rap-battle/train.py laptop
+python training/rap-battle/train.py cloud
+```
