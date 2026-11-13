@@ -104,7 +104,7 @@ baseline??=softmax(modelLogits({...model,output:originalWeights},memory.hidden),
 const before=baseline[selectedV],after=latest.probabilities[selectedV];
 setText('before-prob',probabilityText(before));setText('after-prob',probabilityText(after));
 $('before-bar').style.width=before*100+'%';$('after-bar').style.width=after*100+'%';
-setText('weight-help',Number($('temperature').value)===0?'At temperature zero, the highest-scoring token gets 100%. Use Generation settings to see softer probabilities.':latest.hidden[selectedH]>=0?'This activation is positive. A higher weight raises this token’s score.':'This activation is negative. A higher weight lowers this token’s score.');
+setText('weight-help',Number($('temperature').value)===0?'At temperature zero, the highest-scoring token gets 100%. Adjust temperature in chapter two to see softer probabilities.':latest.hidden[selectedH]>=0?'This activation is positive. A higher weight raises this token’s score.':'This activation is negative. A higher weight lowers this token’s score.');
 $('restore-connection').disabled=weightAt(selectedV,selectedH)===originalWeights[selectedV*H+selectedH];
 }
 function changeWeight(value){
