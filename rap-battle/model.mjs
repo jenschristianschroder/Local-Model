@@ -1,0 +1,83 @@
+// GRU arithmetic and checkpoint decoder from Pocket LM's standalone kernel.
+// Generic GRU arithmetic. No word names, syntax tags, masks, or repair rules.
+function linear(matrix,bias,vector,rows,columns){
+  const result=new Float32Array(rows);
+  for(let row=0;row<rows;row++){let sum=bias?bias[row]:0;const offset=row*columns;for(let j=0;j<columns;j++)sum+=matrix[offset+j]*vector[j];result[row]=sum;}
+  return result;
+}
+function modelStep(weights,previous,token){
+  const {hidden:H,embedding:E}=weights.config;
+  const embedding=weights.embedding.subarray(token*E,(token+1)*E);
+  const input=linear(weights.input,weights.inputBias,embedding,3*H,E);
+  const recurrent=linear(weights.recurrent,weights.recurrentBias,previous,3*H,H);
+  const next=new Float32Array(H);
+  for(let j=0;j<H;j++){
+    const reset=1/(1+Math.exp(-(input[j]+recurrent[j])));
+    const update=1/(1+Math.exp(-(input[H+j]+recurrent[H+j])));
+    const candidate=Math.tanh(input[2*H+j]+reset*recurrent[2*H+j]);
+    next[j]=(1-update)*candidate+update*previous[j];
+  }
+  return next;
+}
+function modelLogits(weights,hidden){return linear(weights.output,weights.outputBias,hidden,weights.config.vocabulary,weights.config.hidden);}
+function softmax(logits,temperature=1){
+  const p=new Float64Array(logits.length),maximum=Math.max(...logits);
+  if(temperature===0){p[logits.indexOf(maximum)]=1;return p;}
+  let total=0;for(let i=0;i<logits.length;i++){p[i]=Math.exp((logits[i]-maximum)/temperature);total+=p[i];}
+  for(let i=0;i<p.length;i++)p[i]/=total;
+  return p;
+}
+function randomGenerator(seed){let a=seed>>>0;return()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};}
+function sample(p,random){let value=random();for(let i=0;i<p.length;i++){value-=p[i];if(value<0)return i;}return p.length-1;}
+// Checkpoint transport: dequantize the trained tensors once at page load.
+function bytes64(text){return Uint8Array.from(atob(text),c=>c.charCodeAt(0));}
+function floats64(text){const bytes=bytes64(text),view=new DataView(bytes.buffer),values=new Float32Array(bytes.length/4);for(let i=0;i<values.length;i++)values[i]=view.getFloat32(i*4,true);return values;}
+function loadWeights(checkpoint){
+  const weights={config:checkpoint.architecture};
+  for(const[name,tensor]of Object.entries(checkpoint.tensors)){
+    if(tensor.encoding==='float32-le'){weights[name]=floats64(tensor.data);continue;}
+    const bytes=bytes64(tensor.data),values=new Int8Array(bytes.buffer),scales=floats64(tensor.scales),width=tensor.shape[1];
+    weights[name]=Float32Array.from(values,(q,i)=>q*scales[Math.floor(i/width)]);
+  }
+  return weights;
+}
+const tokens = text => text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?|[0-9]+|[.,!?;:\n-]/g) ?? [];
+
+function decode(pieces) {
+  return pieces.join(" ").replace(/ *\n */g, "\n").replace(/ +([.,!?;:])/g, "$1")
+    .replace(/(^|\n)[a-z]|\bi\b|\bi'/g, part => part.toUpperCase());
+}
+
+export function createPerformer(checkpoint) {
+  const weights = loadWeights(checkpoint);
+  const lookup = new Map(checkpoint.vocabulary.map((word, index) => [word, index]));
+  const end = lookup.get("<end>");
+  const copy = lookup.get("<copy>");
+  const newline = lookup.get("\n");
+
+  return {
+    training: checkpoint.training,
+    generate({previous = "", cue = "", seed}) {
+      const prompt = ["<start>"];
+      if (previous) prompt.push(...tokens(previous), "<cue>", ...tokens(cue));
+      prompt.push("<verse>");
+      let hidden = new Float32Array(weights.config.hidden);
+      for (const word of prompt) {
+        hidden = modelStep(weights, hidden, lookup.get(word) ?? lookup.get("<unk>"));
+      }
+      const random = randomGenerator(seed);
+      const pieces = [];
+      for (let step = 0; step < 48; step++) {
+        const logits = modelLogits(weights, hidden);
+        // Prompt markers belong to the exchange protocol, outside the verse.
+        for (let id = 0; id < end; id++) logits[id] = -Infinity;
+        if (!cue) logits[copy] = -Infinity;
+        const id = sample(softmax(logits, 0.75), random);
+        if (id === end || (id === newline && pieces.includes("\n"))) break;
+        pieces.push(id === copy ? cue : checkpoint.vocabulary[id]);
+        hidden = modelStep(weights, hidden, id);
+      }
+      return decode(pieces);
+    },
+  };
+}

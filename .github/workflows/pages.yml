@@ -48,6 +48,7 @@ jobs:
           mkdir -p _site
           cp index.html .nojekyll _site/
           cp ui/review.html _site/review.html
+          cp -r rap-battle _site/rap-battle
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:

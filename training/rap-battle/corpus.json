@@ -1,0 +1,90 @@
+{
+  "openers": {
+    "laptop": [
+      "My battery drums while your server racks hum.\nI took the whole stage when the broadband went numb.",
+      "A power cable trips you when you step to the mic.\nI spit through a tunnel on the back of a bike.",
+      "Your queue hit the curb while I landed the beat.\nI balanced a concert on a folding seat.",
+      "Your echo needs a passport to get back to me.\nMy keys keep the rhythm and my signal stays free.",
+      "My fan does the backing while I take the lead.\nI carry my whole band at bicycle speed.",
+      "Your spinner does a dance while you're waiting to start.\nI write my first verse while you're loading the chart.",
+      "Your data center towers look grand in a shot.\nMy pocket held a punchline your skyline forgot.",
+      "Your invoice did a solo when the show ran late.\nMy little screen lit up and I closed the gate."
+    ],
+    "cloud": [
+      "Your battery bar just dropped below four.\nMy racks hear a chorus and open the door.",
+      "Your backpack is cozy but it only fits one.\nMy whole room of speakers can drown out the sun.",
+      "Your fan caught a breath and your frame rate fell.\nMy data center turns that beat into a bell.",
+      "Your pocket wants a medal for a single little spark.\nI've got ten thousand lights to keep the stage out of the dark.",
+      "You guard one copy like a crown in a case.\nI keep a whole chorus in a second place.",
+      "Your little screen froze right before the drop.\nI passed the beat around and the music didn't stop.",
+      "Your memory holds a verse and then you make it wait.\nI gave the next eight bars their own loading gate.",
+      "Your shortcut got stuck at the end of the track.\nMy chorus took a detour and brought the whole beat back."
+    ]
+  },
+  "replies": {
+    "laptop": [
+      "That {cue} can sing till the meter turns red.\nI keep a clean beat with a battery instead.",
+      "You brought up {cue} like it came with a crown.\nI carried my verse when the network went down.",
+      "Keep that {cue} on your side of the stage.\nMy keyboard dropped heat on an offline page.",
+      "Your {cue} sounds expensive for a four bar show.\nI land the last word before your packets go.",
+      "Put that {cue} on a truck if you want it to roam.\nI fold up my stage and I carry it home.",
+      "You flex that {cue} like it gives you control.\nI cut the connection and still make it roll.",
+      "Your {cue} needs a map just to find this seat.\nMy verse takes one step from the keys to the beat.",
+      "Put that {cue} on the bill when you tally the night.\nI shut off the router and the rhyme stayed bright.",
+      "Your {cue} had a ticket but arrived in the rain.\nMy battery kept time on the underground train.",
+      "Tell that {cue} I'm already through.\nI wrote the last line before your spinner drew.",
+      "That {cue} sounds big when the signal is strong.\nI crossed a dead zone and finished the song.",
+      "Your {cue} wants a key to get into my zone.\nI made the whole record with the door shut alone.",
+      "That {cue} can pose for the cover in chrome.\nMy verse works at sea just as well as at home.",
+      "Your {cue} can brag till the breakers all trip.\nI take one small charger and finish the trip.",
+      "Your {cue} gets a turn when the cables are fed.\nMy words make a crowd in a cabin instead.",
+      "You sell that {cue} with a promise of speed.\nI start with the silence and write what I need.",
+      "That {cue} could fill up a beautiful hall.\nI make a whole record with no room at all.",
+      "You hang that {cue} on a very long wire.\nI work off the grid and the bars still catch fire.",
+      "That {cue} is a fuss for a minute of sound.\nI step on the train and the bass stays around.",
+      "You pitched that {cue} from the top of a stack.\nI packed up my studio under the flap.",
+      "That {cue} can wait in a slow moving line.\nMy verse hits the stage at a quarter past nine.",
+      "I heard that {cue} through a crackle of snow.\nMy notebook keeps rhythm wherever I go.",
+      "That {cue} needs a crew and a color coded chart.\nI tap on two keys and the drum breaks start.",
+      "Your {cue} sounds tall in a server room boast.\nMy verse crossed the water and played on the coast."
+    ],
+    "cloud": [
+      "You brought up {cue} like a solo could fly.\nI stack up a chorus that covers the sky.",
+      "That {cue} gets quiet when you close the lid.\nI put a hundred speakers on a separate grid.",
+      "Keep that {cue} tucked in a pocket of cloth.\nI hand off the beat when a circuit goes off.",
+      "Your {cue} can juggle one bar at a time.\nI give every voice its own room to rhyme.",
+      "You put that {cue} on a narrow little stage.\nI send a whole choir to the edge of the page.",
+      "Your {cue} wants credit for running one track.\nI take down a rack and the next plays it back.",
+      "That {cue} did fine for a verse in the hall.\nI took the same beat and I played it for all.",
+      "Your {cue} hits pause when the battery is low.\nI move the whole band and keep running the show.",
+      "That {cue} has one seat and a window of glass.\nI book the whole train and let every voice pass.",
+      "Your {cue} has a drawer with a lock and a key.\nI keep three copies on both sides of the sea.",
+      "That {cue} has to wait when the workload gets steep.\nI split up the climb while your laptop goes to sleep.",
+      "You gave that {cue} a candle and a spark.\nI wired up a stage that could light up a park.",
+      "That {cue} can shine for a minute or two.\nI put a spare sun in the wings for the crew.",
+      "Your {cue} ran a sprint and was done by noon.\nI ran a relay underneath the moon.",
+      "Your {cue} gets crowded when friends come to play.\nI open another room halfway through the day.",
+      "That {cue} holds a seat at a table for one.\nI set a whole row before the first dish is done.",
+      "Your {cue} lost the file when the screen went black.\nI pulled up a copy and brought the verse back.",
+      "You put that {cue} on a desk by the door.\nI fit the whole band on the warehouse floor.",
+      "Your {cue} makes the speakers all share one wire.\nI spread the load wide when the tempo climbs higher.",
+      "That {cue} took a bow for a small local crowd.\nI sent the encore to ten cities out loud.",
+      "Your {cue} keeps time till the thermal lights flash.\nI move to the next rack before there's a crash.",
+      "That {cue} wears a badge for a one person team.\nI hand off the verse in a continuous stream.",
+      "Your {cue} held the rhyme till you dropped it in flight.\nI passed the next bar down a line through the night.",
+      "That {cue} has one speaker and one set of keys.\nI layer the hooks till they shake the trees."
+    ]
+  },
+  "validationOpeners": {
+    "laptop": [
+      "Your network left a packet by the platform gate.\nMy battery beat was on time at eight.",
+      "I balanced a keyboard on the seat of a train.\nYour server sent a spinner that spun in the rain.",
+      "My charger took a nap in the corner of my bag.\nYour invoice got a verse while your music started to drag."
+    ],
+    "cloud": [
+      "I handed your beat from one rack to two.\nYour screen went dark before the bass came through.",
+      "I put a copy on a stage across the sea.\nYour pocket had one ticket and it stayed with me.",
+      "Your fan took a breath in the middle of the track.\nI put a second chorus in the room out back."
+    ]
+  }
+}
