@@ -48,6 +48,16 @@ function decode(pieces) {
     .replace(/(^|\n)[a-z]|\bi\b|\bi'/g, part => part.toUpperCase());
 }
 
+function verseFeatures(text, cue) {
+  const lines = text.trim().split("\n").map(line => tokens(line).filter(token => /[a-z0-9]/.test(token)));
+  const normalized = lines.map(line => line.map(word => word === cue ? "<cue>" : word));
+  return {
+    lines: normalized.map(line => line.join(" ")).filter(Boolean),
+    endings: normalized.map(line => line.at(-1)).filter(Boolean).join(" "),
+    hasCue: !cue || lines.some(line => line.includes(cue)),
+  };
+}
+
 export function createPerformer(checkpoint) {
   const weights = loadWeights(checkpoint);
   const lookup = new Map(checkpoint.vocabulary.map((word, index) => [word, index]));
@@ -55,9 +65,25 @@ export function createPerformer(checkpoint) {
   const copy = lookup.get("<copy>");
   const newline = lookup.get("\n");
 
+  function sampleVerse(promptState, cue, random, temperature) {
+    let hidden = promptState;
+    const pieces = [];
+    for (let step = 0; step < 48; step++) {
+      const logits = modelLogits(weights, hidden);
+      // Prompt markers belong to the exchange protocol, outside the verse.
+      for (let id = 0; id < end; id++) logits[id] = -Infinity;
+      if (!cue) logits[copy] = -Infinity;
+      const id = sample(softmax(logits, temperature), random);
+      if (id === end || (id === newline && pieces.includes("\n"))) break;
+      pieces.push(id === copy ? cue : checkpoint.vocabulary[id]);
+      hidden = modelStep(weights, hidden, id);
+    }
+    return decode(pieces);
+  }
+
   return {
     training: checkpoint.training,
-    generate({previous = "", cue = "", seed}) {
+    generate({previous = "", cue = "", seed, earlier = []}) {
       const prompt = ["<start>"];
       if (previous) prompt.push(...tokens(previous), "<cue>", ...tokens(cue));
       prompt.push("<verse>");
@@ -66,18 +92,25 @@ export function createPerformer(checkpoint) {
         hidden = modelStep(weights, hidden, lookup.get(word) ?? lookup.get("<unk>"));
       }
       const random = randomGenerator(seed);
-      const pieces = [];
-      for (let step = 0; step < 48; step++) {
-        const logits = modelLogits(weights, hidden);
-        // Prompt markers belong to the exchange protocol, outside the verse.
-        for (let id = 0; id < end; id++) logits[id] = -Infinity;
-        if (!cue) logits[copy] = -Infinity;
-        const id = sample(softmax(logits, 0.75), random);
-        if (id === end || (id === newline && pieces.includes("\n"))) break;
-        pieces.push(id === copy ? cue : checkpoint.vocabulary[id]);
-        hidden = modelStep(weights, hidden, id);
+      const used = earlier.map(verse => verseFeatures(verse.text, verse.cue));
+      let best = "";
+      let bestScore = -1;
+      for (const temperature of [0.75, 0.75, 0.85, 0.85, 0.95, 0.95]) {
+        const text = sampleVerse(hidden, cue, random, temperature);
+        const {lines, endings, hasCue} = verseFeatures(text, cue);
+        if (!lines.length) continue;
+        // Treat a verse with just the callback swapped as the same verse.
+        const fresh = used.every(verse => verse.endings !== endings &&
+          lines.every(line => !verse.lines.includes(line)));
+        if (fresh && hasCue && lines.length === 2) return text;
+        // A bounded search keeps generation responsive even with a tiny corpus.
+        const score = Number(fresh) * 4 + Number(hasCue) * 2 + Number(lines.length === 2);
+        if (score > bestScore) {
+          best = text;
+          bestScore = score;
+        }
       }
-      return decode(pieces);
+      return best;
     },
   };
 }

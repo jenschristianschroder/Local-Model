@@ -1,0 +1,101 @@
+{
+  "openers": {
+    "pigeon": [
+      "I left three white feathers by the late night train\nThe station clock clicked and my crew came again.",
+      "A baker dropped a bag by the edge of the square\nI shook out a banquet and took to the air.",
+      "I counted every window from the top of the dome\nYou called it a skyline and I called it home.",
+      "I made a bass drum out of one old street sign\nThe bus took a turn and the echo was mine.",
+      "My toes caught a tremor on the rim of the roof\nThe glass rang twice and the whole flock had proof.",
+      "I ducked under canvas and dined on a chip\nYour band took a break and my wings took a trip.",
+      "I drew a thin shadow down the length of the street\nIt curved at the corner and landed on beat.",
+      "A bell struck seven and I sailed past the clock\nMy breakfast was waiting a roof down the block.",
+      "I took a small crumb to the top of the spire\nThe wind got louder and the hook went higher.",
+      "The old weathervane pointed west at the rain\nI turned to the east and started up again.",
+      "A busker packed up with a bow and a grin\nI carried the tune to the edge of the inn.",
+      "I rode the warm air past the bricks of the bank\nYou waited downstairs and the whole chorus sank."
+    ],
+    "disco-ball": [
+      "The dancers went quiet when the room lost its glow\nI caught a small beam and sent it back in a row.",
+      "My mirrors put a path up the wallpaper seam\nThe crowd found the groove in the bend of the beam."
+    ],
+    "raccoon": [
+      "I folded a drum stand from a rusty old grate\nThe hinges kept time till a quarter past eight.",
+      "I borrowed a handle from a battered tin pail\nThe lid gave a crack and my coat caught the hail."
+    ],
+    "librarian": [
+      "I left you a note on the page with the fold\nThe missing citation was worth more than gold.",
+      "I read your whole claim with a lamp at my desk\nOne line in the margin did more than the rest."
+    ],
+    "weather-forecaster": [
+      "The north wind changed when the bass came through\nMy chart caught a drop at a quarter past two.",
+      "I drew a long arrow from the coast to the hall\nThe rain went around and the leaves took the fall."
+    ]
+  },
+  "validationOpeners": {
+    "pigeon": [
+      "The grocer put a bag on the bench in the sun\nI counted the crumbs till the whole job was done.",
+      "I heard a brass band under canvas at noon\nI flew by the trumpet and borrowed its tune.",
+      "I tapped out a beat on the lip of a drain\nThe roof threw it back like a drum made of rain."
+    ],
+    "disco-ball": [
+      "My silver squares scattered a stripe across the room\nThe last pair danced through the edge of the gloom."
+    ],
+    "raccoon": [
+      "I found a bass note in a black plastic drum\nThe alley stood still and the whole block came."
+    ],
+    "librarian": [
+      "I brought back the book with a strip of blue tape\nYour favorite excuse had escaped from the page."
+    ],
+    "weather-forecaster": [
+      "The fog cleared a path to the edge of the bay\nMy report came in just as it faded away."
+    ]
+  },
+  "replies": {
+    "pigeon": [
+      "I took that {cue} to a roof with no stairs\nI ate my lunch while you sorted your chairs.",
+      "I crossed that {cue} on a warm bit of breeze\nThe bricks were below me and so were the trees.",
+      "That {cue} made a racket by the old canal\nI took two wingbeats and brought back a pal.",
+      "I dropped that {cue} on a street full of snow\nThe flurry took over and finished the show.",
+      "Your {cue} made a claim by the side of the train\nI rode on the wind and was home before rain.",
+      "I left that {cue} at the base of a spire\nThe ledge took my feet and my verse climbed higher.",
+      "I sent that {cue} to the end of the block\nMy beak kept time with the old city clock.",
+      "That {cue} took a bow on a neat strip of grass\nI landed on the roof without showing a pass.",
+      "I watched that {cue} from the top of the gate\nI stole the last chip and I split it with eight.",
+      "I held that {cue} in the shade of a tent\nThe market packed up and I flew where it went.",
+      "I set that {cue} on a ledge in the sun\nMy crew heard the beat and arrived one by one.",
+      "That {cue} went cold by the side of the lake\nI swept in low and came out with your cake.",
+      "Your {cue} lost a crumb on a torn paper plate\nI was over the bridge when you noticed too late.",
+      "I found that {cue} where the balconies meet\nI landed backwards and stayed on the beat.",
+      "That {cue} made a sound like the lid of a tin\nI fluttered right past and let the rest in.",
+      "I sent that {cue} round the back of a dome\nThe city gave it one echo and I took it home.",
+      "I heard that {cue} in the mouth of an alley\nMy flock came down and gave you a rally.",
+      "I kept that {cue} off the tip of my wing\nI saved the last crumb for the end of the swing.",
+      "I put that {cue} on a sign in the square\nIt had a good view when I left it up there.",
+      "Your {cue} missed the turn at the top of the hill\nI banked through the smoke and my beat held still.",
+      "That {cue} hit a stone at the edge of the bay\nI dropped to the water and swept it away.",
+      "I left that {cue} with the crowd at the bar\nMy feet hit the gutter and rang from afar.",
+      "That {cue} wanted proof of my right to the roof\nI left one gray feather and called it my proof.",
+      "Your {cue} tried a turn on a wet copper rail\nI curved on the wind without moving my tail.",
+      "I watched that {cue} from a ledge in the heat\nThe shadows went long and I tapped both feet.",
+      "I led that {cue} on a chase past the park\nMy crew stayed quiet and the street went dark.",
+      "I took that {cue} to the top of a mast\nA gust went by slowly and I passed it fast.",
+      "That {cue} put a price on a place by the door\nI flew to the rafters and never paid more."
+    ],
+    "disco-ball": [
+      "I sent that {cue} past the trim on the wall\nThe dots took a turn and came back down the hall.",
+      "I put that {cue} in a bright little ring\nThe dancers stepped in when the light took a swing."
+    ],
+    "raccoon": [
+      "I traded that {cue} for a coat with a tear\nI stitched it up tight and went out in the air.",
+      "I fished that {cue} from a trough full of foam\nThe wheels on the bin helped me carry it home."
+    ],
+    "librarian": [
+      "I checked that {cue} with a date on a card\nThe shelves knew the answer and it wasn't hard.",
+      "I found that {cue} in a note on the spine\nA reader wrote back with a much better line."
+    ],
+    "weather-forecaster": [
+      "I watched that {cue} cross a warm stretch of sea\nThe pressure fell fast and the wind came to me.",
+      "I put that {cue} on the map by the pier\nThe cloud moved east and the stage became clear."
+    ]
+  }
+}
