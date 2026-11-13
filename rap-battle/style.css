@@ -25,7 +25,7 @@ button:disabled { cursor: wait; opacity: .65; }
 .top { display: flex; min-height: 44px; align-items: center; justify-content: space-between; gap: 1rem; }
 .hero { padding: clamp(2rem, 7vw, 4.5rem) 0 1.75rem; }
 h1 { margin: 0; font: 950 clamp(2.9rem, 10vw, 6.2rem)/.9 system-ui, sans-serif; letter-spacing: -.075em; }
-.hero p { max-width: 34rem; color: var(--muted); margin: 1rem 0 1.35rem; }
+.hero > p { max-width: 34rem; color: var(--muted); margin: 1rem 0 1.35rem; }
 .matchup { display: grid; grid-template-columns: minmax(0, 12rem) auto minmax(0, 12rem); justify-content: start; align-items: end; gap: .65rem; min-width: 0; padding: 0; margin: 0; border: 0; }
 .matchup legend { font-weight: 750; margin-bottom: .5rem; padding: 0; }
 .matchup label { display: grid; min-width: 0; gap: .25rem; font-size: .83rem; color: var(--muted); }
@@ -61,7 +61,7 @@ ol { padding: 0; margin: 0; list-style: none; }
 .verse p + p { margin-top: .65rem; }
 mark { background: var(--accent); color: #15151b; border-radius: .2em; padding-inline: .12em; }
 .controls { margin-top: 1rem; }
-.temperature { max-width: 22rem; margin-bottom: .9rem; }
+.temperature { width: 100%; max-width: 44rem; margin-top: 1rem; }
 .temperature > div { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem; }
 .temperature label { font-size: .9rem; font-weight: 750; }
 .temperature output { font-size: .9rem; font-variant-numeric: tabular-nums; color: var(--first); }

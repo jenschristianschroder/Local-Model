@@ -29,19 +29,19 @@
           <select id="second-opponent"></select>
         </label>
       </fieldset>
+      <div class="temperature">
+        <div>
+          <label for="temperature">Temperature</label>
+          <output id="temperature-value" for="temperature">0.75</output>
+        </div>
+        <input id="temperature" type="range" min="0.30" max="1.20" step="0.05" value="0.75" aria-describedby="temperature-help">
+        <p id="temperature-help">Lower values favor likely words. Higher values allow more surprises.</p>
+      </div>
     </section>
     <section class="stage" aria-labelledby="round">
       <h2 id="round" tabindex="-1">Round 1 of 3</h2>
       <ol id="verses" aria-label="Battle transcript"></ol>
       <div class="controls">
-        <div class="temperature">
-          <div>
-            <label for="temperature">Temperature</label>
-            <output id="temperature-value" for="temperature">0.75</output>
-          </div>
-          <input id="temperature" type="range" min="0.30" max="1.20" step="0.05" value="0.75" aria-describedby="temperature-help">
-          <p id="temperature-help">Lower values favor likely words. Higher values allow more surprises.</p>
-        </div>
         <p id="status" role="status">Ready when you are.</p>
         <div id="choices" role="group" aria-label="Choose a callback"></div>
         <button type="button" class="primary" id="next">Start battle</button>
