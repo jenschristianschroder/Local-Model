@@ -70,7 +70,7 @@ function cueWords(text) {
   const words = [...new Set(text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g))];
   const candidates = words.filter(word => word.length > 3 && !common.has(word));
   const nouns = candidates.filter(word => cueNouns.has(word));
-  return (nouns.length ? nouns : candidates.length ? candidates : words).slice(0, 3);
+  return [...new Set([...nouns, ...candidates, ...words])].slice(0, 3);
 }
 
 function updateMatchup() {
