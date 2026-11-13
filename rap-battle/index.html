@@ -34,6 +34,14 @@
       <h2 id="round" tabindex="-1">Round 1 of 3</h2>
       <ol id="verses" aria-label="Battle transcript"></ol>
       <div class="controls">
+        <div class="temperature">
+          <div>
+            <label for="temperature">Temperature</label>
+            <output id="temperature-value" for="temperature">0.75</output>
+          </div>
+          <input id="temperature" type="range" min="0.30" max="1.20" step="0.05" value="0.75" aria-describedby="temperature-help">
+          <p id="temperature-help">Lower values favor likely words. Higher values allow more surprises.</p>
+        </div>
         <p id="status" role="status">Ready when you are.</p>
         <div id="choices" role="group" aria-label="Choose a callback"></div>
         <button type="button" class="primary" id="next">Start battle</button>
@@ -41,7 +49,7 @@
     </section>
     <details>
       <summary>How the models work</summary>
-      <p>Each opponent has its own model for replies. It receives the previous challenge and the word you pick. A shared model writes the final two lines in the current opponent’s voice. All generation runs in this browser. When a reply model emits its learned copy token, your word appears in the reply. The browser tries another sample when a couplet repeats an earlier line or pair of ending words from the same opponent.</p>
+      <p>Each opponent has its own model for replies. It receives the previous challenge and the word you pick. A shared model writes the final two lines in the current opponent’s voice. All generation runs in this browser. When a reply model emits its learned copy token, your word appears in the reply. Each turn gets a fresh random seed. If a sample repeats a line or pair of ending words, the browser can retry at a slightly higher temperature.</p>
       <p id="model-stats" hidden></p>
       <p><a href="https://github.com/jenschristianschroder/Pocket-LM">View the training source</a></p>
     </details>

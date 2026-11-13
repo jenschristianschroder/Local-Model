@@ -26,6 +26,8 @@ const verses = find("verses");
 const choices = find("choices");
 const next = find("next");
 const reset = find("reset");
+const temperature = find("temperature");
+const temperatureValue = find("temperature-value");
 const status = find("status");
 const common = new Set("the and your you that when with from this have their then were them like there what they will just into back while still whole already".split(" "));
 const cueNouns = new Set((
@@ -56,6 +58,13 @@ function element(tag, text) {
   node.textContent = text;
   return node;
 }
+
+function updateTemperature() {
+  temperatureValue.value = temperature.valueAsNumber.toFixed(2);
+}
+
+temperature.addEventListener("input", updateTemperature);
+updateTemperature();
 
 function cueWords(text) {
   const words = [...new Set(text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g))];
@@ -156,7 +165,8 @@ function showVote() {
 
 next.onclick = async () => {
   if (busy) return;
-  busy = next.disabled = reset.disabled = true;
+  busy = next.disabled = reset.disabled = temperature.disabled = true;
+  const samplingTemperature = temperature.valueAsNumber;
   for (const choice of choices.children) choice.disabled = true;
   matchup.disabled = true;
   const names = selectedNames();
@@ -181,11 +191,12 @@ next.onclick = async () => {
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const seed = crypto.getRandomValues(new Uint32Array(1))[0];
     const earlier = performed[index];
-    const reply = models[index].generate({previous: previousChallenge, cue, seed, earlier});
+    const reply = models[index].generate({previous: previousChallenge, cue, seed, earlier, temperature: samplingTemperature});
     if (!reply) throw new Error("The model did not finish a two-line reply.");
     const challenge = challengeModel.generate({
       role: selectors[index].value,
       seed: seed ^ 0x9e3779b9,
+      temperature: samplingTemperature,
       earlier: [...earlier, ...performed[1 - index], {text: reply, cue}],
     });
     if (!challenge) throw new Error("The model did not finish a two-line challenge.");
@@ -213,7 +224,7 @@ next.onclick = async () => {
     next.disabled = false;
     next.focus();
   } finally {
-    busy = reset.disabled = false;
+    busy = reset.disabled = temperature.disabled = false;
     for (const choice of choices.children) choice.disabled = false;
   }
 };
