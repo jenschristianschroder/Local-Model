@@ -1,4 +1,4 @@
-"""Train two small conditional language models from random initialization."""
+"""Train a small conditional language model from random initialization."""
 import argparse
 import base64
 from collections import Counter
@@ -21,6 +21,12 @@ WORDS = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)?")
 TOKENS = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)?|[0-9]+|[.,!?;:\n-]")
 EMBEDDING = 40
 HIDDEN = 72
+PERFORMERS = {
+    "laptop": ("corpus.json", 2041),
+    "cloud": ("corpus.json", 2047),
+    "robot": ("robot-toaster.json", 2053),
+    "toaster": ("robot-toaster.json", 2063),
+}
 
 
 def tokens(text):
@@ -28,13 +34,13 @@ def tokens(text):
 
 
 def examples(corpus, performer):
-    opponent = "cloud" if performer == "laptop" else "laptop"
+    opponent, = (role for role in corpus["openers"] if role != performer)
     reply_tokens = [[*tokens(before), COPY, *tokens(after), END]
                     for before, after in (reply.split("{cue}") for reply in corpus["replies"][performer])]
     train = [([START, VERSE], tokens(verse) + [END]) for verse in corpus["openers"][performer]]
     valid = [([START, VERSE], tokens(verse) + [END])
              for verse in corpus["validationOpeners"][performer]]
-    vocabulary = sorted({word for role in ("laptop", "cloud")
+    vocabulary = sorted({word for role in corpus["openers"]
                          for verse in corpus["openers"][role] + corpus["replies"][role]
                          for word in WORDS.findall(verse.lower())} - {"cue"})
     rng = random.Random(2043)
@@ -107,13 +113,13 @@ def pack(array):
 
 
 def train(performer, steps):
-    raw = (HERE / "corpus.json").read_bytes()
+    filename, seed = PERFORMERS[performer]
+    raw = (HERE / filename).read_bytes()
     corpus = json.loads(raw)
     training, validation = examples(corpus, performer)
     counts = Counter(word for prompt, reply in training for word in prompt + reply)
     vocabulary = SPECIAL + sorted(counts.keys() - set(SPECIAL))
     lookup = {word: index for index, word in enumerate(vocabulary)}
-    seed = {"laptop": 2041, "cloud": 2047}[performer]
     rng = random.Random(seed)
     torch.manual_seed(seed)
     model = RapGRU(len(vocabulary))
@@ -152,7 +158,7 @@ def train(performer, steps):
         "vocabulary": vocabulary,
         "tensors": tensors,
         "training": {
-            "performer": performer, "source": "training/rap-battle/corpus.json", "dataLicense": "CC0-1.0",
+            "performer": performer, "source": f"training/rap-battle/{filename}", "dataLicense": "CC0-1.0",
             "corpusSha256": hashlib.sha256(raw).hexdigest(), "seed": seed, "steps": steps,
             "parameters": sum(weight.numel() for weight in weights.values()),
             "trainingExamples": len(training), "validationExamples": len(validation),
@@ -165,7 +171,7 @@ def train(performer, steps):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("performer", choices=["laptop", "cloud"])
+    parser.add_argument("performer", choices=PERFORMERS)
     parser.add_argument("--steps", type=int, default=800)
     args = parser.parse_args()
     torch.set_num_threads(2)

@@ -18,23 +18,30 @@
     </header>
     <section class="hero" aria-labelledby="title">
       <h1 id="title">RAP BATTLE</h1>
-      <p>Two language models trade verses on your device. Pick a word from each verse for the next model to answer.</p>
-      <div class="matchup" aria-label="Laptop versus Cloud">
-        <span class="laptop">Laptop</span><span aria-hidden="true">VS</span><span class="cloud">Cloud</span>
-      </div>
+      <p>Two language models trade verses on your device. Choose two opponents, then pick a word for the next model to answer.</p>
+      <fieldset class="matchup" id="matchup">
+        <legend>Choose your opponents</legend>
+        <label class="first" for="first-opponent">Goes first
+          <select id="first-opponent"></select>
+        </label>
+        <span aria-hidden="true">VS</span>
+        <label class="second" for="second-opponent">Goes second
+          <select id="second-opponent"></select>
+        </label>
+      </fieldset>
     </section>
     <section class="stage" aria-labelledby="round">
       <h2 id="round" tabindex="-1">Round 1 of 3</h2>
       <ol id="verses" aria-label="Battle transcript"></ol>
       <div class="controls">
-        <p id="status" role="status">Ready to load both models.</p>
+        <p id="status" role="status">Ready when you are.</p>
         <div id="choices" role="group" aria-label="Choose a callback"></div>
         <button type="button" class="primary" id="next">Start battle</button>
       </div>
     </section>
     <details>
       <summary>How the models work</summary>
-      <p>Laptop and Cloud have separately trained weights. Each reply receives the preceding verse and the word you pick. Both models sample their own next tokens in this browser. When a model emits its learned copy token, the selected word appears in the verse.</p>
+      <p>Every opponent has its own trained model. Each reply receives the preceding verse and the word you pick. Both models sample their own next tokens in this browser. When a model emits its learned copy token, the selected word appears in the verse.</p>
       <p id="model-stats" hidden></p>
       <p><a href="https://github.com/jenschristianschroder/Pocket-LM">View the training source</a></p>
     </details>
