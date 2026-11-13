@@ -144,5 +144,11 @@ pre { font:14px/1.7 var(--mono); white-space:pre-wrap; overflow-wrap:anywhere; b
 @media(max-height:650px) { .page { padding-top:16px; padding-bottom:10px; } .page-head { padding-bottom:12px; } h2 { font-size:28px; } .welcome { gap:18px; } .nav-footer { padding-top:4px; padding-bottom:calc(4px + env(safe-area-inset-bottom)); } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
 
-#samples { touch-action:pan-y; }
+#samples { touch-action:pan-y; position:relative; padding:20px 42px; }
 #sample-text { font:18px/1.6 Georgia,serif; margin-top:12px; }
+
+#sample-prev,#sample-next { position:absolute; top:50%; transform:translateY(-50%); width:40px; padding:0; border:0; background:transparent; font-size:22px; }
+#sample-prev { left:0; } #sample-next { right:0; }
+#sample-count { display:flex; justify-content:center; gap:7px; margin-top:18px; }
+#sample-count span { width:6px; height:6px; border-radius:50%; background:var(--muted); opacity:.3; }
+#sample-count .selected { background:var(--accent); opacity:1; }

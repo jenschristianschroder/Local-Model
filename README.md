@@ -56,7 +56,7 @@ The matrices use per-row signed int8 quantization with float32 scales; biases re
 
 ### UI source
 
-Edit `ui/body.html`, `ui/style.css`, and `ui/app.js`, then run `npm ci --ignore-scripts` and `node build-ui.mjs`. The build preserves the embedded checkpoint and the numeric kernel byte-for-byte, minifies only the UI, and rejects pages at or above 1 MB. The UI selector and CSS variable aliases in the build keep readable source within the standalone size budget. Edit `ui/examples.json` to update the three introductory examples. Their previews expand on request; buttons, arrow keys, and horizontal swipes change stories without advancing chapters. There is no automatic rotation.
+Edit `ui/body.html`, `ui/style.css`, and `ui/app.js`, then run `npm ci --ignore-scripts` and `node build-ui.mjs`. The build preserves the embedded checkpoint and the numeric kernel byte-for-byte, minifies only the UI, and rejects pages at or above 1 MB. The UI selector and CSS variable aliases in the build keep readable source within the standalone size budget. Edit `ui/examples.json` to update the three introductory examples. Stories are shown in full, with transparent side arrows and small position dots; buttons, arrow keys, and horizontal swipes change stories without advancing chapters. There is no automatic rotation.
 
 `ui/review.html` is a development review harness for 320×568, 390×844, 430×932, and desktop viewports. The deployment exposes it as `review.html` for responsive inspection. It is separate from the standalone app.
 

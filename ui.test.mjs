@@ -34,14 +34,16 @@ test('copy story includes the full prompt and continuation, with fallback and ho
     assert.equal(a.q('#toast').textContent,'Copy unavailable. Use Save story as text.');assert.equal(a.q('#detail textarea'),null);assert.deepEqual(a.errors,[]);
   }finally{a.dom.window.close();}
 });
-test('example carousel preserves supplied text and supports expansion, buttons, keys and isolated swipes',async()=>{
+test('example carousel preserves supplied text and shows full stories with dots, buttons, keys and isolated swipes',async()=>{
   const a=await app();try{
     const stories=JSON.parse(readFileSync(new URL('./ui/examples.json',import.meta.url),'utf8'));
-    const more=a.q('#samples [aria-controls]'),text=()=>a.w.document.getElementById(more.getAttribute('aria-controls')).textContent;
+    const text=()=>a.q('#samples h3').nextElementSibling.textContent;
     const next=a.q('[aria-label="Next example story"]'),previous=a.q('[aria-label="Previous example story"]');
     for(let i=0;i<3;i++){
-      assert.equal(a.q('#samples [role="status"]').textContent,(i+1)+' of 3');assert.equal(more.getAttribute('aria-expanded'),'false');
-      more.click();assert.equal(text(),stories[i][1]);assert.equal(more.getAttribute('aria-expanded'),'true');next.click();
+      const dots=a.q('#samples [role="status"]');
+      assert.equal(dots.getAttribute('aria-label'),'Story '+(i+1)+' of 3');
+      assert.equal(dots.children.length,3);assert.equal(dots.children[i].className,'selected');
+      assert.equal(text(),stories[i][1]);assert.equal(a.q('#samples [aria-expanded]'),null);next.click();
     }
     previous.click();assert.equal(a.q('#samples h3').textContent,stories[2][0]);
     previous.dispatchEvent(new a.w.KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));assert.equal(a.q('#samples h3').textContent,stories[0][0]);

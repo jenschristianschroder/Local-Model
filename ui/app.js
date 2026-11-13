@@ -288,10 +288,10 @@ const requested=location.hash.slice(1),initial=pageList.some(p=>p.id===requested
 goToPage(initial,{historyMode:'replace',focus:false,keepConnection:true});
 window.PocketLM={bundle,model,modelStep,modelLogits,softmax,loadWeights,forward,predict,promptMemory,initialMemory,advance,tokenize,decode,randomGenerator,sample,weightAt,setWeight,applyOverrides};
 
-const sampleStories=JSON.parse($('example-data').textContent);let sampleIndex=0,sampleExpanded=false,sampleTouch=null;
-function renderSample(){const [title,text]=sampleStories[sampleIndex];setText('sample-title',title);setText('sample-text',sampleExpanded?text:text.slice(0,text.lastIndexOf(' ',170))+'…');setText('sample-count',(sampleIndex+1)+' of '+sampleStories.length);setText('sample-more',sampleExpanded?'Show less':'Read full story');$('sample-more').setAttribute('aria-expanded',String(sampleExpanded));}
-function moveSample(delta){sampleIndex=(sampleIndex+delta+sampleStories.length)%sampleStories.length;sampleExpanded=false;renderSample();$('samples').scrollIntoView({block:'nearest'});}
-$('sample-prev').onclick=()=>moveSample(-1);$('sample-next').onclick=()=>moveSample(1);$('sample-more').onclick=()=>{sampleExpanded=!sampleExpanded;renderSample();$('samples').scrollIntoView({block:sampleExpanded?'start':'nearest'});};
+const sampleStories=JSON.parse($('example-data').textContent);let sampleIndex=0,sampleTouch=null;
+function renderSample(){const [title,text]=sampleStories[sampleIndex];setText('sample-title',title);setText('sample-text',text);const dots=$('sample-count');dots.setAttribute('aria-label','Story '+(sampleIndex+1)+' of '+sampleStories.length);dots.innerHTML=sampleStories.map((_,i)=>'<span aria-hidden="true" class="'+(i===sampleIndex?'selected':'')+'"></span>').join('');}
+function moveSample(delta){sampleIndex=(sampleIndex+delta+sampleStories.length)%sampleStories.length;renderSample();$('samples').scrollIntoView({block:'start'});}
+$('sample-prev').onclick=()=>moveSample(-1);$('sample-next').onclick=()=>moveSample(1);
 $('samples').addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();moveSample(e.key==='ArrowRight'?1:-1);}});
 $('samples').addEventListener('touchstart',e=>{sampleTouch=e.touches.length===1?e.touches[0]:null;},{passive:true});
 $('samples').addEventListener('touchend',e=>{if(!sampleTouch)return;const t=e.changedTouches[0],dx=sampleTouch.clientX-t.clientX,dy=sampleTouch.clientY-t.clientY;sampleTouch=null;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*2)moveSample(Math.sign(dx));},{passive:true});
