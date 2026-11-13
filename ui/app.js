@@ -26,6 +26,7 @@ $('continue-generation').disabled=capped&&!running;
 setText('continue-generation',running?'Stop writing':generated.length?'Continue story':'Generate story');
 $('step').disabled=capped||running;
 $('save-text').disabled=!generated.length;
+$('copy-story').disabled=!generated.length;
 setText('status',running?'Writing on your device…':status);$('status').dataset.running=String(running);
 if(currentId()==='response')renderOutput();
 if(currentId()==='predictions')renderPredictions();
@@ -238,7 +239,18 @@ function toast(message){setText('toast',message);clearTimeout(toastTimer);toastT
 function downloadFile(content,name,type){const url=URL.createObjectURL(new Blob([content],{type})),a=node('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 $('download').addEventListener('click',()=>{const html=ORIGINAL_HTML.replace(/(<script id="model-overrides" type="application\/json">)[\s\S]*?(<\/script>)/,(_,open,close)=>open+JSON.stringify({version:4,weights:overrides})+close);downloadFile(html,'pocket-lm.html','text/html;charset=utf-8');toast('Offline app saved with your weight edits.');});
 $('download-model').addEventListener('click',()=>{downloadFile(JSON.stringify({...bundle,edits:{version:4,weights:overrides}}),'pocket-lm-model.json','application/json');toast('Model saved with your weight edits.');});
-$('save-text').addEventListener('click',()=>{downloadFile($('prompt').value+decode(allIds()).slice(decode(promptTokens.map(t=>t.id)).length)+'\n','a-very-strange-christmas.txt','text/plain;charset=utf-8');toast('Story saved.');});
+const storyText=()=>$('prompt').value+decode(allIds()).slice(decode(promptTokens.map(t=>t.id)).length);
+$('save-text').addEventListener('click',()=>{downloadFile(storyText()+'\n','a-very-strange-christmas.txt','text/plain;charset=utf-8');toast('Story saved.');});
+$('copy-story').addEventListener('click',async()=>{
+const text=storyText();let copied=false;
+try{await navigator.clipboard.writeText(text);copied=true;}
+catch{
+const field=node('textarea');field.value=text;field.readOnly=true;field.style.cssText='position:fixed;opacity:0;pointer-events:none';dialog.append(field);
+try{field.focus();field.select();field.setSelectionRange(0,text.length);copied=document.execCommand('copy');}catch{}
+field.remove();$('copy-story').focus({preventScroll:true});
+}
+toast(copied?'Story copied to clipboard.':'Copy unavailable. Use Save story as text.');
+});
 function scheduleSave(){if(!ready)return;clearTimeout(sessionTimer);sessionTimer=setTimeout(saveSession,250);}
 function saveSession(){
 if(!ready)return;

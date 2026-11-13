@@ -19,6 +19,21 @@ async function app(saved,url='https://pocket.test/'){
   const go=async id=>{click('[data-open="chapters"]');const buttons=[...q('#sheet-chapters').querySelectorAll('button')];buttons[[...w.document.querySelectorAll('.page')].findIndex(p=>p.id===id)].click();await until(()=>q('.page.is-active').id===id&&!q('#detail').open);};
   return {dom,w,q,click,go,errors};
 }
+test('copy story includes the full prompt and continuation, with fallback and honest failure feedback',async()=>{
+  const a=await app();try{
+    assert.equal(a.q('#copy-story').disabled,true);
+    await a.go('predictions');a.click('#step');await delay(30);await a.go('response');
+    const expected=a.q('#story-prompt').textContent+a.q('#story-continuation').textContent;
+    a.click('[data-open="story-tools"]');let copied;
+    Object.defineProperty(a.w.navigator,'clipboard',{configurable:true,value:{writeText:async text=>{copied=text;}}});
+    a.click('#copy-story');await delay(10);assert.equal(copied,expected);assert.equal(a.q('#toast').textContent,'Story copied to clipboard.');
+    a.w.navigator.clipboard.writeText=async()=>{throw Error('Permission denied');};
+    a.w.document.execCommand=command=>{assert.equal(command,'copy');assert.equal(a.w.document.activeElement.value,expected);return true;};
+    a.click('#copy-story');await delay(10);assert.equal(a.q('#toast').textContent,'Story copied to clipboard.');assert.equal(a.w.document.activeElement.id,'copy-story');
+    a.w.document.execCommand=()=>false;a.click('#copy-story');await delay(10);
+    assert.equal(a.q('#toast').textContent,'Copy unavailable. Use Save story as text.');assert.equal(a.q('#detail textarea'),null);assert.deepEqual(a.errors,[]);
+  }finally{a.dom.window.close();}
+});
 test('guided navigation preserves a paused story and details dismiss through browser Back',async()=>{
   const a=await app();try{
     await a.go('playground');a.click('[data-open="settings"]');
