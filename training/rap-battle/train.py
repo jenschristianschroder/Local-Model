@@ -26,7 +26,7 @@ PERFORMERS = {
     "cloud": ("corpus.json", 2047),
     "robot": ("robot-toaster.json", 2053),
     "toaster": ("robot-toaster.json", 2063),
-    "pigeon": ("expanded-roster.json", 2081),
+    "pigeon": ("pigeon-variety.json", 2141),
     "raccoon": ("expanded-roster.json", 2083),
     "librarian": ("expanded-roster.json", 2087),
     "haunted-printer": ("expanded-roster.json", 2089),
@@ -188,6 +188,6 @@ if __name__ == "__main__":
     parser.add_argument("performer", choices=PERFORMERS)
     parser.add_argument("--steps", type=int, help="Defaults to 600 for the expanded roster and 800 for the original four.")
     args = parser.parse_args()
-    expanded = PERFORMERS[args.performer][0] == "expanded-roster.json"
+    expanded = PERFORMERS[args.performer][0] not in {"corpus.json", "robot-toaster.json"}
     torch.set_num_threads(1 if expanded else 2)
     train(args.performer, args.steps if args.steps is not None else (600 if expanded else 800))

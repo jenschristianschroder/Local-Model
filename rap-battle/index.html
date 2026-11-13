@@ -41,7 +41,7 @@
     </section>
     <details>
       <summary>How the models work</summary>
-      <p>Every opponent has its own trained model. Each reply receives the preceding verse and the word you pick. Both models sample their own next tokens in this browser. When a model emits its learned copy token, the selected word appears in the verse.</p>
+      <p>Every opponent has its own trained model. Each reply receives the preceding verse and the word you pick. Both models sample their own next tokens in this browser. When a model emits its learned copy token, the selected word appears in the verse. If a sample reuses one of that opponent’s earlier lines or the same pair of ending words, the browser tries another sample.</p>
       <p id="model-stats" hidden></p>
       <p><a href="https://github.com/jenschristianschroder/Pocket-LM">View the training source</a></p>
     </details>

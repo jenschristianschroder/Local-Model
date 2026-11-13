@@ -37,7 +37,24 @@ h1 { margin: 0; font: 950 clamp(2.9rem, 10vw, 6.2rem)/.9 system-ui, sans-serif; 
 .stage { background: var(--panel); border: 1px solid var(--edge); border-radius: 1rem; padding: clamp(1rem, 4vw, 1.6rem); }
 h2 { margin: 0; font-size: 1.15rem; }
 ol { padding: 0; margin: 0; list-style: none; }
-.verse { margin-top: 1rem; padding: .8rem 1rem; border-left: 3px solid var(--accent); border-radius: .3rem; background: #15151b; }
+.verse {
+  width: fit-content;
+  max-width: 86%;
+  margin-top: 1rem;
+  padding: .8rem 1rem;
+  border-radius: .9rem;
+  background: #15151b;
+}
+.verse.first {
+  border-inline-start: 3px solid var(--accent);
+  border-start-start-radius: .25rem;
+}
+.verse.second {
+  margin-inline-start: auto;
+  border-inline-end: 3px solid var(--accent);
+  border-start-end-radius: .25rem;
+  background: #242032;
+}
 .verse h3 { font-size: .86rem; color: var(--accent); margin: 0 0 .3rem; }
 .verse p { white-space: pre-line; margin: 0; color: #f8f4ee; overflow-wrap: anywhere; }
 .verse .callback { font-size: .8rem; margin-top: .45rem; color: var(--muted); }
@@ -54,4 +71,5 @@ summary { width: fit-content; cursor: pointer; color: #f8f4ee; }
 @media (max-width: 410px) {
   .matchup { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
   .matchup span { display: none; }
+  .verse { max-width: 92%; padding-inline: .8rem; }
 }

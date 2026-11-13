@@ -43,6 +43,7 @@ const cueNouns = new Set((
   "drizzle thunder broadcast crater lava ash smoke rock ridge slope"
 ).split(" "));
 let models;
+const performed = selectors.map(() => []);
 const selectedNames = () => selectors.map(select => roster[select.value]);
 let turn = 0;
 let previous = "";
@@ -174,9 +175,10 @@ next.onclick = async () => {
     // Give the browser a frame to announce the busy state before inference.
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const seed = crypto.getRandomValues(new Uint32Array(1))[0];
-    const text = models[index].generate({previous, cue, seed});
+    const text = models[index].generate({previous, cue, seed, earlier: performed[index]});
     if (!text) throw new Error("The model returned an empty verse.");
     appendVerse(performer, text);
+    performed[index].push({text, cue});
     previous = text;
     cue = "";
     turn++;
@@ -209,6 +211,7 @@ reset.onclick = () => {
   matchup.disabled = false;
   find("model-stats").hidden = true;
   previous = cue = "";
+  for (const history of performed) history.length = 0;
   verses.replaceChildren();
   choices.replaceChildren();
   choices.setAttribute("aria-label", "Choose a callback");
