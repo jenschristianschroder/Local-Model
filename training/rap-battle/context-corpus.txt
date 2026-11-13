@@ -1,0 +1,140 @@
+[laptop]
+opening | My keyboard keeps time on the last outbound train | The carriage turns quiet and I tap through the rain.
+opening | A tiny green light and a case full of dents | I wrote half a record for a few borrowed cents.
+opening | I packed up a studio inside a black sleeve | The crowd found a beat before I had to leave.
+opening | My trackpad caught rhythm from a rattling seat | I folded the stage and still carried the beat.
+battery | My battery keeps playing after the plug goes cold | The last little flicker is worth its weight in gold. | That {cue} lasts a night if the meter reads true | The bar turns red and the crowd turns blue. | Your {cue} runs down with the lights on low | The wall has a socket when you need to go.
+keyboard | My keyboard can drum when the lights all fail | I type out the hook by the glow of the rail. | You can pound that {cue} till the plastic cracks | I brought a real drummer and a room full of tracks. | I heard that {cue} through the carriage door | A fistful of keys never shook the floor.
+tunnel | I finished a verse in a tunnel with no bars | The lights on my keys were my only stars. | That {cue} sounds lovely with nobody there | An echo is easy when the seats are bare. | That {cue} gives echoes a free place to hide | Let's hear how you sound on the far other side.
+backpack | My whole concert slips in the zip of a backpack | I ride to the show with the beat on my back. | Your {cue} has room for a cable and sleeve | How many fans fit when you get up to leave? | Your {cue} holds wires, a screen, and a snack | The audience won't fit in the space at the back.
+trackpad | I keep the beat on a trackpad the size of a stamp | I play by myself underneath a dim lamp. | Your {cue} can dance on a little black square | I'll give the next chorus some actual air. | A {cue} moves cursors across a small screen | I move the crowd like a dancing machine.
+[cloud]
+opening | I put up a stage on each side of the sea | The beat crossed the water while the crowd counted three.
+opening | I split a long chorus in four different rooms | The bass came together and rattled the roofs.
+opening | One rack went dark on the edge of the show | I gave the next drummer a signal to go.
+opening | I kept a spare chorus in a town out west | The rain took a cable and the backup did the rest.
+servers | My servers keep singing when a circuit goes down | I pass the whole chorus to the next little town. | Your {cue} take turns when a switch drops the beat | I came here to rhyme and I stayed in my seat. | Those {cue} need cooling to carry a song | My voice stays warm when the power goes wrong.
+backup | I keep a backup of every verse I sing | One copy goes dark and the next one can ring. | That {cue} can save a file from the dark | It takes a live voice to put breath in a spark. | Your {cue} can keep all the takes that you save | I write a new chorus each time that I wave.
+latency | My latency shrinks when I move down the street | The crowd hardly waits for the bass and the beat. | You brag about {cue} like a tenth is a prize | I saw the crowd blink while your spinner changed size. | You measured the {cue} and trimmed off a beat | I heard the same gap from my front row seat.
+invoice | My invoice buys a spare stage for the night | When your speakers go black mine are still lit white. | Your {cue} can dance with a decimal point | You charged for the echo and billed the whole joint. | Your {cue} sells silence by kilowatt hour | A decimal point doesn't give rhythm power.
+chorus | I give a chorus a home in every town | A cable can snap and the song won't go down. | Your {cue} goes on while the routers agree | Pull one plug in the hall and see who hears me. | That {cue} arrived from a faraway rack | I heard it once live and I sent the echo back.
+[robot]
+opening | My feet click time on the floor of the shop | I wind up the snare and I tighten the top.
+opening | One loose little screw put a break in the beat | I fixed it with rhythm and went back to my feet.
+opening | I welded two handles to carry the bass | I marched through the hallway and opened the case.
+opening | My copper joints creak when the floorboards bend | I tap out a pattern and send it round again.
+gears | My gears turn steady while your footsteps slide | I can run the whole groove with the case open wide. | Your {cue} can turn and keep perfect time | A factory rhythm is still a factory rhyme. | Your {cue} can spin for a thousand long nights | I'm here for the swing when the drummer ignites.
+sensors | My sensors can see the next snag in the floor | I hear every footstep before it hits the door. | Your {cue} can tell when the floor starts to shake | They can't tell a punchline from a lunch break. | Those {cue} caught dust at the edge of the light | They missed the whole joke when the timing went right.
+welding | My welding made a stage from a bent shopping cart | I put a live rhythm in a spare metal part. | Your {cue} can join two old sheets of tin | The verse has a seam where the sparks get in. | Your {cue} throws sparks up the side of a plate | The words still fall through where the weld doesn't take.
+motor | My motor keeps step with the drummer at night | I turn on the bass when you turn off the light. | Your {cue} can hum all the way down the street | It still takes a drummer to land on the beat. | That {cue} goes round and the pistons go down | I heard the same bar on the far side of town.
+wrench | I keep a wrench at the edge of my stage | I loosen the tempo when you turn the page. | Your {cue} fits fine on a bolt with a head | You can tighten a hinge while I rhyme instead. | Your {cue} fits snug on a loose brass nut | Try fixing a rhyme that got stuck in a rut.
+[toaster]
+opening | I brought golden rye to the end of the hall | The butter went soft when I took my first call.
+opening | My timer ran low while the kitchen kept time | I popped up the hook with a crust on the rhyme.
+opening | Two red coils glowed like the footlights at dawn | The house smelled of bread before I came on.
+opening | A spring sent the toast up a whole inch too high | I caught it with rhythm and gave it to the sky.
+coils | My coils stay hot through the whole morning rush | I put a crisp finish where you put a hush. | Your {cue} can glow like the lights on a stage | A slice of burnt bread is a poor front page. | Your {cue} burn red and turn rye into coal | I gave you a beat and you burned it whole.
+lever | I press my lever and the whole kitchen wakes | I brown both sides while the old counter shakes. | That {cue} goes down and pops up with a click | You keep calling breakfast a headline trick. | That {cue} can't rise till you press it down | I brought my own bounce to the edge of town.
+crumbs | My crumbs kept a rhythm in the tray by the wall | I shook out a snare and the chorus took a fall. | Your {cue} make a mess by the end of the show | The cleanup crew heard more than the front row. | Your {cue} kept time in a tray full of dust | One shake of the counter and out fell the crust.
+timer | My timer can tell when the bread's nearly done | I land the last bar before it gets to one. | Your {cue} keeps count till the metal goes ping | I set my own tempo and leave you the spring. | Your {cue} goes off and the crowd checks the bread | They came for a battle and ate lunch instead.
+toast | My toast is golden and crisp at the rim | I serve it at dawn when the streetlights go dim. | That {cue} can go cold on a plate by the door | I came for a battle and you catered the floor. | The {cue} pops up and leaves butter on top | I bring a new verse when the bread has to stop.
+[pigeon]
+opening | I counted six crumbs from the top of the spire | The wind turned the corner and carried me higher.
+opening | A brass band packed up by the empty town square | I took one last note and flew off with the air.
+opening | My feet wrote a rhythm on a drainpipe of tin | The ledge took a bow when the flock folded in.
+opening | I perched on a gargoyle where the market carts meet | The stone kept still and my toes kept the beat.
+rooftop | I take every rooftop as part of my route | Your street is a map I can fly without. | Your {cue} looks grand with a view of the block | Come down to the pavement and rhyme round the clock. | Your {cue} looks large through the edge of the haze | The crowd's down here and you're missing their gaze.
+crumb | I can make a feast from a crumb by the gate | The rest of my flock never has to wait. | That {cue} looks large from the edge of your beak | It wouldn't feed half of the crowd this week. | That {cue} might feed you from noon until three | I brought enough bread for the whole balcony.
+gutter | My gutter rings out when I dance in the rain | The rooftops repeat it from lane to lane. | Your {cue} plays drums when the rain hits the tin | A leak isn't music just because you flew in. | Your {cue} keeps time when the rainfall begins | The clouds pack up and the silence wins.
+feather | I drop one feather and the whole flock knows | Which way the breeze through the old market blows. | That {cue} can float past the fountain at noon | It still needs a singer to carry a tune. | Your {cue} can tell where the north wind blew | It can't tell the crowd what to listen to.
+lamppost | I own that lamppost at the edge of the square | My shadow goes twice where your feet can't get there. | Your {cue} may shine where the market is bright | Take one step down and we'll see who brings light. | That {cue} stands tall at the edge of the street | It lights up your wings and it won't keep a beat.
+[raccoon]
+opening | The alley was quiet till I opened a bin | An old copper lid made the whole set begin.
+opening | I laced up a snare with a strip from a sack | The clock struck twelve and I carried it back.
+opening | Two dents in a bucket made room for a tone | I took it behind the shop and played it alone.
+opening | My tail cut a stripe through the rain by the shed | The handle kept time with the beat in my head.
+bin | I find a fresh beat in a bin after dark | A tin lid spins and the whole thing throws sparks. | Your {cue} gets loud when the neighbors all sleep | The empty tin rattles but the rhythm isn't deep. | Your {cue} has a lid and a dent in the side | I kept the good groove and let the rest slide.
+paws | My paws can lift a latch without a sound | I leave with the hook before you turn around. | Your {cue} got past the old lock on the door | The audience stayed and asked me for more. | Those {cue} can slip through a crack in the shed | They still have to rhyme with a crowd up ahead.
+scraps | I build a whole set from the scraps in the lane | I stitch up the beat with a piece of old chain. | Your {cue} make a kit with a hole in the drum | You shake it for ten bars and nothing will come. | Your {cue} made a drum from an old tin plate | It gave one good bang and it gave up at eight.
+alley | I made a live stage in the alley at night | The moon caught a bass line under the light. | Your {cue} has acoustics and one broken chair | I brought a whole chorus and filled up the square. | Your {cue} can hold three crates and a light | My verse hits the square where the crowd is tonight.
+bucket | I made a deep sound from a bucket and lid | The thunder came back from the place where it hid. | Your {cue} can ring when you kick it around | I brought a bass drum with a little more ground. | That {cue} held water at half past two | I played one dry note and the rhythm came through.
+[librarian]
+opening | I found an old rhythm in a slip by the spine | The smallest annotation pointed straight to the rhyme.
+opening | My reading room settled when the rain brushed the glass | I wrote two small bars and let the loud ones pass.
+opening | A book fell open on a desk in the stacks | The page had a mark where the rhythm came back.
+opening | One page in the index led to a hidden refrain | I checked out the silence and brought it back again.
+footnote | My footnote can end your big claim in one line | I read the small print and found it was mine. | Your {cue} is clever at the foot of the page | Try reading it out where the crowd can gauge. | Your {cue} gets credit in very small type | The crowd brought their ears and stayed for the hype.
+index | My index can find where you borrowed the hook | The trail went straight through the back of a book. | Your {cue} is neat and it points to a shelf | It says you need someone to rhyme for yourself. | That {cue} gives every old chorus a place | I brought one so new it needs its own space.
+shelf | I put your last boast on a shelf marked debate | It gathered gray dust and came back three days late. | Your {cue} can hold every book in the hall | The rhyme still has to get up and walk tall. | Your {cue} is deep when you pile up the facts | I read to the end and it never claps back.
+citation | A citation can settle the noise in your claim | I checked the edition and spotted your name. | Your {cue} can list every source that you know | You still need your own two lines for the show. | Your {cue} sends readers to somebody's book | The crowd asked whose voice they can hear in the hook.
+stamp | I set my stamp to the day your claim was due | You asked for one more week and I gave you two. | That {cue} can mark up a page in blue ink | The date on the cover can't tell me what to think. | That {cue} leaves ink on a slip by the spine | It puts down a date but it can't keep time.
+[haunted-printer]
+opening | A chill hit the office at quarter to two | The paper slid sideways and whispered right through.
+opening | My tray took a breath when the night shift left | The ream rose slowly and borrowed a clef.
+opening | One black dot crawled from the top of the sheet | I heard its small footsteps and gave it a beat.
+opening | I printed a measure on white paper stock | The letters stood up when the wall struck a clock.
+toner | My toner keeps working when the power goes dead | The last page comes out in an unearthly red. | Your {cue} may glow when the office goes black | I read all your threats and I handed them back. | Your {cue} turns red on the edge of a sheet | I read the whole ghost and it couldn't keep beat.
+rollers | My rollers play thunder as the blank paper slides | A ghost finds a beat in the space where it hides. | Your {cue} keep spinning through paper and dust | I hear the same chorus and smell a little rust. | Those {cue} can thunder when everyone leaves | They only scare clerks with ink on their sleeves.
+receipt | My receipt can show what you owe to the dark | The numbers all vanish when they hit the red mark. | Your {cue} can bill me for fear by the sheet | I paid for a rhythm and asked for the beat. | That {cue} adds up when the paper lies flat | I want my two verses and change after that.
+margin | My margin holds notes from the staff who are gone | The ink keeps on writing right up until dawn. | Your {cue} has room for a whisper or two | The words in the middle still have to come true. | Your {cue} leaves room for a ghost and a note | It didn't leave space for the hook that you wrote.
+paper | My paper comes cold from the mouth of a ghost | The sheet holds a verse and a bill for your boast. | Your {cue} can float down the hall to the door | I read the whole thing and expected much more. | Your {cue} turned white as it slid to the floor | I saw one small threat and I asked for more.
+[disco-ball]
+opening | A stripe of white light hit the edge of the bar | I broke it to pieces and handed out stars.
+opening | My chain swung slowly over shoes on the floor | The band lost a beat and the dancers found more.
+opening | One pinprick of blue got caught in my spin | A thousand bright dots told the night to begin.
+opening | I saved a small shimmer for the end of the track | The room turned dark and the walls threw it back.
+mirrors | My mirrors throw stars from the back of the hall | One beam comes in and I give it to all. | Your {cue} can scatter a beam across glass | The shine is on loan and the rhythm will pass. | Your {cue} took light from a bulb on the wall | I took one dry snare and woke up the hall.
+glitter | My glitter puts a city of light on the floor | You came for one dance and the room asked for more. | That {cue} looks loud on a jacket at night | Take away the lamp and see who brings light. | Your {cue} comes off when the dancers go home | My hook stays up when the room stands alone.
+spotlight | I take one spotlight and split it in blue | The walls throw back more than you know what to do. | Your {cue} can shine from the end of a wire | It won't make a chorus when the dancers tire. | That {cue} goes black when the wire gets cut | My verse keeps going when the curtains shut.
+chain | My chain holds the whole room at the end of a thread | I turn once slowly and the ceiling turns red. | Your {cue} keeps you hanging one foot off the stage | I take my own steps when I turn to the page. | Your {cue} keeps you swinging above every head | I stood on the floor and heard what you said.
+sequins | My sequins can carry the last bit of sun | The house lights went out and the floor still spun. | Your {cue} make sparks where the dancers all meet | A handful of shine never learned how to beat. | Those {cue} keep shining till the room gets dark | I brought the snare that set off the spark.
+[grandfather-clock]
+opening | A slow brass weight sank through a box made of oak | I rang out at midnight and the dust almost spoke.
+opening | One minute fell quiet at the back of the hall | I caught it in time just before it could fall.
+opening | The floorboards creaked as the winter blew through | My old hands waited and then they struck two.
+opening | The hour leaned in at the edge of the pane | My chime took its time and then rang out again.
+pendulum | My pendulum swings through the noise of the hall | I keep perfect time when the floorboards fall. | Your {cue} goes left and comes back to the right | My beat goes somewhere when I take it at night. | Your {cue} can sweep across a case made of pine | I land on the beat without checking the time.
+chime | My chime can be heard at the end of the road | The echo comes back like a verse in code. | Your {cue} rings twelve but the crowd heard eleven | One long little pause doesn't send it to heaven. | Your {cue} gets loud at the top of the hour | My verse keeps time without borrowing power.
+dial | My dial kept watch while your phone lost time | I waited a second and finished the rhyme. | Your {cue} can count out a very long day | I moved the whole room while you watched it decay. | Your {cue} keeps count while you stand in place | The crowd moved on and you lost the race.
+weights | My weights pull down while the hands rise high | The rhythm keeps going when the seasons go by. | Your {cue} can pull on a chain made of brass | They don't make the next hour any less past. | Those {cue} can sink through a box made of wood | They won't make the punchline land where it should.
+second | I give a second a whole little sound | You rushed through the verse and the clock spun around. | That {cue} felt long in the middle of your set | The crowd checked the hour and they're waiting yet. | That {cue} took ages to reach the next bar | I finished a rhyme while you watched from afar.
+[cactus]
+opening | The dune held still while the last clouds passed | I saved a small bloom for the end of the blast.
+opening | I kept one drop in the shade by the stone | The wind lost its voice and I stood here alone.
+opening | My pot caught a ray through a crack in the wall | I grew half an inch while the shadows went tall.
+opening | The desert took a pause at the end of the day | I kept my words short and let the dust blow away.
+thorns | My thorns can make space when the crowd gets tight | They stay on my arms through the heat of the night. | Your {cue} can keep every friend at a stride | Try filling the front row with nobody inside. | Your {cue} can prick any hand in the crowd | Mine all stayed up when the drums got loud.
+drought | I stand through a drought with a drop left to spare | You used up a rainstorm just cooling the air. | That {cue} kept you quiet for a month and a day | I had two fresh bars while you waited for May. | Your {cue} brought quiet to a long stretch of sand | I made a whole chorus from one clapping hand.
+shade | I give one inch of shade to the ground at noon | It stays in one place till I welcome the moon. | Your {cue} fits a shoe and a quarter of a chair | I brought a whole crowd and they all need air. | That {cue} might cool one foot at the show | A room full of dancers needs more room to go.
+bloom | My bloom waits a year for a little bit of rain | The sun takes a bow and I close it again. | That {cue} drew applause for a minute in spring | I kept folks around for the whole thing. | Your {cue} took a year to put on a show | I dropped a new verse before the lights went low.
+dune | I stood on a dune till your whole verse dried | The wind kept a copy and carried it wide. | Your {cue} can shift when the wind takes a turn | I'll give you a chorus that can take a burn. | That {cue} can shift on a warm bit of wind | I stood where it blew and the rhyme stayed pinned.
+[octopus]
+opening | I waved from the reef where the light ran thin | Eight arms kept time as the tide rolled in.
+opening | One jar clicked open in the sand by a wreck | I sent the first verse up the side of the deck.
+opening | I left one ink spot on a long strip of blue | The current caught rhythm and carried it through.
+opening | My arms played a kit of eight shells in a row | I saved one spare beat for the undertow.
+tentacles | My tentacles play eight drums at a time | I keep two on the snare while I finish a rhyme. | Your {cue} can juggle the snare and the bass | Try landing one punchline with a straight face. | Your {cue} can count every drum in the sea | The crowd heard the hook when you handed it to me.
+ink | My ink turns the bay to a blank sheet of black | The lights come on later and the chorus comes back. | Your {cue} can hide where your punchline should be | I read through the cloud and it still couldn't see. | Your {cue} puts a dark veil across the reef | The fog cleared away and the punchline was brief.
+reef | My reef keeps the echo from reaching the shore | I send eight replies when you ask me for four. | Your {cue} can take in a wave on the tide | I heard one good line and the rest went to hide. | That {cue} hears echoes as deep as the tide | I heard two of your bars with nowhere to hide.
+jar | I open a jar while I hold down the beat | The lid took a bow and the sand found its feet. | Your {cue} held a hook till you loosened the lid | It swam straight away and left nothing but squid. | Your {cue} can spin when the tide turns slow | I took off the lid and let the whole verse go.
+knots | I tie seven knots while the tide runs deep | I loosen the last while your drummer's asleep. | Your {cue} keep your punchline tied to a chair | I pull one loose thread and the rhyme gets air. | Those {cue} held tight till the last little pull | I left you a loop and a room half full.
+[weather-forecaster]
+opening | The map on the wall caught a thin band of blue | It drifted down south as the first beat came through.
+opening | I heard a low rumble off the east end of town | The needle moved west when the bass settled down.
+opening | A gust rolled ashore by the end of the pier | I gave it two bars and the rest came in clear.
+opening | I penciled a change in the evening report | The pressure fell fast and the shower cut short.
+radar | My radar sees trouble off the end of the coast | I mark the exact spot where you made your boast. | Your {cue} can draw every cloud in the sky | It missed that your big storm was passing you by. | Your {cue} paints clouds on a flickering screen | It missed the drum break in the space in between.
+drizzle | I called for drizzle and the whole crowd got wet | I wrote the next line while the last drop set. | Your {cue} made dots on a weatherproof chart | The rain moved on and the crowd didn't start. | That {cue} got wet on the edge of the map | The sky made a whisper and the room didn't clap.
+forecast | My forecast caught thunder before it hit town | The loudest part came when the sun went down. | Your {cue} can say that the thunder is due | The clap from the crowd is still waiting for you. | Your {cue} was right about rain at the gate | The crowd came on time and the chorus came late.
+pressure | I marked low pressure on the chart by the door | The sky moved a notch and the bass hit the floor. | Your {cue} can drop on a dial by the sea | It still takes a beat to put pressure on me. | That {cue} fell low on a dial by the sea | I heard it go down and the crowd came to me.
+hail | I called for hail at the start of the night | The ice kept a beat under the stadium light. | Your {cue} hit the roof with a hard little tap | The rest of the thunder stayed back on the map. | Your {cue} made a clack on the tin at the show | My snare made a crack that carried down below.
+[volcano]
+opening | I heard a small note in the dark under rock | The valley went quiet at eight on the clock.
+opening | My crater kept still while the cold morning passed | A red river woke when I opened the last.
+opening | The ridge wore a crown of ash in the gray | I saved all the thunder for the end of the day.
+opening | One low rumble rolled past a crack in the floor | The hillside took breath and the valley heard more.
+lava | My lava keeps time as it rolls down the slope | The valley stands back when it catches the glow. | Your {cue} runs slow to the edge of the street | I finished two verses before it brought heat. | Your {cue} looks bright as it rolls down the hill | The audience danced and the mountain stood still.
+crater | My crater keeps quiet before the last bar | The ash makes a cloud that the town sees from far. | Your {cue} can echo from a hole in the ground | A room full of silence could make the same sound. | That {cue} threw back a low sound from the stone | I heard it come back and it sounded alone.
+ash | My ash puts a shadow on the far side of town | The windows go dark when the rhythm comes down. | Your {cue} may look big from the top of the hill | The whole crowd stayed warm while the valley went still. | Your {cue} can gray every roof in the town | The crowd heard one beat and the dust settled down.
+smoke | My smoke leaves a mark on a clear blue sky | I rise from the ridge when your best words die. | Your {cue} can look like a dragon from here | I waited for fire and the picture went clear. | That {cue} can drift through a door after dark | I still had to wait for a decent spark.
+rumble | My rumble can shake the floor of the hall | The bass comes up first and it climbs every wall. | Your {cue} shook dust from the back of a shelf | The mountain could learn to write music itself. | Your {cue} shook nails from the frame of the door | I played one backbeat and they asked me for more.
