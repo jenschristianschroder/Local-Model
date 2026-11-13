@@ -37,7 +37,7 @@ test('copy story includes the full prompt and continuation, with fallback and ho
 test('example carousel preserves supplied text and shows full stories with dots, buttons, keys and isolated swipes',async()=>{
   const a=await app();try{
     const stories=JSON.parse(readFileSync(new URL('./ui/examples.json',import.meta.url),'utf8'));
-    const text=()=>a.q('#samples h3').nextElementSibling.textContent;
+    const text=()=>a.q('#samples [aria-hidden="false"]').textContent;
     const next=a.q('[aria-label="Next example story"]'),previous=a.q('[aria-label="Previous example story"]');
     for(let i=0;i<3;i++){
       const dots=a.q('#samples [role="status"]');
