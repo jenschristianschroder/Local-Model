@@ -101,7 +101,7 @@ export function createPerformer(checkpoint) {
     training: checkpoint.training,
     generate({previous = "", cue = "", seed, earlier = [], role, opponent, temperature = 0.75}) {
       const prompt = ["<start>"];
-      if (performer === "challenge") prompt.push(`<${role}>`);
+      if (performer === "challenge" || performer === "octopus-challenge") prompt.push(`<${role}>`);
       if (performer === "context-reply") {
         prompt.push(previous ? `<opponent:${opponent}>` : `<speaker:${role}>`);
       }

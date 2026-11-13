@@ -30,7 +30,12 @@ const reset = find("reset");
 const temperature = find("temperature");
 const temperatureValue = find("temperature-value");
 const status = find("status");
-const common = new Set("the and your you that when with from this have their then were them like there what they will just into back while still whole already".split(" "));
+const common = new Set(("a an the and or but to of in on at by as is am are was were be been being " +
+  "i me my mine we us our ours you your yours he him his she her hers it its they them their theirs " +
+  "that this these those when with from have has had then like there what which who how will shall " +
+  "would should could can may might must just into back while still whole already do does did not " +
+  "if for than so too very up out off over under about before after until through where why some any " +
+  "all each one two own both such only no yes let lets dont wont cant isnt arent ill im ive id").split(" "));
 const cueNouns = new Set((
   "battery server racks broadband cable mic tunnel bike queue curb beat concert seat echo passport keys " +
   "rhythm signal fan band bicycle spinner dance verse chart towers pocket punchline skyline invoice solo " +
@@ -43,10 +48,12 @@ const cueNouns = new Set((
   "fountain beak rooftop flock lamppost gutter picnic bucket alley horn latch shelf footnote index spine " +
   "toner paper tray rollers ghost receipt margin glitter mirror mirrors sparkle spotlight chain pendulum " +
   "chime chimes floorboards thorn needles sand desert bloom shadow reef shell tide ink kelp radar forecast " +
-  "drizzle thunder broadcast crater lava ash smoke rock ridge slope"
+  "drizzle thunder broadcast crater lava ash smoke rock ridge slope " +
+  "pot lip sky spot cave wave shell pier rope lantern wreck foam chest net stream"
 ).split(" "));
 let replyModel;
 let challengeModel;
+let octopusChallengeModel;
 const performed = selectors.map(() => []);
 const selectedNames = () => selectors.map(select => roster[select.value]);
 let turn = 0;
@@ -68,9 +75,11 @@ temperature.addEventListener("input", updateTemperature);
 updateTemperature();
 
 function cueWords(text) {
-  const words = [...new Set(text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g))];
-  const candidates = words.filter(word => word.length > 3 && !common.has(word));
-  const nouns = candidates.filter(word => cueNouns.has(word));
+  const tokens = text.toLowerCase().match(/[a-z]+(?:['’][a-z]+)*/g) ?? [];
+  // Copy tokens were trained in noun slots. Keep contractions and filler out of the choices.
+  const words = [...new Set(tokens)].filter(word => word.length > 1 && !/['’]/.test(word) && !common.has(word));
+  const candidates = words.filter(word => word.length > 3);
+  const nouns = words.filter(word => cueNouns.has(word));
   return [...new Set([...nouns, ...candidates, ...words])].slice(0, 3);
 }
 
@@ -158,11 +167,18 @@ next.onclick = async () => {
   status.textContent = replyModel ? performer + " is writing…" : "Loading the battle models…";
   try {
     if (!replyModel) {
-      [replyModel, challengeModel] = await Promise.all([loadModel("context-reply"), loadModel("challenge")]);
+      const roles = selectors.map(select => select.value);
+      [replyModel, challengeModel, octopusChallengeModel] = await Promise.all([
+        loadModel("context-reply"), loadModel("challenge"),
+        roles.includes("octopus") ? loadModel("octopus-challenge") : undefined,
+      ]);
     }
     const stats = find("model-stats");
     stats.textContent = "Reply model · " + replyModel.training.parameters.toLocaleString() +
       " trained parameters / Challenge model · " + challengeModel.training.parameters.toLocaleString() + " trained parameters";
+    if (octopusChallengeModel) {
+      stats.textContent += " / Octopus challenge model · " + octopusChallengeModel.training.parameters.toLocaleString() + " trained parameters";
+    }
     stats.hidden = false;
     // Give the browser a frame to announce the busy state before inference.
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
@@ -178,8 +194,10 @@ next.onclick = async () => {
       temperature: samplingTemperature,
     });
     if (!reply) throw new Error("The model did not finish a two-line reply.");
-    const challenge = challengeModel.generate({
-      role: selectors[index].value,
+    const role = selectors[index].value;
+    const challengeWriter = role === "octopus" ? octopusChallengeModel : challengeModel;
+    const challenge = challengeWriter.generate({
+      role,
       seed: seed ^ 0x9e3779b9,
       temperature: samplingTemperature,
       earlier: [...earlier, ...performed[1 - index], {text: reply, cue}],
@@ -204,7 +222,7 @@ next.onclick = async () => {
   } catch {
     const loaded = Boolean(replyModel);
     if (turn === 0) {
-      replyModel = challengeModel = undefined;
+      replyModel = challengeModel = octopusChallengeModel = undefined;
       matchup.disabled = false;
       find("model-stats").hidden = true;
     }
@@ -219,7 +237,7 @@ next.onclick = async () => {
 
 reset.onclick = () => {
   turn = 0;
-  replyModel = challengeModel = undefined;
+  replyModel = challengeModel = octopusChallengeModel = undefined;
   matchup.disabled = false;
   find("model-stats").hidden = true;
   previousChallenge = cue = "";
