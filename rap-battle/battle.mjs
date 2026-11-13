@@ -101,25 +101,15 @@ function appendVerse(performer, reply, challenge) {
   item.className = turn % selectors.length === 0 ? "verse first" : "verse second";
   item.append(element("h3", performer + " · Round " + (Math.floor(turn / selectors.length) + 1)));
   const verse = element("p", "");
-  const replyLabel = element("h4", turn === 0 ? "Opening" : "Reply");
-  item.append(replyLabel, verse);
-  let found = false;
+  if (turn === 0) item.append(element("h4", "Opening"));
   for (const piece of reply.split(/([A-Za-z]+(?:'[A-Za-z]+)?)/)) {
     if (cue && piece.toLowerCase() === cue) {
-      found = true;
       verse.append(element("mark", piece));
     } else {
       verse.append(piece);
     }
   }
-  if (cue) {
-    const detail = element("p", found ? "Callback · " + cue : "Missed callback · " + cue);
-    detail.className = "callback";
-    item.append(detail);
-  }
-  const challengeLabel = element("h4", "Challenge");
-  challengeLabel.className = "challenge-label";
-  item.append(challengeLabel, element("p", challenge));
+  item.append(verse, element("p", challenge));
   verses.append(item);
 }
 
