@@ -175,4 +175,5 @@ pre { font:14px/1.7 var(--mono); white-space:pre-wrap; overflow-wrap:anywhere; b
 
 #sample-text span { grid-area:1/1; }
 
-#playground [data-prompt] { padding:8px; font-size:14px; }
+#playground [data-prompt] { padding:8px; font-size:13px; }
+.starters { display:grid; grid-template-columns:1fr 1fr; gap:4px 8px; }
