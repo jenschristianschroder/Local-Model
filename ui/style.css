@@ -165,3 +165,12 @@ pre { font:14px/1.7 var(--mono); white-space:pre-wrap; overflow-wrap:anywhere; b
 #sample-count { margin-top:10px; }
 }
 @media(max-width:760px) and (max-height:650px) { #intro .lead,#samples .eyebrow { display:none; } }
+
+@media(max-width:760px) {
+#playground { padding:12px 14px; }
+#playground h2 { font-size:26px; }
+#playground .page-head { padding-bottom:12px; }
+#playground .prompt-content { gap:12px; overflow:visible; }
+#prompt { font-size:17px; min-height:76px; height:76px; resize:none; }
+#playground .row { gap:4px 14px; }
+}
