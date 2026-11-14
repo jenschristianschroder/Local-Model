@@ -36,9 +36,9 @@ PERFORMERS = {
     "octopus": ("expanded-roster.json", 2129),
     "weather-forecaster": ("expanded-roster.json", 2131),
     "volcano": ("expanded-roster.json", 2137),
-    "challenge": ("challenges.json", 2153),
+    "challenge": ("megabyte-challenges.json", 2203),
     "octopus-challenge": ("octopus-challenges.json", 2179),
-    "context-reply": ("context-corpus.txt", 2161),
+    "context-reply": ("megabyte-replies.txt", 2191),
 }
 
 
@@ -178,7 +178,7 @@ def train(performer, steps):
     filename, seed = PERFORMERS[performer]
     raw = (HERE / filename).read_bytes()
     contextual = performer == "context-reply"
-    embedding, hidden = (56, 112) if contextual else (EMBEDDING, HIDDEN)
+    embedding, hidden = {"context-reply": (96, 224), "challenge": (88, 184)}.get(performer, (EMBEDDING, HIDDEN))
     corpus = None if contextual else json.loads(raw)
     if contextual:
         training, validation, opening_count, topics = contextual_examples(raw)
@@ -249,6 +249,6 @@ if __name__ == "__main__":
     parser.add_argument("--steps", type=int, help="Defaults vary by checkpoint.")
     args = parser.parse_args()
     expanded = PERFORMERS[args.performer][0] not in {"corpus.json", "robot-toaster.json"}
-    torch.set_num_threads(1 if expanded else 2)
-    default_steps = {"challenge": 1000, "octopus-challenge": 1400, "context-reply": 850}.get(args.performer, 600 if expanded else 800)
+    torch.set_num_threads(2)
+    default_steps = {"challenge": 1000, "octopus-challenge": 1400, "context-reply": 700}.get(args.performer, 600 if expanded else 800)
     train(args.performer, args.steps if args.steps is not None else default_steps)

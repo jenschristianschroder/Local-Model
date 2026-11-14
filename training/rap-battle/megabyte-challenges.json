@@ -1,0 +1,226 @@
+{
+  "laptop": {
+    "train": [
+      "My battery hums when the town goes dark\nI finish the hook on a fingertip spark",
+      "Bring your next verse to the edge of the train\nI'll finish the hook before you reach the rain.",
+      "Try keeping time when I bring out the train\nI'll leave you a bar while I work in the rain.",
+      "Bring your next verse to the edge of the seat\nI'll finish the hook before you reach the beat.",
+      "Try keeping time when I bring out the seat\nI'll leave you a bar while I work in the beat.",
+      "Bring your next verse to the edge of the light\nI'll finish the hook before you reach the night.",
+      "Try keeping time when I bring out the light\nI'll leave you a bar while I work in the night.",
+      "Bring your next verse to the edge of the charge\nI'll finish the hook before you reach the large.",
+      "Try keeping time when I bring out the charge\nI'll leave you a bar while I work in the large."
+    ],
+    "validation": [
+      "Let's hear your next line about the battery\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "cloud": {
+    "train": [
+      "My backup keeps playing when cables go slack\nI give the whole chorus a second way back",
+      "Bring your next verse to the edge of the rack\nI'll finish the hook before you reach the track.",
+      "Try keeping time when I bring out the rack\nI'll leave you a bar while I work in the track.",
+      "Bring your next verse to the edge of the shore\nI'll finish the hook before you reach the more.",
+      "Try keeping time when I bring out the shore\nI'll leave you a bar while I work in the more.",
+      "Bring your next verse to the edge of the room\nI'll finish the hook before you reach the boom.",
+      "Try keeping time when I bring out the room\nI'll leave you a bar while I work in the boom.",
+      "Bring your next verse to the edge of the load\nI'll finish the hook before you reach the road.",
+      "Try keeping time when I bring out the load\nI'll leave you a bar while I work in the road."
+    ],
+    "validation": [
+      "Let's hear your next line about the backup\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "robot": {
+    "train": [
+      "My gears keep a count on the factory floor\nI finish the hook while you look for the door",
+      "Bring your next verse to the edge of the wrench\nI'll finish the hook before you reach the bench.",
+      "Try keeping time when I bring out the wrench\nI'll leave you a bar while I work in the bench.",
+      "Bring your next verse to the edge of the steel\nI'll finish the hook before you reach the wheel.",
+      "Try keeping time when I bring out the steel\nI'll leave you a bar while I work in the wheel.",
+      "Bring your next verse to the edge of the bolt\nI'll finish the hook before you reach the jolt.",
+      "Try keeping time when I bring out the bolt\nI'll leave you a bar while I work in the jolt.",
+      "Bring your next verse to the edge of the chain\nI'll finish the hook before you reach the train.",
+      "Try keeping time when I bring out the chain\nI'll leave you a bar while I work in the train."
+    ],
+    "validation": [
+      "Let's hear your next line about the gears\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "toaster": {
+    "train": [
+      "My toast comes up golden with heat in its crust\nI turn your cold punchline to cinnamon dust",
+      "Bring your next verse to the edge of the bread\nI'll finish the hook before you reach the spread.",
+      "Try keeping time when I bring out the bread\nI'll leave you a bar while I work in the spread.",
+      "Bring your next verse to the edge of the heat\nI'll finish the hook before you reach the beat.",
+      "Try keeping time when I bring out the heat\nI'll leave you a bar while I work in the beat.",
+      "Bring your next verse to the edge of the slice\nI'll finish the hook before you reach the twice.",
+      "Try keeping time when I bring out the slice\nI'll leave you a bar while I work in the twice.",
+      "Bring your next verse to the edge of the glow\nI'll finish the hook before you reach the show.",
+      "Try keeping time when I bring out the glow\nI'll leave you a bar while I work in the show."
+    ],
+    "validation": [
+      "Let's hear your next line about the toast\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "pigeon": {
+    "train": [
+      "I take my rooftop over the market below\nI trade every footstep for a flap and a show",
+      "Bring your next verse to the edge of the beak\nI'll finish the hook before you reach the peak.",
+      "Try keeping time when I bring out the beak\nI'll leave you a bar while I work in the peak.",
+      "Bring your next verse to the edge of the crumb\nI'll finish the hook before you reach the drum.",
+      "Try keeping time when I bring out the crumb\nI'll leave you a bar while I work in the drum.",
+      "Bring your next verse to the edge of the flight\nI'll finish the hook before you reach the night.",
+      "Try keeping time when I bring out the flight\nI'll leave you a bar while I work in the night.",
+      "Bring your next verse to the edge of the wall\nI'll finish the hook before you reach the fall.",
+      "Try keeping time when I bring out the wall\nI'll leave you a bar while I work in the fall."
+    ],
+    "validation": [
+      "Let's hear your next line about the rooftop\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "raccoon": {
+    "train": [
+      "I pulled my bucket from a ditch by the lane\nThe dents kept the bass and the lid kept the rain",
+      "Bring your next verse to the edge of the bin\nI'll finish the hook before you reach the tin.",
+      "Try keeping time when I bring out the bin\nI'll leave you a bar while I work in the tin.",
+      "Bring your next verse to the edge of the latch\nI'll finish the hook before you reach the scratch.",
+      "Try keeping time when I bring out the latch\nI'll leave you a bar while I work in the scratch.",
+      "Bring your next verse to the edge of the paw\nI'll finish the hook before you reach the claw.",
+      "Try keeping time when I bring out the paw\nI'll leave you a bar while I work in the claw.",
+      "Bring your next verse to the edge of the lid\nI'll finish the hook before you reach the hid.",
+      "Try keeping time when I bring out the lid\nI'll leave you a bar while I work in the hid."
+    ],
+    "validation": [
+      "Let's hear your next line about the bucket\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "librarian": {
+    "train": [
+      "My footnote sends your big boast to the stacks\nI let the whole room find the holes in your facts",
+      "Bring your next verse to the edge of the page\nI'll finish the hook before you reach the stage.",
+      "Try keeping time when I bring out the page\nI'll leave you a bar while I work in the stage.",
+      "Bring your next verse to the edge of the spine\nI'll finish the hook before you reach the line.",
+      "Try keeping time when I bring out the spine\nI'll leave you a bar while I work in the line.",
+      "Bring your next verse to the edge of the desk\nI'll finish the hook before you reach the brisk.",
+      "Try keeping time when I bring out the desk\nI'll leave you a bar while I work in the brisk.",
+      "Bring your next verse to the edge of the book\nI'll finish the hook before you reach the hook.",
+      "Try keeping time when I bring out the book\nI'll leave you a bar while I work in the hook."
+    ],
+    "validation": [
+      "Let's hear your next line about the footnote\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "haunted-printer": {
+    "train": [
+      "My toner keeps working when the staff go home\nThe paper turns white and the words start to roam",
+      "Bring your next verse to the edge of the tray\nI'll finish the hook before you reach the gray.",
+      "Try keeping time when I bring out the tray\nI'll leave you a bar while I work in the gray.",
+      "Bring your next verse to the edge of the sheet\nI'll finish the hook before you reach the beat.",
+      "Try keeping time when I bring out the sheet\nI'll leave you a bar while I work in the beat.",
+      "Bring your next verse to the edge of the jam\nI'll finish the hook before you reach the slam.",
+      "Try keeping time when I bring out the jam\nI'll leave you a bar while I work in the slam.",
+      "Bring your next verse to the edge of the ghost\nI'll finish the hook before you reach the boast.",
+      "Try keeping time when I bring out the ghost\nI'll leave you a bar while I work in the boast."
+    ],
+    "validation": [
+      "Let's hear your next line about the toner\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "disco-ball": {
+    "train": [
+      "My mirrors throw stars over everybody's shoes\nI spin one small beam into reds and blues",
+      "Bring your next verse to the edge of the shine\nI'll finish the hook before you reach the line.",
+      "Try keeping time when I bring out the shine\nI'll leave you a bar while I work in the line.",
+      "Bring your next verse to the edge of the floor\nI'll finish the hook before you reach the more.",
+      "Try keeping time when I bring out the floor\nI'll leave you a bar while I work in the more.",
+      "Bring your next verse to the edge of the beam\nI'll finish the hook before you reach the dream.",
+      "Try keeping time when I bring out the beam\nI'll leave you a bar while I work in the dream.",
+      "Bring your next verse to the edge of the glow\nI'll finish the hook before you reach the show.",
+      "Try keeping time when I bring out the glow\nI'll leave you a bar while I work in the show."
+    ],
+    "validation": [
+      "Let's hear your next line about the mirrors\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "grandfather-clock": {
+    "train": [
+      "My pendulum swings through a century of dust\nI still make the downbeat when your stopwatch starts to rust",
+      "Bring your next verse to the edge of the chime\nI'll finish the hook before you reach the time.",
+      "Try keeping time when I bring out the chime\nI'll leave you a bar while I work in the time.",
+      "Bring your next verse to the edge of the dial\nI'll finish the hook before you reach the mile.",
+      "Try keeping time when I bring out the dial\nI'll leave you a bar while I work in the mile.",
+      "Bring your next verse to the edge of the tick\nI'll finish the hook before you reach the quick.",
+      "Try keeping time when I bring out the tick\nI'll leave you a bar while I work in the quick.",
+      "Bring your next verse to the edge of the bells\nI'll finish the hook before you reach the shells.",
+      "Try keeping time when I bring out the bells\nI'll leave you a bar while I work in the shells."
+    ],
+    "validation": [
+      "Let's hear your next line about the pendulum\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "cactus": {
+    "train": [
+      "My thorns keep a seat at the edge of the sand\nI wait out the heat without moving a hand",
+      "Bring your next verse to the edge of the shade\nI'll finish the hook before you reach the blade.",
+      "Try keeping time when I bring out the shade\nI'll leave you a bar while I work in the blade.",
+      "Bring your next verse to the edge of the dune\nI'll finish the hook before you reach the moon.",
+      "Try keeping time when I bring out the dune\nI'll leave you a bar while I work in the moon.",
+      "Bring your next verse to the edge of the pot\nI'll finish the hook before you reach the spot.",
+      "Try keeping time when I bring out the pot\nI'll leave you a bar while I work in the spot.",
+      "Bring your next verse to the edge of the spine\nI'll finish the hook before you reach the line.",
+      "Try keeping time when I bring out the spine\nI'll leave you a bar while I work in the line."
+    ],
+    "validation": [
+      "Let's hear your next line about the thorns\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "octopus": {
+    "train": [
+      "My tentacles tap out a chorus beneath\nThe waves pick it up at the edge of the reef",
+      "Bring your next verse to the edge of the reef\nI'll finish the hook before you reach the brief.",
+      "Try keeping time when I bring out the reef\nI'll leave you a bar while I work in the brief.",
+      "Bring your next verse to the edge of the ink\nI'll finish the hook before you reach the blink.",
+      "Try keeping time when I bring out the ink\nI'll leave you a bar while I work in the blink.",
+      "Bring your next verse to the edge of the wave\nI'll finish the hook before you reach the cave.",
+      "Try keeping time when I bring out the wave\nI'll leave you a bar while I work in the cave.",
+      "Bring your next verse to the edge of the shore\nI'll finish the hook before you reach the more.",
+      "Try keeping time when I bring out the shore\nI'll leave you a bar while I work in the more."
+    ],
+    "validation": [
+      "Let's hear your next line about the tentacles\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "weather-forecaster": {
+    "train": [
+      "My radar caught thunder off the edge of the map\nI called for applause and the sky gave a clap",
+      "Bring your next verse to the edge of the rain\nI'll finish the hook before you reach the plain.",
+      "Try keeping time when I bring out the rain\nI'll leave you a bar while I work in the plain.",
+      "Bring your next verse to the edge of the gust\nI'll finish the hook before you reach the dust.",
+      "Try keeping time when I bring out the gust\nI'll leave you a bar while I work in the dust.",
+      "Bring your next verse to the edge of the hail\nI'll finish the hook before you reach the trail.",
+      "Try keeping time when I bring out the hail\nI'll leave you a bar while I work in the trail.",
+      "Bring your next verse to the edge of the sky\nI'll finish the hook before you reach the high.",
+      "Try keeping time when I bring out the sky\nI'll leave you a bar while I work in the high."
+    ],
+    "validation": [
+      "Let's hear your next line about the radar\nI'll give you a turn and then answer in kind."
+    ]
+  },
+  "volcano": {
+    "train": [
+      "My lava glows red where it runs through the stone\nI set the whole hillside alight on my own",
+      "Bring your next verse to the edge of the ash\nI'll finish the hook before you reach the flash.",
+      "Try keeping time when I bring out the ash\nI'll leave you a bar while I work in the flash.",
+      "Bring your next verse to the edge of the stone\nI'll finish the hook before you reach the own.",
+      "Try keeping time when I bring out the stone\nI'll leave you a bar while I work in the own.",
+      "Bring your next verse to the edge of the smoke\nI'll finish the hook before you reach the cloak.",
+      "Try keeping time when I bring out the smoke\nI'll leave you a bar while I work in the cloak.",
+      "Bring your next verse to the edge of the heat\nI'll finish the hook before you reach the beat.",
+      "Try keeping time when I bring out the heat\nI'll leave you a bar while I work in the beat."
+    ],
+    "validation": [
+      "Let's hear your next line about the lava\nI'll give you a turn and then answer in kind."
+    ]
+  }
+}

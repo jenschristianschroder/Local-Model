@@ -1,0 +1,154 @@
+[laptop]
+opening | My battery hums when the town goes dark | I finish the hook on a fingertip spark
+train | Bring your next verse to the edge of the train | I'll finish the hook before you reach the rain. | Your {cue} got a turn by the edge of the train | The crowd came back when I brought out the rain.
+train | Try keeping time when I bring out the train | I'll leave you a bar while I work in the rain. | Your {cue} got a turn by the edge of the train | The crowd came back when I brought out the rain.
+seat | Bring your next verse to the edge of the seat | I'll finish the hook before you reach the beat. | Your {cue} got a turn by the edge of the seat | The crowd came back when I brought out the beat.
+seat | Try keeping time when I bring out the seat | I'll leave you a bar while I work in the beat. | Your {cue} got a turn by the edge of the seat | The crowd came back when I brought out the beat.
+light | Bring your next verse to the edge of the light | I'll finish the hook before you reach the night. | Your {cue} got a turn by the edge of the light | The crowd came back when I brought out the night.
+light | Try keeping time when I bring out the light | I'll leave you a bar while I work in the night. | Your {cue} got a turn by the edge of the light | The crowd came back when I brought out the night.
+charge | Bring your next verse to the edge of the charge | I'll finish the hook before you reach the large. | Your {cue} got a turn by the edge of the charge | The crowd came back when I brought out the large.
+charge | Try keeping time when I bring out the charge | I'll leave you a bar while I work in the large. | Your {cue} got a turn by the edge of the charge | The crowd came back when I brought out the large.
+battery | My battery hums when the town goes dark | I finish the hook on a fingertip spark | That {cue} gets smaller with each little bar | The socket is near but the encore is far
+[cloud]
+opening | My backup keeps playing when cables go slack | I give the whole chorus a second way back
+rack | Bring your next verse to the edge of the rack | I'll finish the hook before you reach the track. | Your {cue} got a turn by the edge of the rack | The crowd came back when I brought out the track.
+rack | Try keeping time when I bring out the rack | I'll leave you a bar while I work in the track. | Your {cue} got a turn by the edge of the rack | The crowd came back when I brought out the track.
+shore | Bring your next verse to the edge of the shore | I'll finish the hook before you reach the more. | Your {cue} got a turn by the edge of the shore | The crowd came back when I brought out the more.
+shore | Try keeping time when I bring out the shore | I'll leave you a bar while I work in the more. | Your {cue} got a turn by the edge of the shore | The crowd came back when I brought out the more.
+room | Bring your next verse to the edge of the room | I'll finish the hook before you reach the boom. | Your {cue} got a turn by the edge of the room | The crowd came back when I brought out the boom.
+room | Try keeping time when I bring out the room | I'll leave you a bar while I work in the boom. | Your {cue} got a turn by the edge of the room | The crowd came back when I brought out the boom.
+load | Bring your next verse to the edge of the load | I'll finish the hook before you reach the road. | Your {cue} got a turn by the edge of the load | The crowd came back when I brought out the road.
+load | Try keeping time when I bring out the load | I'll leave you a bar while I work in the road. | Your {cue} got a turn by the edge of the load | The crowd came back when I brought out the road.
+backup | My backup keeps playing when cables go slack | I give the whole chorus a second way back | That {cue} can replay every note that you save | The crowd came to hear how a live drummer behaves
+[robot]
+opening | My gears keep a count on the factory floor | I finish the hook while you look for the door
+wrench | Bring your next verse to the edge of the wrench | I'll finish the hook before you reach the bench. | Your {cue} got a turn by the edge of the wrench | The crowd came back when I brought out the bench.
+wrench | Try keeping time when I bring out the wrench | I'll leave you a bar while I work in the bench. | Your {cue} got a turn by the edge of the wrench | The crowd came back when I brought out the bench.
+steel | Bring your next verse to the edge of the steel | I'll finish the hook before you reach the wheel. | Your {cue} got a turn by the edge of the steel | The crowd came back when I brought out the wheel.
+steel | Try keeping time when I bring out the steel | I'll leave you a bar while I work in the wheel. | Your {cue} got a turn by the edge of the steel | The crowd came back when I brought out the wheel.
+bolt | Bring your next verse to the edge of the bolt | I'll finish the hook before you reach the jolt. | Your {cue} got a turn by the edge of the bolt | The crowd came back when I brought out the jolt.
+bolt | Try keeping time when I bring out the bolt | I'll leave you a bar while I work in the jolt. | Your {cue} got a turn by the edge of the bolt | The crowd came back when I brought out the jolt.
+chain | Bring your next verse to the edge of the chain | I'll finish the hook before you reach the train. | Your {cue} got a turn by the edge of the chain | The crowd came back when I brought out the train.
+chain | Try keeping time when I bring out the chain | I'll leave you a bar while I work in the train. | Your {cue} got a turn by the edge of the chain | The crowd came back when I brought out the train.
+gears | My gears keep a count on the factory floor | I finish the hook while you look for the door | Your {cue} can turn at a regular pace | A clockwork solo still needs a little grace
+[toaster]
+opening | My toast comes up golden with heat in its crust | I turn your cold punchline to cinnamon dust
+bread | Bring your next verse to the edge of the bread | I'll finish the hook before you reach the spread. | Your {cue} got a turn by the edge of the bread | The crowd came back when I brought out the spread.
+bread | Try keeping time when I bring out the bread | I'll leave you a bar while I work in the spread. | Your {cue} got a turn by the edge of the bread | The crowd came back when I brought out the spread.
+heat | Bring your next verse to the edge of the heat | I'll finish the hook before you reach the beat. | Your {cue} got a turn by the edge of the heat | The crowd came back when I brought out the beat.
+heat | Try keeping time when I bring out the heat | I'll leave you a bar while I work in the beat. | Your {cue} got a turn by the edge of the heat | The crowd came back when I brought out the beat.
+slice | Bring your next verse to the edge of the slice | I'll finish the hook before you reach the twice. | Your {cue} got a turn by the edge of the slice | The crowd came back when I brought out the twice.
+slice | Try keeping time when I bring out the slice | I'll leave you a bar while I work in the twice. | Your {cue} got a turn by the edge of the slice | The crowd came back when I brought out the twice.
+glow | Bring your next verse to the edge of the glow | I'll finish the hook before you reach the show. | Your {cue} got a turn by the edge of the glow | The crowd came back when I brought out the show.
+glow | Try keeping time when I bring out the glow | I'll leave you a bar while I work in the show. | Your {cue} got a turn by the edge of the glow | The crowd came back when I brought out the show.
+toast | My toast comes up golden with heat in its crust | I turn your cold punchline to cinnamon dust | Your {cue} can jump at the sound of a bell | The folks came to listen and all they can do is smell
+[pigeon]
+opening | I take my rooftop over the market below | I trade every footstep for a flap and a show
+beak | Bring your next verse to the edge of the beak | I'll finish the hook before you reach the peak. | Your {cue} got a turn by the edge of the beak | The crowd came back when I brought out the peak.
+beak | Try keeping time when I bring out the beak | I'll leave you a bar while I work in the peak. | Your {cue} got a turn by the edge of the beak | The crowd came back when I brought out the peak.
+crumb | Bring your next verse to the edge of the crumb | I'll finish the hook before you reach the drum. | Your {cue} got a turn by the edge of the crumb | The crowd came back when I brought out the drum.
+crumb | Try keeping time when I bring out the crumb | I'll leave you a bar while I work in the drum. | Your {cue} got a turn by the edge of the crumb | The crowd came back when I brought out the drum.
+flight | Bring your next verse to the edge of the flight | I'll finish the hook before you reach the night. | Your {cue} got a turn by the edge of the flight | The crowd came back when I brought out the night.
+flight | Try keeping time when I bring out the flight | I'll leave you a bar while I work in the night. | Your {cue} got a turn by the edge of the flight | The crowd came back when I brought out the night.
+wall | Bring your next verse to the edge of the wall | I'll finish the hook before you reach the fall. | Your {cue} got a turn by the edge of the wall | The crowd came back when I brought out the fall.
+wall | Try keeping time when I bring out the wall | I'll leave you a bar while I work in the fall. | Your {cue} got a turn by the edge of the wall | The crowd came back when I brought out the fall.
+rooftop | I take my rooftop over the market below | I trade every footstep for a flap and a show | Your {cue} is fine if you want to look down | Try sharing a stage with the rest of the town
+[raccoon]
+opening | I pulled my bucket from a ditch by the lane | The dents kept the bass and the lid kept the rain
+bin | Bring your next verse to the edge of the bin | I'll finish the hook before you reach the tin. | Your {cue} got a turn by the edge of the bin | The crowd came back when I brought out the tin.
+bin | Try keeping time when I bring out the bin | I'll leave you a bar while I work in the tin. | Your {cue} got a turn by the edge of the bin | The crowd came back when I brought out the tin.
+latch | Bring your next verse to the edge of the latch | I'll finish the hook before you reach the scratch. | Your {cue} got a turn by the edge of the latch | The crowd came back when I brought out the scratch.
+latch | Try keeping time when I bring out the latch | I'll leave you a bar while I work in the scratch. | Your {cue} got a turn by the edge of the latch | The crowd came back when I brought out the scratch.
+paw | Bring your next verse to the edge of the paw | I'll finish the hook before you reach the claw. | Your {cue} got a turn by the edge of the paw | The crowd came back when I brought out the claw.
+paw | Try keeping time when I bring out the paw | I'll leave you a bar while I work in the claw. | Your {cue} got a turn by the edge of the paw | The crowd came back when I brought out the claw.
+lid | Bring your next verse to the edge of the lid | I'll finish the hook before you reach the hid. | Your {cue} got a turn by the edge of the lid | The crowd came back when I brought out the hid.
+lid | Try keeping time when I bring out the lid | I'll leave you a bar while I work in the hid. | Your {cue} got a turn by the edge of the lid | The crowd came back when I brought out the hid.
+bucket | I pulled my bucket from a ditch by the lane | The dents kept the bass and the lid kept the rain | That {cue} can ring when it falls from the shelf | The lid got applause and you wanted it yourself
+[librarian]
+opening | My footnote sends your big boast to the stacks | I let the whole room find the holes in your facts
+page | Bring your next verse to the edge of the page | I'll finish the hook before you reach the stage. | Your {cue} got a turn by the edge of the page | The crowd came back when I brought out the stage.
+page | Try keeping time when I bring out the page | I'll leave you a bar while I work in the stage. | Your {cue} got a turn by the edge of the page | The crowd came back when I brought out the stage.
+spine | Bring your next verse to the edge of the spine | I'll finish the hook before you reach the line. | Your {cue} got a turn by the edge of the spine | The crowd came back when I brought out the line.
+spine | Try keeping time when I bring out the spine | I'll leave you a bar while I work in the line. | Your {cue} got a turn by the edge of the spine | The crowd came back when I brought out the line.
+desk | Bring your next verse to the edge of the desk | I'll finish the hook before you reach the brisk. | Your {cue} got a turn by the edge of the desk | The crowd came back when I brought out the brisk.
+desk | Try keeping time when I bring out the desk | I'll leave you a bar while I work in the brisk. | Your {cue} got a turn by the edge of the desk | The crowd came back when I brought out the brisk.
+book | Bring your next verse to the edge of the book | I'll finish the hook before you reach the hook. | Your {cue} got a turn by the edge of the book | The crowd came back when I brought out the hook.
+book | Try keeping time when I bring out the book | I'll leave you a bar while I work in the hook. | Your {cue} got a turn by the edge of the book | The crowd came back when I brought out the hook.
+footnote | My footnote sends your big boast to the stacks | I let the whole room find the holes in your facts | Your {cue} has a date and a tidy blue mark | It still needs a verse that can light up the dark
+[haunted-printer]
+opening | My toner keeps working when the staff go home | The paper turns white and the words start to roam
+tray | Bring your next verse to the edge of the tray | I'll finish the hook before you reach the gray. | Your {cue} got a turn by the edge of the tray | The crowd came back when I brought out the gray.
+tray | Try keeping time when I bring out the tray | I'll leave you a bar while I work in the gray. | Your {cue} got a turn by the edge of the tray | The crowd came back when I brought out the gray.
+sheet | Bring your next verse to the edge of the sheet | I'll finish the hook before you reach the beat. | Your {cue} got a turn by the edge of the sheet | The crowd came back when I brought out the beat.
+sheet | Try keeping time when I bring out the sheet | I'll leave you a bar while I work in the beat. | Your {cue} got a turn by the edge of the sheet | The crowd came back when I brought out the beat.
+jam | Bring your next verse to the edge of the jam | I'll finish the hook before you reach the slam. | Your {cue} got a turn by the edge of the jam | The crowd came back when I brought out the slam.
+jam | Try keeping time when I bring out the jam | I'll leave you a bar while I work in the slam. | Your {cue} got a turn by the edge of the jam | The crowd came back when I brought out the slam.
+ghost | Bring your next verse to the edge of the ghost | I'll finish the hook before you reach the boast. | Your {cue} got a turn by the edge of the ghost | The crowd came back when I brought out the boast.
+ghost | Try keeping time when I bring out the ghost | I'll leave you a bar while I work in the boast. | Your {cue} got a turn by the edge of the ghost | The crowd came back when I brought out the boast.
+toner | My toner keeps working when the staff go home | The paper turns white and the words start to roam | Your {cue} can creep down a sheet in the night | I read your whole threat by the exit sign light
+[disco-ball]
+opening | My mirrors throw stars over everybody's shoes | I spin one small beam into reds and blues
+shine | Bring your next verse to the edge of the shine | I'll finish the hook before you reach the line. | Your {cue} got a turn by the edge of the shine | The crowd came back when I brought out the line.
+shine | Try keeping time when I bring out the shine | I'll leave you a bar while I work in the line. | Your {cue} got a turn by the edge of the shine | The crowd came back when I brought out the line.
+floor | Bring your next verse to the edge of the floor | I'll finish the hook before you reach the more. | Your {cue} got a turn by the edge of the floor | The crowd came back when I brought out the more.
+floor | Try keeping time when I bring out the floor | I'll leave you a bar while I work in the more. | Your {cue} got a turn by the edge of the floor | The crowd came back when I brought out the more.
+beam | Bring your next verse to the edge of the beam | I'll finish the hook before you reach the dream. | Your {cue} got a turn by the edge of the beam | The crowd came back when I brought out the dream.
+beam | Try keeping time when I bring out the beam | I'll leave you a bar while I work in the dream. | Your {cue} got a turn by the edge of the beam | The crowd came back when I brought out the dream.
+glow | Bring your next verse to the edge of the glow | I'll finish the hook before you reach the show. | Your {cue} got a turn by the edge of the glow | The crowd came back when I brought out the show.
+glow | Try keeping time when I bring out the glow | I'll leave you a bar while I work in the show. | Your {cue} got a turn by the edge of the glow | The crowd came back when I brought out the show.
+mirrors | My mirrors throw stars over everybody's shoes | I spin one small beam into reds and blues | Your {cue} can borrow every lamp in the hall | Take away one bulb and see what starts to fall
+[grandfather-clock]
+opening | My pendulum swings through a century of dust | I still make the downbeat when your stopwatch starts to rust
+chime | Bring your next verse to the edge of the chime | I'll finish the hook before you reach the time. | Your {cue} got a turn by the edge of the chime | The crowd came back when I brought out the time.
+chime | Try keeping time when I bring out the chime | I'll leave you a bar while I work in the time. | Your {cue} got a turn by the edge of the chime | The crowd came back when I brought out the time.
+dial | Bring your next verse to the edge of the dial | I'll finish the hook before you reach the mile. | Your {cue} got a turn by the edge of the dial | The crowd came back when I brought out the mile.
+dial | Try keeping time when I bring out the dial | I'll leave you a bar while I work in the mile. | Your {cue} got a turn by the edge of the dial | The crowd came back when I brought out the mile.
+tick | Bring your next verse to the edge of the tick | I'll finish the hook before you reach the quick. | Your {cue} got a turn by the edge of the tick | The crowd came back when I brought out the quick.
+tick | Try keeping time when I bring out the tick | I'll leave you a bar while I work in the quick. | Your {cue} got a turn by the edge of the tick | The crowd came back when I brought out the quick.
+bells | Bring your next verse to the edge of the bells | I'll finish the hook before you reach the shells. | Your {cue} got a turn by the edge of the bells | The crowd came back when I brought out the shells.
+bells | Try keeping time when I bring out the bells | I'll leave you a bar while I work in the shells. | Your {cue} got a turn by the edge of the bells | The crowd came back when I brought out the shells.
+pendulum | My pendulum swings through a century of dust | I still make the downbeat when your stopwatch starts to rust | Your {cue} swings back to the place it began | The crowd moved ahead while you stuck to the plan
+[cactus]
+opening | My thorns keep a seat at the edge of the sand | I wait out the heat without moving a hand
+shade | Bring your next verse to the edge of the shade | I'll finish the hook before you reach the blade. | Your {cue} got a turn by the edge of the shade | The crowd came back when I brought out the blade.
+shade | Try keeping time when I bring out the shade | I'll leave you a bar while I work in the blade. | Your {cue} got a turn by the edge of the shade | The crowd came back when I brought out the blade.
+dune | Bring your next verse to the edge of the dune | I'll finish the hook before you reach the moon. | Your {cue} got a turn by the edge of the dune | The crowd came back when I brought out the moon.
+dune | Try keeping time when I bring out the dune | I'll leave you a bar while I work in the moon. | Your {cue} got a turn by the edge of the dune | The crowd came back when I brought out the moon.
+pot | Bring your next verse to the edge of the pot | I'll finish the hook before you reach the spot. | Your {cue} got a turn by the edge of the pot | The crowd came back when I brought out the spot.
+pot | Try keeping time when I bring out the pot | I'll leave you a bar while I work in the spot. | Your {cue} got a turn by the edge of the pot | The crowd came back when I brought out the spot.
+spine | Bring your next verse to the edge of the spine | I'll finish the hook before you reach the line. | Your {cue} got a turn by the edge of the spine | The crowd came back when I brought out the line.
+spine | Try keeping time when I bring out the spine | I'll leave you a bar while I work in the line. | Your {cue} got a turn by the edge of the spine | The crowd came back when I brought out the line.
+thorns | My thorns keep a seat at the edge of the sand | I wait out the heat without moving a hand | Your {cue} keep a crowd at the end of a row | I leave enough space for the dancers to go
+[octopus]
+opening | My tentacles tap out a chorus beneath | The waves pick it up at the edge of the reef
+reef | Bring your next verse to the edge of the reef | I'll finish the hook before you reach the brief. | Your {cue} got a turn by the edge of the reef | The crowd came back when I brought out the brief.
+reef | Try keeping time when I bring out the reef | I'll leave you a bar while I work in the brief. | Your {cue} got a turn by the edge of the reef | The crowd came back when I brought out the brief.
+ink | Bring your next verse to the edge of the ink | I'll finish the hook before you reach the blink. | Your {cue} got a turn by the edge of the ink | The crowd came back when I brought out the blink.
+ink | Try keeping time when I bring out the ink | I'll leave you a bar while I work in the blink. | Your {cue} got a turn by the edge of the ink | The crowd came back when I brought out the blink.
+wave | Bring your next verse to the edge of the wave | I'll finish the hook before you reach the cave. | Your {cue} got a turn by the edge of the wave | The crowd came back when I brought out the cave.
+wave | Try keeping time when I bring out the wave | I'll leave you a bar while I work in the cave. | Your {cue} got a turn by the edge of the wave | The crowd came back when I brought out the cave.
+shore | Bring your next verse to the edge of the shore | I'll finish the hook before you reach the more. | Your {cue} got a turn by the edge of the shore | The crowd came back when I brought out the more.
+shore | Try keeping time when I bring out the shore | I'll leave you a bar while I work in the more. | Your {cue} got a turn by the edge of the shore | The crowd came back when I brought out the more.
+tentacles | My tentacles tap out a chorus beneath | The waves pick it up at the edge of the reef | Your {cue} can juggle the snare and the bass | Try landing one punchline with a straight face
+[weather-forecaster]
+opening | My radar caught thunder off the edge of the map | I called for applause and the sky gave a clap
+rain | Bring your next verse to the edge of the rain | I'll finish the hook before you reach the plain. | Your {cue} got a turn by the edge of the rain | The crowd came back when I brought out the plain.
+rain | Try keeping time when I bring out the rain | I'll leave you a bar while I work in the plain. | Your {cue} got a turn by the edge of the rain | The crowd came back when I brought out the plain.
+gust | Bring your next verse to the edge of the gust | I'll finish the hook before you reach the dust. | Your {cue} got a turn by the edge of the gust | The crowd came back when I brought out the dust.
+gust | Try keeping time when I bring out the gust | I'll leave you a bar while I work in the dust. | Your {cue} got a turn by the edge of the gust | The crowd came back when I brought out the dust.
+hail | Bring your next verse to the edge of the hail | I'll finish the hook before you reach the trail. | Your {cue} got a turn by the edge of the hail | The crowd came back when I brought out the trail.
+hail | Try keeping time when I bring out the hail | I'll leave you a bar while I work in the trail. | Your {cue} got a turn by the edge of the hail | The crowd came back when I brought out the trail.
+sky | Bring your next verse to the edge of the sky | I'll finish the hook before you reach the high. | Your {cue} got a turn by the edge of the sky | The crowd came back when I brought out the high.
+sky | Try keeping time when I bring out the sky | I'll leave you a bar while I work in the high. | Your {cue} got a turn by the edge of the sky | The crowd came back when I brought out the high.
+radar | My radar caught thunder off the edge of the map | I called for applause and the sky gave a clap | Your {cue} can track every cloud going by | It missed your whole hook disappearing in the sky
+[volcano]
+opening | My lava glows red where it runs through the stone | I set the whole hillside alight on my own
+ash | Bring your next verse to the edge of the ash | I'll finish the hook before you reach the flash. | Your {cue} got a turn by the edge of the ash | The crowd came back when I brought out the flash.
+ash | Try keeping time when I bring out the ash | I'll leave you a bar while I work in the flash. | Your {cue} got a turn by the edge of the ash | The crowd came back when I brought out the flash.
+stone | Bring your next verse to the edge of the stone | I'll finish the hook before you reach the own. | Your {cue} got a turn by the edge of the stone | The crowd came back when I brought out the own.
+stone | Try keeping time when I bring out the stone | I'll leave you a bar while I work in the own. | Your {cue} got a turn by the edge of the stone | The crowd came back when I brought out the own.
+smoke | Bring your next verse to the edge of the smoke | I'll finish the hook before you reach the cloak. | Your {cue} got a turn by the edge of the smoke | The crowd came back when I brought out the cloak.
+smoke | Try keeping time when I bring out the smoke | I'll leave you a bar while I work in the cloak. | Your {cue} got a turn by the edge of the smoke | The crowd came back when I brought out the cloak.
+heat | Bring your next verse to the edge of the heat | I'll finish the hook before you reach the beat. | Your {cue} got a turn by the edge of the heat | The crowd came back when I brought out the beat.
+heat | Try keeping time when I bring out the heat | I'll leave you a bar while I work in the beat. | Your {cue} got a turn by the edge of the heat | The crowd came back when I brought out the beat.
+lava | My lava glows red where it runs through the stone | I set the whole hillside alight on my own | Your {cue} comes late to the foot of the hill | The last of the dancers have gone and it's still
